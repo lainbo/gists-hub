@@ -1,0 +1,23 @@
+{
+  "name": "Atest",
+  "version": "1.0.0",
+  "description": "",
+  "author": "",
+  "license": "ISC",
+  "keywords": [],
+  "main": "index.js",
+  "scripts": {
+    "lint:fix": "eslint . --fix",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "dependencies": {
+    "@antfu/eslint-config-basic": "^0.39.5",
+    "pnpm": "^8.6.5"
+  },
+  "devDependencies": {
+    "eslint": "^8.43.0"
+  },
+  "volta": {
+    "node": "18.16.1"
+  }
+}
