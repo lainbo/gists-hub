@@ -3,17 +3,17 @@
 
 function main(content) {
 // module.exports.parse = ({ content }) => {
-  const groups = content['proxy-groups']
+  const groups = content?.['proxy-groups'] || []
   const adobeGroup = {
     name: '🖼️ Adobe拦截',
     type: 'select',
-    proxies: ['REJECT', 'DIRECT'],
+    proxies: ['REJECT'],
   }
   const adobeRules = ['DOMAIN-SUFFIX,adobe.io,🖼️ Adobe拦截']
-  if (groups.length > 1) {
+  if (groups?.length > 1) {
     groups.splice(1, 0, adobeGroup)
   }
-  content.rules = [...adobeRules, ...content.rules]
+  content.rules = content.rules ? adobeRules.concat(content.rules) : adobeRules
 
   // 额外的DNS设置
   const extraDNS = {

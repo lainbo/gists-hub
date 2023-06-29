@@ -47,7 +47,7 @@ function main(content) {
   ]
 
   const gptRules = rulesArrCompletion(gptRulesBase, gptGroupName)
-  const gptProxies = content.proxies
+  const gptProxies = (content.proxies || [])
     .filter(i => gptNodeRegex.test(i.name))
     .map(i => i.name)
   const gptGroup = {
@@ -66,12 +66,13 @@ function main(content) {
   }
 
   // 合并生成的规则
-  // 因为Clash读取规则是从前往后，所以要把content.rules放最后，以保证自定义规则覆盖默认规则
-  content.rules = [...gptRules, ...adobeRules, ...content.rules]
+  // 因为Clash读取规则是从前往后，所以要把content.rules放最后合并，以保证自定义规则覆盖默认规则
+  const extraRules = [...gptRules, ...adobeRules]
+  content.rules = content.rules?.length ? extraRules.concat(content.rules) : extraRules
 
   // 合并分组
-  const groups = content['proxy-groups']
-  if (groups.length > 1) {
+  const groups = content?.['proxy-groups'] || []
+  if (groups?.length > 1) {
     groups.splice(1, 0, gptGroup, adobeGroup)
   }
 
