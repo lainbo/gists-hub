@@ -23,7 +23,7 @@ function main(content) {
 
   // utils function: 返回补全了分组名的rulesBase数组
   const rulesArrCompletion = (rulesBase = [], groupName = '') => {
-    return rulesBase.map(i => `${i},${groupName}`)
+    return rulesBase.map(rule => `${rule},${groupName}`)
   }
 
   // Chat GPT相关规则
@@ -48,8 +48,8 @@ function main(content) {
 
   const gptRules = rulesArrCompletion(gptRulesBase, gptGroupName)
   const gptProxies = (content.proxies || [])
-    .filter(i => gptNodeRegex.test(i.name))
-    .map(i => i.name)
+    .filter(node => gptNodeRegex.test(node.name))
+    .map(node => node.name)
   const gptGroup = {
     name: gptGroupName,
     type: 'select',
