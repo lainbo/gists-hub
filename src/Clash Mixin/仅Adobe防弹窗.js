@@ -12,8 +12,8 @@ function main(content) {
   const adobeRules = ['DOMAIN-SUFFIX,adobe.io,🖼️ Adobe拦截']
   if (groups.length > 1) {
     groups.splice(1, 0, adobeGroup)
-    content.rules = adobeRules.concat(content.rules)
   }
+  content.rules = [...adobeRules, ...content.rules]
 
   // 额外的DNS设置
   const extraDNS = {

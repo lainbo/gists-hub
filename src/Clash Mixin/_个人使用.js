@@ -65,8 +65,9 @@ function main(content) {
     proxies: ['REJECT'],
   }
 
-  //   合并生成的规则
-  content.rules = [...content.rules, ...gptRules, ...adobeRules]
+  // 合并生成的规则
+  // 因为Clash读取规则是从前往后，所以要把content.rules放最后，以保证自定义规则覆盖默认规则
+  content.rules = [...gptRules, ...adobeRules, ...content.rules]
 
   // 合并分组
   const groups = content['proxy-groups']
