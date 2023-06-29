@@ -15,7 +15,6 @@ function main(content) {
   }
   content.rules = content.rules ? adobeRules.concat(content.rules) : adobeRules
 
-  // 额外的DNS设置
   const extraDNS = {
     'default-nameserver': ['223.5.5.5', '223.6.6.6', '119.29.29.29'],
     'nameserver': [
@@ -27,6 +26,5 @@ function main(content) {
   }
 
   content.dns = content.dns ? { ...content.dns, ...extraDNS } : extraDNS
-
   return content
 }

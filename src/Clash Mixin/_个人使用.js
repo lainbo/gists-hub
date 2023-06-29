@@ -88,6 +88,5 @@ function main(content) {
   }
 
   content.dns = content.dns ? { ...content.dns, ...extraDNS } : extraDNS
-
   return content
 }
