@@ -3,30 +3,35 @@
 
 function main(content) {
 // module.exports.parse = ({ content }) => {
-  // 只要包含了以下关键字的节点
-  const mustHaveKeywords = ['美国', '美國', 'United States', 'USA']
+  // Chat GPT分组只留下包含了以下关键字的节点
+  const mustHaveKeywordsList = ['美国', '美國', 'United States', 'USA']
   // 过滤掉美国节点中，包含以下关键字的节点（低质量节点）,每一项均为正则，忽略大小写
-  const mustNotHaveKeywords = ['实验性', '0\\.', 'b']
+  const mustNotHaveKeywordsList = ['实验性', '0\\.', 'b']
 
-  // 生成符合上述规则的正则
-  const regexParts = []
-  mustHaveKeywords.forEach(keyword => {
-    const mustNotHavePart = mustNotHaveKeywords
-      .map(k => `(?!.*${k})`)
-      .join('')
-    regexParts.push(`(?=.*${keyword}${mustNotHavePart}).*`)
-  })
-  const gptNodeRegex = new RegExp(`^(${regexParts.join('|')})$`, 'i')
+  // utils function: 返回补全了分组名的rulesBase数组
+  const completeGroupName = (rulesBase = [], groupName = '') => {
+    return rulesBase.map(rule => `${rule},${groupName}`)
+  }
+
+  // utils function: 返回符合规则的正则
+  const generateRegExp = (mustHaveKeywords = [], mustNotHaveKeywords = []) => {
+    if (!Array.isArray(mustHaveKeywords) || !Array.isArray(mustNotHaveKeywords)) {
+      throw new TypeError('传入的规则必须都是数组')
+    }
+    const regexParts = []
+    const notRegex = mustNotHaveKeywords.map(notKeyword => `(?!.*${notKeyword})`).join('')
+    for (const keyword of mustHaveKeywords) {
+      regexParts.push(`(?=.*${keyword}${notRegex}).*`)
+    }
+    return new RegExp(`^(${regexParts.join('|')})$`, 'i')
+  }
+
+  const gptNodeRegex = generateRegExp(mustHaveKeywordsList, mustNotHaveKeywordsList)
 
   const gptGroupName = '🖥️ ChatGPT'
   const adobeGroupName = '🛑 Adobe拦截'
 
-  // utils function: 返回补全了分组名的rulesBase数组
-  const rulesArrCompletion = (rulesBase = [], groupName = '') => {
-    return rulesBase.map(rule => `${rule},${groupName}`)
-  }
-
-  // Chat GPT相关规则
+  // Chat GPT规则List
   const gptRulesBase = [
     'DOMAIN-KEYWORD,cloudflare',
     'DOMAIN-KEYWORD,openai',
@@ -46,19 +51,19 @@ function main(content) {
     'DOMAIN-SUFFIX,stripe.com',
   ]
 
-  const gptRules = rulesArrCompletion(gptRulesBase, gptGroupName)
+  const gptRules = completeGroupName(gptRulesBase, gptGroupName)
   const gptProxies = (content.proxies || [])
     .filter(node => gptNodeRegex.test(node.name))
     .map(node => node.name)
   const gptGroup = {
     name: gptGroupName,
     type: 'select',
-    proxies: gptProxies,
+    proxies: gptProxies?.length ? gptProxies : ['DIRECT', 'REJECT'],
   }
 
-  // Adobe相关规则
+  // Adobe规则List
   const adobeRulesBase = ['DOMAIN-SUFFIX,adobe.io']
-  const adobeRules = rulesArrCompletion(adobeRulesBase, adobeGroupName)
+  const adobeRules = completeGroupName(adobeRulesBase, adobeGroupName)
   const adobeGroup = {
     name: adobeGroupName,
     type: 'select',
