@@ -75,10 +75,22 @@ function main(content) {
   const extraRules = [...gptRules, ...adobeRules]
   content.rules = content.rules?.length ? extraRules.concat(content.rules) : extraRules
 
-  // 合并分组
+  // 测试延迟的分组类型
+  const delayTestTypeList = ['url-test', 'fallback']
+  // 延迟测速地址
+  const delayTestUrl = 'https://cp.cloudflare.com/generate_204'
+  // 合并分组，修改自动测速地址
   const groups = content?.['proxy-groups'] || []
   if (groups?.length > 1) {
+    // 合并额外的分组
     groups.splice(1, 0, gptGroup, adobeGroup)
+
+    // 修改自动测速地址
+    groups.forEach(groupItem => {
+      if (delayTestTypeList.includes(groupItem.type) && Boolean(groupItem.url)) {
+        groupItem.url = delayTestUrl
+      }
+    })
   }
 
   // 额外的DNS设置
