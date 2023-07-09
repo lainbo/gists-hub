@@ -1,4 +1,10 @@
 ## 订阅预处理
+
+### 区别
+- 个人使用.js：DNS修改
+- 通用.js：包含Chat GPT使用美国节点，DNS修改，Adobe盗版拦截，测速地址修改为真实情况
+- Adobe防弹窗.js：仅包含Adobe盗版拦截
+
 ### Feature
 - 使用正则配置过滤节点，生成美国节点分组，以供Chat GPT相关接口自动走高质量美国节点
 - reject Adobe验证正版相关域名
