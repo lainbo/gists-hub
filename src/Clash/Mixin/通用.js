@@ -2,7 +2,7 @@
 // Clash for Windows使用module.exports这一行作为开头
 
 function main(content) {
-  // module.exports.parse = ({ content }) => {
+// module.exports.parse = ({ content }) => {
   // Chat GPT分组只留下包含了以下关键字的节点
   const mustHaveKeywordsList = ['美国', '美國', 'United States', 'USA']
   // 过滤掉美国节点中，包含以下关键字的节点（低质量节点）,每一项均为正则，忽略大小写
@@ -29,6 +29,7 @@ function main(content) {
   const gptNodeRegex = generateRegExp(mustHaveKeywordsList, mustNotHaveKeywordsList)
 
   const gptGroupName = '🖥️ ChatGPT'
+  const adobeGroupName = '🛑 Adobe拦截'
 
   // Chat GPT规则List
   const gptRulesBase = [
@@ -60,14 +61,36 @@ function main(content) {
     proxies: gptProxies?.length ? gptProxies : ['DIRECT', 'REJECT'],
   }
 
+  // Adobe规则List
+  const adobeRulesBase = ['DOMAIN-SUFFIX,adobe.io']
+  const adobeRules = completeGroupName(adobeRulesBase, adobeGroupName)
+  const adobeGroup = {
+    name: adobeGroupName,
+    type: 'select',
+    proxies: ['REJECT'],
+  }
+
   // 合并生成的规则
   // 因为Clash读取规则是从前往后，所以要把content.rules放最后合并，以保证自定义规则覆盖默认规则
-  content.rules = content.rules?.length ? gptRules.concat(content.rules) : gptRules
+  const extraRules = [...gptRules, ...adobeRules]
+  content.rules = content.rules?.length ? extraRules.concat(content.rules) : extraRules
 
-  // 合并分组
+  // 测试延迟的分组类型
+  const delayTestTypeList = ['url-test', 'fallback']
+  // 延迟测速地址
+  const delayTestUrl = 'https://cp.cloudflare.com/generate_204'
+  // 合并分组，修改自动测速地址
   const groups = content?.['proxy-groups'] || []
   if (groups?.length > 1) {
-    groups.splice(1, 0, gptGroup)
+    // 合并额外的分组
+    groups.splice(1, 0, gptGroup, adobeGroup)
+
+    // 修改自动测速地址
+    groups.forEach(groupItem => {
+      if (delayTestTypeList.includes(groupItem.type) && Boolean(groupItem.url)) {
+        groupItem.url = delayTestUrl
+      }
+    })
   }
 
   // 额外的DNS设置
