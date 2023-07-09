@@ -11,11 +11,14 @@
 **A:** 机场的订阅链接中会自带一些规则，但这个规则可能有或多或少的问题。比如订阅链接中的语法不一定完全适配你使用的软件，比如自带的分流规则不正确导致一些网站上不去（典型的例子就是开着梯子也用不了new bing）。这时候就需要订阅转换，进行软件的适配和规则的变更
 
 **Q:** 怎么转换？
-**A:** 1. 进入[ACL4SSR转换](https://acl4ssr-sub.github.io/)
+**A:** 
+1. 进入[ACL4SSR转换](https://acl4ssr-sub.github.io/)
 2. 模式设置：进阶
 3. 订阅链接：填机场给的
 4. 客户端：一般是`Clash新参数`，如果你用的不是Clash，选择你需要的
-5. 远程配置：填`https://fastgithub.lainbo.com/https://raw.githubusercontent.com/lainbo/gists-hub/master/src/Clash/RemoteConfig/Lainbo.ini`，填进去之后点击下拉弹出的选项，不然不能确认
+5. 远程配置：填`https://fastgithub.lainbo.com/https://raw.githubusercontent.com/lainbo/gists-hub/master/src/Clash/RemoteConfig/Lainbo.ini`，填进去之后点击下拉弹出的选项，不然不能确认。
+   
+   上面的链接是我加速过的，如果你有自搭建的订阅转换在国内服务器上也能用，如果服务器不认，请填写原始链接`https://raw.githubusercontent.com/lainbo/gists-hub/master/src/Clash/Remote/Lainbo.ini`
 6. 后端地址：选`sub.xeton.dev(subconverter作者提供-稳定)`
 7. 输出文件名：选填，可以写当前机场的名字，在一些客户端他会自动识别这个名字
 8. 点击底部的`生成订阅链接`按钮，然后用生成的订阅地址在对应客户端中使用
