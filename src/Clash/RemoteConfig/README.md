@@ -15,7 +15,7 @@
 2. 模式设置：进阶
 3. 订阅链接：填机场给的
 4. 客户端：一般是`Clash新参数`，如果你用的不是Clash，选择你需要的
-5. 远程配置：填`https://fastgithub.lainbo.com/https://raw.githubusercontent.com/lainbo/gists-hub/master/src/Clash/Remote/Lainbo.ini`，填进去之后点击下拉弹出的选项，不然不能确认
+5. 远程配置：填`https://fastgithub.lainbo.com/https://raw.githubusercontent.com/lainbo/gists-hub/master/src/Clash/RemoteConfig/Lainbo.ini`，填进去之后点击下拉弹出的选项，不然不能确认
 6. 后端地址：选`sub.xeton.dev(subconverter作者提供-稳定)`
 7. 输出文件名：选填，可以写当前机场的名字，在一些客户端他会自动识别这个名字
 8. 点击底部的`生成订阅链接`按钮，然后用生成的订阅地址在对应客户端中使用
