@@ -15,15 +15,10 @@ function main(content) {
 
   // utils function: 返回符合规则的正则
   const generateRegExp = (mustHaveKeywords = [], mustNotHaveKeywords = []) => {
-    if (!Array.isArray(mustHaveKeywords) || !Array.isArray(mustNotHaveKeywords)) {
-      throw new TypeError('传入的规则必须都是数组')
-    }
-    const regexParts = []
-    const notRegex = mustNotHaveKeywords.map(notKeyword => `(?!.*${notKeyword})`).join('')
-    for (const keyword of mustHaveKeywords) {
-      regexParts.push(`(?=.*${keyword}${notRegex}).*`)
-    }
-    return new RegExp(`^(${regexParts.join('|')})$`, 'i')
+    const mustHaveKey = mustHaveKeywords.join('|')
+    const mustNotHaveKey = mustNotHaveKeywords.join('|')
+    const regExpString = `(?=.*(${mustHaveKey}))(?!.*(${mustNotHaveKey})).*$`
+    return new RegExp(regExpString, 'i')
   }
 
   const gptNodeRegex = generateRegExp(mustHaveKeywordsList, mustNotHaveKeywordsList)
