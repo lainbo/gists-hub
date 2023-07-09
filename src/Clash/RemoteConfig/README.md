@@ -27,7 +27,7 @@
 3. 订阅链接：填机场给的
 4. 客户端：一般是`Clash新参数`，如果你用的不是Clash，选择你需要的
 5. 远程配置：
-   - 如果第6步的`后端地址`你打算从选项中选一个，则填`https://raw.githubusercontent.com/lainbo/gists-hub/master/src/Clash/Remote/Lainbo.ini`
+   - 如果第6步的`后端地址`你打算从选项中选一个，则填`https://raw.githubusercontent.com/lainbo/gists-hub/master/src/Clash/RemoteConfig/Lainbo.ini`
    - 如果第6步你要填写自己搭建的订阅转换服务，则填`https://fastgithub.lainbo.com/https://raw.githubusercontent.com/lainbo/gists-hub/master/src/Clash/RemoteConfig/Lainbo.ini`,这个地址使用了Cloudflare加速，对于中国大陆境内服务器会加速，而对于第6步选项中的服务，可能会减速吧。
 6. 后端地址：建议选`sub.xeton.dev(subconverter作者提供-稳定)`或是写自己搭建的
 7. 输出文件名：选填，可以写当前机场的名字，在一些客户端他会自动识别这个名字
