@@ -28,7 +28,7 @@ function main(content) {
 
   const gptNodeRegex = generateRegExp(mustHaveKeywordsList, mustNotHaveKeywordsList)
 
-  const gptGroupName = '🖥️ ChatGPT'
+  const gptGroupName = '💬 ChatGPT'
 
   // Chat GPT规则List
   const gptRulesBase = [
