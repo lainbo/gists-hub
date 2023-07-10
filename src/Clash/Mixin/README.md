@@ -1,7 +1,7 @@
 ## 订阅预处理
 
 ### 区别
-- 个人使用.js：DNS修改
+- 仅DNS.js：DNS修改
 - 通用.js：包含Chat GPT使用美国节点，DNS修改，Adobe盗版拦截，测速地址修改为真实情况
 - Adobe防弹窗.js：仅包含Adobe盗版拦截
 
