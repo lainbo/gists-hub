@@ -23,14 +23,12 @@
 
 **A:** 
 1. 进入[ACL4SSR转换](https://acl4ssr-sub.github.io/)
-2. 模式设置：进阶
-3. 订阅链接：填机场给的
-4. 客户端：一般是`Clash新参数`，如果你用的不是Clash，选择你需要的
-5. 远程配置：
-   - 如果第6步的`后端地址`你打算从选项中选一个，则填`https://raw.githubusercontent.com/lainbo/gists-hub/master/src/Clash/RemoteConfig/Lainbo.ini`
-   - 如果第6步你要填写自己搭建的订阅转换服务，则填`https://fastgithub.lainbo.com/https://raw.githubusercontent.com/lainbo/gists-hub/master/src/Clash/RemoteConfig/Lainbo.ini`,这个地址使用了Cloudflare加速，对于中国大陆境内服务器会加速，而对于第6步选项中的服务，可能会减速吧。
-6. 后端地址：建议选`sub.xeton.dev(subconverter作者提供-稳定)`或是写自己搭建的
-7. 输出文件名：选填，可以写当前机场的名字，在一些客户端他会自动识别这个名字
+2. 模式设置: 进阶
+3. 订阅链接: 填机场给的
+4. 客户端: 一般是`Clash新参数`，如果你用的不是Clash，选择你使用的客户端
+5. 远程配置: 手动输入`https://raw.githubusercontent.com/lainbo/gists-hub/master/src/Clash/RemoteConfig/Lainbo.ini`
+6. 后端地址: 手动输入`https://api.tsutsu.one/sub?` (这是TAG机场的订阅转换后端)
+7. 输出文件名: 选填，可以写当前机场的名字，在一些客户端他会自动识别这个名字
 8. 点击底部的`生成订阅链接`按钮，然后用生成的订阅地址在对应客户端中使用
 
 ---
@@ -39,12 +37,12 @@
 
 **A:** 这个配置基于[ACL4SSR的精简版_更多去广告](https://github.com/ACL4SSR/ACL4SSR/blob/master/Clash/config/ACL4SSR_Online_Mini_AdblockPlus.ini)，
 
-**该配置本身的额外功能有：**
+**该配置本身的额外功能有:**
 1. 去广告
 2. 尝试解锁New Bing的聊天功能
 3. 阻止一些Google Analytics、国内广告联盟追踪，和一些垃圾站点五彩斑斓的Banner
 
-**我赋予这个远程配置的的功能有：**
+**我赋予这个远程配置的的功能有:**
 1. Chat GPT自动使用**延迟最低的，符合条件的美国节点**（JavaScript因为是预处理，做不到选中延迟最低的，有时候选中的那个节点刚好是挂的也没办法）
 2. Adobe系列软件的盗版弹窗拦截（通过reject相关域名实现）
 3. 使用`https://cp.cloudflare.com/generate_204`进行自动测速（因为很多机场、组织，希望有一个好看的延迟数值，使用的测速链接是一个http而非https协议的链接，但我们平时使用的时候95%的链接都是https的。所以换成https的测速以贴近真实使用延迟
