@@ -1,3 +1,3 @@
-const shell = require('shelljs');
+const shell = require('shelljs')
 
-shell.cp('-R', './src/Clash/', './public/');
+shell.cp('-R', './src/Clash/', './public/')
