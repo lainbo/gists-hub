@@ -9,7 +9,7 @@
   "scripts": {
     "lint:fix": "eslint . --fix",
     "up": "taze major -I",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "build": "node build.js"
   },
   "dependencies": {
     "@antfu/eslint-config-basic": "^0.39.7",
@@ -19,5 +19,8 @@
   },
   "volta": {
     "node": "18.16.1"
+  },
+  "devDependencies": {
+    "shelljs": "^0.8.5"
   }
 }
