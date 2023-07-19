@@ -11,7 +11,7 @@ function main(content) {
       'https://doh.pub/dns-query',
       'https://doh.opendns.com/dns-query',
     ],
-    'fallback': ['1.1.1.1', '208.67.222.222'],
+    'fallback': ['1.1.1.1', '1.0.0.1', '8.8.8.8'],
   }
 
   content.dns = content.dns ? { ...content.dns, ...extraDNS } : extraDNS
