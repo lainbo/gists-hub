@@ -16,7 +16,7 @@ function main(content) {
   content.rules = content.rules ? adobeRules.concat(content.rules) : adobeRules
 
   const extraDNS = {
-    'default-nameserver': ['223.5.5.5', '119.29.29.29'],
+    'default-nameserver': ['223.5.5.5', '223.6.6.6'],
     'nameserver': [
       'https://dns.alidns.com/dns-query',
       'https://doh.pub/dns-query',
