@@ -32,7 +32,7 @@
   code,
   kbd,
   samp {
-    font-family: 'Source Han Mono SC', 'Noto Sans Mono CJK SC', 'JetBrainsMono NFM', 'Twemoji Mozilla',
+    font-family: 'Source Han Mono SC', 'Noto Sans Mono CJK SC', 'JetBrainsMono NFM',
       'Noto Mono', 'SF Mono', 'Roboto Mono', ui-monospace, monospace,
       'Apple Color Emoji', 'Twemoji Mozilla', 'Segoe UI Symbol', 'Noto Color Emoji',
       emoji;
@@ -88,7 +88,7 @@
   html:lang(zh-cmn-Hans) code,
   html:lang(zh-cmn-Hans) kbd,
   html:lang(zh-cmn-Hans) samp {
-    font-family: 'Source Han Mono SC', 'Noto Sans Mono CJK SC', 'JetBrainsMono NFM', 'Twemoji Mozilla',
+    font-family: 'Source Han Mono SC', 'Noto Sans Mono CJK SC', 'JetBrainsMono NFM',
       'Noto Mono', 'SF Mono', 'Roboto Mono', ui-monospace, monospace,
       'Apple Color Emoji', 'Twemoji Mozilla', 'Segoe UI Symbol', 'Noto Color Emoji',
       emoji;
@@ -119,7 +119,7 @@
   html:lang(zh-cmn-Hant) code,
   html:lang(zh-cmn-Hant) kbd,
   html:lang(zh-cmn-Hant) samp {
-    font-family: 'Source Han Mono TC', 'Noto Sans Mono CJK TC', 'JetBrainsMono NFM', 'Twemoji Mozilla',
+    font-family: 'Source Han Mono TC', 'Noto Sans Mono CJK TC', 'JetBrainsMono NFM',
       'Noto Mono', 'SF Mono', 'Roboto Mono', ui-monospace, monospace,
       'Apple Color Emoji', 'Twemoji Mozilla', 'Segoe UI Symbol', 'Noto Color Emoji',
       emoji;
@@ -156,7 +156,7 @@
   html:lang(zh-yue-Hant) kbd,
   html:lang(zh-yue-Hant) samp {
     font-family: 'Source Han Mono HC', 'Noto Sans Mono CJK HC',
-      'Source Han Mono TC', 'Noto Sans Mono CJK TC', 'JetBrainsMono NFM', 'Twemoji Mozilla', 'Noto Mono',
+      'Source Han Mono TC', 'Noto Sans Mono CJK TC', 'JetBrainsMono NFM', 'Noto Mono',
       'SF Mono', 'Roboto Mono', ui-monospace, monospace, 'Apple Color Emoji',
       'Twemoji Mozilla', 'Segoe UI Symbol', 'Noto Color Emoji', emoji;
   }
@@ -329,7 +329,7 @@
   html:lang(ms) code,
   html:lang(ms) kbd,
   html:lang(ms) samp {
-    font-family: 'JetBrainsMono NFM', 'Twemoji Mozilla', 'Noto Mono', 'SF Mono', 'Roboto Mono',
+    font-family: 'JetBrainsMono NFM', 'Noto Mono', 'SF Mono', 'Roboto Mono',
       ui-monospace, monospace, 'Apple Color Emoji', 'Twemoji Mozilla',
       'Segoe UI Symbol', 'Noto Color Emoji', emoji;
   }
@@ -447,31 +447,31 @@
   }
   @font-face {
     font-family: 'Consolas';
-    src: local('JetBrainsMono NFM', 'Twemoji Mozilla');
+    src: local('JetBrainsMono NFM');
   }
   @font-face {
     font-family: 'Courier';
-    src: local('JetBrainsMono NFM', 'Twemoji Mozilla');
+    src: local('JetBrainsMono NFM');
   }
   @font-face {
     font-family: 'Courier New';
-    src: local('JetBrainsMono NFM', 'Twemoji Mozilla');
+    src: local('JetBrainsMono NFM');
   }
   @font-face {
     font-family: 'DejaVu Sans Mono';
-    src: local('JetBrainsMono NFM', 'Twemoji Mozilla');
+    src: local('JetBrainsMono NFM');
   }
   @font-face {
     font-family: 'Lucida Console';
-    src: local('JetBrainsMono NFM', 'Twemoji Mozilla');
+    src: local('JetBrainsMono NFM');
   }
   @font-face {
     font-family: 'SF Mono';
-    src: local('JetBrainsMono NFM', 'Twemoji Mozilla');
+    src: local('JetBrainsMono NFM');
   }
   @font-face {
     font-family: 'Ubuntu Mono';
-    src: local('JetBrainsMono NFM', 'Twemoji Mozilla');
+    src: local('JetBrainsMono NFM');
   }
   @font-face {
     font-family: 'SimSun';
@@ -631,7 +631,7 @@
       .code-block-content,
       .markdown-body code,
       .markdown-body pre{
-         font-family: 'JetBrainsMono NFM', 'Twemoji Mozilla', 'Noto Sans Mono CJK SC',
+         font-family: 'JetBrainsMono NFM', 'Noto Sans Mono CJK SC',
         'Source Code Pro', 'Noto Mono', 'SF Mono', 'Roboto Mono', ui-monospace,
         monospace, 'Segoe UI Symbol' !important;
       }
@@ -650,7 +650,7 @@
     }
     .cm-line,
     ne-code-content{
-      font-family: 'JetBrainsMono NFM', 'Twemoji Mozilla', 'Noto Sans Mono CJK SC',
+      font-family: 'JetBrainsMono NFM', 'Noto Sans Mono CJK SC',
         'Source Code Pro', 'Noto Mono', 'SF Mono', 'Roboto Mono', ui-monospace,
         monospace, 'Segoe UI Symbol' !important;
     }
@@ -692,7 +692,7 @@
     css += `
     .file_holder .file_content.code .lines pre,
     .file_holder .file_content.blame .lines pre {
-        font-family: 'JetBrainsMono NFM', 'Twemoji Mozilla', 'Noto Sans Mono CJK SC',
+        font-family: 'JetBrainsMono NFM', 'Noto Sans Mono CJK SC',
         'Source Code Pro', 'Noto Mono', 'SF Mono', 'Roboto Mono', ui-monospace,
         monospace, 'Segoe UI Symbol' !important;
       }
@@ -701,13 +701,13 @@
   if (location.hostname === 'github.com' || location.hostname.endsWith('.github.com')) {
     css += `
       .text-mono {
-        font-family: 'JetBrainsMono NFM', 'Twemoji Mozilla', 'Noto Sans Mono CJK SC',
+        font-family: 'JetBrainsMono NFM', 'Noto Sans Mono CJK SC',
           'Source Code Pro', 'Noto Mono', 'SF Mono', 'Roboto Mono', ui-monospace,
           monospace, 'Segoe UI Symbol' !important;
       }
       .blob-num,
       .blob-code-inner {
-        font-family: 'JetBrainsMono NFM', 'Twemoji Mozilla', 'Noto Sans Mono CJK SC',
+        font-family: 'JetBrainsMono NFM', 'Noto Sans Mono CJK SC',
           'Source Code Pro', 'Noto Mono', 'SF Mono', 'Roboto Mono', ui-monospace,
           monospace, 'Segoe UI Symbol';
       }
@@ -724,7 +724,7 @@
     css += `
       #script_version_code,
       .ace_editor {
-        font-family: 'JetBrainsMono NFM', 'Twemoji Mozilla', 'Noto Sans Mono CJK SC',
+        font-family: 'JetBrainsMono NFM', 'Noto Sans Mono CJK SC',
           'Source Code Pro', 'Noto Mono', 'SF Mono', 'Roboto Mono', ui-monospace,
           monospace,   'Segoe UI Symbol' !important;
       }
