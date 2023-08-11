@@ -38,7 +38,7 @@
 2. 尝试解锁New Bing的聊天功能
 3. 阻止一些Google Analytics、国内广告联盟追踪，和一些垃圾站点五彩斑斓的Banner
 4. 隐私保护，屏蔽隐私追踪
-5. Steam、Epic、Origin、Sony、Nintendo游戏平台自动分流，自动识别平台中的流量是走节点还是走直连
+5. Steam、Epic、Origin、Sony、Nintendo游戏平台分流支持，自动识别平台中的流量是走节点还是走直连
 6. Chat GPT自动使用**延迟最低的，符合条件的美国节点**（JavaScript因为是预处理，做不到选中延迟最低的，有时候选中的那个节点刚好是挂的也没办法）
 7. Adobe系列软件的盗版弹窗拦截（通过reject相关域名实现）
 
