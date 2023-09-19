@@ -8,8 +8,7 @@
   "main": "index.js",
   "scripts": {
     "lint:fix": "eslint . --fix",
-    "up": "taze major -I",
-    "build": "node build.js"
+    "up": "taze major -I"
   },
   "dependencies": {
     "@antfu/eslint-config-basic": "^0.40.2",
@@ -19,8 +18,5 @@
   },
   "volta": {
     "node": "18.16.1"
-  },
-  "devDependencies": {
-    "shelljs": "^0.8.5"
   }
 }
