@@ -13,7 +13,7 @@ const __dirname = path.dirname(url.fileURLToPath(import.meta.url))
 
 const GITHUB_TOKEN = process.env.GITHUB_TOKEN
 const GIST_ID = process.env.GIST_ID
-const FILE_NAME = 'QuantumultX.conf'
+const FILE_NAME = process.env.GITHUB_GIST_FILE_NAME
 
 const octokit = new Octokit({
   auth: GITHUB_TOKEN,
