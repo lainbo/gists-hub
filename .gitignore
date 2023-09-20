@@ -7,11 +7,9 @@ yarn-error.log*
 pnpm-debug.log*
 lerna-debug.log*
 
-.env
 .VSCodeCounter
 node_modules
 dist/
-src/QuantumultX/RemoteConfig/ServerConfig.json
 dist-ssr
 *.local
 

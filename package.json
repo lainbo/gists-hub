@@ -8,9 +8,9 @@
   "keywords": [],
   "main": "index.js",
   "scripts": {
-    "syncQxConfig": "pnpm run generateQX && pnpm run uploadQX",
-    "generateQX": "node ./src/QuantumultX/RemoteConfig/index.js",
-    "uploadQX": "node ./src/QuantumultX/RemoteConfig/uploadToGist.js",
+    "syncQxConfig": "pnpm run generateQx && pnpm run uploadQx",
+    "generateQx": "node ./src/QuantumultX/RemoteConfig/script/generateQxConfig.js",
+    "uploadQx": "node ./src/QuantumultX/RemoteConfig/script/uploadToGist.js",
     "lint:fix": "eslint . --fix",
     "up": "taze major -I"
   },

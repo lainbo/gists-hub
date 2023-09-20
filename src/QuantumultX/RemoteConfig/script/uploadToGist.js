@@ -20,7 +20,7 @@ const octokit = new Octokit({
 
 async function updateGist() {
   let fileContent = ''
-  const filePath = path.join(__dirname, 'dist/LainboQX.conf')
+  const filePath = path.join(__dirname, '../dist/QX.conf')
   try {
     fileContent = fs.readFileSync(filePath, 'utf-8')
   } catch (error) {

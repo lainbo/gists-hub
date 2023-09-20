@@ -9,10 +9,10 @@ dotenv.config()
 
 const __dirname = decodeURI(path.dirname(new URL(import.meta.url).pathname)).replace(/^\/([a-zA-Z]:)/, '$1')
 
-const configFile = path.join(__dirname, './Lainbo.conf')
-const infoFile = path.join(__dirname, './ServerConfig.json')
-const outputDir = path.join(__dirname, 'dist')
-const outputFile = path.join(outputDir, 'LainboQX.conf')
+const configFile = path.join(__dirname, '../Lainbo.conf')
+const infoFile = path.join(__dirname, '../ServerConfig.json')
+const outputDir = path.join(__dirname, '../dist')
+const outputFile = path.join(outputDir, 'QX.conf')
 
 async function generateConfig() {
   try {
@@ -38,7 +38,7 @@ async function generateConfig() {
       return `${p1}${existingDns.join(',')}` // 返回新的doh-server行
     }).replace('; {$server_remote}', `${generatedServerConfig}`)
     await fs.writeFile(outputFile, outputData)
-    console.log(`QuantumultX配置已生成, 文件路径为: ${outputFile}`)
+    console.log(`QuantumultX配置已生成, 文件路径为:${outputFile}`)
   } catch (error) {
     console.error('生成失败:', error)
   }
