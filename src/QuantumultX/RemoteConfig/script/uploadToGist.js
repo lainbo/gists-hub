@@ -44,7 +44,7 @@ async function updateGist() {
       titleAlignment: 'center',
     }
     console.log('\n配置文件已上传至Gist')
-    console.log(boxen(`https://ghproxy.com/https://gist.github.com/${data?.owner?.login}/${GIST_ID}/raw`, boxenOptions))
+    console.log(boxen(`https://ghproxy.com/https://gist.github.com/${data?.owner?.login}/${GIST_ID}/raw/${FILE_NAME}`, boxenOptions))
     console.log('作为QuantumultX内配置的地址\n\n')
   } catch (error) {
     console.error('更新Gist失败:', error)
