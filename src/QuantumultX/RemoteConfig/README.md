@@ -4,6 +4,10 @@
 git update-index --assume-unchanged src/QuantumultX/RemoteConfig/ServerConfig.json
 git update-index --assume-unchanged .env
 ```
+你还可能用到和这个命令相反的操作，即为恢复git的修改检测
+```sh
+git update-index --no-assume-unchanged 文件路径
+```
 
 ## 使用方式
 1. 按照格式在`src/QuantumultX/RemoteConfig/ServerConfig.json`中填写你的配置
