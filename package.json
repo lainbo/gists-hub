@@ -1,5 +1,6 @@
 {
   "name": "gists-hub",
+  "type": "module",
   "version": "1.0.0",
   "description": "",
   "author": "",
@@ -7,13 +8,14 @@
   "keywords": [],
   "main": "index.js",
   "scripts": {
+    "generateQX": "node ./src/QuantumultX/RemoteConfig",
     "lint:fix": "eslint . --fix",
     "up": "taze major -I"
   },
   "dependencies": {
-    "@antfu/eslint-config-basic": "^0.40.2",
-    "eslint": "^8.46.0",
-    "pnpm": "^8.6.12",
+    "@antfu/eslint-config-basic": "^0.43.0",
+    "eslint": "^8.49.0",
+    "pnpm": "^8.7.6",
     "taze": "^0.11.2"
   },
   "volta": {

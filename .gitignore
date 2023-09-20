@@ -9,7 +9,8 @@ lerna-debug.log*
 
 .VSCodeCounter
 node_modules
-dist
+dist/
+src/QuantumultX/RemoteConfig/ServerConfig.json
 dist-ssr
 *.local
 
