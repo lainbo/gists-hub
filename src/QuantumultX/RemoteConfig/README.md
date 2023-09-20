@@ -12,4 +12,4 @@ git update-index --assume-unchanged .env
 4. 运行`pnpm run generateQx`，即可根据你的信息在`src\QuantumultX\RemoteConfig\dist`中生成一个QuantumultX的配置文件
 5. 运行`pnpm run uploadQx`，即可上传上面的这个配置到Gist，以供QuantumultX直接下载完整配置
 6. 当然你可以直接运行`pnpm run syncQxConfig`，这将首先生成配置，再自动上传
-7. 在QuantumultX中点击右下角形如风车的图标，点击下载配置，填入对应gist文件的raw链接即可(gist文件访问困难可以使用ghproxy进行加速)
+7. 在QuantumultX中点击右下角形如风车的图标，点击下载配置，填入命令行输出的建议链接即可

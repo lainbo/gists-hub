@@ -4,6 +4,7 @@ import process from 'node:process'
 import url from 'node:url'
 import { Octokit } from '@octokit/core'
 import dotenv from 'dotenv'
+import boxen from 'boxen'
 
 dotenv.config()
 
@@ -37,7 +38,14 @@ async function updateGist() {
         },
       },
     })
-    console.log('配置文件已上传至Gist, 访问链接为:', `https://gist.github.com/${data?.owner?.login}/${GIST_ID}`)
+    const boxenOptions = {
+      padding: 1,
+      title: '建议使用',
+      titleAlignment: 'center',
+    }
+    console.log('\n配置文件已上传至Gist')
+    console.log(boxen(`https://ghproxy.com/https://gist.github.com/${data?.owner?.login}/${GIST_ID}/raw`, boxenOptions))
+    console.log('作为QuantumultX内配置的地址\n\n')
   } catch (error) {
     console.error('更新Gist失败:', error)
   }

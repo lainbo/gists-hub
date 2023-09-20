@@ -17,6 +17,7 @@
   "dependencies": {
     "@antfu/eslint-config-basic": "^0.43.0",
     "@octokit/core": "^5.0.0",
+    "boxen": "^7.1.1",
     "dotenv": "^16.3.1",
     "eslint": "^8.49.0",
     "pnpm": "^8.7.6",
