@@ -1,0 +1,9 @@
+[
+  {
+    "url": "www.example.com", // 服务商给的订阅链接
+    "tag": "example", // 服务商名字
+    "update-interval": 172800, // 更新间隔, 单位为秒
+    "enabled": true, // 是否启用
+    "img-url": "https://www.example.com/example-img.png" // 图标链接
+  }
+]

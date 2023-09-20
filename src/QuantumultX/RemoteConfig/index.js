@@ -1,20 +1,11 @@
 // 用于根据同级目录下的 ServerConfig.json 生成完整的 QuantumultX 配置文件
 
-/*
-// ServerConfig.json 格式:
-[
-  {
-    "url": "www.example.com", // 机场给的订阅链接
-    "tag": "example", // 机场名字
-    "update-interval": 172800, // 更新间隔, 单位为秒
-    "enabled": true, // 是否启用
-    "img-url": "https://nxboom.com/images/NA_Logo.png" // 图标链接
-  },
-]
-*/
-
 import fs from 'node:fs/promises'
 import path from 'node:path'
+import process from 'node:process'
+import dotenv from 'dotenv'
+
+dotenv.config()
 
 const __dirname = decodeURI(path.dirname(new URL(import.meta.url).pathname)).replace(/^\/([a-zA-Z]:)/, '$1')
 
@@ -40,7 +31,12 @@ async function generateConfig() {
       return parts.join(', ') // 将每个属性的字符串连接起来
     }).join('\n')
 
-    const outputData = configData.replace('[server_remote]', `[server_remote]\n${generatedServerConfig}`)
+    const outputData = configData.replace(/(doh-server=)([^\n]*)/, (match, p1, p2) => {
+      const existingDns = p2.split(',') // 拆分字符串并转换为数组
+      process.env.CUSTOM_DOH1 && (existingDns[0] = process.env.CUSTOM_DOH1)
+      process.env.CUSTOM_DOH2 && (existingDns[1] = process.env.CUSTOM_DOH2)
+      return `${p1}${existingDns.join(',')}` // 返回新的doh-server行
+    }).replace('; {$server_remote}', `${generatedServerConfig}`)
     await fs.writeFile(outputFile, outputData)
     console.log(`QuantumultX配置已生成, 文件路径为: ${outputFile}`)
   } catch (error) {
