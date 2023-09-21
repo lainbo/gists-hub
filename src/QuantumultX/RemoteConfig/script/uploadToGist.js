@@ -5,6 +5,7 @@ import url from 'node:url'
 import { Octokit } from '@octokit/core'
 import dotenv from 'dotenv'
 import boxen from 'boxen'
+import { config } from './_config.js'
 
 dotenv.config()
 
@@ -13,7 +14,7 @@ const __dirname = path.dirname(url.fileURLToPath(import.meta.url))
 
 const GITHUB_TOKEN = process.env.GITHUB_TOKEN
 const GIST_ID = process.env.GIST_ID
-const FILE_NAME = process.env.GITHUB_GIST_FILE_NAME
+const FILE_NAME = config.githubGistFileName
 
 const octokit = new Octokit({
   auth: GITHUB_TOKEN,

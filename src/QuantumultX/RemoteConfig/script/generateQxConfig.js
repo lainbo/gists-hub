@@ -2,8 +2,8 @@
 
 import fs from 'node:fs/promises'
 import path from 'node:path'
-import process from 'node:process'
 import dotenv from 'dotenv'
+import { config } from './_config.js'
 
 dotenv.config()
 
@@ -14,29 +14,37 @@ const infoFile = path.join(__dirname, '../ServerConfig.json')
 const outputDir = path.join(__dirname, '../dist')
 const outputFile = path.join(outputDir, 'QX.conf')
 
+// 把json格式的订阅信息转换成QuantumultX配置文件中的格式
+async function subscriptionConversion(jsonStr) {
+  const serverConfigs = JSON.parse(jsonStr)
+  const res = serverConfigs.map(config => {
+    const parts = [
+      config.url,
+      config.tag && `tag=${config.tag}`,
+      config['update-interval'] !== undefined && `update-interval=${config['update-interval']}`,
+      config.enabled !== undefined && `enabled=${config.enabled}`,
+      config['img-url'] && `img-url=${config['img-url']}`,
+    ].filter(Boolean)
+    return parts.join(', ')
+  }).join('\n')
+  return res
+}
+
+
 async function generateConfig() {
   try {
     await fs.mkdir(outputDir, { recursive: true })
-    const configData = await fs.readFile(configFile, 'utf8')
-    const serverConfigs = JSON.parse(await fs.readFile(infoFile, 'utf8'))
-    const generatedServerConfig = serverConfigs.map(config => {
-      const parts = [
-        config.url,
-        config.tag && `tag=${config.tag}`,
-        config['update-interval'] !== undefined && `update-interval=${config['update-interval']}`,
-        config.enabled !== undefined && `enabled=${config.enabled}`,
-        config['img-url'] && `img-url=${config['img-url']}`,
-      ].filter(Boolean) // 使用 filter(Boolean) 移除所有 falsy 值
-
-      return parts.join(', ') // 将每个属性的字符串连接起来
-    }).join('\n')
-
-    const outputData = configData.replace(/(doh-server=)([^\n]*)/, (match, p1, p2) => {
-      const existingDns = p2.split(',') // 拆分字符串并转换为数组
-      process.env.CUSTOM_DOH1 && (existingDns[0] = process.env.CUSTOM_DOH1)
-      process.env.CUSTOM_DOH2 && (existingDns[1] = process.env.CUSTOM_DOH2)
-      return `${p1}${existingDns.join(',')}` // 返回新的doh-server行
-    }).replace('; {$server_remote}', `${generatedServerConfig}`)
+    const templateContent = await fs.readFile(configFile, 'utf8') // 读取模板文件
+    const serverJson = await fs.readFile(infoFile, 'utf8') // 读取订阅json
+    const qxServerConfig = await subscriptionConversion(serverJson)  // 转换成QuantumultX配置文件中的格式
+    const outputData = templateContent
+      .replace('; {$server_remote}', qxServerConfig)
+      .replace(/# doh-server=/, _match => {
+        if (Array.isArray(config.defaultDoH) && config.defaultDoH.length > 0) {
+          return `doh-server=${config.defaultDoH.join(',')}`
+        }
+        return _match
+      })
     await fs.writeFile(outputFile, outputData)
     console.log(`QuantumultX配置已生成, 文件路径为:${outputFile}`)
   } catch (error) {

@@ -5,13 +5,14 @@ import process from 'node:process'
 import url from 'node:url'
 import { Octokit } from '@octokit/core'
 import dotenv from 'dotenv'
+import { config } from './_config.js'
 
 const __dirname = path.dirname(url.fileURLToPath(import.meta.url))
 
 dotenv.config()
 const GITHUB_TOKEN = process.env.GITHUB_TOKEN
 const GIST_ID = process.env.GIST_ID
-const FILE_NAME = process.env.GITHUB_GIST_FILE_NAME
+const FILE_NAME = config.githubGistFileName
 
 const octokit = new Octokit({
   auth: GITHUB_TOKEN,
@@ -21,8 +22,6 @@ const octokit = new Octokit({
 function replaceContent(content) {
   const serverRemoteReg = /\[server_remote\]([\s\S]*?)\[filter_remote\]/
   const serverFlagStr = '[server_remote]\n; {$server_remote}\n\n[filter_remote]'
-  const originDoH1 = 'https://dns.alidns.com/dns-query'
-  const originDoH2 = 'https://doh.pub/dns-query'
   const dohReg = /doh-server=([^\n]+)/
   const { CUSTOM_DOH1, CUSTOM_DOH2 } = process.env
   const shouldReplace = content.match(dohReg)?.[1]?.split(',')
@@ -30,7 +29,7 @@ function replaceContent(content) {
   
   content = content.replace(serverRemoteReg, serverFlagStr)
   if (shouldReplace) {
-    content = content.replace(dohReg, `doh-server=${originDoH1},${originDoH2}`)
+    content = content.replace(dohReg, `doh-server=${config.defaultDoH.join(',')}`)
   }
   return content
 }
