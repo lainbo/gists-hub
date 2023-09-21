@@ -1,4 +1,4 @@
-// 将 Gist 上的配置文件下载到本地
+// 用于将 Gist 上的配置文件下载到本地，会覆盖本地的 configTemplate.conf 模板文件
 import { promises as fs } from 'node:fs'
 import path from 'node:path'
 import process from 'node:process'
@@ -18,9 +18,8 @@ const octokit = new Octokit({
   auth: GITHUB_TOKEN,
 })
 
-// 将gist上配置文件中的订阅替换成标识符，自定义doh替换为原始doh，防止失误上传到仓库
 function replaceContent(content) {
-  // 将gist上配置文件中的订阅替换成标识符
+  // 将gist上配置文件中的订阅替换成标识符，防止失误上传到仓库
   const serverRemoteReg = /\[server_remote\]([\s\S]*?)\[filter_remote\]/
   const serverFlagStr = '[server_remote]\n; {$server_remote}\n\n[filter_remote]'
 

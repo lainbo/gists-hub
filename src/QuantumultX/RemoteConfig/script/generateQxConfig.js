@@ -1,4 +1,4 @@
-// 用于根据同级目录下的 ServerConfig.json 生成完整的 QuantumultX 配置文件
+// 用于根据上级目录下的 ServerConfig.json 生成完整的 QuantumultX 配置文件
 
 import fs from 'node:fs/promises'
 import path from 'node:path'
@@ -15,7 +15,7 @@ const infoFile = path.join(__dirname, '../ServerConfig.json')
 const outputDir = path.join(__dirname, '../dist')
 const outputFile = path.join(outputDir, 'QX.conf')
 
-// 把json格式的订阅信息转换成QuantumultX配置文件中的格式
+// 把json格式的订阅信息，转换成QuantumultX配置文件中的格式
 async function subscriptionConversion(jsonStr) {
   const serverConfigs = JSON.parse(jsonStr)
   const res = serverConfigs.map(config => {
@@ -42,11 +42,14 @@ async function generateConfig() {
       .replace('; {$server_remote}', qxServerConfig)
       .replace(/# doh-server=/, _match => {
         const envDoHArr = [process.env.CUSTOM_DOH1, process.env.CUSTOM_DOH2].filter(Boolean)
+        // 优先使用环境变量中的DoH
         if (envDoHArr?.length) {
           return `doh-server=${envDoHArr.join(',')}`
         } else if (config.defaultDoH?.length) {
+          // 如果环境变量中没有DoH，则使用默认的DoH
           return `doh-server=${config.defaultDoH?.join(',')}`
-        } else  {
+        } else {
+          // 如果没有默认DoH，则注释掉DoH
           return _match
         }
       })
