@@ -20,17 +20,13 @@ const octokit = new Octokit({
 
 // 将gist上配置文件中的订阅替换成标识符，自定义doh替换为原始doh，防止失误上传到仓库
 function replaceContent(content) {
+  // 将gist上配置文件中的订阅替换成标识符
   const serverRemoteReg = /\[server_remote\]([\s\S]*?)\[filter_remote\]/
   const serverFlagStr = '[server_remote]\n; {$server_remote}\n\n[filter_remote]'
+
+  // doh行替换为注释，防止失误上传到仓库
   const dohReg = /doh-server=([^\n]+)/
-  const { CUSTOM_DOH1, CUSTOM_DOH2 } = process.env
-  const shouldReplace = content.match(dohReg)?.[1]?.split(',')
-    .sort().join(',') === [CUSTOM_DOH1, CUSTOM_DOH2].sort().join(',')
-  
-  content = content.replace(serverRemoteReg, serverFlagStr)
-  if (shouldReplace) {
-    content = content.replace(dohReg, `doh-server=${config.defaultDoH.join(',')}`)
-  }
+  content = content.replace(serverRemoteReg, serverFlagStr).replace(dohReg, '# doh-server=')
   return content
 }
 

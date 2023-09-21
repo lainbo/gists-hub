@@ -2,6 +2,7 @@
 
 import fs from 'node:fs/promises'
 import path from 'node:path'
+import process from 'node:process'
 import dotenv from 'dotenv'
 import { config } from './_config.js'
 
@@ -40,10 +41,14 @@ async function generateConfig() {
     const outputData = templateContent
       .replace('; {$server_remote}', qxServerConfig)
       .replace(/# doh-server=/, _match => {
-        if (Array.isArray(config.defaultDoH) && config.defaultDoH.length > 0) {
-          return `doh-server=${config.defaultDoH.join(',')}`
+        const envDoHArr = [process.env.CUSTOM_DOH1, process.env.CUSTOM_DOH2].filter(Boolean)
+        if (envDoHArr?.length) {
+          return `doh-server=${envDoHArr.join(',')}`
+        } else if (config.defaultDoH?.length) {
+          return `doh-server=${config.defaultDoH?.join(',')}`
+        } else  {
+          return _match
         }
-        return _match
       })
     await fs.writeFile(outputFile, outputData)
     console.log(`QuantumultX配置已生成, 文件路径为:${outputFile}`)
