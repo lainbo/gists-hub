@@ -10,8 +10,10 @@ if (path) {
     const stats = fs.statSync(escapedPath)
     if (stats.isDirectory()) {
       utools.shellOpenPath(escapedPath)
-    } else {
+    }
+    else {
       utools.showNotification('该路径不是一个文件夹')
     }
-  } catch (err) {}
+  }
+  catch (err) {}
 }

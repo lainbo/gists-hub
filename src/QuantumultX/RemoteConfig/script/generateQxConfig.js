@@ -31,13 +31,12 @@ async function subscriptionConversion(jsonStr) {
   return res
 }
 
-
 async function generateConfig() {
   try {
     await fs.mkdir(outputDir, { recursive: true })
     const templateContent = await fs.readFile(configFile, 'utf8') // 读取模板文件
     const serverJson = await fs.readFile(infoFile, 'utf8') // 读取订阅json
-    const qxServerConfig = await subscriptionConversion(serverJson)  // 转换成QuantumultX配置文件中的格式
+    const qxServerConfig = await subscriptionConversion(serverJson) // 转换成QuantumultX配置文件中的格式
     const outputData = templateContent
       .replace('; {$server_remote}', qxServerConfig)
       .replace(/# doh-server=/, _match => {
@@ -45,17 +44,20 @@ async function generateConfig() {
         // 优先使用环境变量中的DoH
         if (envDoHArr?.length) {
           return `doh-server=${envDoHArr.join(',')}`
-        } else if (config.defaultDoH?.length) {
+        }
+        else if (config.defaultDoH?.length) {
           // 如果环境变量中没有DoH，则使用默认的DoH
           return `doh-server=${config.defaultDoH?.join(',')}`
-        } else {
+        }
+        else {
           // 如果没有默认DoH，则注释掉DoH
           return _match
         }
       })
     await fs.writeFile(outputFile, outputData)
     console.log(`QuantumultX配置已生成, 文件路径为:${outputFile}`)
-  } catch (error) {
+  }
+  catch (error) {
     console.error('生成失败:', error)
   }
 }

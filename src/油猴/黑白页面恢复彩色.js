@@ -12,7 +12,8 @@
   const css = 'html,body,[class*="gray"]{filter:none!important}'
   if (typeof GM_addStyle !== 'undefined') {
     GM_addStyle(css)
-  } else {
+  }
+  else {
     const styleNode = document.createElement('style')
     styleNode.appendChild(document.createTextNode(css));
     (document.querySelector('head') || document.documentElement).appendChild(

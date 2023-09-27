@@ -11,7 +11,8 @@ if (reg.test(inputStr)) {
   utools.shellOpenExternal(`${fraudUrl}/ip/${inputStr}`)
   utools.shellOpenExternal(`${ipInfoUrl}/${inputStr}`)
   utools.shellOpenExternal(`${ipapiIsApiUrl}/?q=${inputStr}`)
-} else {
+}
+else {
   utools.shellOpenExternal(ipApiUrl)
   utools.shellOpenExternal(fraudUrl)
   utools.shellOpenExternal(ipInfoUrl)

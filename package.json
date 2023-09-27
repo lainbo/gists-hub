@@ -16,20 +16,15 @@
     "up": "taze major -I"
   },
   "dependencies": {
-    "@antfu/eslint-config-basic": "^0.43.0",
-    "@octokit/core": "^5.0.0",
+    "@antfu/eslint-config-basic": "^0.43.1",
+    "@octokit/core": "^5.0.1",
     "boxen": "^7.1.1",
     "dotenv": "^16.3.1",
-    "eslint": "^8.49.0",
-    "husky": "^8.0.3",
-    "lint-staged": "^14.0.1",
-    "pnpm": "^8.7.6",
+    "eslint": "^8.50.0",
+    "pnpm": "^8.8.0",
     "taze": "^0.11.2"
   },
   "volta": {
     "node": "18.16.1"
-  },
-  "lint-staged": {
-    "src/QuantumultX/RemoteConfig/configTemplate.conf": "pnpm run syncQx"
   }
 }

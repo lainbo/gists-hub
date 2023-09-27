@@ -15,7 +15,6 @@ module.exports = {
     'quote-props': [2, 'consistent'],
     'curly': [2, 'all'],
     'arrow-parens': [1, 'as-needed'],
-    'brace-style': [1, '1tbs'],
     'prefer-regex-literals': 0,
   },
   parserOptions: {

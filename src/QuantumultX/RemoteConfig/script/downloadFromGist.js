@@ -41,7 +41,8 @@ async function downloadFromGist() {
       await fs.writeFile(outputPath, content, 'utf-8')
       console.log('下载成功,已更新模板,文件在', outputPath)
     }
-  } catch (error) {
+  }
+  catch (error) {
     console.error(`发生错误: ${error}`)
   }
 }

@@ -25,7 +25,8 @@ async function updateGist() {
   const filePath = path.join(__dirname, '../dist/QX.conf')
   try {
     fileContent = fs.readFileSync(filePath, 'utf-8')
-  } catch (error) {
+  }
+  catch (error) {
     console.error('出现了错误:', error)
   }
 
@@ -47,7 +48,8 @@ async function updateGist() {
     console.log('\n配置文件已上传至Gist')
     console.log(boxen(`https://ghproxy.com/https://gist.github.com/${data?.owner?.login}/${GIST_ID}/raw/${FILE_NAME}`, boxenOptions))
     console.log('作为QuantumultX内配置的地址\n\n')
-  } catch (error) {
+  }
+  catch (error) {
     console.error('更新Gist失败:', error)
   }
 }
