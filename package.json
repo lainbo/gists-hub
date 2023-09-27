@@ -29,14 +29,7 @@
   "volta": {
     "node": "18.16.1"
   },
-  "husky": {
-    "hooks": {
-      "pre-commit": "lint-staged"
-    }
-  },
   "lint-staged": {
-    "src/QuantumultX/RemoteConfig/configTemplate.conf": [
-      "pnpm run syncQx"
-    ]
+    "src/QuantumultX/RemoteConfig/configTemplate.conf": "pnpm run syncQx"
   }
 }
