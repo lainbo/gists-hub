@@ -46,7 +46,5 @@
   const resultsOfEnforcement = addStyleWithGM(cssContent)
 
   // 如果不成功，则使用DOM方式
-  if (!resultsOfEnforcement) {
-    addStyleWithDOM(cssContent)
-  }
+  if (!resultsOfEnforcement) { addStyleWithDOM(cssContent) }
 })()
