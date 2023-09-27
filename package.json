@@ -21,10 +21,22 @@
     "boxen": "^7.1.1",
     "dotenv": "^16.3.1",
     "eslint": "^8.49.0",
+    "husky": "^8.0.3",
+    "lint-staged": "^14.0.1",
     "pnpm": "^8.7.6",
     "taze": "^0.11.2"
   },
   "volta": {
     "node": "18.16.1"
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "lint-staged"
+    }
+  },
+  "lint-staged": {
+    "src/QuantumultX/RemoteConfig/configTemplate.conf": [
+      "pnpm run syncQx"
+    ]
   }
 }
