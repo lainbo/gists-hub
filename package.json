@@ -9,11 +9,11 @@
   "main": "index.js",
   "scripts": {
     "syncQx": "pnpm run generateQx && pnpm run uploadQx",
+    "lint:fix": "eslint . --fix",
+    "up": "taze major -I",
     "downloadQx": "node ./src/QuantumultX/RemoteConfig/script/downloadFromGist.js",
     "generateQx": "node ./src/QuantumultX/RemoteConfig/script/generateQxConfig.js",
-    "uploadQx": "node ./src/QuantumultX/RemoteConfig/script/uploadToGist.js",
-    "lint:fix": "eslint . --fix",
-    "up": "taze major -I"
+    "uploadQx": "node ./src/QuantumultX/RemoteConfig/script/uploadToGist.js"
   },
   "dependencies": {
     "@octokit/core": "^5.0.1",

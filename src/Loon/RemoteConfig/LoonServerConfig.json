@@ -1,0 +1,10 @@
+[
+  {
+    "url": "https://www.example.com",
+    "alias": "名字",
+    "udp": true,
+    "fast-open": false,
+    "vmess-aead": false,
+    "enabled": true
+  }
+]

@@ -1,4 +1,4 @@
-// 用于将 Gist 上的配置文件下载到本地，会覆盖本地的 configTemplate.conf 模板文件
+// 用于将 Gist 上的配置文件下载到本地，会覆盖本地的 QxTemplate.conf 模板文件
 import { promises as fs } from 'node:fs'
 import path from 'node:path'
 import process from 'node:process'
@@ -37,7 +37,7 @@ async function downloadFromGist() {
 
     if (response.data.files && response.data.files[FILE_NAME]) {
       const content = replaceContent(response.data.files[FILE_NAME].content)
-      const outputPath = path.join(__dirname, '../configTemplate.conf')
+      const outputPath = path.join(__dirname, '../QxTemplate.conf')
       await fs.writeFile(outputPath, content, 'utf-8')
       console.log('下载成功,已更新模板,文件在', outputPath)
     }
