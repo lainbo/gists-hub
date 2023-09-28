@@ -10,7 +10,7 @@ dotenv.config()
 const __dirname = decodeURI(path.dirname(new URL(import.meta.url).pathname)).replace(/^\/([a-zA-Z]:)/, '$1')
 
 const configFile = path.join(__dirname, '../QxTemplate.conf')
-const infoFile = path.join(__dirname, '../ServerConfig.json')
+const infoFile = path.join(__dirname, '../QXServerConfig.json')
 const outputDir = path.join(__dirname, '../dist')
 const outputFile = path.join(outputDir, 'QX.conf')
 

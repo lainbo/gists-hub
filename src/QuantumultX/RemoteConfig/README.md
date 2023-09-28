@@ -1,7 +1,7 @@
 ## 注意
 如果要使用自己的数据生成配置，请运行如下命令，让git认为这两个文件没有被修改，否则这两个文件的内容可能会随着提交一起被更新到repo，这可能导致数据泄露风险
 ```sh
-git update-index --assume-unchanged src/QuantumultX/RemoteConfig/ServerConfig.json
+git update-index --assume-unchanged src/QuantumultX/RemoteConfig/QXServerConfig.json
 git update-index --assume-unchanged .env
 ```
 你还可能用到和这个命令相反的操作，即为恢复git的修改检测
@@ -10,7 +10,7 @@ git update-index --no-assume-unchanged 文件路径
 ```
 
 ## 使用方式
-1. 按照格式在`src/QuantumultX/RemoteConfig/ServerConfig.json`中填写你的配置
+1. 按照格式在`src/QuantumultX/RemoteConfig/QXServerConfig.json`中填写你的配置
 2. 在项目根目录的`.env`文件中，填写你的信息，用于上传GitHub Gist
 3. `pnpm i`安装所需依赖
 4. 运行`pnpm run generateQx`，即可根据你的信息在`src\QuantumultX\RemoteConfig\dist`中生成一个QuantumultX的配置文件
