@@ -5,14 +5,14 @@ async function generateConfig({
   outputDir,
   outputFile,
   templateContent,
-  qxServerConfig,
+  subscriptionInfo,
   envDoH,
   defaultDoH
 }) {
   try {
     await fs.mkdir(outputDir, { recursive: true })  // 创建输出目录
     const outputData = templateContent
-      .replace('# {$server_remote}', qxServerConfig)
+      .replace('# {$server_remote}', subscriptionInfo)
       .replace(/# doh-server=/, _match => {
         const envDoHArr = envDoH.filter(Boolean)  // 过滤有效的DoH
         // 优先使用环境变量中的DoH

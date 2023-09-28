@@ -11,7 +11,7 @@ const __dirname = path.dirname(url.fileURLToPath(import.meta.url))
 
 dotenv.config()
 const GITHUB_TOKEN = process.env.GITHUB_TOKEN
-const GIST_ID = process.env.GIST_ID
+const GIST_ID = process.env.QX_GIST_ID
 const FILE_NAME = config.githubGistFileName
 
 const octokit = new Octokit({

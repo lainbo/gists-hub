@@ -3,7 +3,7 @@ import path from 'node:path'
 import process from 'node:process'
 import dotenv from 'dotenv'
 import { config } from './_config.js'
-import { generateConfig } from '#src/_utils/generateConfig.js'  // 导入 generateConfig 函数
+import { generateConfig } from '#src/_utils/generateConfig.js'
 
 dotenv.config()
 
@@ -30,7 +30,7 @@ async function subscriptionConversion(jsonStr) {
   return res
 }
 
-async function main() {
+async function mainQx() {
   const templateContent = await fs.readFile(configFile, 'utf8')  // 读取模板文件
   const serverJson = await fs.readFile(infoFile, 'utf8')  // 读取订阅json
   const qxServerConfig = await subscriptionConversion(serverJson)  // 转换成QuantumultX配置文件中的格式
@@ -38,10 +38,10 @@ async function main() {
     outputDir,
     outputFile,
     templateContent,
-    qxServerConfig,
+    subscriptionInfo: qxServerConfig,
     envDoH: [process.env.CUSTOM_DOH1, process.env.CUSTOM_DOH2],
     defaultDoH: config.defaultDoH
   })
 }
 
-main()
+mainQx()
