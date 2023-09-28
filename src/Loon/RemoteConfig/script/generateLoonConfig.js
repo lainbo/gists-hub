@@ -1,4 +1,4 @@
-// 用于根据上级目录下的 ServerConfig.json 生成完整的 QuantumultX 配置文件
+// 用于根据上级目录下的 LoonServerConfig.json 生成完整的Loon配置文件
 
 import fs from 'node:fs/promises'
 import path from 'node:path'
