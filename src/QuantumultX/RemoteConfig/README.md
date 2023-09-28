@@ -15,5 +15,6 @@ git update-index --no-assume-unchanged 文件路径
 3. `pnpm i`安装所需依赖
 4. 运行`pnpm run generateQx`，即可根据你的信息在`src\QuantumultX\RemoteConfig\dist`中生成一个QuantumultX的配置文件
 5. 运行`pnpm run uploadQx`，即可上传上面的这个配置到Gist，以供QuantumultX直接下载完整配置
-6. 当然你可以直接运行`pnpm run syncQxConfig`，这将首先生成配置，再自动上传
-7. 在QuantumultX中点击右下角形如风车的图标，点击下载配置，填入命令行输出的建议链接即可
+6. 当然你可以直接运行`pnpm run syncQx`，这将先生成配置，再自动上传
+7. 你可以运行`pnpm run downloadQx`从Gist下载配置到本地，会覆盖本地的 QxTemplate.conf 模板文件
+8. 在QuantumultX中点击右下角形如风车的图标，点击下载配置，填入命令行输出的建议链接即可
