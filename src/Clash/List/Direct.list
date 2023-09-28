@@ -1,0 +1,23 @@
+# 内容：自定义直连规则
+DOMAIN-SUFFIX,gog.com
+DOMAIN-SUFFIX,steamcontent.com
+DOMAIN,steam.cdn.webra.ru
+DOMAIN,steam.cdn.orcon.net.nz
+DOMAIN,steam.cdn.slingshot.co.nz
+DOMAIN,steam.cdn.on.net
+DOMAIN,telus.cdn.steampipe.steamcontent.com
+DOMAIN,f3b7q2p3.ssl.hwcdn.net
+DOMAIN,a4e8s8k3.map2.ssl.hwcdn.net
+DOMAIN,steampipe-kr.akamaized.net
+DOMAIN,steampipe-partner.akamaized.net
+DOMAIN,steampipe.akamaized.net
+DOMAIN,steam.eca.qtlglb.com
+DOMAIN,steam.naeu.qtlglb.com
+DOMAIN,steam.ru.qtlglb.com
+DOMAIN,steam.apac.qtlglb.com
+DOMAIN,level3.cdn.steampipe.steamcontent.com
+DOMAIN,steampipe-partner.secure2.footprint.net
+DOMAIN,google.cdn.steampipe.steamcontent.com
+DOMAIN,google2.cdn.steampipe.steamcontent.com
+DOMAIN,edge.steam-dns.top.comcast.net
+DOMAIN,edgecast.cdn.steampipe.steamcontent.com
