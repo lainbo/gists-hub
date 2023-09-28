@@ -38,7 +38,7 @@ async function generateConfig() {
     const serverJson = await fs.readFile(infoFile, 'utf8') // 读取订阅json
     const qxServerConfig = await subscriptionConversion(serverJson) // 转换成QuantumultX配置文件中的格式
     const outputData = templateContent
-      .replace('; {$server_remote}', qxServerConfig)
+      .replace('# {$server_remote}', qxServerConfig)
       .replace(/# doh-server=/, _match => {
         const envDoHArr = [process.env.CUSTOM_DOH1, process.env.CUSTOM_DOH2].filter(Boolean)
         // 优先使用环境变量中的DoH

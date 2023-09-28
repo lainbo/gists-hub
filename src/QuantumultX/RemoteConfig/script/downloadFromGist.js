@@ -21,7 +21,7 @@ const octokit = new Octokit({
 function replaceContent(content) {
   // 将gist上配置文件中的订阅替换成标识符，防止失误上传到仓库
   const serverRemoteReg = /\[server_remote\]([\s\S]*?)\[filter_remote\]/
-  const serverFlagStr = '[server_remote]\n; {$server_remote}\n\n[filter_remote]'
+  const serverFlagStr = '[server_remote]\n# {$server_remote}\n\n[filter_remote]'
 
   // doh行替换为注释，防止失误上传到仓库
   const dohReg = /doh-server=([^\n]+)/
