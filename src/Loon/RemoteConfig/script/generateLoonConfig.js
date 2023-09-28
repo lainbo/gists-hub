@@ -10,10 +10,10 @@ dotenv.config()
 
 const __dirname = decodeURI(path.dirname(new URL(import.meta.url).pathname)).replace(/^\/([a-zA-Z]:)/, '$1')
 
-const configFile = path.join(__dirname, '../QxTemplate.conf')
-const infoFile = path.join(__dirname, '../ServerConfig.json')
+const configFile = path.join(__dirname, '../LoonTemplate.conf')
+const infoFile = path.join(__dirname, '../LoonServerConfig.json')
 const outputDir = path.join(__dirname, '../dist')
-const outputFile = path.join(outputDir, 'QX.conf')
+const outputFile = path.join(outputDir, 'LoonRes.conf')
 
 // 把json格式的订阅信息，转换成QuantumultX配置文件中的格式
 async function subscriptionConversion(jsonStr) {
@@ -21,12 +21,12 @@ async function subscriptionConversion(jsonStr) {
   const res = serverConfigs.map(config => {
     const parts = [
       config.url,
-      config.tag && `tag=${config.tag}`,
-      config['update-interval'] !== undefined && `update-interval=${config['update-interval']}`,
+      config.udp !== undefined && `udp=${config.udp}`,
+      config['fast-open'] !== undefined && `fast-open=${config['fast-open']}`,
+      config['vmess-aead'] !== undefined && `vmess-aead=${config['vmess-aead']}`,
       config.enabled !== undefined && `enabled=${config.enabled}`,
-      config['img-url'] && `img-url=${config['img-url']}`,
     ].filter(Boolean)
-    return parts.join(', ')
+    return `${config.alias} = ${parts.join(', ')}`
   }).join('\n')
   return res
 }
@@ -39,7 +39,7 @@ async function generateConfig() {
     const qxServerConfig = await subscriptionConversion(serverJson) // 转换成QuantumultX配置文件中的格式
     const outputData = templateContent
       .replace('# {$server_remote}', qxServerConfig)
-      .replace(/# doh-server=/, _match => {
+      .replace(/# doh-server = /, _match => {
         const envDoHArr = [process.env.CUSTOM_DOH1, process.env.CUSTOM_DOH2].filter(Boolean)
         // 优先使用环境变量中的DoH
         if (envDoHArr?.length) {
@@ -55,7 +55,7 @@ async function generateConfig() {
         }
       })
     await fs.writeFile(outputFile, outputData)
-    console.log(`本地QuantumultX配置已生成, 文件路径为:${outputFile}`)
+    console.log(`本地Loon配置已生成, 文件路径为:${outputFile}`)
   }
   catch (error) {
     console.error('生成失败:', error)

@@ -8,6 +8,7 @@
   "keywords": [],
   "main": "index.js",
   "scripts": {
+    "generateLoon": "node ./src/Loon/RemoteConfig/script/generateLoonConfig.js",
     "syncQx": "pnpm run generateQx && pnpm run uploadQx",
     "lint:fix": "eslint . --fix",
     "up": "taze major -I",
