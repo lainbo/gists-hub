@@ -1,7 +1,7 @@
 import { Octokit } from '@octokit/core'
 import fs from 'node:fs/promises'
 
-// 下载并处理文件内容的纯工具函数
+// 下载并处理文件内容的工具函数
 export async function downloadConfig({
   githubToken,
   gistId,
@@ -28,7 +28,7 @@ export async function downloadConfig({
       }
 
       await fs.writeFile(outputPath, content, 'utf-8')
-      console.log(`下载${appName}配置成功,已更新模板,文件在 ${outputPath}`)
+      console.log(`下载${appName}配置成功,已脱敏并更新模板,文件在 ${outputPath}`)
     }
   }
   catch (error) {

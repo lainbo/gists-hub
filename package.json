@@ -9,11 +9,12 @@
   "main": "index.js",
   "scripts": {
     "syncLoon": "pnpm run generateLoon && pnpm run uploadLoon",
-    "generateLoon": "node ./src/Loon/RemoteConfig/script/generateLoonConfig.js",
-    "uploadLoon": "node ./src/Loon/RemoteConfig/script/uploadLoon.js",
     "syncQx": "pnpm run generateQx && pnpm run uploadQx",
+    "generateLoon": "node ./src/Loon/RemoteConfig/script/generateLoonConfig.js",
     "generateQx": "node ./src/QuantumultX/RemoteConfig/script/generateQxConfig.js",
+    "uploadLoon": "node ./src/Loon/RemoteConfig/script/uploadLoon.js",
     "uploadQx": "node ./src/QuantumultX/RemoteConfig/script/uploadQx.js",
+    "downloadLoon": "node ./src/Loon/RemoteConfig/script/downloadLoon.js",
     "downloadQx": "node ./src/QuantumultX/RemoteConfig/script/downloadQx.js",
     "lint:fix": "eslint . --fix",
     "up": "taze major -I"

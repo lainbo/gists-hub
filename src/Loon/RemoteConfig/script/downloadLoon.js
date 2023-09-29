@@ -11,8 +11,8 @@ const __dirname = path.dirname(url.fileURLToPath(import.meta.url))
 
 // 下载后的内容处理函数
 function replaceContent(content) {
-  const serverRemoteReg = /\[server_remote\]([\s\S]*?)\[filter_remote\]/
-  const serverFlagStr = `[server_remote]\n${config.remoteFlag}\n\n[filter_remote]`
+  const serverRemoteReg = /\[Remote Proxy\]([\s\S]*?)\[Remote Filter\]/
+  const serverFlagStr = `[Remote Proxy]\n${config.remoteFlag}\n\n[Remote Filter]`
   const dohReg = /doh-server=([^\n]+)/
 
   content = content.replace(serverRemoteReg, serverFlagStr).replace(dohReg, '# doh-server=')
@@ -20,15 +20,15 @@ function replaceContent(content) {
 }
 
 async function main() {
-  const outputPath = path.join(__dirname, '../QxTemplate.conf')
+  const outputPath = path.join(__dirname, '../LoonTemplate.conf')
 
   await downloadConfig({
     githubToken: process.env.GITHUB_TOKEN,
-    gistId: process.env.QX_GIST_ID,
+    gistId: process.env.LOON_GIST_ID,
     fileName: config.githubGistFileName,
     outputPath: outputPath,
     contentProcessor: replaceContent,
-    appName: 'QuantumultX'
+    appName: 'Loon'
   })
 }
 

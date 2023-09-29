@@ -2,17 +2,19 @@ import fs from 'node:fs/promises'
 
 // 生成配置文件的工具函数
 async function generateConfig({
+  remoteFlag,
   outputDir,
   outputFile,
   templateContent,
   subscriptionInfo,
   envDoH,
-  defaultDoH
+  defaultDoH,
+  appName
 }) {
   try {
     await fs.mkdir(outputDir, { recursive: true })  // 创建输出目录
     const outputData = templateContent
-      .replace('# {$server_remote}', subscriptionInfo)
+      .replace(remoteFlag, subscriptionInfo)
       .replace(/# doh-server=/, _match => {
         const envDoHArr = envDoH.filter(Boolean)  // 过滤有效的DoH
         // 优先使用环境变量中的DoH
@@ -29,7 +31,7 @@ async function generateConfig({
         }
       })
     await fs.writeFile(outputFile, outputData)  // 写入输出文件
-    console.log(`本地QuantumultX配置已生成, 文件路径为:${outputFile}`)
+    console.log(`完整的${appName}配置已生成, 本地文件路径为:${outputFile}`)
   }
   catch (error) {
     console.error('生成失败:', error)
