@@ -1,43 +1,9 @@
 [
   {
-    "url": "https://u.lainbo.com/O-NX-SS",
-    "tag": "奶昔",
-    "update-interval": 172800,
-    "enabled": false,
-    "img-url": "https://nxboom.com/images/NA_Logo.png"
-  },
-  {
-    "url": "https://u.lainbo.com/O-KLM-SS",
-    "tag": "库洛米",
-    "update-interval": 172800,
-    "enabled": false,
-    "img-url": "https://raw.githubusercontent.com/Twoandz9/TheMagic-Icons/main/Icons/Kuromis.png"
-  },
-  {
-    "url": "https://u.lainbo.com/O-HY-SS",
-    "tag": "花云",
-    "update-interval": 172800,
-    "enabled": false,
-    "img-url": "https://raw.githubusercontent.com/Orz-3/mini/master/Color/Flower.png"
-  },
-  {
-    "url": "https://u.lainbo.com/O-YTOO-SS",
-    "tag": "YTOO",
-    "update-interval": 172800,
-    "enabled": false,
-    "img-url": "https://raw.githubusercontent.com/Orz-3/mini/master/Color/Ytoo.png"
-  },
-  {
-    "url": "https://u.lainbo.com/O-TAG-SS",
-    "tag": "TAG",
-    "update-interval": 172800,
-    "enabled": false,
-    "img-url": "https://raw.githubusercontent.com/Twoandz9/TheMagic-Icons/main/Icons/Tag.png"
-  },
-  {
-    "url": "https://u.lainbo.com/O-ATOM-SS",
-    "tag": "Atomlantis",
-    "update-interval": 172800,
-    "enabled": true
+    "url": "www.example.com", // 服务商给的订阅链接
+    "tag": "example", // 服务商名字
+    "update-interval": 172800, // 更新间隔, 单位为秒
+    "enabled": true, // 是否启用
+    "img-url": "https://www.example.com/example-img.png" // 图标链接
   }
 ]
