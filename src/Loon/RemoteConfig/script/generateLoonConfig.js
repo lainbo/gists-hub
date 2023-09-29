@@ -30,7 +30,7 @@ async function subscriptionConversion(jsonStr) {
   return res
 }
 
-async function mainLoon() {
+async function main() {
   const templateContent = await fs.readFile(configFile, 'utf8') // 读取模板文件
   const serverJson = await fs.readFile(infoFile, 'utf8') // 读取订阅json
   const loonServerConfig = await subscriptionConversion(serverJson) // 转换成Loon配置文件中的格式
@@ -46,4 +46,4 @@ async function mainLoon() {
   })
 }
 
-mainLoon()
+main()

@@ -30,7 +30,7 @@ async function subscriptionConversion(jsonStr) {
   return res
 }
 
-async function mainQx() {
+async function main() {
   const templateContent = await fs.readFile(configFile, 'utf8') // 读取模板文件
   const serverJson = await fs.readFile(infoFile, 'utf8') // 读取订阅json
   const qxServerConfig = await subscriptionConversion(serverJson) // 转换成QuantumultX配置文件中的格式
@@ -46,4 +46,4 @@ async function mainQx() {
   })
 }
 
-mainQx()
+main()
