@@ -14,7 +14,7 @@
     "syncQx": "pnpm run generateQx && pnpm run uploadQx",
     "generateQx": "node ./src/QuantumultX/RemoteConfig/script/generateQxConfig.js",
     "uploadQx": "node ./src/QuantumultX/RemoteConfig/script/uploadQx.js",
-    "downloadQx": "node ./src/QuantumultX/RemoteConfig/script/downloadFromGist.js",
+    "downloadQx": "node ./src/QuantumultX/RemoteConfig/script/downloadQx.js",
     "lint:fix": "eslint . --fix",
     "up": "taze major -I"
   },

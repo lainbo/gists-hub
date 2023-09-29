@@ -29,7 +29,7 @@ function replaceContent(content) {
   return content
 }
 
-async function downloadFromGist() {
+async function downloadQx() {
   try {
     const response = await octokit.request(`GET /gists/${GIST_ID}`, {
       gist_id: GIST_ID,
@@ -47,4 +47,4 @@ async function downloadFromGist() {
   }
 }
 
-downloadFromGist()
+downloadQx()
