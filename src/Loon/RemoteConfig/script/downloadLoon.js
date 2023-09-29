@@ -26,9 +26,9 @@ async function main() {
     githubToken: process.env.GITHUB_TOKEN,
     gistId: process.env.LOON_GIST_ID,
     fileName: config.githubGistFileName,
-    outputPath: outputPath,
+    outputPath,
     contentProcessor: replaceContent,
-    appName: 'Loon'
+    appName: 'Loon',
   })
 }
 

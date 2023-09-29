@@ -31,9 +31,9 @@ async function subscriptionConversion(jsonStr) {
 }
 
 async function mainLoon() {
-  const templateContent = await fs.readFile(configFile, 'utf8')  // 读取模板文件
-  const serverJson = await fs.readFile(infoFile, 'utf8')  // 读取订阅json
-  const loonServerConfig = await subscriptionConversion(serverJson)  // 转换成Loon配置文件中的格式
+  const templateContent = await fs.readFile(configFile, 'utf8') // 读取模板文件
+  const serverJson = await fs.readFile(infoFile, 'utf8') // 读取订阅json
+  const loonServerConfig = await subscriptionConversion(serverJson) // 转换成Loon配置文件中的格式
   await generateConfig({
     remoteFlag: config.remoteFlag,
     outputDir,
@@ -42,7 +42,7 @@ async function mainLoon() {
     subscriptionInfo: loonServerConfig,
     envDoH: [process.env.CUSTOM_DOH1, process.env.CUSTOM_DOH2],
     defaultDoH: config.defaultDoH,
-    appName: 'Loon'
+    appName: 'Loon',
   })
 }
 

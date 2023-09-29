@@ -26,9 +26,9 @@ async function main() {
     githubToken: process.env.GITHUB_TOKEN,
     gistId: process.env.QX_GIST_ID,
     fileName: config.githubGistFileName,
-    outputPath: outputPath,
+    outputPath,
     contentProcessor: replaceContent,
-    appName: 'QuantumultX'
+    appName: 'QuantumultX',
   })
 }
 

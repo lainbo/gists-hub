@@ -8,7 +8,7 @@ export async function updateGist({
   gistId,
   fileName,
   filePath,
-  appName
+  appName,
 }) {
   let fileContent = ''
   try {

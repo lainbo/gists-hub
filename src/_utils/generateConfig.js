@@ -9,14 +9,14 @@ async function generateConfig({
   subscriptionInfo,
   envDoH,
   defaultDoH,
-  appName
+  appName,
 }) {
   try {
-    await fs.mkdir(outputDir, { recursive: true })  // 创建输出目录
+    await fs.mkdir(outputDir, { recursive: true }) // 创建输出目录
     const outputData = templateContent
       .replace(remoteFlag, subscriptionInfo)
       .replace(/# doh-server=/, _match => {
-        const envDoHArr = envDoH.filter(Boolean)  // 过滤有效的DoH
+        const envDoHArr = envDoH.filter(Boolean) // 过滤有效的DoH
         // 优先使用环境变量中的DoH
         if (envDoHArr?.length) {
           return `doh-server=${envDoHArr.join(',')}`
@@ -30,7 +30,7 @@ async function generateConfig({
           return _match
         }
       })
-    await fs.writeFile(outputFile, outputData)  // 写入输出文件
+    await fs.writeFile(outputFile, outputData) // 写入输出文件
     console.log(`完整的${appName}配置已生成, 本地文件路径为:${outputFile}`)
   }
   catch (error) {

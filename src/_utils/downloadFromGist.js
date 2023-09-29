@@ -1,5 +1,5 @@
-import { Octokit } from '@octokit/core'
 import fs from 'node:fs/promises'
+import { Octokit } from '@octokit/core'
 
 // 下载并处理文件内容的工具函数
 export async function downloadConfig({
@@ -8,7 +8,7 @@ export async function downloadConfig({
   fileName,
   outputPath,
   contentProcessor,
-  appName
+  appName,
 }) {
   const octokit = new Octokit({
     auth: githubToken,
