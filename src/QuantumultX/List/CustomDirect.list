@@ -1,4 +1,5 @@
 # 内容：自定义直连规则
+HOST-SUFFIX,xboxlive.com,Direct
 HOST-SUFFIX,gog.com,Direct
 HOST-SUFFIX,steamcontent.com,Direct
 HOST,steam.cdn.webra.ru,Direct
@@ -21,3 +22,7 @@ HOST,google.cdn.steampipe.steamcontent.com,Direct
 HOST,google2.cdn.steampipe.steamcontent.com,Direct
 HOST,edge.steam-dns.top.comcast.net,Direct
 HOST,edgecast.cdn.steampipe.steamcontent.com,Direct
+HOST,act.hoyoverse.com,Direct
+HOST-SUFFIX,cdn.ubi.com,Direct
+HOST,epicgames-download1.akamaized.net,Direct
+HOST,ssl-lvlt.cdn.ea.com,Direct

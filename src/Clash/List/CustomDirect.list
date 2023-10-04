@@ -1,4 +1,5 @@
 # 内容：自定义直连规则
+DOMAIN-SUFFIX,xboxlive.com
 DOMAIN-SUFFIX,gog.com
 DOMAIN-SUFFIX,steamcontent.com
 DOMAIN,steam.cdn.webra.ru
@@ -21,3 +22,7 @@ DOMAIN,google.cdn.steampipe.steamcontent.com
 DOMAIN,google2.cdn.steampipe.steamcontent.com
 DOMAIN,edge.steam-dns.top.comcast.net
 DOMAIN,edgecast.cdn.steampipe.steamcontent.com
+DOMAIN,act.hoyoverse.com
+DOMAIN-SUFFIX,cdn.ubi.com
+DOMAIN,epicgames-download1.akamaized.net
+DOMAIN,ssl-lvlt.cdn.ea.com
