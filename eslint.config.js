@@ -4,9 +4,9 @@ export default antfu(
   {
     rules: {
       'eqeqeq': ['error', 'always'],
-      'quote-props': [2, 'consistent'],
-      'curly': [2, 'all'],
-      'arrow-parens': [1, 'as-needed'],
+      'quote-props': ['error', 'consistent-as-needed'],
+      'curly': ['error', 'all'],
+      'arrow-parens': ['error', 'as-needed'],
       'prefer-regex-literals': 0,
     },
   },

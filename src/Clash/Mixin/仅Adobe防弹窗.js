@@ -16,7 +16,7 @@ function main(content) {
   content.rules = content.rules ? adobeRules.concat(content.rules) : adobeRules
 
   const extraDNS = {
-    'nameserver': [
+    nameserver: [
       'https://dns.alidns.com/dns-query',
       'https://doh.pub/dns-query',
     ],

@@ -5,7 +5,7 @@ function main(content) {
   // module.exports.parse = ({ content }) => {
   // 额外的DNS设置
   const extraDNS = {
-    'nameserver': [
+    nameserver: [
       'https://dns.alidns.com/dns-query',
       'https://doh.pub/dns-query',
     ],
