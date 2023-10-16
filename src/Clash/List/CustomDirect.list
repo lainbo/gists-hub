@@ -1,5 +1,4 @@
 # 内容：自定义直连规则
-DOMAIN-SUFFIX,sentry.io
 DOMAIN-SUFFIX,xboxlive.com
 DOMAIN-SUFFIX,gog.com
 DOMAIN-SUFFIX,steamcontent.com
