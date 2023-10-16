@@ -1,4 +1,5 @@
 # 内容：自定义直连规则
+HOST-SUFFIX,sentry.io
 HOST-SUFFIX,xboxlive.com,Direct
 HOST-SUFFIX,gog.com,Direct
 HOST-SUFFIX,steamcontent.com,Direct
