@@ -1,5 +1,4 @@
 # 内容：自定义直连规则
-DOMAIN-SUFFIX,sentry.io
 DOMAIN-SUFFIX,xboxlive.com
 DOMAIN-SUFFIX,gog.com
 DOMAIN-SUFFIX,steamcontent.com
@@ -27,3 +26,4 @@ DOMAIN,act.hoyoverse.com
 DOMAIN-SUFFIX,cdn.ubi.com
 DOMAIN,epicgames-download1.akamaized.net
 DOMAIN,ssl-lvlt.cdn.ea.com
+DOMAIN,mercury.jd.com

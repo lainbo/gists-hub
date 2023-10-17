@@ -1,5 +1,4 @@
 # 内容：自定义直连规则
-HOST-SUFFIX,sentry.io
 HOST-SUFFIX,xboxlive.com,Direct
 HOST-SUFFIX,gog.com,Direct
 HOST-SUFFIX,steamcontent.com,Direct
@@ -27,3 +26,4 @@ HOST,act.hoyoverse.com,Direct
 HOST-SUFFIX,cdn.ubi.com,Direct
 HOST,epicgames-download1.akamaized.net,Direct
 HOST,ssl-lvlt.cdn.ea.com,Direct
+HOST,mercury.jd.com,Direct
