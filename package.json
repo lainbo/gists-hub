@@ -25,10 +25,10 @@
     "dotenv": "^16.3.1"
   },
   "devDependencies": {
-    "@antfu/eslint-config": "1.0.0-beta.24",
-    "eslint": "^8.51.0",
-    "pnpm": "^8.9.0",
-    "taze": "^0.11.3"
+    "@antfu/eslint-config": "1.0.0-beta.28",
+    "eslint": "^8.52.0",
+    "pnpm": "^8.9.2",
+    "taze": "^0.11.4"
   },
   "imports": {
     "#src/*": "./src/*"
