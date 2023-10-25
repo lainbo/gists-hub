@@ -1,4 +1,4 @@
-# 内容：自定义规则
+# 内容：经过隐私保护后，需要走代理的规则
 HOST-SUFFIX,sentry.io,Proxy
 HOST-SUFFIX,ip-api.com,Proxy
 HOST-SUFFIX,ipinfo.io,Proxy
@@ -7,4 +7,3 @@ HOST-SUFFIX,fast.com,Proxy
 HOST-SUFFIX,speedtestcustom.com,Proxy
 HOST-SUFFIX,smms.app,Proxy
 HOST-SUFFIX,loli.net,Proxy
-HOST,github.com,Proxy
