@@ -1,2 +1,2 @@
 # 有一些需要走代理的规则被去广告误伤，在这里提前声明
-DOMAIN,github.com
+DOMAIN-SUFFIX,github.com
