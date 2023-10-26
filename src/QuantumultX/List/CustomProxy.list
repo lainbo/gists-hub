@@ -1,4 +1,4 @@
-# 内容：经过隐私保护后，需要走代理的规则
+# 一些在公共规则集中会走直连的地址，在这里变更为走代理，由于该规则在隐私保护之后，所以如果是存在于隐私保护规则中的域名，会优先走隐私保护的规则
 HOST-SUFFIX,sentry.io,Proxy
 HOST-SUFFIX,ip-api.com,Proxy
 HOST-SUFFIX,ipinfo.io,Proxy
