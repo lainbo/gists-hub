@@ -8,3 +8,19 @@ HOST-SUFFIX,speedtestcustom.com,Proxy
 HOST-SUFFIX,smms.app,Proxy
 HOST-SUFFIX,loli.net,Proxy
 HOST-SUFFIX,gen.xyz,Proxy
+
+# 一天天就在那测DNS泄露，全整进来
+HOST-SUFFIX,dnsleaktest.com,Proxy
+HOST-SUFFIX,dnsleak.com,Proxy
+HOST-SUFFIX,expressvpn.com,Proxy
+HOST-SUFFIX,nordvpn.com,Proxy
+HOST-SUFFIX,surfshark.com,Proxy
+HOST-SUFFIX,ipleak.net,Proxy
+HOST-SUFFIX,perfect-privacy.com,Proxy
+HOST-SUFFIX,browserleaks.com,Proxy
+HOST-SUFFIX,browserleaks.org,Proxy
+HOST-SUFFIX,vpnunlimited.com,Proxy
+HOST-SUFFIX,whoer.net,Proxy
+HOST-SUFFIX,whrq.net,Proxy
+HOST,ipv4.ping0.cc,Proxy
+HOST,ipv6.ping0.cc,Proxy
