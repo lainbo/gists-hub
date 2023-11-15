@@ -1,14 +1,17 @@
 import fs from 'node:fs'
 import path from 'node:path'
+import { fileURLToPath } from 'node:url'
+
+const __dirname = path.dirname(fileURLToPath(import.meta.url))
 
 const files = [
-  'gists-hub/src/QuantumultX/List/BanAD.list',
-  'gists-hub/src/QuantumultX/List/BanEasyList.list',
-  'gists-hub/src/QuantumultX/List/BanEasyListChina.list',
+  'src/QuantumultX/List/BanAD.list',
+  'src/QuantumultX/List/BanEasyList.list',
+  'src/QuantumultX/List/BanEasyListChina.list',
 ]
 
 files.forEach(file => {
-  const filePath = path.join(__dirname, file)
+  const filePath = path.join(__dirname, file) // 使用更新后的 __dirname
   const data = fs.readFileSync(filePath, 'utf8')
   const lines = data.split('\n')
 
