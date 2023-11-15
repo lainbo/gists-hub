@@ -11,13 +11,13 @@ const files = [
 ]
 
 files.forEach(file => {
-  const filePath = path.join(__dirname, file) // 使用更新后的 __dirname
+  const filePath = path.join(__dirname, file)
   const data = fs.readFileSync(filePath, 'utf8')
   const lines = data.split('\n')
 
   const processedLines = lines.map(line => {
     if (line.startsWith('DOMAIN')) {
-      return `${line}, Proxy`
+      return `${line},Proxy`
     }
     else if (line.startsWith('IP-CIDR') && line.endsWith(',no-resolve')) {
       return line.replace(',no-resolve', ',Proxy,no-resolve')
