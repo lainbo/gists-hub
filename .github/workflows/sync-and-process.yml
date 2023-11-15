@@ -1,0 +1,44 @@
+name: Sync and Process Files
+
+on:
+  schedule:
+    - cron: '0 0 * * *' # 每天执行一次，例如在 UTC 时间 00:00
+
+jobs:
+  sync-and-process:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout your repo
+        uses: actions/checkout@v2
+        with:
+          repository: lainbo/gists-hub
+          token: ${{ secrets.GITHUB_TOKEN }}
+          path: gists-hub
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v2
+        with:
+          node-version: '18'
+
+      - name: Download and process files
+        run: |
+          # 下载文件
+          curl -o gists-hub/src/QuantumultX/List/BanAD.list https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/master/Clash/BanAD.list
+          curl -o gists-hub/src/QuantumultX/List/BanEasyList.list https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/master/Clash/BanEasyList.list
+          curl -o gists-hub/src/QuantumultX/List/BanEasyListChina.list https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/master/Clash/BanEasyListChina.list
+
+          # 运行 JavaScript 脚本处理文件
+          node process-files.js
+
+      - name: Install dependencies
+        run: npm install
+
+      - name: Commit and push changes
+        run: |
+          cd gists-hub
+          git config user.name "Jason Liang"
+          git config user.email "github@example.com"
+          git add src/QuantumultX/List/*
+          git commit -m "Update lists"
+          git push
