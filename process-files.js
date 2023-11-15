@@ -17,10 +17,10 @@ files.forEach(file => {
 
   const processedLines = lines.map(line => {
     if (line.startsWith('DOMAIN')) {
-      return `${line},Proxy`
+      return `${line},Advertising`
     }
     else if (line.startsWith('IP-CIDR') && line.endsWith(',no-resolve')) {
-      return line.replace(',no-resolve', ',Proxy,no-resolve')
+      return line.replace(',no-resolve', ',Advertising,no-resolve')
     }
     return line
   })
