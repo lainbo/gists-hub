@@ -29,12 +29,10 @@ jobs:
           curl -o gists-hub/src/QuantumultX/List/BanEasyList.list https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/master/Clash/BanEasyList.list
           curl -o gists-hub/src/QuantumultX/List/BanEasyListChina.list https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/master/Clash/BanEasyListChina.list
 
-          # 运行 JavaScript 脚本处理文件
           cd gists-hub
-          node process-files.js
 
-      - name: Install dependencies
-        run: npm install
+          # 运行 JavaScript 脚本处理文件
+          node process-files.js
 
       - name: Commit and push changes
         run: |
