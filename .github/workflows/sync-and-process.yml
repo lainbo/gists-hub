@@ -30,6 +30,7 @@ jobs:
           curl -o gists-hub/src/QuantumultX/List/BanEasyListChina.list https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/master/Clash/BanEasyListChina.list
 
           # 运行 JavaScript 脚本处理文件
+          cd gists-hub
           node process-files.js
 
       - name: Install dependencies
