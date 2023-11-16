@@ -28,10 +28,8 @@ jobs:
 
           # 处理文件
           echo "正在将文件处理为QuantumultX可用的格式..."
-          for file in src/QuantumultX/List/*.list; do
-            sed -i '/^DOMAIN/{s/^DOMAIN/HOST/; s/$/,Advertising/}' "$file"
-            sed -i '/^IP-CIDR.*no-resolve/s/no-resolve/Advertising,&/' "$file"
-          done
+          sed -i '/^DOMAIN/{s/^DOMAIN/HOST/; s/$/,Advertising/}' src/QuantumultX/List/*.list
+          sed -i '/^IP-CIDR.*no-resolve/s/no-resolve/Advertising,&/' src/QuantumultX/List/*.list
           echo "处理完成"
 
       - name: Commit and push changes
