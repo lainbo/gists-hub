@@ -17,6 +17,7 @@ files.forEach((file) => {
   const lines = data.split('\n')
 
   const processedLines = lines.map((line) => {
+    // TODO:处理成QuantumultX专用的格式
     if (line.startsWith('DOMAIN')) {
       return `${line},Advertising`
     }
