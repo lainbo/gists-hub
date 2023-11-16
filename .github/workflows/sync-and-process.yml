@@ -19,6 +19,8 @@ jobs:
 
       - name: Download and process files
         run: |
+          # 创建一个存放需要处理格式文件的目标文件夹
+          mkdir -p gists-hub/src/QuantumultX/List/RemoteAdRules
           # 下载文件
           curl -o gists-hub/src/QuantumultX/List/RemoteAdRules/BanAD.list https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/master/Clash/BanAD.list
           curl -o gists-hub/src/QuantumultX/List/RemoteAdRules/BanEasyList.list https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/master/Clash/BanEasyList.list
