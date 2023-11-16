@@ -1,6 +1,6 @@
-# 本碎片只包含常见广告关键字、广告联盟。无副作用，放心使用,Advertising
-,Advertising
-# 广告关键词,Advertising
+# 本碎片只包含常见广告关键字、广告联盟。无副作用，放心使用
+
+# 广告关键词
 HOST-KEYWORD,admarvel,Advertising
 HOST-KEYWORD,admaster,Advertising
 HOST-KEYWORD,adsage,Advertising
@@ -25,8 +25,8 @@ HOST-KEYWORD,socdm,Advertising
 HOST-KEYWORD,supersonicads,Advertising
 HOST-KEYWORD,wlmonitor,Advertising
 HOST-KEYWORD,zjtoolbar,Advertising
-,Advertising
-# 广告联盟-国内****************,Advertising
+
+# 广告联盟-国内****************
 HOST-SUFFIX,09mk.cn,Advertising
 HOST-SUFFIX,100peng.com,Advertising
 HOST-SUFFIX,114la.com,Advertising
@@ -421,8 +421,8 @@ HOST-SUFFIX,zhiziyun.com,Advertising
 HOST-SUFFIX,zhjfad.com,Advertising
 HOST-SUFFIX,zqzxz.com,Advertising
 HOST-SUFFIX,zzsx8.com,Advertising
-,Advertising
-# 广告联盟-国外****************,Advertising
+
+# 广告联盟-国外****************
 HOST-SUFFIX,acuityplatform.com,Advertising
 HOST-SUFFIX,ad-stir.com,Advertising
 HOST-SUFFIX,ad-survey.com,Advertising
@@ -575,8 +575,8 @@ HOST-SUFFIX,yadro.ru,Advertising
 HOST-SUFFIX,yengo.com,Advertising
 HOST-SUFFIX,zedo.com,Advertising
 HOST-SUFFIX,zemanta.com,Advertising
-,Advertising
-# 垃圾站点****************,Advertising
+
+# 垃圾站点****************
 HOST-SUFFIX,11h5.com,Advertising
 HOST-SUFFIX,1kxun.mobi,Advertising
 HOST-SUFFIX,26zsd.cn,Advertising
@@ -592,11 +592,11 @@ HOST-SUFFIX,wanfeng1.com,Advertising
 HOST-SUFFIX,wep016.top,Advertising
 HOST-SUFFIX,win-stock.com.cn,Advertising
 HOST-SUFFIX,zantainet.com,Advertising
-,Advertising
+
 HOST-SUFFIX,dh54wf.xyz,Advertising
 HOST-SUFFIX,g2q3e.cn,Advertising
-,Advertising
-# 运营商广告****************,Advertising
+
+# 运营商广告****************
 HOST-SUFFIX,114so.cn,Advertising
 HOST-SUFFIX,go.10086.cn,Advertising
 HOST-SUFFIX,hivedata.cc,Advertising
