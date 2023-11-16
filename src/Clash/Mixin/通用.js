@@ -81,7 +81,7 @@ function main(content) {
     groups.splice(1, 0, gptGroup, adobeGroup)
 
     // 修改自动测速地址
-    groups.forEach(groupItem => {
+    groups.forEach((groupItem) => {
       if (delayTestTypeList.includes(groupItem.type) && Boolean(groupItem.url)) {
         groupItem.url = delayTestUrl
       }

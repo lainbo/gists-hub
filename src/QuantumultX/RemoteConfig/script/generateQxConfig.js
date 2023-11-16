@@ -17,7 +17,7 @@ const outputFile = path.join(outputDir, 'QX.conf')
 // 把json格式的订阅信息，转换成QuantumultX配置文件中的格式
 async function subscriptionConversion(jsonStr) {
   const serverConfigs = JSON.parse(jsonStr)
-  const res = serverConfigs.map(config => {
+  const res = serverConfigs.map((config) => {
     const parts = [
       config.url,
       config.tag && `tag=${config.tag}`,

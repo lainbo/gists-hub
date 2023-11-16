@@ -15,7 +15,7 @@ async function generateConfig({
     await fs.mkdir(outputDir, { recursive: true }) // 创建输出目录
     const outputData = templateContent
       .replace(remoteFlag, subscriptionInfo)
-      .replace(/# doh-server=/, _match => {
+      .replace(/# doh-server=/, (_match) => {
         const envDoHArr = envDoH.filter(Boolean) // 过滤有效的DoH
         // 优先使用环境变量中的DoH
         if (envDoHArr?.length) {

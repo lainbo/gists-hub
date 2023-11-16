@@ -10,12 +10,13 @@ const files = [
   'src/QuantumultX/List/BanEasyListChina.list',
 ]
 
-files.forEach(file => {
+console.log('正在将文件处理为QuantumultX可用的格式...')
+files.forEach((file) => {
   const filePath = path.join(__dirname, file)
   const data = fs.readFileSync(filePath, 'utf8')
   const lines = data.split('\n')
 
-  const processedLines = lines.map(line => {
+  const processedLines = lines.map((line) => {
     if (line.startsWith('DOMAIN')) {
       return `${line},Advertising`
     }
@@ -27,3 +28,4 @@ files.forEach(file => {
 
   fs.writeFileSync(filePath, processedLines.join('\n'))
 })
+console.log('处理完成')
