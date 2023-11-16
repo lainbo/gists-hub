@@ -29,8 +29,8 @@ jobs:
           # 处理文件
           echo "正在将文件处理为QuantumultX可用的格式..."
           for file in src/QuantumultX/List/*.list; do
-            sed -i 's/^DOMAIN/\0,Advertising/' "$file"
-            sed -i 's/^\(IP-CIDR.*\),no-resolve/\1,Advertising,no-resolve/' "$file"
+            sed -i '/^DOMAIN/s/$/,Advertising/' "$file"
+            sed -i '/^IP-CIDR.*no-resolve/s/no-resolve/Advertising,&/' "$file"
           done
           echo "处理完成"
 
