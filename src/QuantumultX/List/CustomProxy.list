@@ -1,26 +1,26 @@
-# 一些在公共规则集中会走直连的地址，在这里变更为走代理，由于该规则在隐私保护之后，所以如果是存在于隐私保护规则中的域名，会优先走隐私保护的规则,Advertising,Advertising
-HOST-SUFFIX,sentry.io,Proxy,Advertising,Advertising
-HOST-SUFFIX,ip-api.com,Proxy,Advertising,Advertising
-HOST-SUFFIX,ipinfo.io,Proxy,Advertising,Advertising
-HOST-SUFFIX,scamalytics.com,Proxy,Advertising,Advertising
-HOST-SUFFIX,fast.com,Proxy,Advertising,Advertising
-HOST-SUFFIX,speedtestcustom.com,Proxy,Advertising,Advertising
-HOST-SUFFIX,smms.app,Proxy,Advertising,Advertising
-HOST-SUFFIX,loli.net,Proxy,Advertising,Advertising
-HOST-SUFFIX,gen.xyz,Proxy,Advertising,Advertising
-,Advertising,Advertising
-# 一天天就在那测DNS泄露，全整进来,Advertising,Advertising
-HOST-SUFFIX,dnsleaktest.com,Proxy,Advertising,Advertising
-HOST-SUFFIX,dnsleak.com,Proxy,Advertising,Advertising
-HOST-SUFFIX,expressvpn.com,Proxy,Advertising,Advertising
-HOST-SUFFIX,nordvpn.com,Proxy,Advertising,Advertising
-HOST-SUFFIX,surfshark.com,Proxy,Advertising,Advertising
-HOST-SUFFIX,ipleak.net,Proxy,Advertising,Advertising
-HOST-SUFFIX,perfect-privacy.com,Proxy,Advertising,Advertising
-HOST-SUFFIX,browserleaks.com,Proxy,Advertising,Advertising
-HOST-SUFFIX,browserleaks.org,Proxy,Advertising,Advertising
-HOST-SUFFIX,vpnunlimited.com,Proxy,Advertising,Advertising
-HOST-SUFFIX,whoer.net,Proxy,Advertising,Advertising
-HOST-SUFFIX,whrq.net,Proxy,Advertising,Advertising
-HOST,ipv4.ping0.cc,Proxy,Advertising,Advertising
-HOST,ipv6.ping0.cc,Proxy,Advertising,Advertising
+# 一些在公共规则集中会走直连的地址，在这里变更为走代理，由于该规则在隐私保护之后，所以如果是存在于隐私保护规则中的域名，会优先走隐私保护的规则
+HOST-SUFFIX,sentry.io,Proxy
+HOST-SUFFIX,ip-api.com,Proxy
+HOST-SUFFIX,ipinfo.io,Proxy
+HOST-SUFFIX,scamalytics.com,Proxy
+HOST-SUFFIX,fast.com,Proxy
+HOST-SUFFIX,speedtestcustom.com,Proxy
+HOST-SUFFIX,smms.app,Proxy
+HOST-SUFFIX,loli.net,Proxy
+HOST-SUFFIX,gen.xyz,Proxy
+
+# 一天天就在那测DNS泄露，全整进来
+HOST-SUFFIX,dnsleaktest.com,Proxy
+HOST-SUFFIX,dnsleak.com,Proxy
+HOST-SUFFIX,expressvpn.com,Proxy
+HOST-SUFFIX,nordvpn.com,Proxy
+HOST-SUFFIX,surfshark.com,Proxy
+HOST-SUFFIX,ipleak.net,Proxy
+HOST-SUFFIX,perfect-privacy.com,Proxy
+HOST-SUFFIX,browserleaks.com,Proxy
+HOST-SUFFIX,browserleaks.org,Proxy
+HOST-SUFFIX,vpnunlimited.com,Proxy
+HOST-SUFFIX,whoer.net,Proxy
+HOST-SUFFIX,whrq.net,Proxy
+HOST,ipv4.ping0.cc,Proxy
+HOST,ipv6.ping0.cc,Proxy

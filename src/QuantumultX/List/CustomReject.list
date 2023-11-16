@@ -1,2 +1,2 @@
-# 内容：防止Adobe系列软件弹盗版,Advertising,Advertising
-HOST-SUFFIX,adobe.io,REJECT,Advertising,Advertising
+# 内容：防止Adobe系列软件弹盗版
+HOST-SUFFIX,adobe.io,REJECT

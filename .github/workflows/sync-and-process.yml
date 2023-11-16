@@ -28,8 +28,15 @@ jobs:
 
           # 处理文件
           echo "正在将文件处理为QuantumultX可用的格式..."
-          sed -i '/^DOMAIN/{s/^DOMAIN/HOST/; s/$/,Advertising/}' src/QuantumultX/List/*.list
-          sed -i '/^IP-CIDR.*no-resolve/s/no-resolve/Advertising,&/' src/QuantumultX/List/*.list
+          sed -i '/^DOMAIN/{s/^DOMAIN/HOST/; s/$/,Advertising/}' src/QuantumultX/List/BanAD.list
+          sed -i '/^IP-CIDR.*no-resolve/s/no-resolve/Advertising,&/' src/QuantumultX/List/BanAD.list
+
+          sed -i '/^DOMAIN/{s/^DOMAIN/HOST/; s/$/,Advertising/}' src/QuantumultX/List/BanEasyList.list
+          sed -i '/^IP-CIDR.*no-resolve/s/no-resolve/Advertising,&/' src/QuantumultX/List/BanEasyList.list
+
+          sed -i '/^DOMAIN/{s/^DOMAIN/HOST/; s/$/,Advertising/}' src/QuantumultX/List/BanEasyListChina.list
+          sed -i '/^IP-CIDR.*no-resolve/s/no-resolve/Advertising,&/' src/QuantumultX/List/BanEasyListChina.list
+
           echo "处理完成"
 
       - name: Commit and push changes
