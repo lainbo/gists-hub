@@ -20,22 +20,16 @@ jobs:
       - name: Download and process files
         run: |
           # 下载文件
-          curl -o gists-hub/src/QuantumultX/List/BanAD.list https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/master/Clash/BanAD.list
-          curl -o gists-hub/src/QuantumultX/List/BanEasyList.list https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/master/Clash/BanEasyList.list
-          curl -o gists-hub/src/QuantumultX/List/BanEasyListChina.list https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/master/Clash/BanEasyListChina.list
+          curl -o gists-hub/src/QuantumultX/List/RemoteAdRules/BanAD.list https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/master/Clash/BanAD.list
+          curl -o gists-hub/src/QuantumultX/List/RemoteAdRules/BanEasyList.list https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/master/Clash/BanEasyList.list
+          curl -o gists-hub/src/QuantumultX/List/RemoteAdRules/BanEasyListChina.list https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/master/Clash/BanEasyListChina.list
 
           cd gists-hub
 
           # 处理文件
           echo "正在将文件处理为QuantumultX可用的格式..."
-          sed -i '/^DOMAIN/{s/^DOMAIN/HOST/; s/$/,Advertising/}' src/QuantumultX/List/BanAD.list
-          sed -i '/^IP-CIDR.*no-resolve/s/no-resolve/Advertising,&/' src/QuantumultX/List/BanAD.list
-
-          sed -i '/^DOMAIN/{s/^DOMAIN/HOST/; s/$/,Advertising/}' src/QuantumultX/List/BanEasyList.list
-          sed -i '/^IP-CIDR.*no-resolve/s/no-resolve/Advertising,&/' src/QuantumultX/List/BanEasyList.list
-
-          sed -i '/^DOMAIN/{s/^DOMAIN/HOST/; s/$/,Advertising/}' src/QuantumultX/List/BanEasyListChina.list
-          sed -i '/^IP-CIDR.*no-resolve/s/no-resolve/Advertising,&/' src/QuantumultX/List/BanEasyListChina.list
+          sed -i '/^DOMAIN/{s/^DOMAIN/HOST/; s/$/,Advertising/}' src/QuantumultX/List/RemoteAdRules/*.list
+          sed -i '/^IP-CIDR.*no-resolve/s/no-resolve/Advertising,&/' src/QuantumultX/List/RemoteAdRules/*.list
 
           echo "处理完成"
 
