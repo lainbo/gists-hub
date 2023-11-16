@@ -40,12 +40,12 @@ jobs:
           cd gists-hub
           git config user.name "github-actions[bot]"
           git config user.email "github-actions[bot]@users.noreply.github.com"
-          git add src/QuantumultX/List/*
+          git add src/QuantumultX/List/RemoteAdRules/*
           if git diff --staged --quiet; then
             echo "文件与上游仓库相同，不需要提交，任务结束。"
           else
             echo "检测到文件变化，正在创建提交..."
-            git commit -m "Update AD lists"
+            git commit -m "Automatically synchronized and processed AD lists"
             git push
             echo "提交完成，任务结束。"
           fi
