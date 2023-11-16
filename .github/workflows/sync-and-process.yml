@@ -37,8 +37,6 @@ jobs:
       - name: Commit and push changes
         run: |
           cd gists-hub
-          git config user.name "Jason Liang"
-          git config user.email "github@example.com"
           git add src/QuantumultX/List/*
           git commit -m "Update lists"
           git push
