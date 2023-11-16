@@ -24,7 +24,7 @@ jobs:
 
       - name: Download and process files
         run: |
-          # 正在从上游仓库下载配置
+          # 正在从上游仓库下载配置...
           curl -o gists-hub/src/QuantumultX/List/BanAD.list https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/master/Clash/BanAD.list
           curl -o gists-hub/src/QuantumultX/List/BanEasyList.list https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/master/Clash/BanEasyList.list
           curl -o gists-hub/src/QuantumultX/List/BanEasyListChina.list https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/master/Clash/BanEasyListChina.list
@@ -39,8 +39,10 @@ jobs:
           git config user.email "github-actions[bot]@users.noreply.github.com"
           git add src/QuantumultX/List/*
           if git diff --staged --quiet; then
-            echo "文件没有变化，不需要提交"
+            echo "文件与上游仓库相同，不需要提交，任务结束。"
           else
+            echo "检测到文件变化，正在创建提交..."
             git commit -m "Update AD lists"
             git push
+            echo "提交完成，任务结束。"
           fi
