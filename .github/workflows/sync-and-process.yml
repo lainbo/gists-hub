@@ -11,7 +11,7 @@ jobs:
 
     steps:
       - name: Checkout your repo
-        uses: actions/checkout@v2
+        uses: actions/checkout@v3
         with:
           repository: lainbo/gists-hub
           token: ${{ secrets.GITHUB_TOKEN }}
@@ -29,7 +29,7 @@ jobs:
           # 处理文件
           echo "正在将文件处理为QuantumultX可用的格式..."
           for file in src/QuantumultX/List/*.list; do
-            sed -i 's/^DOMAIN/HOST/; s/$/,Advertising/' "$file"
+            sed -i '/^DOMAIN/s/^DOMAIN/HOST/; s/$/,Advertising/' "$file"
             sed -i '/^IP-CIDR.*no-resolve/s/no-resolve/Advertising,&/' "$file"
           done
           echo "处理完成"
