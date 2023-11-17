@@ -2,7 +2,6 @@
 // Clash for Windows使用module.exports这一行作为开头
 
 function main(content) {
-// module.exports.parse = ({ content }) => {
   // Chat GPT分组只留下包含了以下关键字的节点
   const mustHaveKeywordsList = ['美国', '美國', 'United States', 'USA']
   // 过滤掉美国节点中，包含以下关键字的节点（低质量节点）,每一项均为正则，忽略大小写

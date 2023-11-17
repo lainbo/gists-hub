@@ -1,16 +1,19 @@
-// Clash Verge使用function main这一行作为开头
-// Clash for Windows使用module.exports这一行作为开头
-
 function main(content) {
-  // module.exports.parse = ({ content }) => {
-  // 额外的DNS设置
   const extraDNS = {
-    nameserver: [
-      'https://dns.alidns.com/dns-query',
+    'nameserver': [
       'https://doh.pub/dns-query',
+      'https://dns.alidns.com/dns-query',
     ],
+    'fallback': [
+      'https://8.8.4.4/dns-query',
+    ],
+    'nameserver-policy': {
+      'geosite:cn,private': [
+        'https://1.12.12.12/dns-query',
+        'https://223.5.5.5/dns-query',
+      ],
+    },
   }
-
   content.dns = content.dns ? { ...content.dns, ...extraDNS } : extraDNS
   return content
 }

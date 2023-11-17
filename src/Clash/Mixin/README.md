@@ -18,11 +18,3 @@
 3. 右键新建的配置 - 编辑文件
 4. 粘贴代码，使用`function main`这一行作为开头，保存
 5. 右键新建出来的配置，启用
-
-### Clash for Windows
-1. Settings - Mixin
-2. 把Mixin的Type切换为JavaScript
-3. 点击JavaScript后面的Edit
-4. 粘贴代码，使用`module.exports.parse`这一行作为开头，右下角绿色按钮保存
-5. General - Mixin后面的开关切换为开启
-6. Profiles切换一下订阅确保生效
