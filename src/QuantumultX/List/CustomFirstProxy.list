@@ -1,4 +1,7 @@
 # 有一些需要走代理的域名可能会被广告拦截误伤，在这里提前声明其使用代理
 HOST-SUFFIX,github.com,Proxy
 HOST-SUFFIX,lainbo.com,Proxy
+HOST-SUFFIX,lainbo.me,Proxy
+HOST-SUFFIX,889777.xyz,Proxy
+HOST-SUFFIX,ccvv.fun,Proxy
 HOST-SUFFIX,jason-liang.com,Proxy
