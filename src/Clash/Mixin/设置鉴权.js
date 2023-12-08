@@ -8,6 +8,5 @@ function main(content) {
   const authInfo = {
     authentication: ['admin:1234567890'],
   }
-  Object.assign(authInfo, content)
-  return authInfo
+  return Object.assign(authInfo, content)
 }
