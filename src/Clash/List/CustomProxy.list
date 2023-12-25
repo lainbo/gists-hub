@@ -1,4 +1,12 @@
-# 一些在公共规则集中会走直连的地址，在这里变更为走代理，由于该规则在广告拦截之后，所以如果是存在于广告拦截规则中的域名，会优先走广告拦截的规则
+# 有一些需要走代理的域名可能会被广告拦截误伤，在这里提前声明其使用代理
+DOMAIN-SUFFIX,github.com
+DOMAIN-SUFFIX,lainbo.com
+DOMAIN-SUFFIX,lainbo.me
+DOMAIN-SUFFIX,889777.xyz
+DOMAIN-SUFFIX,ccvv.fun
+DOMAIN-SUFFIX,jason-liang.com
+
+# 一些在公共规则集中会走直连的地址，在这里变更为走代理
 DOMAIN-SUFFIX,sentry.io
 DOMAIN-SUFFIX,ip-api.com
 DOMAIN-SUFFIX,ipinfo.io
