@@ -1,4 +1,6 @@
+# 本碎片只包含常见广告关键字、广告联盟。无副作用，放心使用
 
+# 广告关键词
 HOST-KEYWORD,admarvel,Advertising
 HOST-KEYWORD,admaster,Advertising
 HOST-KEYWORD,adsage,Advertising
@@ -24,6 +26,7 @@ HOST-KEYWORD,supersonicads,Advertising
 HOST-KEYWORD,wlmonitor,Advertising
 HOST-KEYWORD,zjtoolbar,Advertising
 
+# 广告联盟-国内****************
 HOST-SUFFIX,09mk.cn,Advertising
 HOST-SUFFIX,100peng.com,Advertising
 HOST-SUFFIX,114la.com,Advertising
@@ -420,6 +423,7 @@ HOST-SUFFIX,zqzxz.com,Advertising
 HOST-SUFFIX,zzsx8.com,Advertising
 HOST-SUFFIX,wwads.cn,Advertising
 
+# 广告联盟-国外****************
 HOST-SUFFIX,acuityplatform.com,Advertising
 HOST-SUFFIX,ad-stir.com,Advertising
 HOST-SUFFIX,ad-survey.com,Advertising
@@ -573,6 +577,7 @@ HOST-SUFFIX,yengo.com,Advertising
 HOST-SUFFIX,zedo.com,Advertising
 HOST-SUFFIX,zemanta.com,Advertising
 
+# 垃圾站点****************
 HOST-SUFFIX,11h5.com,Advertising
 HOST-SUFFIX,1kxun.mobi,Advertising
 HOST-SUFFIX,26zsd.cn,Advertising
@@ -592,6 +597,7 @@ HOST-SUFFIX,zantainet.com,Advertising
 HOST-SUFFIX,dh54wf.xyz,Advertising
 HOST-SUFFIX,g2q3e.cn,Advertising
 
+# 运营商广告****************
 HOST-SUFFIX,114so.cn,Advertising
 HOST-SUFFIX,go.10086.cn,Advertising
 HOST-SUFFIX,hivedata.cc,Advertising
