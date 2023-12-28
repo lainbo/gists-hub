@@ -38,15 +38,15 @@ jobs:
       - name: Download OpenAI list and rename
         run: |
           echo "正在下载OpenAI规则文件..."
-          curl -o AI.list https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Clash/OpenAI/OpenAI.list
+          curl -o gists-hub/src/Clash/List/AI.list https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Clash/OpenAI/OpenAI.list
 
       - name: Append CustomAI list content to AI list
         run: |
-          cat gists-hub/src/Clash/List/CustomAI.list >> AI.list
+          cat gists-hub/src/Clash/List/CustomAI.list >> gists-hub/src/Clash/List/AI.list
 
       - name: Remove lines starting with '#'
         run: |
-          sed -i '/^#/d' AI.list
+          sed -i '/^#/d' gists-hub/src/Clash/List/AI.list
 
       - name: Remove lines starting with '#' in existing files
         run: |
@@ -59,7 +59,7 @@ jobs:
           git config user.name "github-actions[bot]"
           git config user.email "github-actions[bot]@users.noreply.github.com"
           git add src/QuantumultX/List/RemoteAdRules/*
-          git add AI.list # 新增添加AI.list文件
+          git add src/Clash/List/AI.list
           if git diff --staged --quiet; then
             echo "文件与上游仓库相同，不需要提交，任务结束。"
           else
