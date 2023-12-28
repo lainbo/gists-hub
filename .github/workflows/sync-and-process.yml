@@ -35,17 +35,36 @@ jobs:
 
           echo "处理完成"
 
+      - name: Download OpenAI list and rename
+        run: |
+          echo "正在下载OpenAI规则文件..."
+          curl -o AI.list https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Clash/OpenAI/OpenAI.list
+
+      - name: Append CustomAI list content to AI list
+        run: |
+          cat gists-hub/src/Clash/List/CustomAI.list >> AI.list
+
+      - name: Remove lines starting with '#'
+        run: |
+          sed -i '/^#/d' AI.list
+
+      - name: Remove lines starting with '#' in existing files
+        run: |
+          sed -i '/^#/d' gists-hub/src/QuantumultX/List/RemoteAdRules/*
+          echo "AI规则文件处理完成"
+
       - name: Commit and push changes
         run: |
           cd gists-hub
           git config user.name "github-actions[bot]"
           git config user.email "github-actions[bot]@users.noreply.github.com"
           git add src/QuantumultX/List/RemoteAdRules/*
+          git add AI.list # 新增添加AI.list文件
           if git diff --staged --quiet; then
             echo "文件与上游仓库相同，不需要提交，任务结束。"
           else
             echo "检测到文件变化，正在创建提交..."
-            git commit -m "Automatically synchronized and processed AD lists"
+            git commit -m "Automatic synchronization of rule lists"
             git push
             echo "提交完成，任务结束。"
           fi
