@@ -41,7 +41,13 @@ jobs:
           curl -o gists-hub/src/Clash/List/AI.list https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Clash/OpenAI/OpenAI.list
           cat gists-hub/src/Clash/List/CustomAI.list >> gists-hub/src/Clash/List/AI.list
           sed -i '/^#/d' gists-hub/src/Clash/List/AI.list
-          echo "AI规则文件同步完成"
+          echo "Clash的AI规则文件同步完成"
+
+          echo "正在同步QuantumultX的OpenAI规则文件..."
+          curl -o gists-hub/src/QuantumultX/List/AI.list https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/QuantumultX/OpenAI/OpenAI.list
+          cat gists-hub/src/QuantumultX/List/CustomAI.list >> gists-hub/src/QuantumultX/List/AI.list
+          sed -i '/^#/d' gists-hub/src/QuantumultX/List/AI.list
+          echo "QuantumultX的AI规则文件同步完成"
 
       - name: Commit and push changes
         run: |
@@ -50,6 +56,7 @@ jobs:
           git config user.email "github-actions[bot]@users.noreply.github.com"
           git add src/QuantumultX/List/RemoteAdRules/*
           git add src/Clash/List/AI.list
+          git add src/QuantumultX/List/AI.list
           if git diff --staged --quiet; then
             echo "文件与上游仓库相同，不需要提交，任务结束。"
           else
