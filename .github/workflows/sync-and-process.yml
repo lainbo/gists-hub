@@ -44,14 +44,9 @@ jobs:
         run: |
           cat gists-hub/src/Clash/List/CustomAI.list >> gists-hub/src/Clash/List/AI.list
 
-      - name: Remove lines starting with '#'
+      - name: Remove lines starting with '#' from AI rules
         run: |
           sed -i '/^#/d' gists-hub/src/Clash/List/AI.list
-
-      - name: Remove lines starting with '#' in existing files
-        run: |
-          sed -i '/^#/d' gists-hub/src/QuantumultX/List/RemoteAdRules/*
-          echo "AI规则文件处理完成"
 
       - name: Commit and push changes
         run: |
