@@ -22,8 +22,6 @@ HOST-SUFFIX,poe.com,AI
 HOST-SUFFIX,segment.io,AI
 HOST-SUFFIX,sentry.io,AI
 HOST-SUFFIX,stripe.com,AI
-HOST-SUFFIX,coze.com,AI
-HOST-SUFFIX,ciciai.com,AI
 HOST-SUFFIX,turn.livekit.cloud,AI
 HOST-KEYWORD,AI,AI
 IP-CIDR,24.199.123.28/32,AI

@@ -17,7 +17,7 @@ jobs:
           token: ${{ secrets.GITHUB_TOKEN }}
           path: gists-hub
 
-      - name: Download and process files
+      - name: Generate QuantumultX de-advertising files
         run: |
           # 创建一个存放需要处理格式文件的目标文件夹
           mkdir -p gists-hub/src/QuantumultX/List/RemoteAdRules
@@ -35,18 +35,13 @@ jobs:
 
           echo "处理完成"
 
-      - name: Download OpenAI list and rename
+      - name: Synchronize and generate AI rules
         run: |
-          echo "正在下载OpenAI规则文件..."
+          echo "正在同步OpenAI规则文件..."
           curl -o gists-hub/src/Clash/List/AI.list https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Clash/OpenAI/OpenAI.list
-
-      - name: Append CustomAI list content to AI list
-        run: |
           cat gists-hub/src/Clash/List/CustomAI.list >> gists-hub/src/Clash/List/AI.list
-
-      - name: Remove lines starting with '#' from AI rules
-        run: |
           sed -i '/^#/d' gists-hub/src/Clash/List/AI.list
+          echo "AI规则文件同步完成"
 
       - name: Commit and push changes
         run: |
