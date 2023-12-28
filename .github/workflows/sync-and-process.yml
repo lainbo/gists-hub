@@ -28,22 +28,17 @@ jobs:
 
           cd gists-hub
 
-          # 处理文件
-          echo "正在将文件处理为QuantumultX可用的格式..."
           sed -i '/^DOMAIN/{s/^DOMAIN/HOST/; s/$/,Advertising/}' src/QuantumultX/List/RemoteAdRules/*.list
           sed -i '/^IP-CIDR.*no-resolve/s/no-resolve/Advertising,&/' src/QuantumultX/List/RemoteAdRules/*.list
-
-          echo "处理完成"
+          echo "已经将广告规则文件处理为QuantumultX可用的格式"
 
       - name: Synchronize and generate AI rules
         run: |
-          echo "正在同步OpenAI规则文件..."
           curl -o gists-hub/src/Clash/List/AI.list https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Clash/OpenAI/OpenAI.list
           cat gists-hub/src/Clash/List/CustomAI.list >> gists-hub/src/Clash/List/AI.list
           sed -i '/^#/d' gists-hub/src/Clash/List/AI.list
-          echo "Clash的AI规则文件同步完成"
+          echo "Clash、Loon、Shadowrocket的AI规则文件同步完成"
 
-          echo "正在同步QuantumultX的OpenAI规则文件..."
           curl -o gists-hub/src/QuantumultX/List/AI.list https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/QuantumultX/OpenAI/OpenAI.list
           cat gists-hub/src/QuantumultX/List/CustomAI.list >> gists-hub/src/QuantumultX/List/AI.list
           sed -i '/^#/d' gists-hub/src/QuantumultX/List/AI.list
