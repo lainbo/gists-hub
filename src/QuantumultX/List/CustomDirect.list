@@ -28,5 +28,6 @@ HOST-SUFFIX,cdn.ubi.com,Direct
 HOST,epicgames-download1.akamaized.net,Direct
 HOST,ssl-lvlt.cdn.ea.com,Direct
 HOST,picture.lainbo.com,Direct
+HOST,pic.lainbo.com,Direct
 HOST,ghproxy.lainbo.com,Direct
 HOST,suc.lainbo.com,Direct
