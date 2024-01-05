@@ -1,4 +1,3 @@
-# 该文件内容会被GitHub Actions自动拼接到AI.list最后
-# 规则文件读取的是AI.list而非本文件
+# 一些其他的AI相关域名
 HOST-SUFFIX,coze.com,AI
 HOST-SUFFIX,ciciai.com,AI
