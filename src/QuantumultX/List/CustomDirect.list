@@ -25,6 +25,7 @@ HOST,edge.steam-dns.top.comcast.net,Direct
 HOST,edgecast.cdn.steampipe.steamcontent.com,Direct
 HOST,act.hoyoverse.com,Direct
 HOST-SUFFIX,cdn.ubi.com,Direct
+HOST-SUFFIX,imgse.com,Direct
 HOST,epicgames-download1.akamaized.net,Direct
 HOST,ssl-lvlt.cdn.ea.com,Direct
 HOST,picture.lainbo.com,Direct
