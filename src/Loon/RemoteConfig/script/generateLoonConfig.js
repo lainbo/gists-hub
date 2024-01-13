@@ -30,6 +30,11 @@ async function subscriptionConversion(jsonStr) {
   return res
 }
 
+// 获取所有以CUSTOM_DOH开头的环境变量
+const envDoH = [...new Set(Object.keys(process.env)
+  .filter(key => key.startsWith('CUSTOM_DOH'))
+  .map(key => process.env[key]))]
+
 async function main() {
   const templateContent = await fs.readFile(configFile, 'utf8') // 读取模板文件
   const serverJson = await fs.readFile(infoFile, 'utf8') // 读取订阅json
@@ -40,7 +45,7 @@ async function main() {
     outputFile,
     templateContent,
     subscriptionInfo: loonServerConfig,
-    envDoH: [process.env.CUSTOM_DOH1, process.env.CUSTOM_DOH2],
+    envDoH,
     defaultDoH: config.defaultDoH,
     appName: 'Loon',
   })
