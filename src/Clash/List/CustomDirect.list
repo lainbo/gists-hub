@@ -32,6 +32,12 @@ DOMAIN,picture.lainbo.com
 DOMAIN,pic.lainbo.com
 DOMAIN,ghproxy.lainbo.com
 DOMAIN,suc.lainbo.com
+PROCESS-NAME,WeChat
+PROCESS-NAME,WeChat.exe
+PROCESS-NAME,QuarkCloudDrive
+PROCESS-NAME,QuarkCloudDrive.exe
+PROCESS-NAME,aDrive
+PROCESS-NAME,aDrive.exe
 PROCESS-NAME,ToDesk
 PROCESS-NAME,ToDesk.exe
 PROCESS-NAME,rustdesk
