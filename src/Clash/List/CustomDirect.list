@@ -28,10 +28,14 @@ DOMAIN-SUFFIX,cdn.ubi.com
 DOMAIN-SUFFIX,imgse.com
 DOMAIN,epicgames-download1.akamaized.net
 DOMAIN,ssl-lvlt.cdn.ea.com
+
 DOMAIN,picture.lainbo.com
 DOMAIN,pic.lainbo.com
 DOMAIN,ghproxy.lainbo.com
 DOMAIN,suc.lainbo.com
+DOMAIN-SUFFIX,apad.pro
+DOMAIN-SUFFIX,cooluc.com
+
 PROCESS-NAME,WeChat
 PROCESS-NAME,WeChat.exe
 PROCESS-NAME,QuarkCloudDrive
