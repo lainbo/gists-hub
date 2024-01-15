@@ -16,6 +16,7 @@ HOST-SUFFIX,speedtestcustom.com,Proxy
 HOST-SUFFIX,smms.app,Proxy
 HOST-SUFFIX,loli.net,Proxy
 HOST-SUFFIX,gen.xyz,Proxy
+HOST-SUFFIX,cloudflare.com,Proxy
 
 # 一天天就在那测DNS泄露，全整进来
 HOST-SUFFIX,dnsleaktest.com,Proxy
