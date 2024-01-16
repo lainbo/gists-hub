@@ -29,10 +29,14 @@ HOST-SUFFIX,imgse.com,Direct
 HOST,epicgames-download1.akamaized.net,Direct
 HOST,ssl-lvlt.cdn.ea.com,Direct
 
+HOST,lainbo.com,Direct
+HOST,www.lainbo.com,Direct
 HOST,picture.lainbo.com,Direct
 HOST,pic.lainbo.com,Direct
 HOST,ghproxy.lainbo.com,Direct
 HOST,suc.lainbo.com,Direct
+HOST,api-sub.ours.day,Direct
+HOST,api-talk.lainbo.com,Direct
 HOST-SUFFIX,apad.pro,Direct
 HOST-SUFFIX,cooluc.com,Direct
 HOST-SUFFIX,codelife.cc,Direct
