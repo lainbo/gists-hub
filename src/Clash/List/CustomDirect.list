@@ -35,6 +35,7 @@ DOMAIN,ghproxy.lainbo.com
 DOMAIN,suc.lainbo.com
 DOMAIN-SUFFIX,apad.pro
 DOMAIN-SUFFIX,cooluc.com
+DOMAIN-SUFFIX,codelife.cc
 
 PROCESS-NAME,WeChat
 PROCESS-NAME,WeChat.exe
