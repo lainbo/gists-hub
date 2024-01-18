@@ -38,6 +38,7 @@ payload:
   - DOMAIN,api-talk.lainbo.com
   - DOMAIN-SUFFIX,apad.pro
   - DOMAIN-SUFFIX,cooluc.com
+  - DOMAIN-SUFFIX,eeff.fun
   - DOMAIN-SUFFIX,codelife.cc
 
   - PROCESS-NAME,WeChat
