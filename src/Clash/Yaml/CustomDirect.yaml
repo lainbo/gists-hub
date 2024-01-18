@@ -1,4 +1,6 @@
 payload:
+  # 一些希望走直连的规则，主要是游戏平台的下载cdn链接，这些链接不需要节点也能有很好的速度
+  # 还有一些网站的关键接口，这些接口往往reject掉会造成网页很慢，在这里声明防止reject
   - DOMAIN-SUFFIX,xboxlive.com
   - DOMAIN-SUFFIX,gog.com
   - DOMAIN-SUFFIX,steamcontent.com
@@ -41,13 +43,13 @@ payload:
   - DOMAIN-SUFFIX,eeff.fun
   - DOMAIN-SUFFIX,codelife.cc
 
-  - PROCESS-NAME,WeChat
-  - PROCESS-NAME,WeChat.exe
-  - PROCESS-NAME,QuarkCloudDrive
-  - PROCESS-NAME,QuarkCloudDrive.exe
-  - PROCESS-NAME,aDrive
-  - PROCESS-NAME,aDrive.exe
-  - PROCESS-NAME,ToDesk
-  - PROCESS-NAME,ToDesk.exe
-  - PROCESS-NAME,rustdesk
-  - PROCESS-NAME,rustdesk.exe
+  # PROCESS-NAME,WeChat
+  # PROCESS-NAME,WeChat.exe
+  # PROCESS-NAME,QuarkCloudDrive
+  # PROCESS-NAME,QuarkCloudDrive.exe
+  # PROCESS-NAME,aDrive
+  # PROCESS-NAME,aDrive.exe
+  # PROCESS-NAME,ToDesk
+  # PROCESS-NAME,ToDesk.exe
+  # PROCESS-NAME,rustdesk
+  # PROCESS-NAME,rustdesk.exe
