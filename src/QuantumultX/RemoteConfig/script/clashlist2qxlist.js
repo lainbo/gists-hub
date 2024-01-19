@@ -34,9 +34,9 @@ async function convertFiles() {
           }
           return null
         }).filter(line => line !== null)
-
+        const header = '# 该文件为自动生成\n'
         if (convertedLines.length > 0) {
-          await fs.writeFile(outputFilePath, convertedLines.join('\n'))
+          await fs.writeFile(outputFilePath, `${header + convertedLines.join('\n')}\n`)
         }
       }
     }

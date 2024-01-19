@@ -19,7 +19,9 @@
     "downloadQx": "node ./src/QuantumultX/RemoteConfig/script/downloadQx.js",
     "downloadLoon": "node ./src/Loon/RemoteConfig/script/downloadLoon.js",
     "lint:fix": "eslint . --fix",
-    "up": "taze major -I"
+    "up": "taze major -I",
+    "pre-commit-tasks": "concurrently \"pnpm run generateClashYaml\" \"pnpm run generateQxList\" \"pnpm run syncQx\" \"pnpm run syncLoon\"",
+    "prepare": "husky install"
   },
   "dependencies": {
     "@octokit/core": "^5.0.2",
@@ -28,7 +30,9 @@
   },
   "devDependencies": {
     "@antfu/eslint-config": "1.1.2",
-    "eslint": "^8.56.0"
+    "concurrently": "^8.2.2",
+    "eslint": "^8.56.0",
+    "husky": "^8.0.3"
   },
   "imports": {
     "#src/*": "./src/*"
