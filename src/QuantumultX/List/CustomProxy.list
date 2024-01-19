@@ -1,12 +1,9 @@
-# 有一些需要走代理的域名可能会被广告拦截误伤，在这里提前声明其使用代理
 HOST-SUFFIX,github.com,Proxy
 HOST-SUFFIX,lainbo.com,Proxy
 HOST-SUFFIX,lainbo.me,Proxy
 HOST-SUFFIX,889777.xyz,Proxy
 HOST-SUFFIX,ccvv.fun,Proxy
 HOST-SUFFIX,jason-liang.com,Proxy
-
-# 一些在公共规则集中会走直连的地址，在这里变更为走代理
 HOST-SUFFIX,sentry.io,Proxy
 HOST-SUFFIX,ip-api.com,Proxy
 HOST-SUFFIX,ipinfo.io,Proxy
@@ -16,9 +13,6 @@ HOST-SUFFIX,speedtestcustom.com,Proxy
 HOST-SUFFIX,smms.app,Proxy
 HOST-SUFFIX,loli.net,Proxy
 HOST-SUFFIX,gen.xyz,Proxy
-HOST-SUFFIX,cloudflare.com,Proxy
-
-# 一天天就在那测DNS泄露，全整进来
 HOST-SUFFIX,dnsleaktest.com,Proxy
 HOST-SUFFIX,dnsleak.com,Proxy
 HOST-SUFFIX,expressvpn.com,Proxy
