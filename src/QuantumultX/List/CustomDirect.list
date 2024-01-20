@@ -39,3 +39,5 @@ HOST-SUFFIX,apad.pro,Proxy
 HOST-SUFFIX,cooluc.com,Proxy
 HOST-SUFFIX,eeff.fun,Proxy
 HOST-SUFFIX,codelife.cc,Proxy
+IP-CIDR,23.165.248.103,Proxy
+IP-CIDR,23.158.24.48,Proxy
