@@ -33,6 +33,7 @@ payload:
   - DOMAIN-SUFFIX,apad.pro
   - DOMAIN-SUFFIX,cooluc.com
   - DOMAIN-SUFFIX,codelife.cc
+  - IP-CIDR,47.109.80.62/32
   - IP-CIDR,23.165.248.103/32
   - IP-CIDR,23.158.24.48/32
   - IP-CIDR,149.104.22.219/32
