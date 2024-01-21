@@ -30,20 +30,12 @@ payload:
   - DOMAIN,epicgames-download1.akamaized.net
   - DOMAIN,ssl-lvlt.cdn.ea.com
 
-  - DOMAIN,lainbo.com
-  - DOMAIN,www.lainbo.com
-  - DOMAIN,picture.lainbo.com
-  - DOMAIN,pic.lainbo.com
-  - DOMAIN,ghproxy.lainbo.com
-  - DOMAIN,suc.lainbo.com
-  - DOMAIN,api-sub.ours.day
-  - DOMAIN,api-talk.lainbo.com
   - DOMAIN-SUFFIX,apad.pro
   - DOMAIN-SUFFIX,cooluc.com
-  - DOMAIN-SUFFIX,eeff.fun
   - DOMAIN-SUFFIX,codelife.cc
   - IP-CIDR,23.165.248.103/32
   - IP-CIDR,23.158.24.48/32
+  - IP-CIDR,149.104.22.219/32
 
   # PROCESS-NAME,WeChat
   # PROCESS-NAME,WeChat.exe
