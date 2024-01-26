@@ -27,6 +27,9 @@ HOST-SUFFIX,cdn.ubi.com,Proxy
 HOST-SUFFIX,imgse.com,Proxy
 HOST,epicgames-download1.akamaized.net,Proxy
 HOST,ssl-lvlt.cdn.ea.com,Proxy
+HOST,font.alnk.cn,Proxy
 HOST-SUFFIX,apad.pro,Proxy
 HOST-SUFFIX,cooluc.com,Proxy
 HOST-SUFFIX,codelife.cc,Proxy
+HOST-SUFFIX,sustech.edu.cn,Proxy
+HOST-SUFFIX,webcache.cn,Proxy

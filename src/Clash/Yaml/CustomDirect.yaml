@@ -29,7 +29,10 @@ payload:
   - DOMAIN-SUFFIX,imgse.com
   - DOMAIN,epicgames-download1.akamaized.net
   - DOMAIN,ssl-lvlt.cdn.ea.com
+  - DOMAIN,font.alnk.cn
 
   - DOMAIN-SUFFIX,apad.pro
   - DOMAIN-SUFFIX,cooluc.com
   - DOMAIN-SUFFIX,codelife.cc
+  - DOMAIN-SUFFIX,sustech.edu.cn
+  - DOMAIN-SUFFIX,webcache.cn
