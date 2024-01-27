@@ -28,6 +28,8 @@ HOST-SUFFIX,imgse.com,Proxy
 HOST,epicgames-download1.akamaized.net,Proxy
 HOST,ssl-lvlt.cdn.ea.com,Proxy
 HOST,font.alnk.cn,Proxy
+HOST,cdn.xxhzm.cn,Proxy
+HOST,jsd.cdn.zzko.cn,Proxy
 HOST-SUFFIX,webcache.cn,Proxy
 HOST-SUFFIX,webstatic.cn,Proxy
 HOST-SUFFIX,apad.pro,Proxy

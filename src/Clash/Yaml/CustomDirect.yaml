@@ -32,6 +32,8 @@ payload:
 
   # 静态资源CDN
   - DOMAIN,font.alnk.cn
+  - DOMAIN,cdn.xxhzm.cn
+  - DOMAIN,jsd.cdn.zzko.cn
   - DOMAIN-SUFFIX,webcache.cn
   - DOMAIN-SUFFIX,webstatic.cn
   - DOMAIN-SUFFIX,apad.pro
