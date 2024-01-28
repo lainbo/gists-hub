@@ -30,7 +30,7 @@ payload:
   - DOMAIN,epicgames-download1.akamaized.net
   - DOMAIN,ssl-lvlt.cdn.ea.com
 
-  # 静态资源CDN
+  # 带有CDN的域名
   - DOMAIN,font.alnk.cn
   - DOMAIN,cdn.xxhzm.cn
   - DOMAIN,jsd.cdn.zzko.cn
