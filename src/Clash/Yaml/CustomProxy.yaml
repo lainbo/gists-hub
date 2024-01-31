@@ -1,6 +1,5 @@
 payload:
   # 有一些需要走代理的域名可能会被广告拦截误伤，在这里提前声明其使用代理
-  - DOMAIN-SUFFIX,github.com
   - DOMAIN-SUFFIX,lainbo.com
   - DOMAIN-SUFFIX,lainbo.me
   - DOMAIN-SUFFIX,889777.xyz
