@@ -29,6 +29,7 @@ payload:
   - DOMAIN-SUFFIX,imgse.com
   - DOMAIN,epicgames-download1.akamaized.net
   - DOMAIN,ssl-lvlt.cdn.ea.com
+  - DOMAIN-SUFFIX,azure.cn
 
   # 带有CDN的域名
   - DOMAIN,font.alnk.cn
