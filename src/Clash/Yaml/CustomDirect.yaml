@@ -50,3 +50,14 @@ payload:
   - IP-CIDR,149.104.22.219/32
   - IP-CIDR,23.165.248.103/32
   - IP-CIDR,23.158.24.48/32
+
+  # PROCESS-NAME,WeChat
+  # PROCESS-NAME,WeChat.exe
+  # PROCESS-NAME,QuarkCloudDrive
+  # PROCESS-NAME,QuarkCloudDrive.exe
+  # PROCESS-NAME,aDrive
+  # PROCESS-NAME,aDrive.exe
+  # PROCESS-NAME,ToDesk
+  # PROCESS-NAME,ToDesk.exe
+  # PROCESS-NAME,rustdesk
+  # PROCESS-NAME,rustdesk.exe
