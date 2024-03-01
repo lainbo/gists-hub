@@ -4,7 +4,8 @@ function main(content) {
     'https://1.12.12.12/dns-query',
   ]
   const trustDnsList = [
-    'https://dns.google/dns-query',
+    'https://doh.apad.pro/dns-query',
+    'https://dns.cooluc.com/dns-query',
     'https://1.0.0.1/dns-query',
   ]
   const extraDNS = {
