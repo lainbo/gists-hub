@@ -1,3 +1,4 @@
+// 根据模板文件生成QuantumultX完整的配置文件
 import fs from 'node:fs/promises'
 import path from 'node:path'
 import process from 'node:process'

@@ -1,3 +1,4 @@
+// 从 gist 下载配置文件
 import path from 'node:path'
 import process from 'node:process'
 import url from 'node:url'

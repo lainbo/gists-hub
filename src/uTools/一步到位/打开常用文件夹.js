@@ -1,7 +1,7 @@
 const fs = require('node:fs')
 
 const pathMap = new Map([
-  ['vb', 'D:/周报/06-汇报总结/01-公司员工/02-工作周报'],
+  ['vb', 'D:/周报/06-汇报总结/01-公司员工/02-工作周报/2024年度'],
 ])
 const path = pathMap.get(ENTER.payload)
 if (path) {

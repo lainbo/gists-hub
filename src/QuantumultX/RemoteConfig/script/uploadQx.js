@@ -1,3 +1,4 @@
+// 将生成的完整的 QuantumultX 配置文件上传到 Gist
 import path from 'node:path'
 import process from 'node:process'
 import url from 'node:url'

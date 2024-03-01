@@ -1,4 +1,4 @@
-// 引入必要的 Node.js 模块
+// 将Clash/List下的所有.list文件转换为Clash/Yaml下的同名.yaml文件
 import fs from 'node:fs'
 import path from 'node:path'
 import { fileURLToPath } from 'node:url'
