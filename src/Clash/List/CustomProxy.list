@@ -1,9 +1,3 @@
-# 有一些需要走代理的域名可能会被广告拦截误伤，在这里提前声明其使用代理
-DOMAIN-SUFFIX,lainbo.com
-DOMAIN-SUFFIX,lainbo.me
-DOMAIN-SUFFIX,ccvv.fun
-DOMAIN-SUFFIX,jason-liang.com
-
 # 一些在公共规则集中会走直连的地址，在这里变更为走代理
 DOMAIN-SUFFIX,sentry.io
 DOMAIN-SUFFIX,ip-api.com
