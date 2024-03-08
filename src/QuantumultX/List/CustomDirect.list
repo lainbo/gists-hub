@@ -40,11 +40,12 @@ HOST-SUFFIX,sustech.edu.cn,Proxy
 HOST-SUFFIX,staticfile.net,Proxy
 HOST-SUFFIX,cqupt.edu.cn,Proxy
 HOST-SUFFIX,onmicrosoft.cn,Proxy
-IP-CIDR,47.109.80.62/32,Proxy
-IP-CIDR,8.210.238.191/32,Proxy
-IP-CIDR,149.104.22.219/32,Proxy
 IP-CIDR,23.165.248.103/32,Proxy
 IP-CIDR,23.158.24.48/32,Proxy
+IP-CIDR,23.106.143.81/32,Proxy
+IP-CIDR,45.78.19.32/32,Proxy
+IP-CIDR,47.109.80.62/32,Proxy
+IP-CIDR,8.210.238.191/32,Proxy
 HOST-SUFFIX,lainbo.com,Proxy
 HOST-SUFFIX,lainbo.me,Proxy
 HOST-SUFFIX,ccvv.fun,Proxy
