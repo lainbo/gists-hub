@@ -1,4 +1,5 @@
 # 一些在公共规则集中会走直连的地址，在这里变更为走代理
+DOMAIN-SUFFIX,rfchost.com
 DOMAIN-SUFFIX,sentry.io
 DOMAIN-SUFFIX,ip-api.com
 DOMAIN-SUFFIX,ipinfo.io
