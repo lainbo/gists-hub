@@ -58,6 +58,7 @@ payload:
   - DOMAIN-SUFFIX,lainbo.me
   - DOMAIN-SUFFIX,ccvv.fun
   - DOMAIN-SUFFIX,jason-liang.com
+  - DOMAIN-SUFFIX,juchats.com
 
   # PROCESS-NAME,WeChat
   # PROCESS-NAME,WeChat.exe
