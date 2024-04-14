@@ -2,4 +2,12 @@ payload:
   # 一些其他的AI相关域名
   - DOMAIN-SUFFIX,coze.com
   - DOMAIN-SUFFIX,ciciai.com
-  - DOMAIN-SUFFIX,chatgpt.com
+  - DOMAIN-SUFFIX,aistudio.google.com
+  - DOMAIN-SUFFIX,ai.google.dev
+  - DOMAIN-SUFFIX,makersuite.google.com
+  - DOMAIN-SUFFIX,content-autofill.googleapis.com
+  - DOMAIN-SUFFIX,content-developerprofiles-pa.googleapis.com
+  - DOMAIN-SUFFIX,alkalicore-pa.clients6.google.com
+  - DOMAIN-SUFFIX,alkalimakersuite-pa.clients6.google.com
+  - DOMAIN-SUFFIX,alkalimetricsink-pa.clients6.google.com
+  - DOMAIN-SUFFIX,generativelanguage.googleapis.com

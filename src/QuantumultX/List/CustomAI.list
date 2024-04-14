@@ -1,4 +1,12 @@
 # 该文件为自动生成
 HOST-SUFFIX,coze.com,Proxy
 HOST-SUFFIX,ciciai.com,Proxy
-HOST-SUFFIX,chatgpt.com,Proxy
+HOST-SUFFIX,aistudio.google.com,Proxy
+HOST-SUFFIX,ai.google.dev,Proxy
+HOST-SUFFIX,makersuite.google.com,Proxy
+HOST-SUFFIX,content-autofill.googleapis.com,Proxy
+HOST-SUFFIX,content-developerprofiles-pa.googleapis.com,Proxy
+HOST-SUFFIX,alkalicore-pa.clients6.google.com,Proxy
+HOST-SUFFIX,alkalimakersuite-pa.clients6.google.com,Proxy
+HOST-SUFFIX,alkalimetricsink-pa.clients6.google.com,Proxy
+HOST-SUFFIX,generativelanguage.googleapis.com,Proxy
