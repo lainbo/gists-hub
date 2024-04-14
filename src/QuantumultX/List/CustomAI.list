@@ -10,3 +10,9 @@ HOST-SUFFIX,alkalicore-pa.clients6.google.com,Proxy
 HOST-SUFFIX,alkalimakersuite-pa.clients6.google.com,Proxy
 HOST-SUFFIX,alkalimetricsink-pa.clients6.google.com,Proxy
 HOST-SUFFIX,generativelanguage.googleapis.com,Proxy
+HOST-SUFFIX,challenges.cloudflare.com,Proxy
+HOST-SUFFIX,openaiapi-site.azureedge.net,Proxy
+HOST-SUFFIX,civitai.com,Proxy
+HOST,bard.google.com,Proxy
+HOST,gemini.google.com,Proxy
+HOST-SUFFIX,opera-api.com,Proxy
