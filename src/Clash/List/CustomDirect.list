@@ -69,3 +69,6 @@ PROCESS-NAME,ToDesk
 PROCESS-NAME,ToDesk.exe
 PROCESS-NAME,rustdesk
 PROCESS-NAME,rustdesk.exe
+PROCESS-NAME,com.taobao.taobao
+
+IP-ASN,132203,no-resolve
