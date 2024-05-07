@@ -48,6 +48,8 @@ async function main() {
     envDoH,
     defaultDoH: config.defaultDoH,
     appName: 'Loon',
+    dnsFlag: 'doh3-server',
+    // 可用的dnsFlag参见: https://nsloon.app/LoonManual/#/cn/dns?id=%e7%9b%b8%e5%85%b3%e9%85%8d%e7%bd%ae
   })
 }
 

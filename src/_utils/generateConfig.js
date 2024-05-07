@@ -10,6 +10,7 @@ async function generateConfig({
   envDoH,
   defaultDoH,
   appName,
+  dnsFlag = 'doh-server',
 }) {
   try {
     await fs.mkdir(outputDir, { recursive: true }) // 创建输出目录
@@ -19,11 +20,11 @@ async function generateConfig({
         const envDoHArr = envDoH.filter(Boolean) // 过滤有效的DoH
         // 优先使用环境变量中的DoH
         if (envDoHArr?.length) {
-          return `doh-server=${envDoHArr.join(',')}`
+          return `${dnsFlag}=${envDoHArr.join(',')}`
         }
         else if (defaultDoH?.length) {
           // 如果环境变量中没有DoH，则使用默认的DoH
-          return `doh-server=${defaultDoH?.join(',')}`
+          return `${dnsFlag}=${defaultDoH?.join(',')}`
         }
         else {
           // 如果没有默认DoH，则注释掉DoH
