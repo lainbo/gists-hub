@@ -41,6 +41,7 @@ HOST-SUFFIX,staticfile.net,Proxy
 HOST-SUFFIX,cqupt.edu.cn,Proxy
 HOST-SUFFIX,onmicrosoft.cn,Proxy
 IP-CIDR,110.41.142.168/32,Proxy
+IP-CIDR,199.15.79.38/32,Proxy
 IP-CIDR,23.106.143.81/32,Proxy
 IP-CIDR,23.158.24.48/32,Proxy
 IP-CIDR,23.165.248.103/32,Proxy
