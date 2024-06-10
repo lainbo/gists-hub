@@ -30,11 +30,22 @@ async function convertFiles() {
         const convertedLines = lines.map((line) => {
           for (const [prefix, replace] of Object.entries(prefixMapping)) {
             if (line.startsWith(prefix)) {
-              return line.replace(prefix, replace) + proxySuffix
+              let convertedLine = line.replace(prefix, replace)
+
+              // 如果原始行包含 no-resolve,将其移到转换后行的最后
+              if (line.endsWith(',no-resolve')) {
+                convertedLine = `${convertedLine.replace(',no-resolve', '')},Proxy,no-resolve`
+              }
+              else {
+                convertedLine += proxySuffix
+              }
+
+              return convertedLine
             }
           }
           return null
         }).filter(line => line !== null)
+
         const header = '# 该文件为自动生成\n'
         if (convertedLines.length > 0) {
           await fs.writeFile(outputFilePath, `${header + convertedLines.join('\n')}\n`)

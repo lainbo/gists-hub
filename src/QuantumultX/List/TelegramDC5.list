@@ -1,6 +1,6 @@
 # 该文件为自动生成
-IP-CIDR,91.108.16.0/21,no-resolve,Proxy
-IP-CIDR,91.108.56.0/23,no-resolve,Proxy
-IP-CIDR,149.154.168.0/22,no-resolve,Proxy
-IP6-CIDR,2001:b28:f23c::/48,no-resolve,Proxy
-IP6-CIDR,2001:b28:f23f::/48,no-resolve,Proxy
+IP-CIDR,91.108.16.0/21,Proxy,no-resolve
+IP-CIDR,91.108.56.0/23,Proxy,no-resolve
+IP-CIDR,149.154.168.0/22,Proxy,no-resolve
+IP6-CIDR,2001:b28:f23c::/48,Proxy,no-resolve
+IP6-CIDR,2001:b28:f23f::/48,Proxy,no-resolve
