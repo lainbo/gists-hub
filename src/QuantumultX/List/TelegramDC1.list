@@ -1,0 +1,4 @@
+# 该文件为自动生成
+IP-CIDR,91.108.12.0/22,no-resolve,Proxy
+IP-CIDR,149.154.172.0/22,no-resolve,Proxy
+IP6-CIDR,2001:b28:f23d::/48,no-resolve,Proxy
