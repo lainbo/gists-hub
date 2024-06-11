@@ -16,8 +16,8 @@ detect_os() {
 os_type=$(detect_os | grep -m1 -oE 'Ubuntu|Debian')
 
 # 检测IPv6支持
-if [ -n "$(ip a | grep inet6)" ]; then
-  # 有IPv6
+if ip -6 addr show scope global | grep -q inet6; then
+  # 有全局IPv6地址
   DNS_SETTINGS="nameserver 1.0.0.1
 nameserver 8.8.4.4
 nameserver 2606:4700:4700::1001
