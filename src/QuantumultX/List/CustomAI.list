@@ -1,6 +1,8 @@
 # 该文件为自动生成
 HOST-SUFFIX,coze.com,Proxy
 HOST-SUFFIX,ciciai.com,Proxy
+HOST-SUFFIX,ciciaicdn.com,Proxy
+HOST-SUFFIX,byteoversea.com,Proxy
 HOST-SUFFIX,aistudio.google.com,Proxy
 HOST-SUFFIX,ai.google.dev,Proxy
 HOST-SUFFIX,makersuite.google.com,Proxy
