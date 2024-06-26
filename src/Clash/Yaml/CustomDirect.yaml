@@ -71,4 +71,5 @@ payload:
   # PROCESS-NAME,ToDesk.exe
   # PROCESS-NAME,rustdesk
   # PROCESS-NAME,rustdesk.exe
+  # PROCESS-NAME,AskLink.exe
   # PROCESS-NAME,com.taobao.taobao
