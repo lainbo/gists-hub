@@ -1,5 +1,6 @@
 DOMAIN,api-talk-v.lainbo.com
 DOMAIN,api-tg.lainbo.com
+DOMAIN,u.lainbo.com
 DOMAIN,clock.lainbo.com
 DOMAIN,component-party.lainbo.com
 DOMAIN,cpu-mark.lainbo.com
@@ -14,6 +15,10 @@ DOMAIN,sub.lainbo.com
 DOMAIN,suc.lainbo.com
 DOMAIN,treechar.lainbo.com
 DOMAIN,v0.lainbo.com
+
+DOMAIN,monaco.lainbo.dev
+DOMAIN,monaco-diff.lainbo.dev
+DOMAIN,one-api.lainbo.dev
 
 DOMAIN,ours.day
 DOMAIN,api-sub.ours.day
