@@ -17,9 +17,5 @@ payload:
   - DOMAIN,treechar.lainbo.com
   - DOMAIN,v0.lainbo.com
 
-  - DOMAIN,monaco.lainbo.dev
-  - DOMAIN,monaco-diff.lainbo.dev
-  - DOMAIN,one-api.lainbo.dev
-
   - DOMAIN,ours.day
   - DOMAIN,api-sub.ours.day

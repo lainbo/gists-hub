@@ -16,8 +16,5 @@ HOST,sub.lainbo.com,Proxy
 HOST,suc.lainbo.com,Proxy
 HOST,treechar.lainbo.com,Proxy
 HOST,v0.lainbo.com,Proxy
-HOST,monaco.lainbo.dev,Proxy
-HOST,monaco-diff.lainbo.dev,Proxy
-HOST,one-api.lainbo.dev,Proxy
 HOST,ours.day,Proxy
 HOST,api-sub.ours.day,Proxy
