@@ -36,6 +36,11 @@ payload:
   - DOMAIN,cdn.xxhzm.cn
   - DOMAIN,jsd.cdn.zzko.cn
   - DOMAIN-SUFFIX,webcache.cn
+  - DOMAIN-SUFFIX,zstatic.net
+  - DOMAIN-SUFFIX,akass.cn
+  - DOMAIN-SUFFIX,jsdmirror.com
+  - DOMAIN,use.sevencdn.com
+  - DOMAIN-SUFFIX,7ed.net
   - DOMAIN-SUFFIX,webstatic.cn
   - DOMAIN-SUFFIX,apad.pro
   - DOMAIN-SUFFIX,cooluc.com

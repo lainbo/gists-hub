@@ -32,6 +32,11 @@ HOST,font.alnk.cn,Proxy
 HOST,cdn.xxhzm.cn,Proxy
 HOST,jsd.cdn.zzko.cn,Proxy
 HOST-SUFFIX,webcache.cn,Proxy
+HOST-SUFFIX,zstatic.net,Proxy
+HOST-SUFFIX,akass.cn,Proxy
+HOST-SUFFIX,jsdmirror.com,Proxy
+HOST,use.sevencdn.com,Proxy
+HOST-SUFFIX,7ed.net,Proxy
 HOST-SUFFIX,webstatic.cn,Proxy
 HOST-SUFFIX,apad.pro,Proxy
 HOST-SUFFIX,cooluc.com,Proxy
