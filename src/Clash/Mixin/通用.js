@@ -72,7 +72,7 @@ function main(content) {
   // 测试延迟的分组类型
   const delayTestTypeList = ['url-test', 'fallback']
   // 延迟测速地址
-  const delayTestUrl = 'https://cp.cloudflare.com/generate_204'
+  const delayTestUrl = 'https://www.google.com/generate_204'
   // 合并分组，修改自动测速地址
   const groups = content?.['proxy-groups'] || []
   if (groups?.length > 1) {
