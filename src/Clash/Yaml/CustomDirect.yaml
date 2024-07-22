@@ -50,20 +50,12 @@ payload:
   - DOMAIN-SUFFIX,cqupt.edu.cn
   - DOMAIN-SUFFIX,onmicrosoft.cn
 
-  - IP-CIDR,110.41.142.168/32
-  - IP-CIDR,199.15.79.38/32
-  - IP-CIDR,23.106.143.81/32
-  - IP-CIDR,23.158.24.48/32
-  - IP-CIDR,23.165.248.103/32
-  - IP-CIDR,206.237.21.55/32
-  - IP-CIDR,38.55.63.83/32
-  - IP-CIDR,45.150.242.216/32
-  - IP-CIDR,45.78.19.32/32
-  - IP-CIDR,47.109.80.62/32
-  - IP-CIDR,47.238.46.53/32
-  - IP-CIDR,8.210.238.191/32
-  - IP-CIDR,89.28.239.155/32
-  - DOMAIN-SUFFIX,lainbo.com
+  - DOMAIN,lainbo.com
+  - DOMAIN,talk.lainbo.com
+  - DOMAIN,ghproxy.lainbo.com
+  - DOMAIN,monaco-diff.lainbo.dev
+  - DOMAIN,monaco.lainbo.dev
+  - DOMAIN,deeplx.eeff.fun
   - DOMAIN-SUFFIX,ours.day
 
   # PROCESS-NAME,WeChat
