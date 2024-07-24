@@ -16,7 +16,9 @@ HOST-SUFFIX,challenges.cloudflare.com,Proxy
 HOST-SUFFIX,openaiapi-site.azureedge.net,Proxy
 HOST-SUFFIX,civitai.com,Proxy
 HOST-SUFFIX,opera-api.com,Proxy
+HOST-SUFFIX,meta.ai,Proxy
 HOST,bard.google.com,Proxy
 HOST,gemini.google.com,Proxy
 HOST,android.chat.openai.com,Proxy
 HOST,ios.chat.openai.com,Proxy
+HOST,ai.meta.com,Proxy
