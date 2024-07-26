@@ -48,7 +48,7 @@ payload:
   - DOMAIN-SUFFIX,sustech.edu.cn
   - DOMAIN-SUFFIX,staticfile.net
   - DOMAIN-SUFFIX,cqupt.edu.cn
-  - DOMAIN-SUFFIX,onmicrosoft.cn
+  - DOMAIN-SUFFIX,pushplus.plus
 
   - DOMAIN,lainbo.com
   - DOMAIN,talk.lainbo.com
