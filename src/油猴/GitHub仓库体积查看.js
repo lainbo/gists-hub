@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         GitHub Repo Size Display
 // @namespace    http://tampermonkey.net/
-// @version      1.2
+// @version      1.3
 // @description  Display repository size on GitHub repo pages
 // @license      MIT
 // @author       Lainbo
@@ -209,22 +209,16 @@
   }
 
   function observePageChanges() {
-    if (observer) {
-      observer.disconnect()
-    }
-
     const targetNode = document.body
     const config = { childList: true, subtree: true }
 
-    observer = new MutationObserver((mutationsList, observer) => {
+    observer = new MutationObserver((mutationsList) => {
       for (const mutation of mutationsList) {
         if (mutation.type === 'childList') {
-          repoTitleComponent = document.querySelector('#repo-title-component')
-          if (repoTitleComponent) {
-            if (!repoTitleComponent.querySelector('.repo-size-label')) {
-              fetchRepoSize()
-            }
-            observer.disconnect()
+          const newRepoTitleComponent = document.querySelector('#repo-title-component')
+          if (newRepoTitleComponent && newRepoTitleComponent !== repoTitleComponent) {
+            repoTitleComponent = newRepoTitleComponent
+            fetchRepoSize()
             break
           }
         }
@@ -233,29 +227,13 @@
 
     observer.observe(targetNode, config)
   }
-  // Function to fetch repo size with retry mechanism
-  function fetchRepoSizeWithRetry(retries = 3, delay = 1000) {
-    fetchRepoSize()
-    if (retries > 0) {
-      setTimeout(() => {
-        const sizeElement = document.querySelector('.repo-size-label')
-        if (!sizeElement || sizeElement.classList.contains('error')) {
-          fetchRepoSizeWithRetry(retries - 1, delay)
-        }
-      }, delay)
-    }
-  }
 
   function init() {
-    fetchRepoSizeWithRetry()
     observePageChanges()
   }
 
   // Register the menu command to set the GitHub token
   GM_registerMenuCommand('Set GitHub Token', createModal)
 
-  window.addEventListener('load', init)
-  document.addEventListener('pjax:end', () => {
-    setTimeout(init, 500)
-  })
+  init()
 })()
