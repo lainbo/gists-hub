@@ -18,9 +18,6 @@
 (function () {
   'use strict'
 
-  let observer
-  let repoTitleComponent
-
   GM_addStyle(`
     .modal-overlay {
         position: fixed;
@@ -102,6 +99,9 @@
     }
 `)
 
+  let observer
+  let repoTitleComponent
+
   function formatSize(sizeInKB) {
     if (sizeInKB >= 1024 * 1024) {
       return `${(sizeInKB / (1024 * 1024)).toFixed(2)} GB`
@@ -117,7 +117,9 @@
   function updateRepoSize(content, isError = false) {
     if (!repoTitleComponent) {
       repoTitleComponent = document.querySelector('#repo-title-component')
-      if (!repoTitleComponent) { return }
+      if (!repoTitleComponent) {
+        return
+      }
     }
 
     let sizeElement = repoTitleComponent.querySelector('.repo-size-label')
@@ -150,7 +152,9 @@
       headers: { Authorization: `token ${token}` },
     })
       .then((response) => {
-        if (!response.ok) { throw new Error(`HTTP error! status: ${response.status}`) }
+        if (!response.ok) {
+          throw new Error(`HTTP error! status: ${response.status}`)
+        }
         return response.json()
       })
       .then((data) => {
