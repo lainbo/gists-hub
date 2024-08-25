@@ -50,6 +50,7 @@ payload:
   - DOMAIN-SUFFIX,staticfile.net
   - DOMAIN-SUFFIX,cqupt.edu.cn
   - DOMAIN-SUFFIX,pushplus.plus
+  - DOMAIN-SUFFIX,cqrcb.com
 
   - DOMAIN,lainbo.com
   - DOMAIN,talk.lainbo.com
