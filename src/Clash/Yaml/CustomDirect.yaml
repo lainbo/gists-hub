@@ -53,6 +53,16 @@ payload:
   - DOMAIN-SUFFIX,cqrcb.com
   - DOMAIN-SUFFIX,midea.com
   - DOMAIN-SUFFIX,smartmidea.net
+  - DOMAIN-SUFFIX,hwwt8.com
+  - DOMAIN-SUFFIX,yumchina.com
+  - DOMAIN-SUFFIX,4008123123.com
+  - DOMAIN-SUFFIX,mijia.tech
+  - DOMAIN-SUFFIX,xiaoaisound.com
+  - DOMAIN-SUFFIX,hzshudian.com
+  - DOMAIN-SUFFIX,lanfanapp.com
+  - DOMAIN-SUFFIX,cpatrk.net
+  - DOMAIN-SUFFIX,vemarsdev.com
+  - DOMAIN-SUFFIX,bosszhipin.com
 
   - DOMAIN,lainbo.com
   - DOMAIN,talk.lainbo.com
