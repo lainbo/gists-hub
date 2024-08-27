@@ -51,6 +51,8 @@ payload:
   - DOMAIN-SUFFIX,cqupt.edu.cn
   - DOMAIN-SUFFIX,pushplus.plus
   - DOMAIN-SUFFIX,cqrcb.com
+  - DOMAIN-SUFFIX,midea.com
+  - DOMAIN-SUFFIX,smartmidea.net
 
   - DOMAIN,lainbo.com
   - DOMAIN,talk.lainbo.com
