@@ -18,3 +18,8 @@ DOMAIN,v0.lainbo.com
 
 DOMAIN,ours.day
 DOMAIN,api-sub.ours.day
+
+DOMAIN-SUFFIX,cursor.sh
+DOMAIN-SUFFIX,cursor.com
+PROCESS-NAME,Cursor.exe
+PROCESS-NAME,Cursor
