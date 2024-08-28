@@ -18,3 +18,5 @@ HOST,treechar.lainbo.com,Proxy
 HOST,v0.lainbo.com,Proxy
 HOST,ours.day,Proxy
 HOST,api-sub.ours.day,Proxy
+HOST-SUFFIX,cursor.sh,Proxy
+HOST-SUFFIX,cursor.com,Proxy
