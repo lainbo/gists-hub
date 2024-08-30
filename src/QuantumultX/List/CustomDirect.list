@@ -64,6 +64,13 @@ HOST,api.sublink.dev,Proxy
 HOST,api.nexconvert.com,Proxy
 HOST,amyconvert.com,Proxy
 HOST,immconvert.com,Proxy
+HOST-SUFFIX,ql1d.com,Proxy
+HOST-SUFFIX,zlpub.com,Proxy
+HOST-SUFFIX,zlpub.cn,Proxy
+HOST-SUFFIX,zlsaas.cn,Proxy
+HOST-SUFFIX,zlbus.cn,Proxy
+HOST-SUFFIX,chinazhile.com,Proxy
+HOST-SUFFIX,zleco.cn,Proxy
 HOST,lainbo.com,Proxy
 HOST,talk.lainbo.com,Proxy
 HOST,ghproxy.lainbo.com,Proxy

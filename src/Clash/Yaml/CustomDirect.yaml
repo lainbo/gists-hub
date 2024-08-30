@@ -68,6 +68,13 @@ payload:
   - DOMAIN,api.nexconvert.com
   - DOMAIN,amyconvert.com
   - DOMAIN,immconvert.com
+  - DOMAIN-SUFFIX,ql1d.com
+  - DOMAIN-SUFFIX,zlpub.com
+  - DOMAIN-SUFFIX,zlpub.cn
+  - DOMAIN-SUFFIX,zlsaas.cn
+  - DOMAIN-SUFFIX,zlbus.cn
+  - DOMAIN-SUFFIX,chinazhile.com
+  - DOMAIN-SUFFIX,zleco.cn
 
   - DOMAIN,lainbo.com
   - DOMAIN,talk.lainbo.com
