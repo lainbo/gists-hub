@@ -1,3 +1,4 @@
+// 用于生成CustomDirectApp.list，内容是一些app的域名，拉取网络上的规则，处理后生成一个合集文件
 import fs from 'node:fs'
 import https from 'node:https'
 import path from 'node:path'
