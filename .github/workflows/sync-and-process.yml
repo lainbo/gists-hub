@@ -18,7 +18,7 @@ jobs:
           path: gists-hub
 
       - name: Setup Node.js
-        uses: actions/setup-node@v3
+        uses: actions/setup-node@v4
         with:
           node-version: '20'
 
@@ -40,22 +40,24 @@ jobs:
           sed -i '/^IP-CIDR.*no-resolve/s/no-resolve/Proxy,&/' src/QuantumultX/List/RemoteOtherRules/GoogleCNProxyIP.list
           echo "已经将广告规则文件处理为QuantumultX可用的格式"
 
-      - name: Generate CustomDirectApp.list
+      - name: Generate CustomDirectApp.list and Clash YAML
         run: |
-          node gists-hub/src/Clash/script/fetchDirectAppRules.js
+          npm run generateDirectAppList
           echo "已生成 CustomDirectApp.list 文件"
+          npm run generateClashYaml
+          echo "已生成 Clash YAML 文件"
 
       - name: Commit and push changes
         run: |
           cd gists-hub
           git config user.name "github-actions[bot]"
           git config user.email "github-actions[bot]@users.noreply.github.com"
-          git add src/QuantumultX/List/RemoteAdRules/* src/QuantumultX/List/RemoteOtherRules/* src/Clash/List/CustomDirectApp.list
+          git add .
           if git diff --staged --quiet; then
             echo "文件与上游仓库相同，不需要提交，任务结束。"
           else
             echo "检测到文件变化，正在创建提交..."
-            git commit -m "自动同步规则列表和生成 CustomDirectApp.list"
+            git commit -m "Automatic synchronization of rule lists"
             git push
             echo "提交完成，任务结束。"
           fi
