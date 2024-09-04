@@ -17,6 +17,11 @@ jobs:
           token: ${{ secrets.GITHUB_TOKEN }}
           path: gists-hub
 
+      - name: Setup Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: '20'
+
       - name: Generate QuantumultX de-advertising files
         run: |
           # 创建存放需要处理格式文件的目标文件夹
@@ -35,17 +40,22 @@ jobs:
           sed -i '/^IP-CIDR.*no-resolve/s/no-resolve/Proxy,&/' src/QuantumultX/List/RemoteOtherRules/GoogleCNProxyIP.list
           echo "已经将广告规则文件处理为QuantumultX可用的格式"
 
+      - name: Generate CustomDirectApp.list
+        run: |
+          node src/Clash/script/fetchDirectAppRules.js
+          echo "已生成 CustomDirectApp.list 文件"
+
       - name: Commit and push changes
         run: |
           cd gists-hub
           git config user.name "github-actions[bot]"
           git config user.email "github-actions[bot]@users.noreply.github.com"
-          git add src/QuantumultX/List/RemoteAdRules/* src/QuantumultX/List/RemoteOtherRules/*
+          git add src/QuantumultX/List/RemoteAdRules/* src/QuantumultX/List/RemoteOtherRules/* src/Clash/List/CustomDirectApp.list
           if git diff --staged --quiet; then
             echo "文件与上游仓库相同，不需要提交，任务结束。"
           else
             echo "检测到文件变化，正在创建提交..."
-            git commit -m "Automatic synchronization of rule lists"
+            git commit -m "自动同步规则列表和生成 CustomDirectApp.list"
             git push
             echo "提交完成，任务结束。"
           fi

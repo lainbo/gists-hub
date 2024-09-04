@@ -10,6 +10,7 @@
   "scripts": {
     "syncQx": "pnpm run generateQx && pnpm run uploadQx",
     "syncLoon": "pnpm run generateLoon && pnpm run uploadLoon",
+    "generateDirectAppList": "node ./src/Clash/script/fetchDirectAppRules.js",
     "generateClashYaml": "node ./src/Clash/script/list2yaml.js",
     "generateQxList": "node ./src/QuantumultX/RemoteConfig/script/clashlist2qxlist.js",
     "generateQx": "node ./src/QuantumultX/RemoteConfig/script/generateQxConfig.js",
