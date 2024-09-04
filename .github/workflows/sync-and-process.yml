@@ -42,6 +42,7 @@ jobs:
 
       - name: Generate CustomDirectApp.list and Clash YAML
         run: |
+          cd gists-hub
           npm run generateDirectAppList
           echo "已生成 CustomDirectApp.list 文件"
           npm run generateClashYaml
