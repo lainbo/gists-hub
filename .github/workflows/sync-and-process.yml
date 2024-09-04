@@ -42,7 +42,7 @@ jobs:
 
       - name: Generate CustomDirectApp.list
         run: |
-          node src/Clash/script/fetchDirectAppRules.js
+          node gists-hub/src/Clash/script/fetchDirectAppRules.js
           echo "已生成 CustomDirectApp.list 文件"
 
       - name: Commit and push changes
