@@ -85,6 +85,7 @@ DOMAIN,monaco-diff.lainbo.dev
 DOMAIN,monaco.lainbo.dev
 DOMAIN,deeplx.eeff.fun
 DOMAIN-SUFFIX,ours.day
+DOMAIN-SUFFIX,xiaomixiaoai.com
 
 PROCESS-NAME,WeChat
 PROCESS-NAME,WeChat.exe
