@@ -1064,9 +1064,13 @@ HOST-SUFFIX,unionpayintl.cn,Proxy
 HOST-SUFFIX,unionpayintl.com,Proxy
 HOST-SUFFIX,unionpaysecure.com,Proxy
 HOST-SUFFIX,baidupan.com,Proxy
+HOST-SUFFIX,bakstotre.com,Proxy
 HOST-SUFFIX,ilanzou.com,Proxy
 HOST-SUFFIX,lanosso.com,Proxy
+HOST-SUFFIX,lanpv.com,Proxy
+HOST-SUFFIX,lanpw.com,Proxy
 HOST-SUFFIX,lanrar.com,Proxy
+HOST-SUFFIX,lanzn.com,Proxy
 HOST-SUFFIX,lanzou.com,Proxy
 HOST-SUFFIX,lanzoub.com,Proxy
 HOST-SUFFIX,lanzouc.com,Proxy
@@ -1090,5 +1094,8 @@ HOST-SUFFIX,lanzouw.com,Proxy
 HOST-SUFFIX,lanzoux.com,Proxy
 HOST-SUFFIX,lanzouy.com,Proxy
 HOST-SUFFIX,lanzov.com,Proxy
+HOST-SUFFIX,lanzv.com,Proxy
+HOST-SUFFIX,ulanzou.com,Proxy
+HOST-SUFFIX,webgetstore.com,Proxy
 HOST-SUFFIX,woozooo.com,Proxy
 HOST-SUFFIX,wwentua.com,Proxy
