@@ -1,4 +1,5 @@
 payload:
+  # 有一些域名，适合不经过任何去广告等东西的过滤，直接走代理，这些域名会优先走代理，即使在后面声明了其他规则，一定不会受到去广告等任何影响
   - DOMAIN,api-talk-v.lainbo.com
   - DOMAIN,api-tg.lainbo.com
   - DOMAIN,u.lainbo.com
