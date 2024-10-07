@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         share-link-copy
 // @namespace    http://tampermonkey.net/
-// @version      1.0.4
+// @version      1.0.5
 // @description  快捷复制便于分享的页面标题和URL，支持自定义快捷键，支持设置是否保留URL参数
 // @license      MIT
 // @author       Lainbo
@@ -18,13 +18,6 @@
 
 (function () {
   'use strict'
-
-  // 创建Trusted Types策略
-  if (window.trustedTypes && window.trustedTypes.createPolicy) {
-    window.trustedTypes.createPolicy('default', {
-      createHTML: string => string,
-    })
-  }
 
   GM_addStyle(`
     .els-notification-Pfq0X5 {
@@ -219,7 +212,7 @@
 
   const showNotification = createNotification()
 
-  // 复制链接的主要函��
+  // 复制链接的主要函数
   function copyLink(isMarkdown = false) {
     const title = document.title
     const url = processUrl(window.location.href, domainsToKeepParams)
@@ -270,12 +263,7 @@
     `
 
     const modalContainer = document.createElement('div')
-    if (window.trustedTypes && window.trustedTypes.defaultPolicy) {
-      modalContainer.innerHTML = window.trustedTypes.defaultPolicy.createHTML(modalHTML)
-    }
-    else {
-      modalContainer.innerHTML = modalHTML
-    }
+    modalContainer.innerHTML = modalHTML
 
     // 使用 top.document.body 而不是 document.body
     top.document.body.appendChild(modalContainer)
