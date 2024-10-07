@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         share-link-copy
 // @namespace    http://tampermonkey.net/
-// @version      1.0.3
+// @version      1.0.4
 // @description  快捷复制便于分享的页面标题和URL，支持自定义快捷键，支持设置是否保留URL参数
 // @license      MIT
 // @author       Lainbo
@@ -27,7 +27,7 @@
   }
 
   GM_addStyle(`
-    .els-notification {
+    .els-notification-Pfq0X5 {
       position: fixed;
       bottom: 20px;
       right: 20px;
@@ -42,7 +42,7 @@
       transition: opacity 0.3s ease-in-out;
       z-index: 9999;
     }
-    .modal-overlay {
+    .modal-overlay-8W2Q7t {
       position: fixed;
       top: 0;
       left: 0;
@@ -54,7 +54,7 @@
       align-items: center;
       z-index: 999999;
     }
-    .modal-content {
+    .modal-content-1Zb3tL {
       background-color: #f6f8fa;
       padding: 24px;
       border-radius: 6px;
@@ -62,19 +62,19 @@
       box-shadow: 0 8px 24px rgba(140,149,159,0.2);
       font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif;
     }
-    .modal-title {
+    .modal-title-cKu8SM {
       font-size: 20px;
       font-weight: 600;
       margin-bottom: 16px;
       color: #24292f;
     }
-    .modal-description {
+    .modal-description-KM3XGv {
       font-size: 14px;
       color: #57606a;
       margin-bottom: 8px;
       line-height: 1.5;
     }
-    .modal-content input[type="text"], .modal-content textarea {
+    .modal-content-1Zb3tL input[type="text"], .modal-content-1Zb3tL textarea {
       width: 100%;
       margin-bottom: 16px;
       padding: 5px 12px;
@@ -90,11 +90,11 @@
       box-shadow: inset 0 1px 0 rgba(208,215,222,0.2);
       box-sizing: border-box;
     }
-    .modal-content textarea {
+    .modal-content-1Zb3tL textarea {
       height: 100px;
       resize: vertical;
     }
-    .modal-content button {
+    .modal-content-1Zb3tL button {
       color: #ffffff;
       background-color: #2da44e;
       padding: 5px 16px;
@@ -110,18 +110,18 @@
       user-select: none;
       margin-left: 8px;
     }
-    .modal-content button.cancel {
+    .modal-content-1Zb3tL button.cancel {
       color: #24292f;
       background-color: #f6f8fa;
       border-color: rgba(27,31,36,0.15);
     }
-    .modal-content button:hover {
+    .modal-content-1Zb3tL button:hover {
       background-color: #2c974b;
     }
-    .modal-content button.cancel:hover {
+    .modal-content-1Zb3tL button.cancel:hover {
       background-color: #f3f4f6;
     }
-    .modal-hint {
+    .modal-hint-8yFDJi {
       font-size: 10px;
       color: #57606a;
       line-height: 1.1;
@@ -129,30 +129,30 @@
       margin: 0;
       user-select: none;
     }
-    #els-domains {
+    #els-domains-7u6z9U {
       resize: none;
       margin-top: 12px;
     }
-    .modal-buttons {
+    .modal-buttons-L5xkyU {
       display: flex;
       justify-content: flex-end;
       margin-top: 16px;
     }
-    .modal-checkbox-container {
+    .modal-checkbox-container-2Tgu5E {
       display: flex;
       align-items: center;
       margin-bottom: 16px;
     }
-    .modal-checkbox-container input[type="checkbox"] {
+    .modal-checkbox-container-2Tgu5E input[type="checkbox"] {
       margin-right: 8px;
       width: auto;
     }
-    .modal-checkbox-container label {
+    .modal-checkbox-container-2Tgu5E label {
       font-size: 14px;
       color: #24292f;
       user-select: none;
     }
-    .modal-content input[type="text"]:focus, .modal-content textarea:focus {
+    .modal-content-1Zb3tL input[type="text"]:focus, .modal-content-1Zb3tL textarea:focus {
       outline: none;
       border-color: #0969da;
       box-shadow: 0 0 0 3px rgba(9, 105, 218, 0.3);
@@ -200,7 +200,7 @@
   function createNotification() {
     return function showNotification(message) {
       const notification = document.createElement('div')
-      notification.className = 'els-notification'
+      notification.className = 'els-notification-Pfq0X5'
       notification.textContent = message
       document.body.appendChild(notification)
 
@@ -219,7 +219,7 @@
 
   const showNotification = createNotification()
 
-  // 复制链接的主要函数
+  // 复制链接的主要函��
   function copyLink(isMarkdown = false) {
     const title = document.title
     const url = processUrl(window.location.href, domainsToKeepParams)
@@ -246,24 +246,24 @@
     const { shortcut, markdownShortcut, domainsToKeepParams, isBlacklistMode, onSave } = options
 
     const modalHTML = `
-      <div class="modal-overlay">
-        <div class="modal-content">
-          <div class="modal-title">设置</div>
-          <div class="modal-description">设置快捷键组合以快速复制页面标题和链接。按 ESC 键撤销更改。</div>
+      <div class="modal-overlay-8W2Q7t">
+        <div class="modal-content-1Zb3tL">
+          <div class="modal-title-cKu8SM">设置</div>
+          <div class="modal-description-KM3XGv">设置快捷键组合以快速复制页面标题和链接。按 ESC 键撤销更改。</div>
           <input type="text" id="els-shortcut" placeholder="按下快捷键组合" value="${shortcut}" readonly>
-          <div class="modal-description">设置快捷键组合以复制 Markdown 格式的链接：</div>
+          <div class="modal-description-KM3XGv">设置快捷键组合以复制 Markdown 格式的链接：</div>
           <input type="text" id="els-markdown-shortcut" placeholder="按下快捷键组合" value="${markdownShortcut}" readonly>
-          <div class="modal-description">参数去除模式：</div>
-          <div class="modal-checkbox-container">
+          <div class="modal-description-KM3XGv">参数去除模式：</div>
+          <div class="modal-checkbox-container-2Tgu5E">
             <input type="checkbox" id="els-blacklist-mode" ${isBlacklistMode ? 'checked' : ''}>
             <label for="els-blacklist-mode">黑名单模式（勾选后，列表中的域名复制时将不保留参数）</label>
           </div>
-          <div class="modal-description" id="els-domains-description">设置需要${isBlacklistMode ? '移除' : '保留'}参数的域名（每行一个）：</div>
-          <div class="modal-hint" id="els-domains-hint">当前为${isBlacklistMode ? '黑名单' : '白名单'}模式。${isBlacklistMode ? '列表中的域名将不保留参数，其他域名将保留参数。' : '列表中的域名将保留参数，其他域名将不保留参数。'}</div>
-          <textarea id="els-domains">${domainsToKeepParams.join('\n')}</textarea>
-          <div class="modal-buttons">
-           <button id="els-cancel" class="cancel">取消</button>
-           <button id="els-save">保存</button>
+          <div class="modal-description-KM3XGv" id="els-domains-description-Cgt5uR">设置需要${isBlacklistMode ? '移除' : '保留'}参数的域名（每行一个）：</div>
+          <div class="modal-hint-8yFDJi" id="els-domains-hint-0DAupg">当前为${isBlacklistMode ? '黑名单' : '白名单'}模式。${isBlacklistMode ? '列表中的域名将不保留参数，其他域名将保留参数。' : '列表中的域名将保留参数，其他域名将不保留参数。'}</div>
+          <textarea id="els-domains-7u6z9U">${domainsToKeepParams.join('\n')}</textarea>
+          <div class="modal-buttons-L5xkyU">
+           <button id="els-cancel-W3OUcP" class="cancel">取消</button>
+           <button id="els-save-e8UfX6">保存</button>
           </div>
         </div>
       </div>
@@ -276,11 +276,13 @@
     else {
       modalContainer.innerHTML = modalHTML
     }
-    document.body.appendChild(modalContainer)
+
+    // 使用 top.document.body 而不是 document.body
+    top.document.body.appendChild(modalContainer)
 
     const markdownShortcutInput = document.getElementById('els-markdown-shortcut')
     const shortcutInput = document.getElementById('els-shortcut')
-    const domainsTextarea = document.getElementById('els-domains')
+    const domainsTextarea = document.getElementById('els-domains-7u6z9U')
     let listeningForShortcut = false
     let currentShortcut = []
     let currentMarkdownShortcut = []
@@ -299,7 +301,8 @@
     }
 
     function closeSettings() {
-      modalContainer.remove()
+      // 修改这里: 从 top.document.body 中移除
+      top.document.body.removeChild(modalContainer)
       document.removeEventListener('keydown', escapeHandler)
       isModalOpen = false
     }
@@ -367,8 +370,8 @@
     })
 
     const blacklistModeCheckbox = document.getElementById('els-blacklist-mode')
-    const domainsDescription = document.getElementById('els-domains-description')
-    const domainsHint = document.getElementById('els-domains-hint')
+    const domainsDescription = document.getElementById('els-domains-description-Cgt5uR')
+    const domainsHint = document.getElementById('els-domains-hint-0DAupg')
 
     blacklistModeCheckbox.addEventListener('change', (e) => {
       const isBlacklist = e.target.checked
@@ -376,7 +379,7 @@
       domainsHint.textContent = `当前为${isBlacklist ? '黑名单' : '白名单'}模式。${isBlacklist ? '列表中的域名将不保留参数，其他域名将保留参数。' : '列表中的域名将保留参数，其他域名将不保留参数。'}`
     })
 
-    document.getElementById('els-save').addEventListener('click', () => {
+    document.getElementById('els-save-e8UfX6').addEventListener('click', () => {
       const newShortcut = shortcutInput.value
       const newMarkdownShortcut = markdownShortcutInput.value
       const newDomains = domainsTextarea.value.split('\n').filter(d => d.trim() !== '')
@@ -392,7 +395,7 @@
       closeSettings()
     })
 
-    document.getElementById('els-cancel').addEventListener('click', closeSettings)
+    document.getElementById('els-cancel-W3OUcP').addEventListener('click', closeSettings)
 
     return closeSettings
   }
