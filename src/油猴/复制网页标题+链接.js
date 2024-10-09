@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         share-link-copy
 // @namespace    http://tampermonkey.net/
-// @version      1.0.5
+// @version      1.0.6
 // @description  快捷复制便于分享的页面标题和URL，支持自定义快捷键，支持设置是否保留URL参数
 // @license      MIT
 // @author       Lainbo
@@ -226,11 +226,11 @@
   function parseShortcut(shortcutStr) {
     const parts = shortcutStr.toLowerCase().split('+')
     return {
-      altKey: parts.includes('alt'),
+      altKey: parts.includes('alt') || parts.includes('option'),
       ctrlKey: parts.includes('ctrl') || parts.includes('control'),
       shiftKey: parts.includes('shift'),
-      metaKey: parts.includes('meta') || parts.includes('win'),
-      keys: parts.filter(part => !['alt', 'ctrl', 'control', 'shift', 'meta', 'win'].includes(part)),
+      metaKey: parts.includes('meta') || parts.includes('cmd') || parts.includes('command'),
+      keys: parts.filter(part => !['alt', 'ctrl', 'control', 'shift', 'meta', 'win', 'option', 'cmd', 'command'].includes(part)),
     }
   }
 
@@ -277,14 +277,14 @@
     let listeningForMarkdownShortcut = false
 
     function resetShortcut() {
-      shortcutInput.value = shortcut
-      currentShortcut = shortcut.split('+')
+      shortcutInput.value = shortcut.toLowerCase()
+      currentShortcut = shortcut.toLowerCase().split('+')
       listeningForShortcut = false
     }
 
     function resetMarkdownShortcut() {
-      markdownShortcutInput.value = markdownShortcut
-      currentMarkdownShortcut = markdownShortcut.split('+')
+      markdownShortcutInput.value = markdownShortcut.toLowerCase()
+      currentMarkdownShortcut = markdownShortcut.toLowerCase().split('+')
       listeningForMarkdownShortcut = false
     }
 
@@ -326,22 +326,23 @@
     document.addEventListener('keydown', (e) => {
       if (listeningForShortcut || listeningForMarkdownShortcut) {
         e.preventDefault()
-        if (e.key === 'Escape') {
+        if (e.code === 'Escape') {
           listeningForShortcut ? resetShortcut() : resetMarkdownShortcut()
           return
         }
-        const key = e.key.toLowerCase()
         const currentArray = listeningForShortcut ? currentShortcut : currentMarkdownShortcut
         const inputElement = listeningForShortcut ? shortcutInput : markdownShortcutInput
 
-        if (['alt', 'control', 'shift', 'meta'].includes(key)) {
-          if (!currentArray.includes(key)) {
-            currentArray.push(key)
+        if (['AltLeft', 'AltRight', 'ControlLeft', 'ControlRight', 'ShiftLeft', 'ShiftRight', 'MetaLeft', 'MetaRight'].includes(e.code)) {
+          const modifier = e.code.replace('Left', '').replace('Right', '').toLowerCase()
+          if (!currentArray.includes(modifier)) {
+            currentArray.push(modifier)
           }
         }
         else {
-          if (!currentArray.includes(key)) {
-            currentArray.push(key)
+          const keyDisplay = getKeyDisplay(e.code)
+          if (!currentArray.includes(keyDisplay)) {
+            currentArray.push(keyDisplay)
           }
           listeningForShortcut = false
           listeningForMarkdownShortcut = false
@@ -409,6 +410,55 @@
       },
     })
   }
+  function getKeyDisplay(code) {
+    const keyMap = {
+      Digit1: '1',
+      Digit2: '2',
+      Digit3: '3',
+      Digit4: '4',
+      Digit5: '5',
+      Digit6: '6',
+      Digit7: '7',
+      Digit8: '8',
+      Digit9: '9',
+      Digit0: '0',
+      KeyA: 'a',
+      KeyB: 'b',
+      KeyC: 'c',
+      KeyD: 'd',
+      KeyE: 'e',
+      KeyF: 'f',
+      KeyG: 'g',
+      KeyH: 'h',
+      KeyI: 'i',
+      KeyJ: 'j',
+      KeyK: 'k',
+      KeyL: 'l',
+      KeyM: 'm',
+      KeyN: 'n',
+      KeyO: 'o',
+      KeyP: 'p',
+      KeyQ: 'q',
+      KeyR: 'r',
+      KeyS: 's',
+      KeyT: 't',
+      KeyU: 'u',
+      KeyV: 'v',
+      KeyW: 'w',
+      KeyX: 'x',
+      KeyY: 'y',
+      KeyZ: 'z',
+    }
+    return keyMap[code] || code.toLowerCase()
+  }
+
+  function matchShortcut(e, shortcut) {
+    return (e.altKey === shortcut.altKey
+         && e.ctrlKey === shortcut.ctrlKey
+         && e.shiftKey === shortcut.shiftKey
+         && e.metaKey === shortcut.metaKey
+         && shortcut.keys.every(key => getKeyDisplay(e.code) === key.toLowerCase()))
+  }
 
   // 修改快捷键监听
   document.addEventListener('keydown', (e) => {
@@ -418,19 +468,11 @@
     const normalShortcut = parseShortcut(shortcut)
     const mdShortcut = parseShortcut(markdownShortcut)
 
-    if (e.altKey === normalShortcut.altKey
-          && e.ctrlKey === normalShortcut.ctrlKey
-          && e.shiftKey === normalShortcut.shiftKey
-          && e.metaKey === normalShortcut.metaKey
-          && normalShortcut.keys.every(key => e.key.toLowerCase() === key)) {
+    if (matchShortcut(e, normalShortcut)) {
       e.preventDefault()
       copyLink(false)
     }
-    else if (e.altKey === mdShortcut.altKey
-          && e.ctrlKey === mdShortcut.ctrlKey
-          && e.shiftKey === mdShortcut.shiftKey
-          && e.metaKey === mdShortcut.metaKey
-          && mdShortcut.keys.every(key => e.key.toLowerCase() === key)) {
+    else if (matchShortcut(e, mdShortcut)) {
       e.preventDefault()
       copyLink(true)
     }
