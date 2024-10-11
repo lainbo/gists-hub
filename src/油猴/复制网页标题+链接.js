@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         share-link-copy
 // @namespace    http://tampermonkey.net/
-// @version      1.0.6
+// @version      1.0.7
 // @description  快捷复制便于分享的页面标题和URL，支持自定义快捷键，支持设置是否保留URL参数
 // @license      MIT
 // @author       Lainbo
@@ -176,17 +176,17 @@
     if (isBlacklistMode) {
       // 黑名单模式：如果域名在列表中，则移除参数
       if (isInList) {
-        urlObj.search = ''
+        return `${location.origin}${location.pathname}`
       }
     }
     else {
       // 白名单模式：如果域名不在列表中，则移除参数
       if (!isInList) {
-        urlObj.search = ''
+        return `${location.origin}${location.pathname}`
       }
     }
 
-    return urlObj.toString()
+    return location.href
   }
 
   // 创建通知功能
