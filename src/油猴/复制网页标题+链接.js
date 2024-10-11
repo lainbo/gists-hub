@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         share-link-copy
 // @namespace    http://tampermonkey.net/
-// @version      1.0.7
+// @version      1.0.8
 // @description  快捷复制便于分享的页面标题和URL，支持自定义快捷键，支持设置是否保留URL参数
 // @license      MIT
 // @author       Lainbo
@@ -170,6 +170,15 @@
   function processUrl(url, domainsToKeepParams) {
     const urlObj = new URL(url)
     const domain = urlObj.hostname
+
+    // 特殊处理 CodePen
+    if (domain === 'cdpn.io') {
+      const parentUrl = window.parent.location.href
+      if (parentUrl.includes('codepen.io')) {
+        return parentUrl
+      }
+    }
+
     // 域名在列表中
     const isInList = domainsToKeepParams.some(d => domain.endsWith(d))
 
@@ -212,11 +221,14 @@
 
   const showNotification = createNotification()
 
-  // 复制链接的主要函数
+  // 修改复制链接的主要函数
   function copyLink(isMarkdown = false) {
     const title = document.title
     const url = processUrl(window.location.href, domainsToKeepParams)
-    const text = isMarkdown ? `[${title}](${url})` : `${title}\n${url}`
+
+    // 特殊处理 CodePen
+    const finalUrl = url.includes('codepen.io') ? url : window.location.href
+    const text = isMarkdown ? `[${title}](${finalUrl})` : `${title}\n${finalUrl}`
 
     GM_setClipboard(text, 'text')
     showNotification(isMarkdown ? 'Markdown 格式链接已复制到剪贴板！' : '链接已复制到剪贴板！')
