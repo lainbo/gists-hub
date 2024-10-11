@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         share-link-copy
 // @namespace    http://tampermonkey.net/
-// @version      1.0.8
+// @version      1.0.9
 // @description  快捷复制便于分享的页面标题和URL，支持自定义快捷键，支持设置是否保留URL参数
 // @license      MIT
 // @author       Lainbo
@@ -171,31 +171,23 @@
     const urlObj = new URL(url)
     const domain = urlObj.hostname
 
-    // 特殊处理 CodePen
-    if (domain === 'cdpn.io') {
-      const parentUrl = window.parent.location.href
-      if (parentUrl.includes('codepen.io')) {
-        return parentUrl
-      }
-    }
-
     // 域名在列表中
     const isInList = domainsToKeepParams.some(d => domain.endsWith(d))
 
     if (isBlacklistMode) {
       // 黑名单模式：如果域名在列表中，则移除参数
       if (isInList) {
-        return `${location.origin}${location.pathname}`
+        return `${urlObj.origin}${urlObj.pathname}`
       }
     }
     else {
       // 白名单模式：如果域名不在列表中，则移除参数
       if (!isInList) {
-        return `${location.origin}${location.pathname}`
+        return `${urlObj.origin}${urlObj.pathname}`
       }
     }
 
-    return location.href
+    return url
   }
 
   // 创建通知功能
@@ -221,14 +213,47 @@
 
   const showNotification = createNotification()
 
+  function getCodePenTitle() {
+    try {
+      // 尝试从父窗口获取标题
+      return { title: window.parent.document.title, error: false }
+    }
+    catch (error) {
+      // 如果无法访问父窗口，使用当前文档的标题
+      return {
+        title: document.title.replace(' - CodePen', ''),
+        error: true,
+      }
+    }
+  }
+
   // 修改复制链接的主要函数
   function copyLink(isMarkdown = false) {
-    const title = document.title
-    const url = processUrl(window.location.href, domainsToKeepParams)
+    let url = window.location.href
+    let title = document.title
+    let showError = false
 
     // 特殊处理 CodePen
-    const finalUrl = url.includes('codepen.io') ? url : window.location.href
-    const text = isMarkdown ? `[${title}](${finalUrl})` : `${title}\n${finalUrl}`
+    if (url.includes('cdpn.io')) {
+      try {
+        url = window.parent.location.href
+        const result = getCodePenTitle()
+        title = result.title
+        showError = result.error
+      }
+      catch (error) {
+        showError = true
+      }
+    }
+
+    if (showError) {
+      showNotification('当前页面焦点可能在iframe中，请切换到主窗口进行复制')
+      return // 如果出错，直接返回，不执行复制操作
+    }
+
+    url = processUrl(url, domainsToKeepParams)
+
+    const text = isMarkdown ? `[${title}](${url})` : `${title}\n${url}`
 
     GM_setClipboard(text, 'text')
     showNotification(isMarkdown ? 'Markdown 格式链接已复制到剪贴板！' : '链接已复制到剪贴板！')
