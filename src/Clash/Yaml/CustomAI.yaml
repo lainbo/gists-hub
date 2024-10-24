@@ -21,3 +21,4 @@ payload:
   - DOMAIN,gemini.google.com
   - DOMAIN,android.chat.openai.com
   - DOMAIN,ios.chat.openai.com
+  - DOMAIN,apple-relay.apple.com
