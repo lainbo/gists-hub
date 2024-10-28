@@ -84,6 +84,9 @@ payload:
   - DOMAIN-SUFFIX,2q10.com
   - DOMAIN-SUFFIX,cmschina.com
   - DOMAIN-SUFFIX,caiyuncdn.com
+  - DOMAIN-SUFFIX,ocbc.com
+  - DOMAIN-SUFFIX,hsbc.com.hk
+  - DOMAIN-SUFFIX,we-stats.com
 
   - DOMAIN,lainbo.com
   - DOMAIN,talk.lainbo.com
