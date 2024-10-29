@@ -80,6 +80,10 @@ HOST-SUFFIX,mypikpak.com,Proxy
 HOST-SUFFIX,2q10.com,Proxy
 HOST-SUFFIX,cmschina.com,Proxy
 HOST-SUFFIX,caiyuncdn.com,Proxy
+HOST-SUFFIX,ocbc.com,Proxy
+HOST-SUFFIX,hsbc.com.hk,Proxy
+HOST-SUFFIX,vv1865.com,Proxy
+HOST-SUFFIX,we-stats.com,Proxy
 HOST,lainbo.com,Proxy
 HOST,talk.lainbo.com,Proxy
 HOST,ghproxy.lainbo.com,Proxy

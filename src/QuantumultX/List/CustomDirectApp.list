@@ -462,6 +462,7 @@ HOST-SUFFIX,fe-static.huami.com,Proxy
 HOST-SUFFIX,growth.ai.srv,Proxy
 HOST-SUFFIX,heihei.com,Proxy
 HOST-SUFFIX,hongmi.cn,Proxy
+HOST-SUFFIX,i3ciebwk6ixfb.com,Proxy
 HOST-SUFFIX,kewucool.com,Proxy
 HOST-SUFFIX,kssdata-yz1.kuaipandata.com,Proxy
 HOST-SUFFIX,kssdata-yz2-lt.kuaipandata.com,Proxy
@@ -491,6 +492,7 @@ HOST-SUFFIX,mi-img5.com,Proxy
 HOST-SUFFIX,mi-static.com,Proxy
 HOST-SUFFIX,mi.cn,Proxy
 HOST-SUFFIX,mi.com,Proxy
+HOST-SUFFIX,mi.com.cn,Proxy
 HOST-SUFFIX,mi0.cc,Proxy
 HOST-SUFFIX,mi1.cc,Proxy
 HOST-SUFFIX,miav-cse.avlyun.com,Proxy
@@ -498,6 +500,7 @@ HOST-SUFFIX,micoce.com.cn,Proxy
 HOST-SUFFIX,micode.cn,Proxy
 HOST-SUFFIX,micode.com.cn,Proxy
 HOST-SUFFIX,micode.net,Proxy
+HOST-SUFFIX,mieco.net,Proxy
 HOST-SUFFIX,mifile.cn,Proxy
 HOST-SUFFIX,mij.cc,Proxy
 HOST-SUFFIX,mijia.tech,Proxy
@@ -534,6 +537,9 @@ HOST-SUFFIX,thumb-yz96.kuaipandata.com,Proxy
 HOST-SUFFIX,timipc.com,Proxy
 HOST-SUFFIX,tj1-miui-bn-stage01.kscn,Proxy
 HOST-SUFFIX,wali.com,Proxy
+HOST-SUFFIX,xiaoaiassist.com,Proxy
+HOST-SUFFIX,xiaoaiscan.net,Proxy
+HOST-SUFFIX,xiaoaisound.com,Proxy
 HOST-SUFFIX,xiaomi.cn,Proxy
 HOST-SUFFIX,xiaomi.com,Proxy
 HOST-SUFFIX,xiaomi.net,Proxy
@@ -555,11 +561,13 @@ HOST-SUFFIX,xiaomiinc.com,Proxy
 HOST-SUFFIX,xiaomiinc.com.cn,Proxy
 HOST-SUFFIX,xiaomiinc.net,Proxy
 HOST-SUFFIX,xiaomimobile.com,Proxy
+HOST-SUFFIX,xiaominr.com,Proxy
 HOST-SUFFIX,xiaomiprint.com,Proxy
 HOST-SUFFIX,xiaomisa.cn,Proxy
 HOST-SUFFIX,xiaomisa.com,Proxy
 HOST-SUFFIX,xiaomisa.net,Proxy
 HOST-SUFFIX,xiaomisa.org,Proxy
+HOST-SUFFIX,xiaomiwear.com,Proxy
 HOST-SUFFIX,xiaomixiaoai.com,Proxy
 HOST-SUFFIX,xiaomiyoupin.com,Proxy
 HOST-SUFFIX,xlaomi.net,Proxy
