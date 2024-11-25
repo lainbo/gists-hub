@@ -21,3 +21,4 @@ HOST,gemini.google.com,Proxy
 HOST,android.chat.openai.com,Proxy
 HOST,ios.chat.openai.com,Proxy
 HOST,apple-relay.apple.com,Proxy
+HOST,copilot.microsoft.com ,Proxy
