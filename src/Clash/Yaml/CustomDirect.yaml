@@ -93,10 +93,6 @@ payload:
   - DOMAIN-SUFFIX,cn-test.burn.hair
 
   - DOMAIN,lainbo.com
-  - DOMAIN,talk.lainbo.com
-  - DOMAIN,ghproxy.lainbo.com
-  - DOMAIN,monaco-diff.lainbo.dev
-  - DOMAIN,monaco.lainbo.dev
   - DOMAIN,deeplx.eeff.fun
   - DOMAIN-SUFFIX,ours.day
 
