@@ -1,3 +1,33 @@
 payload:
   # 内容：防止Adobe系列软件弹盗版
   - DOMAIN-SUFFIX,adobe.io
+
+  # 禁用各家PCDN
+  - DOMAIN-SUFFIX,bsccdn.net
+  - DOMAIN-SUFFIX,dyp2p-ali.douyucdn.cn
+  - DOMAIN-SUFFIX,dyp2p-hw.douyucdn.cn
+  - DOMAIN-SUFFIX,kuiniuca.com
+  - DOMAIN-SUFFIX,onethingpcs.com
+  - DOMAIN-SUFFIX,p2p-ali.douyucdn.cn
+  - DOMAIN-SUFFIX,p2p.huya.com
+  - DOMAIN-SUFFIX,p2p.qq.com
+  - DOMAIN-SUFFIX,p2pchunk-hw.douyucdn.cn
+  - DOMAIN-SUFFIX,p2pchunk-table.douyucdn.cn
+  - DOMAIN-SUFFIX,p2pchunk-ws.douyucdn.cn
+  - DOMAIN-SUFFIX,p2perrorlog.douyucdn.cn
+  - DOMAIN-SUFFIX,p2plive-ali.douyucdn.cn
+  - DOMAIN-SUFFIX,p2plive-ws.douyucdn.cn
+  - DOMAIN-SUFFIX,p2plog.douyucdn.cn
+  - DOMAIN-SUFFIX,p2ptun.qq.com
+  - DOMAIN-SUFFIX,p2pupdate.gamedl.qq.com
+  - DOMAIN-SUFFIX,p2pupgrade.gamedl.qq.com
+  - DOMAIN-SUFFIX,p2pvod-ws.douyucdn.cn
+  - DOMAIN-SUFFIX,pcdn.yximgs.com
+  - DOMAIN-SUFFIX,pkoplink.com
+  - DOMAIN-SUFFIX,saxysec.com
+  - DOMAIN-SUFFIX,stun.douyucdn.cn
+  - DOMAIN-SUFFIX,stun.hitv.com
+  - DOMAIN-SUFFIX,stun1.douyucdn.cn
+  - DOMAIN-SUFFIX,szbdyd.com
+  - DOMAIN-SUFFIX,uhabo.com
+  - DOMAIN-SUFFIX,xycdn.com
