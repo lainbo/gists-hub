@@ -1,22 +1,3 @@
 # 该文件为自动生成
-HOST,api-talk-v.lainbo.com,Proxy
-HOST,api-tg.lainbo.com,Proxy
-HOST,u.lainbo.com,Proxy
-HOST,clock.lainbo.com,Proxy
-HOST,component-party.lainbo.com,Proxy
-HOST,cpu-mark.lainbo.com,Proxy
-HOST,dashed-border.lainbo.com,Proxy
-HOST,ef-google.lainbo.com,Proxy
-HOST,fastgh.lainbo.com,Proxy
-HOST,grid.lainbo.com,Proxy
-HOST,loading.lainbo.com,Proxy
-HOST,pastebin.lainbo.com,Proxy
-HOST,scrollbar.lainbo.com,Proxy
-HOST,sub.lainbo.com,Proxy
-HOST,suc.lainbo.com,Proxy
-HOST,treechar.lainbo.com,Proxy
-HOST,v0.lainbo.com,Proxy
-HOST,ours.day,Proxy
-HOST,api-sub.ours.day,Proxy
 HOST-SUFFIX,cursor.sh,Proxy
 HOST-SUFFIX,cursor.com,Proxy

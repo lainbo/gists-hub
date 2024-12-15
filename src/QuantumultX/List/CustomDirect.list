@@ -64,6 +64,9 @@ HOST,api.sublink.dev,Proxy
 HOST,api.nexconvert.com,Proxy
 HOST,amyconvert.com,Proxy
 HOST,immconvert.com,Proxy
+HOST,lobe.ccvv.fun,Proxy
+HOST,lobe-auth-ui.ccvv.fun,Proxy
+HOST,lobe-auth-api.ccvv.fun,Proxy
 HOST-SUFFIX,ql1d.com,Proxy
 HOST-SUFFIX,zlpub.com,Proxy
 HOST-SUFFIX,zlpub.cn,Proxy
@@ -88,6 +91,4 @@ HOST-SUFFIX,pandaremit.com,Proxy
 HOST-SUFFIX,ydl100.com,Proxy
 HOST-SUFFIX,cn-test.burn.hair,Proxy
 HOST-SUFFIX,ysepan.com,Proxy
-HOST,lainbo.com,Proxy
-HOST,deeplx.eeff.fun,Proxy
-HOST-SUFFIX,ours.day,Proxy
+HOST-SUFFIX,yxvm.com,Proxy

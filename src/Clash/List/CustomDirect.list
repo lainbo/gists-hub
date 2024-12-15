@@ -67,6 +67,9 @@ DOMAIN,api.sublink.dev
 DOMAIN,api.nexconvert.com
 DOMAIN,amyconvert.com
 DOMAIN,immconvert.com
+DOMAIN,lobe.ccvv.fun
+DOMAIN,lobe-auth-ui.ccvv.fun
+DOMAIN,lobe-auth-api.ccvv.fun
 DOMAIN-SUFFIX,ql1d.com
 DOMAIN-SUFFIX,zlpub.com
 DOMAIN-SUFFIX,zlpub.cn
@@ -91,10 +94,7 @@ DOMAIN-SUFFIX,pandaremit.com
 DOMAIN-SUFFIX,ydl100.com
 DOMAIN-SUFFIX,cn-test.burn.hair
 DOMAIN-SUFFIX,ysepan.com
-
-DOMAIN,lainbo.com
-DOMAIN,deeplx.eeff.fun
-DOMAIN-SUFFIX,ours.day
+DOMAIN-SUFFIX,yxvm.com
 
 PROCESS-NAME,WeChat
 PROCESS-NAME,WeChat.exe
