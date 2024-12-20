@@ -17,6 +17,7 @@ payload:
   - DOMAIN-SUFFIX,openaiapi-site.azureedge.net
   - DOMAIN-SUFFIX,civitai.com
   - DOMAIN-SUFFIX,opera-api.com
+  - DOMAIN-SUFFIX,claudeusercontent.com
   - DOMAIN,bard.google.com
   - DOMAIN,gemini.google.com
   - DOMAIN,android.chat.openai.com
