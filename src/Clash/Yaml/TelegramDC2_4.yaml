@@ -12,3 +12,6 @@ payload:
   - IP-CIDR6,2a0a:f280:203::/48,no-resolve
   - IP-ASN,62041,no-resolve
   - IP-ASN,211157,no-resolve
+
+  # the source site of nodeseek is in Europe, handle it here together
+  - DOMAIN-SUFFIX,nodeseek.com
