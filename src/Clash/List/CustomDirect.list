@@ -95,6 +95,9 @@ DOMAIN-SUFFIX,ydl100.com
 DOMAIN-SUFFIX,cn-test.burn.hair
 DOMAIN-SUFFIX,ysepan.com
 DOMAIN-SUFFIX,yxvm.com
+DOMAIN,hk.pro.xns.one
+DOMAIN,hk1.pro.xns.one
+DOMAIN,vxcdn.novaxns.one
 
 PROCESS-NAME,WeChat
 PROCESS-NAME,WeChat.exe
