@@ -72,8 +72,6 @@ payload:
   - DOMAIN,lobe.ccvv.fun
   - DOMAIN,lobe-auth-ui.ccvv.fun
   - DOMAIN,lobe-auth-api.ccvv.fun
-  - DOMAIN,lobe.lainbo.dev
-  - DOMAIN,auth.lainbo.dev
   - DOMAIN-SUFFIX,ql1d.com
   - DOMAIN-SUFFIX,zlpub.com
   - DOMAIN-SUFFIX,zlpub.cn
