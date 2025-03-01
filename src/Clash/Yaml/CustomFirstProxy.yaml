@@ -6,3 +6,4 @@ payload:
   # PROCESS-NAME,Cursor
   - DOMAIN-SUFFIX,services.googleapis.cn
   - DOMAIN-SUFFIX,xn--ngstr-lra8j.com
+  - DOMAIN-SUFFIX=jsdelivr.net
