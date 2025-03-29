@@ -1,8 +1,8 @@
 # 广告列表 adblock rules
 # 内容：EasyListChina列表，只包含ABP中的 EasyListChina 内容
 # 来源：https://easylist-downloads.adblockplus.org/easylistchina.txt
-# 更新：2025-03-27 22:20:05
-# 数量：4220条
+# 更新：2025-03-29 17:35:24
+# 数量：4231条
 
 HOST-SUFFIX,003store.com,Advertising
 HOST-SUFFIX,01210sop.xyz,Advertising
@@ -1311,6 +1311,7 @@ HOST-SUFFIX,ehhjfgs.xyz,Advertising
 HOST-SUFFIX,ehmhqcn.cn,Advertising
 HOST-SUFFIX,ei1s7b.cn,Advertising
 HOST-SUFFIX,ei7.icu,Advertising
+HOST-SUFFIX,eildralfl.com,Advertising
 HOST-SUFFIX,eiphrut.com,Advertising
 HOST-SUFFIX,eisnaisv.com,Advertising
 HOST-SUFFIX,eitilbyr.com,Advertising
@@ -1597,6 +1598,7 @@ HOST-SUFFIX,ghjedashb6.fun,Advertising
 HOST-SUFFIX,ghozokodq.com,Advertising
 HOST-SUFFIX,ghwqbii.icu,Advertising
 HOST-SUFFIX,gi0.icu,Advertising
+HOST-SUFFIX,giphaudoq.com,Advertising
 HOST-SUFFIX,gjhjjhgc.cn,Advertising
 HOST-SUFFIX,gjinuqg.top,Advertising
 HOST-SUFFIX,gjjskhdnm.top,Advertising
@@ -1790,6 +1792,7 @@ HOST-SUFFIX,hov15.icu,Advertising
 HOST-SUFFIX,hoxdotye.icu,Advertising
 HOST-SUFFIX,hp7.fun,Advertising
 HOST-SUFFIX,hp8g6.icu,Advertising
+HOST-SUFFIX,hptidc.top,Advertising
 HOST-SUFFIX,hpzktd.xyz,Advertising
 HOST-SUFFIX,hqhspv.xyz,Advertising
 HOST-SUFFIX,hrjciqyu.icu,Advertising
@@ -2034,6 +2037,7 @@ HOST-SUFFIX,jdipsuma.top,Advertising
 HOST-SUFFIX,jditera.top,Advertising
 HOST-SUFFIX,jdomsia.top,Advertising
 HOST-SUFFIX,jdoshba.top,Advertising
+HOST-SUFFIX,jdqmhay.icu,Advertising
 HOST-SUFFIX,jdrlfn.xyz,Advertising
 HOST-SUFFIX,jdyurlia.top,Advertising
 HOST-SUFFIX,jebrhb.icu,Advertising
@@ -2337,6 +2341,7 @@ HOST-SUFFIX,libhzf.xyz,Advertising
 HOST-SUFFIX,ligfdjnfd.cn,Advertising
 HOST-SUFFIX,lijlrz.xyz,Advertising
 HOST-SUFFIX,lipheak.com,Advertising
+HOST-SUFFIX,liqw.cn,Advertising
 HOST-SUFFIX,lirretsn.com,Advertising
 HOST-SUFFIX,lixiangmo.com,Advertising
 HOST-SUFFIX,lixonj.xyz,Advertising
@@ -3377,6 +3382,7 @@ HOST-SUFFIX,tcheeter.com,Advertising
 HOST-SUFFIX,tcinvdi.top,Advertising
 HOST-SUFFIX,tciqgx.xyz,Advertising
 HOST-SUFFIX,tclimii.top,Advertising
+HOST-SUFFIX,td86hsmlmggym.top,Advertising
 HOST-SUFFIX,tdamcsi.top,Advertising
 HOST-SUFFIX,tdfqvx.xyz,Advertising
 HOST-SUFFIX,tdhnxf.xyz,Advertising
@@ -3470,6 +3476,7 @@ HOST-SUFFIX,tronkuks.com,Advertising
 HOST-SUFFIX,trorqaeao.com,Advertising
 HOST-SUFFIX,trpyceq.cn,Advertising
 HOST-SUFFIX,trutvnci.top,Advertising
+HOST-SUFFIX,truuhmoen.com,Advertising
 HOST-SUFFIX,truxedku.com,Advertising
 HOST-SUFFIX,trvxbd.xyz,Advertising
 HOST-SUFFIX,ts166.net,Advertising
@@ -3608,6 +3615,7 @@ HOST-SUFFIX,uhuf56.fun,Advertising
 HOST-SUFFIX,uiakq.top,Advertising
 HOST-SUFFIX,uiatkc.xyz,Advertising
 HOST-SUFFIX,uicdns.xyz,Advertising
+HOST-SUFFIX,uivc.cn,Advertising
 HOST-SUFFIX,ujimtyt.top,Advertising
 HOST-SUFFIX,ujmz.cn,Advertising
 HOST-SUFFIX,ujovcb.cn,Advertising
@@ -3632,6 +3640,7 @@ HOST-SUFFIX,uojx.cn,Advertising
 HOST-SUFFIX,uoqc.cn,Advertising
 HOST-SUFFIX,uoublit.top,Advertising
 HOST-SUFFIX,uouvxlit.top,Advertising
+HOST-SUFFIX,uposnmb.icu,Advertising
 HOST-SUFFIX,upyzqf.cn,Advertising
 HOST-SUFFIX,uqaagi.xyz,Advertising
 HOST-SUFFIX,uqcktxp.icu,Advertising
@@ -3745,6 +3754,7 @@ HOST-SUFFIX,vpdnjl.xyz,Advertising
 HOST-SUFFIX,vppzjv.xyz,Advertising
 HOST-SUFFIX,vpwizuj.icu,Advertising
 HOST-SUFFIX,vpydjogaytpg.xyz,Advertising
+HOST-SUFFIX,vqaj6smlmtpym.top,Advertising
 HOST-SUFFIX,vqbzpv.xyz,Advertising
 HOST-SUFFIX,vqlwoy.xyz,Advertising
 HOST-SUFFIX,vraataidz.com,Advertising
@@ -3767,6 +3777,7 @@ HOST-SUFFIX,vtjbnb.xyz,Advertising
 HOST-SUFFIX,vtlyrj.xyz,Advertising
 HOST-SUFFIX,vtrrxqbi.xyz,Advertising
 HOST-SUFFIX,vudqth.icu,Advertising
+HOST-SUFFIX,vuhf.cn,Advertising
 HOST-SUFFIX,vuirssd.icu,Advertising
 HOST-SUFFIX,vulitd.xyz,Advertising
 HOST-SUFFIX,vupload.duowan.com,Advertising
