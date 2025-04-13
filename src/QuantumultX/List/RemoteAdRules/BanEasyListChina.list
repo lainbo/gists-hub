@@ -1,8 +1,8 @@
 # 广告列表 adblock rules
 # 内容：EasyListChina列表，只包含ABP中的 EasyListChina 内容
 # 来源：https://easylist-downloads.adblockplus.org/easylistchina.txt
-# 更新：2025-04-12 14:49:51
-# 数量：4151条
+# 更新：2025-04-13 17:31:38
+# 数量：4160条
 
 HOST-SUFFIX,003store.com,Advertising
 HOST-SUFFIX,01210sop.xyz,Advertising
@@ -792,6 +792,7 @@ HOST-SUFFIX,btrwxz.xyz,Advertising
 HOST-SUFFIX,btvbnrwo.icu,Advertising
 HOST-SUFFIX,bu1.duba.com,Advertising
 HOST-SUFFIX,bu1.vvvdj.com,Advertising
+HOST-SUFFIX,bubmhm.top,Advertising
 HOST-SUFFIX,bujlmitd.icu,Advertising
 HOST-SUFFIX,bumnxiev.top,Advertising
 HOST-SUFFIX,bun1.dayi.org.cn,Advertising
@@ -1843,6 +1844,7 @@ HOST-SUFFIX,ietlwso.top,Advertising
 HOST-SUFFIX,iewruto.top,Advertising
 HOST-SUFFIX,ieymhkx.icu,Advertising
 HOST-SUFFIX,ifej.cn,Advertising
+HOST-SUFFIX,ifethbrzb.com,Advertising
 HOST-SUFFIX,iffobi.xyz,Advertising
 HOST-SUFFIX,ifjslio.top,Advertising
 HOST-SUFFIX,iflucav.icu,Advertising
@@ -2213,6 +2215,7 @@ HOST-SUFFIX,ktimiyd.top,Advertising
 HOST-SUFFIX,kuresdd.top,Advertising
 HOST-SUFFIX,kvhee.com,Advertising
 HOST-SUFFIX,kvkcei.xyz,Advertising
+HOST-SUFFIX,kvqp.cn,Advertising
 HOST-SUFFIX,kvyyyde.cn,Advertising
 HOST-SUFFIX,kwaterd.top,Advertising
 HOST-SUFFIX,kweisid.top,Advertising
@@ -2475,6 +2478,7 @@ HOST-SUFFIX,muntswe58.shop,Advertising
 HOST-SUFFIX,muresdx.top,Advertising
 HOST-SUFFIX,muwqiga.icu,Advertising
 HOST-SUFFIX,mvcngm.xyz,Advertising
+HOST-SUFFIX,mvcnmtx.top,Advertising
 HOST-SUFFIX,mvirkw.xyz,Advertising
 HOST-SUFFIX,mvmqos.xyz,Advertising
 HOST-SUFFIX,mvwitz.xyz,Advertising
@@ -2562,6 +2566,7 @@ HOST-SUFFIX,nmtkbv.icu,Advertising
 HOST-SUFFIX,nmxxvr.xyz,Advertising
 HOST-SUFFIX,nmzbrd.icu,Advertising
 HOST-SUFFIX,nnfbxz.icu,Advertising
+HOST-SUFFIX,nnntxx.icu,Advertising
 HOST-SUFFIX,nnvjbb.xyz,Advertising
 HOST-SUFFIX,nogogey.top,Advertising
 HOST-SUFFIX,nois5gj.xyz,Advertising
@@ -2638,6 +2643,7 @@ HOST-SUFFIX,ojimtyk.top,Advertising
 HOST-SUFFIX,ojmv.cn,Advertising
 HOST-SUFFIX,ok5.fun,Advertising
 HOST-SUFFIX,okagcw.xyz,Advertising
+HOST-SUFFIX,okeaxgugq.com,Advertising
 HOST-SUFFIX,okikwul.icu,Advertising
 HOST-SUFFIX,okiterk.top,Advertising
 HOST-SUFFIX,okkkk.com,Advertising
@@ -2646,6 +2652,7 @@ HOST-SUFFIX,okpp01030.xyz,Advertising
 HOST-SUFFIX,okpp01031.xyz,Advertising
 HOST-SUFFIX,okpp01040.xyz,Advertising
 HOST-SUFFIX,okpp12311.xyz,Advertising
+HOST-SUFFIX,okvt.cn,Advertising
 HOST-SUFFIX,okwan.cn,Advertising
 HOST-SUFFIX,okwjmii.top,Advertising
 HOST-SUFFIX,olgcpwc.icu,Advertising
@@ -3434,6 +3441,7 @@ HOST-SUFFIX,tupian9999.com,Advertising
 HOST-SUFFIX,turesdi.top,Advertising
 HOST-SUFFIX,tuvrutsnf.com,Advertising
 HOST-SUFFIX,tuxpfiok.icu,Advertising
+HOST-SUFFIX,tvcnmti.top,Advertising
 HOST-SUFFIX,tvgkatu.icu,Advertising
 HOST-SUFFIX,tvpqnh.xyz,Advertising
 HOST-SUFFIX,tweisii.top,Advertising
@@ -3826,6 +3834,7 @@ HOST-SUFFIX,wuliao.juqingba.cn,Advertising
 HOST-SUFFIX,wumd.cn,Advertising
 HOST-SUFFIX,wuresde.top,Advertising
 HOST-SUFFIX,wusfa.xyz,Advertising
+HOST-SUFFIX,wvcnmte.top,Advertising
 HOST-SUFFIX,wvwqywz.cn,Advertising
 HOST-SUFFIX,wweisie.top,Advertising
 HOST-SUFFIX,wweizae.top,Advertising
