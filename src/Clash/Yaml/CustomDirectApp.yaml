@@ -991,7 +991,6 @@ payload:
   - DOMAIN-SUFFIX,yichuangyun.com.cn
   - DOMAIN-SUFFIX,10086.cn
   - DOMAIN-SUFFIX,10086kuaixiu.com
-  - DOMAIN-SUFFIX,117.161.2.5
   - DOMAIN-SUFFIX,12530.com
   - DOMAIN-SUFFIX,139.com
   - DOMAIN-SUFFIX,andfx.cn
@@ -1025,6 +1024,7 @@ payload:
   - DOMAIN-SUFFIX,monternet.com
   - DOMAIN-SUFFIX,warmchina121.com
   - DOMAIN-SUFFIX,zdsdp.com
+  - IP-CIDR,117.161.2.5,no-resolve
   - DOMAIN-SUFFIX,ewqcxz.com
   - DOMAIN-SUFFIX,hjkhjkl.com
   - DOMAIN-SUFFIX,iopiopl.com
