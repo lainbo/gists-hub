@@ -987,7 +987,6 @@ HOST-SUFFIX,ycy100.cn,Proxy
 HOST-SUFFIX,yichuangyun.com.cn,Proxy
 HOST-SUFFIX,10086.cn,Proxy
 HOST-SUFFIX,10086kuaixiu.com,Proxy
-HOST-SUFFIX,117.161.2.5,Proxy
 HOST-SUFFIX,12530.com,Proxy
 HOST-SUFFIX,139.com,Proxy
 HOST-SUFFIX,andfx.cn,Proxy
@@ -1021,6 +1020,7 @@ HOST-SUFFIX,mmarket6.com,Proxy
 HOST-SUFFIX,monternet.com,Proxy
 HOST-SUFFIX,warmchina121.com,Proxy
 HOST-SUFFIX,zdsdp.com,Proxy
+IP-CIDR,117.161.2.5,Proxy,no-resolve
 HOST-SUFFIX,ewqcxz.com,Proxy
 HOST-SUFFIX,hjkhjkl.com,Proxy
 HOST-SUFFIX,iopiopl.com,Proxy
