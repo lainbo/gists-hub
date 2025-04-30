@@ -36,6 +36,7 @@ const urls = [
   'https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Clash/PingAn/PingAn.list',
   'https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Clash/ChinaUnicom/ChinaUnicom.list',
   'https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Clash/ChinaTelecom/ChinaTelecom.list',
+  'https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Clash/ChinaMobile/ChinaMobile.list',
   'https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Clash/XianYu/XianYu.list',
   'https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Clash/12306/12306.list',
   'https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Clash/JianGuoYun/JianGuoYun.list',
