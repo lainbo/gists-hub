@@ -103,6 +103,7 @@ payload:
   - DOMAIN,hk1.pro.xns.one
   - DOMAIN,vxcdn.novaxns.one
   - DOMAIN-SUFFIX,shipxy.com
+  - DOMAIN-SUFFIX,sunovarain.top
 
   # PROCESS-NAME,WeChat
   # PROCESS-NAME,WeChat.exe
