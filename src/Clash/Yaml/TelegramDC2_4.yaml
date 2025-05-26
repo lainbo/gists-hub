@@ -1,4 +1,5 @@
 payload:
+  # Telegram's DC2_4 servers are deployed in Europe, using European nodes for a better experience.
   - IP-CIDR,5.28.192.0/18,no-resolve
   - IP-CIDR,91.105.192.0/23,no-resolve
   - IP-CIDR,91.108.4.0/22,no-resolve
@@ -15,3 +16,7 @@ payload:
 
   # the source site of nodeseek is in Europe, handle it here together
   - DOMAIN-SUFFIX,nodeseek.com
+
+  # netcup domain
+  - DOMAIN-SUFFIX,customercontrolpanel.de
+  - DOMAIN-SUFFIX,app.koofr.net

@@ -117,6 +117,7 @@ payload:
   # PROCESS-NAME,rustdesk.exe
   # PROCESS-NAME,AskLink.exe
   # PROCESS-NAME,com.taobao.taobao
+  # PROCESS-NAME,cloudmusic.exe
 
   # Tencent
   - IP-ASN,132203,no-resolve

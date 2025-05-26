@@ -11,3 +11,5 @@ IP-CIDR,185.76.151.0/24,Proxy,no-resolve
 IP6-CIDR,2001:67c:4e8::/48,Proxy,no-resolve
 IP6-CIDR,2a0a:f280:203::/48,Proxy,no-resolve
 HOST-SUFFIX,nodeseek.com,Proxy
+HOST-SUFFIX,customercontrolpanel.de,Proxy
+HOST-SUFFIX,app.koofr.net,Proxy
