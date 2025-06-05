@@ -100,17 +100,3 @@ HOST,hk1.pro.xns.one,Proxy
 HOST,vxcdn.novaxns.one,Proxy
 HOST-SUFFIX,shipxy.com,Proxy
 HOST-SUFFIX,sunovarain.top,Proxy
-HOST-SUFFIX,inner-active.mobi,Proxy
-HOST-SUFFIX,mobilefuse.com,Proxy
-HOST-SUFFIX,inmobi.com,Proxy
-HOST-SUFFIX,crashlytics.com,Proxy
-HOST-SUFFIX,talkatone.com,Proxy
-HOST-SUFFIX,kochava.com,Proxy
-HOST-SUFFIX,cohere.com,Proxy
-HOST-SUFFIX,ip-api.com,Proxy
-HOST-SUFFIX,agkn.com,Proxy
-HOST-SUFFIX,tktn.at,Proxy
-IP-CIDR,50.117.27.0/24,Proxy,no-resolve
-IP-CIDR,69.46.75.0/24,Proxy,no-resolve
-IP-CIDR,205.164.56.0/24,Proxy,no-resolve
-IP-CIDR,63.251.124.0/24,Proxy,no-resolve

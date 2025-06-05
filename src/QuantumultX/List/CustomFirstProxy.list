@@ -1,6 +1,4 @@
 # 该文件为自动生成
-HOST-SUFFIX,cursor.sh,Proxy
-HOST-SUFFIX,cursor.com,Proxy
 HOST-SUFFIX,services.googleapis.cn,Proxy
 HOST-SUFFIX,xn--ngstr-lra8j.com,Proxy
 HOST-SUFFIX,jsdelivr.net,Proxy

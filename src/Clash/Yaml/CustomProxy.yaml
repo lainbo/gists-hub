@@ -10,7 +10,6 @@ payload:
   - DOMAIN-SUFFIX,smms.app
   - DOMAIN-SUFFIX,loli.net
   - DOMAIN-SUFFIX,gen.xyz
-  - DOMAIN-SUFFIX,tktn.be
 
   # 一天天就在那测DNS泄露，全整进来
   - DOMAIN-SUFFIX,dnsleaktest.com

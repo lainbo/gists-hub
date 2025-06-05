@@ -36,7 +36,6 @@ HOST,o33249.ingest.sentry.io,Proxy
 HOST,gateway.ai.cloudflare.com,Proxy
 HOST-SUFFIX,githubcopilot.com,Proxy
 HOST,copilot.microsoft.com,Proxy
-HOST-SUFFIX,cursor.sh,Proxy
 HOST-SUFFIX,apis.google.com,Proxy
 HOST-SUFFIX,bard.google.com,Proxy
 HOST-SUFFIX,gemini.google.com,Proxy

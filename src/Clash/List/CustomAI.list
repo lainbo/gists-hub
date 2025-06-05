@@ -36,7 +36,6 @@ DOMAIN,o33249.ingest.sentry.io
 DOMAIN,gateway.ai.cloudflare.com
 DOMAIN-SUFFIX,githubcopilot.com
 DOMAIN,copilot.microsoft.com
-DOMAIN-SUFFIX,cursor.sh
 DOMAIN-SUFFIX,apis.google.com
 DOMAIN-SUFFIX,bard.google.com
 DOMAIN-SUFFIX,gemini.google.com
