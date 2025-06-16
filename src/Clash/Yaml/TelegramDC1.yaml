@@ -47,3 +47,10 @@ payload:
   - DOMAIN-SUFFIX,interactivebrokers.com.sg
   - DOMAIN-SUFFIX,ibkr.com.hk
   - DOMAIN-SUFFIX,interactivebrokers.co.in
+
+  # Bitwarden
+  - DOMAIN-SUFFIX,bitwarden.com
+  - DOMAIN-SUFFIX,bitwarden.eu
+  - DOMAIN-SUFFIX,bitwarden.net
+  - DOMAIN-SUFFIX,btwrdn.co
+  - DOMAIN-SUFFIX,btwrdn.com

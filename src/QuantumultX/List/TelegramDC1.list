@@ -39,3 +39,8 @@ HOST-SUFFIX,interactivebrokers.com.hk,Proxy
 HOST-SUFFIX,interactivebrokers.com.sg,Proxy
 HOST-SUFFIX,ibkr.com.hk,Proxy
 HOST-SUFFIX,interactivebrokers.co.in,Proxy
+HOST-SUFFIX,bitwarden.com,Proxy
+HOST-SUFFIX,bitwarden.eu,Proxy
+HOST-SUFFIX,bitwarden.net,Proxy
+HOST-SUFFIX,btwrdn.co,Proxy
+HOST-SUFFIX,btwrdn.com,Proxy
