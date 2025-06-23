@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         share-link-copy
 // @namespace    http://tampermonkey.net/
-// @version      1.0.9
+// @version      1.0.81
 // @description  快捷复制便于分享的页面标题和URL，支持自定义快捷键，支持设置是否保留URL参数
 // @license      MIT
 // @author       Lainbo
