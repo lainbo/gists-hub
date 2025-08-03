@@ -31,7 +31,6 @@ DOMAIN,ssl-lvlt.cdn.ea.com
 DOMAIN-SUFFIX,azure.cn
 DOMAIN-SUFFIX,deepseek.com
 
-# 带有CDN的域名
 DOMAIN,font.alnk.cn
 DOMAIN,cdn.xxhzm.cn
 DOMAIN,jsd.cdn.zzko.cn
@@ -103,6 +102,7 @@ DOMAIN,hk1.pro.xns.one
 DOMAIN,vxcdn.novaxns.one
 DOMAIN-SUFFIX,shipxy.com
 DOMAIN-SUFFIX,sunovarain.top
+DOMAIN,hunter.qianxin.com
 
 PROCESS-NAME,WeChat
 PROCESS-NAME,WeChat.exe
