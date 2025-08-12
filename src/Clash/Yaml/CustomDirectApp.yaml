@@ -874,19 +874,19 @@ payload:
   - DOMAIN-SUFFIX,yqbimg.net
   - DOMAIN-SUFFIX,citic
   - DOMAIN-SUFFIX,icbc
-  - DOMAIN-SUFFIX,cignacmb.com
-  - DOMAIN-SUFFIX,fbank.com
-  - DOMAIN-SUFFIX,icbcstandard.com
+  - DOMAIN-SUFFIX,cmf.ltd
+  - DOMAIN-SUFFIX,ccbxt.com
+  - DOMAIN-SUFFIX,unionpayintl.com
   - DOMAIN-SUFFIX,ccb.com
   - DOMAIN-SUFFIX,cebbank.com
-  - DOMAIN-SUFFIX,icbcstandardbank.com
-  - DOMAIN-SUFFIX,icbcstandardresources.com
-  - DOMAIN-SUFFIX,icbcstandardsecurities.com
-  - DOMAIN-SUFFIX,95588.com
-  - DOMAIN-SUFFIX,icbcina.com
-  - DOMAIN-SUFFIX,bankcomm.com
+  - DOMAIN-SUFFIX,unionpayintl.cn
+  - DOMAIN-SUFFIX,unionpaysecure.com
+  - DOMAIN-SUFFIX,unionpay.net
+  - DOMAIN-SUFFIX,unionpay.com
+  - DOMAIN-SUFFIX,cup62.cn
+  - DOMAIN-SUFFIX,chinaunionpay.net
   - DOMAIN-SUFFIX,psbc.com
-  - DOMAIN-SUFFIX,joying.com
+  - DOMAIN-SUFFIX,chinaunionpay.com
   - DOMAIN-SUFFIX,whccb.com
   - DOMAIN-SUFFIX,kcbebank.com
   - DOMAIN-SUFFIX,shrbank.com
@@ -895,12 +895,12 @@ payload:
   - DOMAIN-SUFFIX,webank.com
   - DOMAIN-SUFFIX,webankcdn.net
   - DOMAIN-SUFFIX,csxbank.com
-  - DOMAIN-SUFFIX,test-cignacmb.com
+  - DOMAIN-SUFFIX,95516.net
   - DOMAIN-SUFFIX,xwbank.com
   - DOMAIN-SUFFIX,zgcbank.com
   - DOMAIN-SUFFIX,yillionbank.com
   - DOMAIN-SUFFIX,z-bank.com
-  - DOMAIN-SUFFIX,cmfunds.cn
+  - DOMAIN-SUFFIX,95516.com
   - DOMAIN-SUFFIX,wegobank.cn
   - DOMAIN-SUFFIX,suningbank.com
   - DOMAIN-SUFFIX,kshbank.cn
@@ -908,18 +908,6 @@ payload:
   - DOMAIN-SUFFIX,newupbank.com
   - DOMAIN-SUFFIX,ymbank.com
   - DOMAIN-SUFFIX,wxsbank.com
-  - DOMAIN-SUFFIX,95516.com
-  - DOMAIN-SUFFIX,95516.net
-  - DOMAIN-SUFFIX,chinaunionpay.com
-  - DOMAIN-SUFFIX,chinaunionpay.net
-  - DOMAIN-SUFFIX,cup62.cn
-  - DOMAIN-SUFFIX,unionpay.com
-  - DOMAIN-SUFFIX,unionpay.net
-  - DOMAIN-SUFFIX,unionpaysecure.com
-  - DOMAIN-SUFFIX,unionpayintl.cn
-  - DOMAIN-SUFFIX,unionpayintl.com
-  - DOMAIN-SUFFIX,cmfchina.com
-  - DOMAIN-SUFFIX,cmf.ltd
   - DOMAIN-SUFFIX,bocgi.com
   - DOMAIN-SUFFIX,bocifunds.cn
   - DOMAIN-SUFFIX,boc.cn
@@ -930,29 +918,29 @@ payload:
   - DOMAIN-SUFFIX,boccfc.cn
   - DOMAIN-SUFFIX,bankofchina.com
   - DOMAIN-SUFFIX,bocgins.com
-  - DOMAIN-SUFFIX,cmf.biz
+  - DOMAIN-SUFFIX,bocichina.com
   - DOMAIN-SUFFIX,bocichina.cn
   - DOMAIN-SUFFIX,bocim.com
   - DOMAIN-SUFFIX,bank-of-china.com
   - DOMAIN-SUFFIX,bocifunds.com
   - DOMAIN-SUFFIX,bocigroup.com
-  - DOMAIN-SUFFIX,cmburl.cn
-  - DOMAIN-SUFFIX,bocichina.com
-  - DOMAIN-SUFFIX,bosc.cn
+  - DOMAIN-SUFFIX,icbcstandard.com
+  - DOMAIN-SUFFIX,icbcstandardbank.com
+  - DOMAIN-SUFFIX,icbcstandardresources.com
   - DOMAIN-SUFFIX,ccbfutures.com
   - DOMAIN-SUFFIX,ccbfund.com
-  - DOMAIN-SUFFIX,ccbxt.com
+  - DOMAIN-SUFFIX,icbcstandardsecurities.com
   - DOMAIN-SUFFIX,ccbcos.com
   - DOMAIN-SUFFIX,ccbfund.cn
   - DOMAIN-SUFFIX,ccb.cn
   - DOMAIN-SUFFIX,ccbfutures.cn
   - DOMAIN-SUFFIX,ccbleasing.com
-  - DOMAIN-SUFFIX,cmbuat.com
   - DOMAIN-SUFFIX,cmbt.cn
-  - DOMAIN-SUFFIX,cmbimg.com
-  - DOMAIN-SUFFIX,cmbimg.cn
-  - DOMAIN-SUFFIX,cmbchina.com
-  - DOMAIN-SUFFIX,cmbchina.cn
+  - DOMAIN-SUFFIX,bosc.cn
+  - DOMAIN-SUFFIX,fbank.com
+  - DOMAIN-SUFFIX,95588.com
+  - DOMAIN-SUFFIX,icbcina.com
+  - DOMAIN-SUFFIX,bankcomm.com
   - DOMAIN-SUFFIX,chinaamc.com
   - DOMAIN-SUFFIX,citicbank.com
   - DOMAIN-SUFFIX,citiccapital.com
@@ -962,44 +950,56 @@ payload:
   - DOMAIN-SUFFIX,clsa.com
   - DOMAIN-SUFFIX,csc108.com
   - DOMAIN-SUFFIX,ecitic.com
-  - DOMAIN-SUFFIX,cmbchina.biz
-  - DOMAIN-SUFFIX,cmb-leasing.com
+  - DOMAIN-SUFFIX,joying.com
+  - DOMAIN-SUFFIX,test-cignacmb.com
   - DOMAIN-SUFFIX,8008205555.cn
   - DOMAIN-SUFFIX,8008205555.com
   - DOMAIN-SUFFIX,cignacmb-ipmi.com
-  - DOMAIN-SUFFIX,abchina.com
+  - DOMAIN-SUFFIX,cignacmb.com
   - DOMAIN-SUFFIX,cignacmbamc.com
-  - DOMAIN-SUFFIX,icbccs.com.cn
-  - DOMAIN-SUFFIX,bocservices.com.cn
-  - DOMAIN-SUFFIX,bocifunds.com.cn
+  - DOMAIN-SUFFIX,cmb-leasing.com
+  - DOMAIN-SUFFIX,cmbchina.biz
+  - DOMAIN-SUFFIX,cmbchina.cn
+  - DOMAIN-SUFFIX,cmbchina.com
+  - DOMAIN-SUFFIX,cmbimg.cn
+  - DOMAIN-SUFFIX,cmbimg.com
+  - DOMAIN-SUFFIX,cmfunds.cn
+  - DOMAIN-SUFFIX,cmbuat.com
+  - DOMAIN-SUFFIX,cmburl.cn
+  - DOMAIN-SUFFIX,cmf.biz
+  - DOMAIN-SUFFIX,abchina.com
+  - DOMAIN-SUFFIX,cmfchina.com
+  - DOMAIN-SUFFIX,bsb.com.cn
+  - DOMAIN-SUFFIX,dccnet.com.cn
+  - DOMAIN-SUFFIX,ccb-life.com.cn
+  - DOMAIN-SUFFIX,hsbc.com.cn
+  - DOMAIN-SUFFIX,hsbcqh.com.cn
+  - DOMAIN-SUFFIX,icbccstz.com.cn
+  - DOMAIN-SUFFIX,bankofbeijing.com.cn
   - DOMAIN-SUFFIX,ccb.com.cn
   - DOMAIN-SUFFIX,ccbtrust.com.cn
-  - DOMAIN-SUFFIX,hsbc.com.cn
   - DOMAIN-SUFFIX,ccbfund.com.cn
-  - DOMAIN-SUFFIX,ccb-life.com.cn
-  - DOMAIN-SUFFIX,citicprufunds.com.cn
+  - DOMAIN-SUFFIX,bocservices.com.cn
   - DOMAIN-SUFFIX,bocichina.com.cn
+  - DOMAIN-SUFFIX,bocifunds.com.cn
   - DOMAIN-SUFFIX,cup.com.cn
-  - DOMAIN-SUFFIX,chinaunionpay.com.cn
-  - DOMAIN-SUFFIX,onebank.com.cn
-  - DOMAIN-SUFFIX,95588.com.cn
-  - DOMAIN-SUFFIX,bankofbeijing.com.cn
-  - DOMAIN-SUFFIX,hsbcqh.com.cn
   - DOMAIN-SUFFIX,citic-prudential.com.cn
-  - DOMAIN-SUFFIX,hsbcinsurance.com.cn
+  - DOMAIN-SUFFIX,icbccs.com.cn
+  - DOMAIN-SUFFIX,citicprufunds.com.cn
+  - DOMAIN-SUFFIX,icbc.com.cn
+  - DOMAIN-SUFFIX,95588.com.cn
+  - DOMAIN-SUFFIX,onebank.com.cn
+  - DOMAIN-SUFFIX,ccblife-test.com.cn
+  - DOMAIN-SUFFIX,spdb.com.cn
   - DOMAIN-SUFFIX,njcb.com.cn
   - DOMAIN-SUFFIX,hxb.com.cn
   - DOMAIN-SUFFIX,cmbc.com.cn
   - DOMAIN-SUFFIX,citibank.com.cn
   - DOMAIN-SUFFIX,cib.com.cn
   - DOMAIN-SUFFIX,cgbchina.com.cn
-  - DOMAIN-SUFFIX,bsb.com.cn
-  - DOMAIN-SUFFIX,dccnet.com.cn
   - DOMAIN-SUFFIX,icbcmanila.com.cn
-  - DOMAIN-SUFFIX,icbccstz.com.cn
-  - DOMAIN-SUFFIX,spdb.com.cn
-  - DOMAIN-SUFFIX,icbc.com.cn
-  - DOMAIN-SUFFIX,ccblife-test.com.cn
+  - DOMAIN-SUFFIX,chinaunionpay.com.cn
+  - DOMAIN-SUFFIX,hsbcinsurance.com.cn
   - DOMAIN-SUFFIX,bochk.com
   - DOMAIN-SUFFIX,ccbintl.com.hk
   - DOMAIN-SUFFIX,ccbseoul.com
