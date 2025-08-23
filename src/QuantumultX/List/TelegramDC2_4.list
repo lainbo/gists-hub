@@ -13,3 +13,6 @@ IP6-CIDR,2a0a:f280:203::/48,Proxy,no-resolve
 HOST-SUFFIX,nodeseek.com,Proxy
 HOST-SUFFIX,customercontrolpanel.de,Proxy
 HOST-SUFFIX,app.koofr.net,Proxy
+HOST-SUFFIX,n26.com,Proxy
+HOST-SUFFIX,number26.de,Proxy
+HOST-SUFFIX,tech26.de,Proxy
