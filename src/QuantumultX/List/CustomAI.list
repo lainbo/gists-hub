@@ -56,3 +56,10 @@ HOST-SUFFIX,notebooklm.google.com,Proxy
 HOST-SUFFIX,meta.ai,Proxy
 HOST-SUFFIX,sora.com,Proxy
 HOST,sora-cdn.oaistatic.com,Proxy
+HOST,guzzoni.apple.com,Proxy
+HOST-SUFFIX,smoot.apple.com,Proxy
+HOST,apple-relay.cloudflare.com,Proxy
+HOST,apple-relay.fastly-edge.com,Proxy
+HOST,cp4.cloudflare.com,Proxy
+HOST,apple-relay.apple.com,Proxy
+HOST,gspe1-ssl.ls.apple.com,Proxy
