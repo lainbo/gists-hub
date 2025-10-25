@@ -62,23 +62,38 @@ function fetchContent(url) {
 }
 
 function processContent(content) {
-  return content
+  // 过滤掉空行和注释，只保留规则
+  const rules = content
     .split('\n')
-    .filter(line => line.trim() !== '' && !line.startsWith('#'))
-    .join('\n')
+    .filter(line => {
+      const trimmed = line.trim()
+      return trimmed !== '' && !trimmed.startsWith('#')
+    })
+
+  // 对规则进行排序
+  rules.sort()
+
+  return rules.join('\n')
 }
 
 async function main() {
   try {
-    let combinedContent = ''
+    const header = '# 此文件为自动生成，请勿手动修改'
+    const processedRules = []
+
     for (const url of urls) {
       console.log(`正在获取内容：${url}`)
       const ruleContent = await fetchContent(url)
-      combinedContent += `${ruleContent}\n`
+      // 对每个URL的内容进行处理（去注释+排序）
+      const processed = processContent(ruleContent)
+      if (processed) {
+        processedRules.push(processed)
+      }
     }
-    const header = '# 此文件为自动生成，请勿手动修改'
-    const processedContent = processContent(combinedContent)
-    fs.writeFileSync(outputFile, `${header}\n${processedContent}`)
+
+    // 按URL顺序拼接所有处理好的规则
+    const combinedContent = processedRules.join('\n')
+    fs.writeFileSync(outputFile, `${header}\n${combinedContent}\n`)
     console.log(`合并和处理后的规则已写入 ${outputFile}`)
   }
   catch (error) {
