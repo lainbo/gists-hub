@@ -43,6 +43,7 @@ const urls = [
   'https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Clash/JianGuoYun/JianGuoYun.list',
   'https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Clash/UnionPay/UnionPay.list',
   'https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Clash/LanZouYun/LanZouYun.list',
+  'https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/refs/heads/master/rule/Clash/DiDi/DiDi.list',
 ]
 
 function fetchContent(url) {
@@ -65,7 +66,7 @@ function processContent(content) {
   // 过滤掉空行和注释，只保留规则
   const rules = content
     .split('\n')
-    .filter(line => {
+    .filter((line) => {
       const trimmed = line.trim()
       return trimmed !== '' && !trimmed.startsWith('#')
     })
