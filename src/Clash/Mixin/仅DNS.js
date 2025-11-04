@@ -1,10 +1,8 @@
 function main(content) {
   const cnDnsList = [
     'https://223.5.5.5/dns-query',
-    'https://1.12.12.12/dns-query',
   ]
   const trustDnsList = [
-    'https://doh.apad.pro/dns-query',
     'https://1.0.0.1/dns-query',
   ]
   const extraDNS = {
