@@ -64,3 +64,5 @@ payload:
   - DOMAIN,cp4.cloudflare.com
   - DOMAIN,apple-relay.apple.com
   - DOMAIN,gspe1-ssl.ls.apple.com
+  - DOMAIN-SUFFIX,gateway.icloud.com
+  - DOMAIN-SUFFIX,apps.mzstatic.com
