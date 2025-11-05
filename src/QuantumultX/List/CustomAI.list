@@ -65,3 +65,4 @@ HOST,apple-relay.apple.com,Proxy
 HOST,gspe1-ssl.ls.apple.com,Proxy
 HOST-SUFFIX,gateway.icloud.com,Proxy
 HOST-SUFFIX,apps.mzstatic.com,Proxy
+HOST,apple-relay.mask.apple-dns.net,Proxy

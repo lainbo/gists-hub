@@ -66,3 +66,4 @@ payload:
   - DOMAIN,gspe1-ssl.ls.apple.com
   - DOMAIN-SUFFIX,gateway.icloud.com
   - DOMAIN-SUFFIX,apps.mzstatic.com
+  - DOMAIN,apple-relay.mask.apple-dns.net
