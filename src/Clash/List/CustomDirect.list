@@ -122,6 +122,7 @@ PROCESS-NAME,cloudmusic.exe
 # Tencent
 IP-ASN,132203,no-resolve
 
+DOMAIN,bdtj.tagtic.cn
 DOMAIN,fairplay.l.qq.com
 DOMAIN,image.maimn.com
 DOMAIN,img.bfzypic.com
