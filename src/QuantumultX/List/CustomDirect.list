@@ -108,7 +108,6 @@ HOST,img.bfzypic.com,Proxy
 HOST,img.ffzypic.com,Proxy
 HOST,img.kuaikanzy.net,Proxy
 HOST,img.liangzipic.com,Proxy
-HOST,init.ess.apple.com,Proxy
 HOST,itunes.apple.com,Proxy
 HOST,livew.l.qq.com,Proxy
 HOST,m3u8.255tv.tk,Proxy
@@ -275,7 +274,6 @@ HOST-KEYWORD,ctc.qzs.qzone.qq.com,Proxy
 HOST-KEYWORD,deepdyve,Proxy
 HOST-KEYWORD,els-cdn,Proxy
 HOST-KEYWORD,elsevier,Proxy
-HOST-KEYWORD,gsa.apple.com,Proxy
 HOST-KEYWORD,pkulaw,Proxy
 HOST-KEYWORD,push.apple.com,Proxy
 HOST-KEYWORD,readcube,Proxy

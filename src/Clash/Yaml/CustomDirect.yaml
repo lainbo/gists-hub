@@ -129,7 +129,6 @@ payload:
   - DOMAIN,img.ffzypic.com
   - DOMAIN,img.kuaikanzy.net
   - DOMAIN,img.liangzipic.com
-  - DOMAIN,init.ess.apple.com
   - DOMAIN,itunes.apple.com
   - DOMAIN,livew.l.qq.com
   - DOMAIN,m3u8.255tv.tk
@@ -296,7 +295,6 @@ payload:
   - DOMAIN-KEYWORD,deepdyve
   - DOMAIN-KEYWORD,els-cdn
   - DOMAIN-KEYWORD,elsevier
-  - DOMAIN-KEYWORD,gsa.apple.com
   - DOMAIN-KEYWORD,pkulaw
   - DOMAIN-KEYWORD,push.apple.com
   - DOMAIN-KEYWORD,readcube
