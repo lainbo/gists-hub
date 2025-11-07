@@ -265,6 +265,7 @@ HOST-SUFFIX,weather-data.apple.com,Proxy
 HOST-SUFFIX,weather-map.apple.com,Proxy
 HOST-SUFFIX,wiley.com,Proxy
 HOST-SUFFIX,xunlei.com,Proxy
+HOST-SUFFIX,mmstat.com,Proxy
 HOST-KEYWORD,amp-api.podcasts.apple.com,Proxy
 HOST-KEYWORD,anti-ad.net,Proxy
 HOST-KEYWORD,aw-s.tripcdn.com,Proxy
