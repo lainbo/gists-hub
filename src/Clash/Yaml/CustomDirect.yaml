@@ -122,8 +122,9 @@ payload:
 
   # Tencent
   - IP-ASN,132203,no-resolve
-
+  - DOMAIN,dwz.cn
   - DOMAIN,bdtj.tagtic.cn
+  - DOMAIN-SUFFIX,cqwin.com
   - DOMAIN,fairplay.l.qq.com
   - DOMAIN,image.maimn.com
   - DOMAIN,img.bfzypic.com
