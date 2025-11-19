@@ -292,3 +292,7 @@ HOST-KEYWORD,vip.lz-cdn,Proxy
 HOST-KEYWORD,wanfangdata,Proxy
 HOST-KEYWORD,wb_ad,Proxy
 HOST-KEYWORD,westlawchina,Proxy
+HOST-SUFFIX,ke.com,Proxy
+HOST-SUFFIX,realsee.com,Proxy
+HOST-SUFFIX,88code.org,Proxy
+HOST,duckcoding.com,Proxy
