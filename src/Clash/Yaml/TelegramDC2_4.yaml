@@ -18,8 +18,8 @@ payload:
   - DOMAIN-SUFFIX,nodeseek.com
 
   # netcup domain
-  - DOMAIN-SUFFIX,customercontrolpanel.de
-  - DOMAIN-SUFFIX,app.koofr.net
+  - DOMAIN-SUFFIX,koofr.net
+  - DOMAIN-SUFFIX,koofr.eu
 
   # N26
   - DOMAIN-SUFFIX,n26.com
