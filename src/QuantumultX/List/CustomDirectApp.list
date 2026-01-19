@@ -446,6 +446,7 @@ HOST-SUFFIX,408399.com,Proxy
 HOST-SUFFIX,408399.net,Proxy
 HOST-SUFFIX,816798.net,Proxy
 HOST-SUFFIX,account-cn.huami.com,Proxy
+HOST-SUFFIX,addatachain.cn,Proxy
 HOST-SUFFIX,airstar.com,Proxy
 HOST-SUFFIX,airstarfinance.net,Proxy
 HOST-SUFFIX,aleenote.cn,Proxy
@@ -485,6 +486,7 @@ HOST-SUFFIX,mi-ae.net,Proxy
 HOST-SUFFIX,mi-cache.com,Proxy
 HOST-SUFFIX,mi-cdn.com,Proxy
 HOST-SUFFIX,mi-customer.com,Proxy
+HOST-SUFFIX,mi-dun.com,Proxy
 HOST-SUFFIX,mi-idc.com,Proxy
 HOST-SUFFIX,mi-img.com,Proxy
 HOST-SUFFIX,mi-img1.com,Proxy
@@ -508,6 +510,7 @@ HOST-SUFFIX,mifile.cn,Proxy
 HOST-SUFFIX,migames.com,Proxy
 HOST-SUFFIX,mij.cc,Proxy
 HOST-SUFFIX,mijia.tech,Proxy
+HOST-SUFFIX,mijiayoupin.com,Proxy
 HOST-SUFFIX,mikge.com,Proxy
 HOST-SUFFIX,miliao.com,Proxy
 HOST-SUFFIX,milliant.com,Proxy
@@ -519,6 +522,10 @@ HOST-SUFFIX,mipay.com,Proxy
 HOST-SUFFIX,mipush.com,Proxy
 HOST-SUFFIX,miredian.com,Proxy
 HOST-SUFFIX,miren.cn,Proxy
+HOST-SUFFIX,misrm.cn,Proxy
+HOST-SUFFIX,misrm.com,Proxy
+HOST-SUFFIX,misrm.com.cn,Proxy
+HOST-SUFFIX,misrm.net,Proxy
 HOST-SUFFIX,mitalk.com,Proxy
 HOST-SUFFIX,mitvos.com,Proxy
 HOST-SUFFIX,mitvos.net,Proxy
@@ -528,12 +535,15 @@ HOST-SUFFIX,miui.com,Proxy
 HOST-SUFFIX,miwifi.com,Proxy
 HOST-SUFFIX,mixinshe.com,Proxy
 HOST-SUFFIX,miyun.com,Proxy
+HOST-SUFFIX,openvela.com,Proxy
 HOST-SUFFIX,peijian.com,Proxy
+HOST-SUFFIX,qinghedaxue.com,Proxy
 HOST-SUFFIX,qsb.browser.miui.srv,Proxy
 HOST-SUFFIX,res.mi.baidu.com,Proxy
 HOST-SUFFIX,restapi.amap.com,Proxy
 HOST-SUFFIX,shunwei.cn,Proxy
 HOST-SUFFIX,singapore01.kuaipandata.com,Proxy
+HOST-SUFFIX,sodajs.org,Proxy
 HOST-SUFFIX,store-cdn.huami.com,Proxy
 HOST-SUFFIX,thumb-yz01.kuaipandata.com,Proxy
 HOST-SUFFIX,thumb-yz02.kuaipandata.com,Proxy
@@ -565,6 +575,7 @@ HOST-SUFFIX,xiaomiinc.cn,Proxy
 HOST-SUFFIX,xiaomiinc.com,Proxy
 HOST-SUFFIX,xiaomiinc.com.cn,Proxy
 HOST-SUFFIX,xiaomiinc.net,Proxy
+HOST-SUFFIX,xiaomimimo.com,Proxy
 HOST-SUFFIX,xiaomimobile.com,Proxy
 HOST-SUFFIX,xiaominr.com,Proxy
 HOST-SUFFIX,xiaomiprint.com,Proxy
@@ -919,6 +930,7 @@ HOST-SUFFIX,ccbseoul.com,Proxy
 HOST-SUFFIX,ccbtrust.com.cn,Proxy
 HOST-SUFFIX,ccbxt.com,Proxy
 HOST-SUFFIX,cebbank.com,Proxy
+HOST-SUFFIX,cfc108.com,Proxy
 HOST-SUFFIX,cgbchina.com.cn,Proxy
 HOST-SUFFIX,chinaamc.com,Proxy
 HOST-SUFFIX,chinaunionpay.com,Proxy
