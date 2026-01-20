@@ -47,6 +47,7 @@ const urls = [
   'https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/refs/heads/master/rule/Clash/DouYin/DouYin.list', // 抖音
   'https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/refs/heads/meta/geo/geosite/classical/doubao.list', // 豆包
   'https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/refs/heads/master/rule/Clash/WeType/WeType.list', // 微信输入法
+  'https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/refs/heads/meta/geo/geosite/classical/qweather.list', // 和风天气
 ]
 
 function fetchContent(url) {

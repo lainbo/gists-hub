@@ -1359,3 +1359,7 @@ HOST-SUFFIX,myparallelstory.com,Proxy
 HOST-SUFFIX,picpic-ai.cn,Proxy
 HOST-SUFFIX,pixeldance.com,Proxy
 HOST,wetype.weixin.qq.com,Proxy
+HOST-SUFFIX,hecdn.net,Proxy
+HOST-SUFFIX,heweather.net,Proxy
+HOST-SUFFIX,qweather.com,Proxy
+HOST-SUFFIX,qweather.net,Proxy
