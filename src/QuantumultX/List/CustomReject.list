@@ -3,3 +3,5 @@ HOST-SUFFIX,adobe.io,Proxy
 HOST-SUFFIX,mcdn.bilivideo.com,Proxy
 HOST-SUFFIX,mcdn.bilivideo.cn,Proxy
 HOST-SUFFIX,szbdyd.com,Proxy
+HOST-KEYWORD,stun,Proxy
+HOST-KEYWORD,pcdn,Proxy

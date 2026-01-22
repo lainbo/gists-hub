@@ -6,3 +6,5 @@ payload:
   - DOMAIN-SUFFIX,mcdn.bilivideo.com
   - DOMAIN-SUFFIX,mcdn.bilivideo.cn
   - DOMAIN-SUFFIX,szbdyd.com
+  - DOMAIN-KEYWORD,stun
+  - DOMAIN-KEYWORD,pcdn
