@@ -360,3 +360,4 @@ payload:
   - DOMAIN,jp.duckcoding.com
   - DOMAIN-SUFFIX,zhutix.com
   - DOMAIN-SUFFIX,hospital-cqmu.com
+  - DOMAIN-SUFFIX,cn-shanghai.fcapp.run
