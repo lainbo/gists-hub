@@ -6,6 +6,9 @@
   "author": "",
   "license": "ISC",
   "keywords": [],
+  "imports": {
+    "#src/*": "./src/*"
+  },
   "main": "index.js",
   "scripts": {
     "syncQx": "pnpm run generateQx && pnpm run uploadQx",
@@ -30,12 +33,9 @@
     "dotenv": "^16.4.5"
   },
   "devDependencies": {
-    "@antfu/eslint-config": "1.1.2",
+    "@antfu/eslint-config": "7.7.3",
     "concurrently": "^8.2.2",
-    "eslint": "^8.56.0",
+    "eslint": "^10.0.3",
     "husky": "^8.0.3"
-  },
-  "imports": {
-    "#src/*": "./src/*"
   }
 }
