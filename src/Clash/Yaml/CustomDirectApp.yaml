@@ -643,7 +643,16 @@ payload:
   - DOMAIN-SUFFIX,xingxuanwaimai.com
   - DOMAIN-SUFFIX,xyzele.com
   - DOMAIN-SUFFIX,youcaishop.cn
+  - DOMAIN-SUFFIX,100.me
+  - DOMAIN-SUFFIX,ddcorp.net
+  - DOMAIN-SUFFIX,ddfresh.net
+  - DOMAIN-SUFFIX,ddimg.mobi
+  - DOMAIN-SUFFIX,ddmaicai.net
+  - DOMAIN-SUFFIX,ddmc.mobi
+  - DOMAIN-SUFFIX,dduser.mobi
+  - DOMAIN-SUFFIX,ddxq.mobi
   - DOMAIN-SUFFIX,dianping.com
+  - DOMAIN-SUFFIX,imaicai.mobi
   - DOMAIN-SUFFIX,maoyan.com
   - DOMAIN-SUFFIX,meituan.com
   - DOMAIN-SUFFIX,meituan.net
