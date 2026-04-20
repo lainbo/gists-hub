@@ -26,7 +26,8 @@
     "downloadLoon": "node ./src/Loon/RemoteConfig/script/downloadLoon.js",
     "lint:fix": "eslint . --fix",
     "up": "ncu -i --format group",
-    "pre-commit-tasks": "concurrently \"pnpm run generateClashYaml\" \"pnpm run generateQxList\" \"pnpm run syncQx\" \"pnpm run syncLoon\"",
+    "generateClashDerived": "pnpm run generateClashYaml && pnpm run generateClashMrs",
+    "pre-commit-tasks": "concurrently \"pnpm run generateClashDerived\" \"pnpm run generateQxList\"",
     "prepare": "husky install"
   },
   "dependencies": {

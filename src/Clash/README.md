@@ -75,6 +75,16 @@ CustomDirect.classical.list   # DOMAIN-KEYWORD / PROCESS-NAME / IP-ASN / DST-POR
 pnpm run generateClashRules
 ```
 
+提交前会自动执行轻量派生流程：
+
+```sh
+pnpm run generateClashDerived
+```
+
+这个命令只根据现有 `List/` 生成 `Yaml/` 和 `MRS/`，不会拉取外部规则刷新 `CustomDirectApp.list`。因此日常手工修改 `List/` 后直接提交即可，pre-commit hook 会自动把对应成品重新生成并 `git add .`。
+
+注意：当前 pre-commit hook 只执行本地派生任务，不执行 `syncQx` 和 `syncLoon` 这类上传任务，避免本地私有配置、Gist ID 或 token 状态阻塞提交。
+
 也可以分步执行：
 
 ```sh

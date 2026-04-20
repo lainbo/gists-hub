@@ -10,7 +10,6 @@ log-level: info
 ipv6: true
 unified-delay: true
 tcp-concurrent: true
-global-client-fingerprint: chrome
 
 profile:
   store-selected: true

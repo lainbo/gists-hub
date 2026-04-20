@@ -61,6 +61,14 @@ pnpm run generateClashMrs
 pnpm run generateClashRules
 ```
 
+提交前使用的轻量派生命令：
+
+```sh
+pnpm run generateClashDerived
+```
+
+它只运行 `generateClashYaml` 和 `generateClashMrs`，不运行 `generateDirectAppList`。这样本地提交不会因为外部规则网络请求改变 `CustomDirectApp.list`，但仍能确保你手工维护的 `List` 改动同步到 `Yaml`、`MRS` 和残留 `classical` 文件。
+
 ## GitHub Actions 顺序
 
 推荐在自动任务中按以下顺序执行：
@@ -72,6 +80,14 @@ pnpm run generateClashMrs
 ```
 
 原因是 `CustomDirectApp.list` 本身是脚本生成的源规则，必须先更新它，再生成 `Yaml/` 和 `MRS/` 成品。
+
+本地 pre-commit hook 当前会执行：
+
+```sh
+pnpm run pre-commit-tasks && git add .
+```
+
+其中 `pre-commit-tasks` 只包含本地派生任务：`generateClashDerived` 和 `generateQxList`。提交时会自动把重新生成的 Clash 派生成品加入提交，但不会执行 `syncQx` / `syncLoon` 这类上传任务。
 
 ## MRS 生成依赖
 
