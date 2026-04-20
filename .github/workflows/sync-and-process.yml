@@ -22,6 +22,16 @@ jobs:
         with:
           node-version: '20'
 
+      - name: Install mihomo
+        run: |
+          cd gists-hub
+          MIHOMO_URL=$(curl -fsSL https://api.github.com/repos/MetaCubeX/mihomo/releases/latest | node -e "let data = ''; process.stdin.on('data', chunk => data += chunk); process.stdin.on('end', () => { const release = JSON.parse(data); const asset = release.assets.find(item => /^mihomo-linux-amd64-v1-.*\.gz$/.test(item.name)); if (!asset) { console.error('未找到 linux amd64 v1 mihomo release asset'); process.exit(1); } console.log(asset.browser_download_url); });")
+          curl -fsSL "$MIHOMO_URL" -o mihomo.gz
+          gunzip mihomo.gz
+          chmod +x mihomo
+          sudo mv mihomo /usr/local/bin/mihomo
+          mihomo -v
+
       - name: Generate QuantumultX de-advertising files
         run: |
           # 创建存放需要处理格式文件的目标文件夹
@@ -40,13 +50,15 @@ jobs:
           sed -i '/^IP-CIDR.*no-resolve/s/no-resolve/Proxy,&/' src/QuantumultX/List/RemoteOtherRules/GoogleCNProxyIP.list
           echo "已经将广告规则文件处理为QuantumultX可用的格式"
 
-      - name: Generate CustomDirectApp.list and Clash YAML
+      - name: Generate Clash rule files
         run: |
           cd gists-hub
           npm run generateDirectAppList
           echo "已生成 CustomDirectApp.list 文件"
           npm run generateClashYaml
           echo "已生成 Clash YAML 文件"
+          npm run generateClashMrs
+          echo "已生成 Clash MRS 文件"
 
       - name: Commit and push changes
         run: |

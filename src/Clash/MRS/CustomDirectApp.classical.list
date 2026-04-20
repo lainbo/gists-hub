@@ -1,0 +1,7 @@
+# 此文件为自动生成，请勿手动修改
+# 源文件: src/Clash/List/CustomDirectApp.list
+# 说明: 这里保留 mihomo mrs 暂不支持的规则类型
+DOMAIN-KEYWORD,weibo
+IP-ASN,132203,no-resolve
+PROCESS-NAME,com.xiaomi.mibrain.speech
+PROCESS-NAME,小米云服务.exe

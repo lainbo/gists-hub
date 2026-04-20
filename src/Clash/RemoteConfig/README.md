@@ -38,3 +38,52 @@
 - 包含195个主权国家和常用地区的Emoji旗帜显示匹配规则
 - 安全的自动策略组, 所有自动选择(如 自动选择、香港自动、美国自动等)不会自动选到高倍率节点导致流量消耗过快
 
+---
+
+### Lainbo-advanced.local.yaml 维护说明
+
+`Lainbo-advanced.local.yaml` 是为了减少对远程订阅转换服务的依赖而维护的 mihomo 原生配置。
+
+本仓库自有规则不再直接引用 `src/Clash/List/*.list`，而是引用 `src/Clash/MRS/*` 的派生成品。规则源头仍然是 `src/Clash/List/*.list`。
+
+自有规则 provider 命名约定：
+
+```text
+<RuleName>Domain     -> behavior: domain, format: mrs
+<RuleName>IPCIDR     -> behavior: ipcidr, format: mrs
+<RuleName>Classical  -> behavior: classical, format: text
+```
+
+例如：
+
+```yaml
+CustomDirectAppDomain:
+  type: http
+  behavior: domain
+  format: mrs
+  url: https://raw.githubusercontent.com/lainbo/gists-hub/master/src/Clash/MRS/CustomDirectApp.domain.mrs
+  path: ./ruleset/CustomDirectApp.domain.mrs
+  interval: 86400
+```
+
+`rules` 中同一个源规则拆出的多个 provider 应继续指向同一个策略组，避免拆分后改变分流结果。
+
+维护流程：
+
+```sh
+pnpm run generateClashRules
+```
+
+校验 `RULE-SET` 是否都能找到 provider：
+
+```sh
+ruby -e "require 'yaml'; data = YAML.load_file('src/Clash/RemoteConfig/Lainbo-advanced.local.yaml'); providers = data.fetch('rule-providers').keys; missing = []; data.fetch('rules').each { |rule| parts = rule.split(',', 3); missing << parts[1] if parts[0] == 'RULE-SET' && !providers.include?(parts[1]) }; abort(missing.join(%(\n))) unless missing.empty?; puts 'yaml ok'; puts 'all RULE-SET providers exist'"
+```
+
+可以用 mihomo 做进一步测试：
+
+```sh
+mihomo -t -d /tmp/mihomo-check -f src/Clash/RemoteConfig/Lainbo-advanced.local.yaml
+```
+
+如果测试失败在 `geoip.metadb`、`MMDB` 或 GitHub DNS 解析阶段，通常是当前网络或 fake-ip/TUN 环境导致的 geodata 下载问题，不代表本地 MRS provider 引用一定有误。
