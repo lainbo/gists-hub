@@ -313,6 +313,22 @@ rule-providers:
     path: ./ruleset/CustomFirstProxy.domain.mrs
     interval: 86400
 
+  CustomFirstProxyIPCIDR:
+    type: http
+    behavior: ipcidr
+    format: mrs
+    url: https://raw.githubusercontent.com/lainbo/gists-hub/master/src/Clash/MRS/CustomFirstProxy.ipcidr.mrs
+    path: ./ruleset/CustomFirstProxy.ipcidr.mrs
+    interval: 86400
+
+  CustomFirstProxyClassical:
+    type: http
+    behavior: classical
+    format: text
+    url: https://raw.githubusercontent.com/lainbo/gists-hub/master/src/Clash/MRS/CustomFirstProxy.classical.list
+    path: ./ruleset/CustomFirstProxy.classical.list
+    interval: 86400
+
   Lan:
     type: http
     behavior: classical
@@ -594,6 +610,8 @@ rules:
   - RULE-SET,GoogleFCMMeta,✈️ 节点选择
   - RULE-SET,GoogleCN,✈️ 节点选择
   - RULE-SET,CustomFirstProxyDomain,✈️ 节点选择
+  - RULE-SET,CustomFirstProxyIPCIDR,✈️ 节点选择
+  - RULE-SET,CustomFirstProxyClassical,✈️ 节点选择
   - RULE-SET,Lan,🔗 无需代理
   - RULE-SET,OpenAI,💬 AI专用
   - RULE-SET,OpenAIMeta,💬 AI专用
