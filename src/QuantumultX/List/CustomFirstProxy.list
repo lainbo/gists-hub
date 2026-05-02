@@ -6,6 +6,15 @@ HOST-SUFFIX,push.apple.com,Proxy
 HOST-SUFFIX,akadns.net,Proxy
 HOST-KEYWORD,apple.com.edgekey.net,Proxy
 IP-CIDR,17.0.0.0/8,Proxy,no-resolve
+IP-CIDR,139.178.128.0/18,Proxy,no-resolve
+IP-CIDR,144.178.0.0/19,Proxy,no-resolve
+IP-CIDR,144.178.36.0/22,Proxy,no-resolve
+IP-CIDR,144.178.48.0/20,Proxy,no-resolve
+IP-CIDR,192.35.50.0/24,Proxy,no-resolve
+IP-CIDR,198.183.17.0/24,Proxy,no-resolve
+IP-CIDR,205.180.175.0/24,Proxy,no-resolve
+IP-CIDR,63.92.224.0/19,Proxy,no-resolve
+IP-CIDR,65.199.22.0/23,Proxy,no-resolve
 IP6-CIDR,2620:149:a44::/48,Proxy,no-resolve
 IP6-CIDR,2403:300:a42::/48,Proxy,no-resolve
 IP6-CIDR,2403:300:a51::/48,Proxy,no-resolve
