@@ -1,0 +1,14 @@
+# iOS推送问题修复
+# APNs host / CNAME / CDN matching
+DOMAIN-SUFFIX,push.apple.com
+DOMAIN-SUFFIX,akadns.net
+DOMAIN-KEYWORD,apple.com.edgekey.net
+
+# APNs IPv4 ranges from Apple
+IP-CIDR,17.0.0.0/8,no-resolve
+
+# APNs IPv6 ranges from Apple
+IP-CIDR6,2620:149:a44::/48,no-resolve
+IP-CIDR6,2403:300:a42::/48,no-resolve
+IP-CIDR6,2403:300:a51::/48,no-resolve
+IP-CIDR6,2a01:b740:a42::/48,no-resolve

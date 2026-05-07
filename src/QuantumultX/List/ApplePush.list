@@ -1,0 +1,9 @@
+# 该文件为自动生成
+HOST-SUFFIX,push.apple.com,Proxy
+HOST-SUFFIX,akadns.net,Proxy
+HOST-KEYWORD,apple.com.edgekey.net,Proxy
+IP-CIDR,17.0.0.0/8,Proxy,no-resolve
+IP6-CIDR,2620:149:a44::/48,Proxy,no-resolve
+IP6-CIDR,2403:300:a42::/48,Proxy,no-resolve
+IP6-CIDR,2403:300:a51::/48,Proxy,no-resolve
+IP6-CIDR,2a01:b740:a42::/48,Proxy,no-resolve
