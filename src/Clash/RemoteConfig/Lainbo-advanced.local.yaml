@@ -1,8 +1,3 @@
-# Mihomo local config converted from Lainbo-advanced.ini.
-# Replace the subscription URL placeholders with your original airport subscription URLs.
-# Subscriptions may return base64 ss/vless links; Mihomo will parse them through proxy-providers.
-# Group emojis are preserved. Node emoji renaming from Subconverter is intentionally not included.
-
 mixed-port: 7890
 allow-lan: false
 mode: rule
@@ -33,29 +28,15 @@ dns:
     - https://doh.pub/dns-query
 
 proxy-providers:
-  Nexitally:
+  Subscription:
     type: http
-    url: "<YOUR_NEXITALLY_SUBSCRIPTION_URL_HERE>"
-    path: ./providers/Nexitally.yaml
+    url: "<YOUR_SUBSCRIPTION_URL_HERE>"
+    path: ./providers/Subscription.yaml
     interval: 86400
     exclude-filter: "(?i)(?:\\d+(\\.\\d*)?\\s*GB|traffic|expire|premium|github|isp|流量|网址|套餐|应急|时间|重置|剩余|[到过]期|订阅)"
     health-check:
       enable: true
-      url: https://www.gstatic.com/generate_204
-      interval: 300
-      timeout: 5000
-      lazy: true
-      expected-status: 204
-
-  Custom:
-    type: http
-    url: "<YOUR_CUSTOM_SUBSCRIPTION_URL_HERE>"
-    path: ./providers/Custom.yaml
-    interval: 86400
-    exclude-filter: "(?i)(?:\\d+(\\.\\d*)?\\s*GB|traffic|expire|premium|github|isp|流量|网址|套餐|应急|时间|重置|剩余|[到过]期|订阅)"
-    health-check:
-      enable: true
-      url: https://www.gstatic.com/generate_204
+      url: http://cp.cloudflare.com/generate_204
       interval: 300
       timeout: 5000
       lazy: true
@@ -74,16 +55,14 @@ proxy-groups:
       - 🇪🇺 欧洲自动
       - DIRECT
     use:
-      - Nexitally
-      - Custom
+      - Subscription
 
   - name: 🌿 自动选择
     type: url-test
     use:
-      - Nexitally
-      - Custom
+      - Subscription
     filter: "(?i)^(?:(?!(?:[2-9][0-9]*|1[0-9]+)[x×]).)*$"
-    url: https://www.gstatic.com/generate_204
+    url: http://cp.cloudflare.com/generate_204
     interval: 300
     tolerance: 50
     timeout: 5000
@@ -93,10 +72,9 @@ proxy-groups:
   - name: 🇭🇰 香港自动
     type: url-test
     use:
-      - Nexitally
-      - Custom
+      - Subscription
     filter: "(?i)(?=.*(Hong ?Kong|港|\\b(?:HK[G]?|HKT|HKBN|HGC)(\\d+)?\\b))^(?!.*(?:日用|实验性))(?:(?!.*\\d[\\.,]?\\d*[x×])|(?=.*(?<!\\d\\.)(?<![0-9])1(?:\\.0{1,2})?[x×])).*$"
-    url: https://www.gstatic.com/generate_204
+    url: http://cp.cloudflare.com/generate_204
     interval: 300
     tolerance: 50
     timeout: 5000
@@ -106,10 +84,9 @@ proxy-groups:
   - name: 🇹🇼 台湾自动
     type: url-test
     use:
-      - Nexitally
-      - Custom
+      - Subscription
     filter: "(?i)(?=.*(Taiwan|台湾|新北|彰化|\\b(?:TW[N]?|CHT|HINET)(\\d+)?\\b))^(?!.*(?:日用|实验性))(?:(?!.*\\d[\\.,]?\\d*[x×])|(?=.*(?<!\\d\\.)(?<![0-9])1(?:\\.0{1,2})?[x×])).*$"
-    url: https://www.gstatic.com/generate_204
+    url: http://cp.cloudflare.com/generate_204
     interval: 300
     tolerance: 50
     timeout: 5000
@@ -119,10 +96,9 @@ proxy-groups:
   - name: 🇸🇬 狮城自动
     type: url-test
     use:
-      - Nexitally
-      - Custom
+      - Subscription
     filter: "(?i)(?=.*(Singapore|新加坡|狮城|\\bSG[P]?(\\d+)?\\b))^(?!.*(?:日用|实验性))(?:(?!.*\\d[\\.,]?\\d*[x×])|(?=.*(?<!\\d\\.)(?<![0-9])1(?:\\.0{1,2})?[x×])).*$"
-    url: https://www.gstatic.com/generate_204
+    url: http://cp.cloudflare.com/generate_204
     interval: 300
     tolerance: 50
     timeout: 5000
@@ -132,10 +108,9 @@ proxy-groups:
   - name: 🇺🇸 美国自动
     type: url-test
     use:
-      - Nexitally
-      - Custom
+      - Subscription
     filter: "(?i)(?=.*(United ?States|美[国國]|波特兰|达拉斯|俄勒冈|凤凰城|费利蒙|硅谷|拉斯维加斯|洛杉矶|圣何塞|圣克拉拉|西雅图|芝加哥|\\bUS[A]?(\\d+)?\\b|America))^(?!.*(?:日用|实验性))(?:(?!.*\\d[\\.,]?\\d*[x×])|(?=.*(?<!\\d\\.)(?<![0-9])1(?:\\.0{1,2})?[x×])).*$"
-    url: https://www.gstatic.com/generate_204
+    url: http://cp.cloudflare.com/generate_204
     interval: 300
     tolerance: 80
     timeout: 5000
@@ -145,10 +120,9 @@ proxy-groups:
   - name: 🇯🇵 日本自动
     type: url-test
     use:
-      - Nexitally
-      - Custom
+      - Subscription
     filter: "(?i)(?=.*(日本|川日|东京|大阪|泉日|埼玉|沪日|深日|Japan|\\bJP[N]?(\\d+)?\\b))^(?!.*(?:日用|实验性))(?:(?!.*\\d[\\.,]?\\d*[x×])|(?=.*(?<!\\d\\.)(?<![0-9])1(?:\\.0{1,2})?[x×])).*$"
-    url: https://www.gstatic.com/generate_204
+    url: http://cp.cloudflare.com/generate_204
     interval: 300
     tolerance: 50
     timeout: 5000
@@ -158,10 +132,9 @@ proxy-groups:
   - name: 🇪🇺 欧洲自动
     type: url-test
     use:
-      - Nexitally
-      - Custom
+      - Subscription
     filter: "(?i)(?=.*(德国|德意志|法兰克福|中德|Germany|\\bDE[U]?(\\d+)?\\b|英国|伦敦|United.*?Kingdom|Britain|London|England|\\b(?:UK|GB[R]?)(\\d+)?\\b|法国|巴黎|France|Paris|\\bFR[A]?\\b|(?<!白)俄罗斯|莫斯科|圣彼得堡|[新]?西伯[力利]亚|哈巴罗夫斯克|Russia|Moscow|Petersburg|Siberia|\\bRU[S]?(\\d+)?\\b|西班牙|Spain|España|\\bES[P]?\\b|荷兰|阿姆斯特丹|Netherlands|\\bNL[D]?(\\d+)?\\b|波兰|Poland|\\bP[O]?L\\b|丹麦|Denmark|\\bD[N]?K\\b|冰岛|Iceland|\\bIS[L]?\\b|意大利|米兰|Italy|italia|Milan|白俄罗斯|Belarus|黑山|Montenegro|梵蒂冈|Vatican ?City|安道尔|Andorra|马耳他|Malta|摩纳哥|Monaco|圣马力诺|San ?Marino|列支敦士登|Liechtenstein|阿尔巴尼亚|Albania|奥地利|维也纳|Austria|Vienna|波黑共和国|波士尼亚与赫塞哥维纳|Bosnia|Herzegovina|比利时|Belgium|保加利亚|Bulgaria|瑞士|苏黎世|Switzerland|Zurich|捷克|Czech|爱沙尼亚|Estonia|芬兰|赫尔辛基|Finland|Helsinki|希腊|Greece|克罗地亚|Croatia|匈牙利|Hungary|爱尔兰|都柏林|Ireland|Dublin|立陶宛|Lietuvos|卢森堡|Luxemburg|Luxembourg|拉脱维亚|Latvia|摩尔多瓦|Moldova|北马其顿|Macedonia|挪威|Norway|葡萄牙|Portugal|罗马尼亚|Romania|塞尔维亚|Serbia|瑞典|Sweden|斯洛文尼亚|Slovenia|斯洛伐克|Slovensko|乌克兰|Ukraine|直布罗陀|Gibraltar|法罗群岛|Faroe ?Islands|奥兰群岛|Åland ?Islands|马恩岛|Mann))^(?!.*(?:日用|实验性))(?:(?!.*\\d[\\.,]?\\d*[x×])|(?=.*(?<!\\d\\.)(?<![0-9])1(?:\\.0{1,2})?[x×])).*$"
-    url: https://www.gstatic.com/generate_204
+    url: http://cp.cloudflare.com/generate_204
     interval: 300
     tolerance: 50
     timeout: 5000
@@ -177,8 +150,7 @@ proxy-groups:
       - 🇹🇼 台湾自动
       - 🇪🇺 欧洲自动
     use:
-      - Nexitally
-      - Custom
+      - Subscription
     filter: "(?i)^((?!实验性|日用|San ?Jose|(?<!白)俄罗斯|莫斯科|圣彼得堡|[新]?西伯[力利]亚|哈巴罗夫斯克|Russia|Moscow|Petersburg|Siberia|\\bRU[S]?\\b|港|Hong ?Kong|\\b(?:HK[G]?|HKT|HKBN|HGC|WTT|CMI)\\b|澳门|Macao|\\bCTM\\b|朝鲜|North ?Korea|古巴|Cuba|伊朗|Iran|叙利亚|Syria|乌克兰|Ukraine|委内瑞拉|Venezuela).)*$"
 
   - name: 📲 TelegramDC1
@@ -226,8 +198,7 @@ proxy-groups:
       - 🇯🇵 日本自动
       - DIRECT
     use:
-      - Nexitally
-      - Custom
+      - Subscription
 
   - name: 🔗 无需代理
     type: select
