@@ -21,8 +21,8 @@ dns:
     - "+.msftncsi.com"
     - "+.market.xiaomi.com"
   default-nameserver:
+    - 180.184.1.1
     - 223.5.5.5
-    - 119.29.29.29
   nameserver:
     - https://dns.alidns.com/dns-query
     - https://doh.pub/dns-query
