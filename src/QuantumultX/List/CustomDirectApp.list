@@ -592,6 +592,10 @@ HOST-SUFFIX,youpin.cn,Proxy
 HOST-SUFFIX,youpin.com.cn,Proxy
 HOST-SUFFIX,zhutidasai.com,Proxy
 IP-CIDR,110.43.63.242/32,Proxy,no-resolve
+IP-CIDR,111.205.195.120/30,Proxy,no-resolve
+IP-CIDR,111.205.195.124/31,Proxy,no-resolve
+IP-CIDR,114.247.175.210/31,Proxy,no-resolve
+IP-CIDR,114.247.175.212/32,Proxy,no-resolve
 IP-CIDR,120.133.33.222/32,Proxy,no-resolve
 IP-CIDR,47.241.176.221/32,Proxy,no-resolve
 IP-CIDR,58.220.58.152/31,Proxy,no-resolve
@@ -640,6 +644,8 @@ HOST-SUFFIX,xingxuanwaimai.com,Proxy
 HOST-SUFFIX,xyzele.com,Proxy
 HOST-SUFFIX,youcaishop.cn,Proxy
 HOST-SUFFIX,100.me,Proxy
+HOST-SUFFIX,51ping.com,Proxy
+HOST-SUFFIX,baobaoaichi.cn,Proxy
 HOST-SUFFIX,ddcorp.net,Proxy
 HOST-SUFFIX,ddfresh.net,Proxy
 HOST-SUFFIX,ddimg.mobi,Proxy
@@ -648,6 +654,7 @@ HOST-SUFFIX,ddmc.mobi,Proxy
 HOST-SUFFIX,dduser.mobi,Proxy
 HOST-SUFFIX,ddxq.mobi,Proxy
 HOST-SUFFIX,dianping.com,Proxy
+HOST-SUFFIX,dpfile.com,Proxy
 HOST-SUFFIX,imaicai.mobi,Proxy
 HOST-SUFFIX,maoyan.com,Proxy
 HOST-SUFFIX,meituan.com,Proxy
@@ -1261,6 +1268,7 @@ HOST-SUFFIX,hecdn.net,Proxy
 HOST-SUFFIX,heweather.net,Proxy
 HOST-SUFFIX,qweather.com,Proxy
 HOST-SUFFIX,qweather.net,Proxy
+HOST-SUFFIX,qweatherapi.com,Proxy
 HOST-SUFFIX,dewu-inc.com,Proxy
 HOST-SUFFIX,dewu-inner.com,Proxy
 HOST-SUFFIX,dewu-inner.net,Proxy
