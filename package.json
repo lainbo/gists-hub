@@ -10,6 +10,9 @@
     "#src/*": "./src/*"
   },
   "main": "index.js",
+  "engines": {
+    "node": ">=24"
+  },
   "scripts": {
     "syncQx": "pnpm run generateQx && pnpm run uploadQx",
     "syncLoon": "pnpm run generateLoon && pnpm run uploadLoon",

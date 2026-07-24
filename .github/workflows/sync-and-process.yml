@@ -5,28 +5,33 @@ on:
     - cron: '0 23 * * *'
   workflow_dispatch:
 
+permissions:
+  contents: write
+
 jobs:
   sync-and-process:
     runs-on: ubuntu-latest
 
     steps:
       - name: Checkout your repo
-        uses: actions/checkout@v4
+        uses: actions/checkout@v7
         with:
           repository: lainbo/gists-hub
           token: ${{ secrets.GITHUB_TOKEN }}
           path: gists-hub
 
       - name: Setup Node.js
-        uses: actions/setup-node@v4
+        uses: actions/setup-node@v7
         with:
-          node-version: '20'
+          node-version: '24'
 
       - name: Install mihomo
+        env:
+          GH_TOKEN: ${{ github.token }}
         run: |
           cd gists-hub
-          MIHOMO_URL=$(curl -fsSL https://api.github.com/repos/MetaCubeX/mihomo/releases/latest | node -e "let data = ''; process.stdin.on('data', chunk => data += chunk); process.stdin.on('end', () => { const release = JSON.parse(data); const asset = release.assets.find(item => /^mihomo-linux-amd64-v1-.*\.gz$/.test(item.name)); if (!asset) { console.error('未找到 linux amd64 v1 mihomo release asset'); process.exit(1); } console.log(asset.browser_download_url); });")
-          curl -fsSL "$MIHOMO_URL" -o mihomo.gz
+          MIHOMO_URL=$(curl -fsSL --retry 3 --header "Authorization: Bearer $GH_TOKEN" https://api.github.com/repos/MetaCubeX/mihomo/releases/latest | node -e "let data = ''; process.stdin.on('data', chunk => data += chunk); process.stdin.on('end', () => { const release = JSON.parse(data); const asset = release.assets.find(item => /^mihomo-linux-amd64-v1-.*\.gz$/.test(item.name)); if (!asset) { console.error('未找到 linux amd64 v1 mihomo release asset'); process.exit(1); } console.log(asset.browser_download_url); });")
+          curl -fsSL --retry 3 "$MIHOMO_URL" -o mihomo.gz
           gunzip mihomo.gz
           chmod +x mihomo
           sudo mv mihomo /usr/local/bin/mihomo
@@ -37,11 +42,11 @@ jobs:
           # 创建存放需要处理格式文件的目标文件夹
           mkdir -p gists-hub/src/QuantumultX/List/RemoteAdRules gists-hub/src/QuantumultX/List/RemoteOtherRules
           # 下载文件
-          curl -o gists-hub/src/QuantumultX/List/RemoteAdRules/BanAD.list https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/master/Clash/BanAD.list
-          curl -o gists-hub/src/QuantumultX/List/RemoteAdRules/BanEasyList.list https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/master/Clash/BanEasyList.list
-          curl -o gists-hub/src/QuantumultX/List/RemoteAdRules/BanEasyListChina.list https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/master/Clash/BanEasyListChina.list
+          curl -fsSL --retry 3 -o gists-hub/src/QuantumultX/List/RemoteAdRules/BanAD.list https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/master/Clash/BanAD.list
+          curl -fsSL --retry 3 -o gists-hub/src/QuantumultX/List/RemoteAdRules/BanEasyList.list https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/master/Clash/BanEasyList.list
+          curl -fsSL --retry 3 -o gists-hub/src/QuantumultX/List/RemoteAdRules/BanEasyListChina.list https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/master/Clash/BanEasyListChina.list
 
-          curl -o gists-hub/src/QuantumultX/List/RemoteOtherRules/GoogleCNProxyIP.list https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/master/Clash/Ruleset/GoogleCNProxyIP.list
+          curl -fsSL --retry 3 -o gists-hub/src/QuantumultX/List/RemoteOtherRules/GoogleCNProxyIP.list https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/master/Clash/Ruleset/GoogleCNProxyIP.list
 
           cd gists-hub
 
