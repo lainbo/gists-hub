@@ -1,13 +1,15 @@
 // 用于生成CustomDirectApp.list，内容是一些app的域名，拉取网络上的规则，处理后生成一个合集文件
 import fs from 'node:fs'
-import https from 'node:https'
 import path from 'node:path'
+import process from 'node:process'
 import { fileURLToPath } from 'node:url'
 
 const __filename = fileURLToPath(import.meta.url)
 const __dirname = path.dirname(__filename)
 
 const outputFile = path.join(__dirname, '..', 'List', 'CustomDirectApp.list')
+const MAX_FETCH_ATTEMPTS = 3
+const RETRY_DELAY_MS = 1000
 
 const urls = [
   'https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Clash/JingDong/JingDong.list', // 京东
@@ -51,60 +53,58 @@ const urls = [
   'https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/refs/heads/meta/geo/geosite/classical/dewu.list', // 得物
 ]
 
-function fetchContent(url) {
-  return new Promise((resolve, reject) => {
-    https.get(url, (res) => {
-      let data = ''
-      res.on('data', (chunk) => {
-        data += chunk
-      })
-      res.on('end', () => {
-        resolve(data)
-      })
-    }).on('error', (err) => {
-      reject(err)
-    })
-  })
+function wait(ms) {
+  return new Promise(resolve => setTimeout(resolve, ms))
+}
+
+async function fetchContent(url) {
+  for (let attempt = 1; attempt <= MAX_FETCH_ATTEMPTS; attempt++) {
+    try {
+      const response = await fetch(url)
+
+      if (!response.ok) {
+        throw new Error(`HTTP ${response.status} ${response.statusText}`)
+      }
+
+      return await response.text()
+    }
+    catch (error) {
+      if (attempt === MAX_FETCH_ATTEMPTS) {
+        throw new Error(`下载失败：${url}（${error.message}）`, { cause: error })
+      }
+
+      console.warn(`下载失败，1 秒后重试（${attempt}/${MAX_FETCH_ATTEMPTS}）：${url}`)
+      await wait(RETRY_DELAY_MS)
+    }
+  }
 }
 
 function processContent(content) {
   // 过滤掉空行和注释，只保留规则
-  const rules = content
+  return content
     .split('\n')
-    .filter((line) => {
-      const trimmed = line.trim()
-      return trimmed !== '' && !trimmed.startsWith('#')
-    })
-
-  // 对规则进行排序
-  rules.sort()
-
-  return rules.join('\n')
+    .map(line => line.trim())
+    .filter(line => line && !line.startsWith('#'))
+    .sort()
 }
 
 async function main() {
-  try {
-    const header = '# 此文件为自动生成，请勿手动修改'
-    const processedRules = []
+  const header = '# 此文件为自动生成，请勿手动修改'
+  const processedRules = []
 
-    for (const url of urls) {
-      console.log(`正在获取内容：${url}`)
-      const ruleContent = await fetchContent(url)
-      // 对每个URL的内容进行处理（去注释+排序）
-      const processed = processContent(ruleContent)
-      if (processed) {
-        processedRules.push(processed)
-      }
-    }
+  for (const url of urls) {
+    console.warn(`正在获取内容：${url}`)
+    const ruleContent = await fetchContent(url)
+    processedRules.push(...processContent(ruleContent))
+  }
 
-    // 按URL顺序拼接所有处理好的规则
-    const combinedContent = processedRules.join('\n')
-    fs.writeFileSync(outputFile, `${header}\n${combinedContent}\n`)
-    console.log(`合并和处理后的规则已写入 ${outputFile}`)
-  }
-  catch (error) {
-    console.error('发生错误：', error)
-  }
+  // 按 URL 顺序合并并去重，保留每个来源内部的排序
+  const uniqueRules = [...new Set(processedRules)]
+  fs.writeFileSync(outputFile, `${header}\n${uniqueRules.join('\n')}\n`)
+  console.warn(`合并和处理后的规则已写入 ${outputFile}`)
 }
 
-main()
+main().catch((error) => {
+  console.error('发生错误：', error.message)
+  process.exitCode = 1
+})

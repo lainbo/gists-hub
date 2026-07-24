@@ -12,6 +12,7 @@ const outputDir = path.join(__dirname, '../MRS')
 
 const DOMAIN_RULES = new Set(['DOMAIN', 'DOMAIN-SUFFIX'])
 const IPCIDR_RULES = new Set(['IP-CIDR', 'IP-CIDR6'])
+const GENERATED_SUFFIXES = ['.domain.mrs', '.ipcidr.mrs', '.classical.list']
 const BOM_RE = /^\uFEFF/
 
 function ensureDir(dir) {
@@ -91,11 +92,10 @@ function writeTextFile(filePath, lines, headerLines = []) {
   fs.writeFileSync(filePath, `${content}\n`)
 }
 
-function removeStaleOutputs(baseName) {
-  for (const suffix of ['domain.mrs', 'ipcidr.mrs', 'classical.list']) {
-    const filePath = path.join(outputDir, `${baseName}.${suffix}`)
-    if (fs.existsSync(filePath)) {
-      fs.unlinkSync(filePath)
+function clearGeneratedOutputs() {
+  for (const file of fs.readdirSync(outputDir)) {
+    if (GENERATED_SUFFIXES.some(suffix => file.endsWith(suffix))) {
+      fs.unlinkSync(path.join(outputDir, file))
     }
   }
 }
@@ -128,8 +128,6 @@ function buildMrsForFile(file, tempDir) {
   const classicalRules = uniqueSorted(parsedRules
     .filter(rule => rule.kind === 'classical')
     .map(rule => rule.value))
-
-  removeStaleOutputs(baseName)
 
   if (domainRules.length > 0) {
     const inputFile = path.join(tempDir, `${baseName}.domain.txt`)
@@ -173,6 +171,8 @@ function main() {
     console.warn('未找到可转换的 .list 文件')
     return
   }
+
+  clearGeneratedOutputs()
 
   const tempDir = fs.mkdtempSync(path.join(os.tmpdir(), 'clash-mrs-'))
 

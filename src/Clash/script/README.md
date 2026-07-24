@@ -6,7 +6,7 @@
 
 用于生成 `src/Clash/List/CustomDirectApp.list`。
 
-这个脚本会拉取多个外部 Clash 规则列表，过滤空行和注释，排序后合并为一个规则源文件。该文件每天会在 GitHub Actions 中重新生成，不建议手工修改。
+这个脚本会拉取多个外部 Clash 规则列表，过滤空行和注释，排序、去重后合并为一个规则源文件。下载失败时会自动重试，最终失败会让任务以非零状态退出。该文件每天会在 GitHub Actions 中重新生成，不建议手工修改。
 
 执行命令：
 
@@ -18,7 +18,7 @@ pnpm run generateDirectAppList
 
 用于把 `src/Clash/List/*.list` 转换为 `src/Clash/Yaml/*.yaml`。
 
-`Yaml/` 是派生成品目录，不建议手工修改。需要维护规则时应修改 `List/` 中的源文件。
+`Yaml/` 是派生成品目录，不建议手工修改。每次生成前会清理旧的 YAML 成品，避免源规则删除后留下失效文件。需要维护规则时应修改 `List/` 中的源文件。
 
 执行命令：
 
@@ -38,6 +38,7 @@ pnpm run generateClashYaml
 4. 将 `DOMAIN-KEYWORD`、`PROCESS-NAME`、`DST-PORT`、`IP-ASN` 等无法转换为 `mrs` 的规则写入 `<RuleName>.classical.list`。
 5. 调用 `mihomo convert-ruleset domain text` 生成 `<RuleName>.domain.mrs`。
 6. 调用 `mihomo convert-ruleset ipcidr text` 生成 `<RuleName>.ipcidr.mrs`。
+7. 每次生成前清理旧的 MRS 和 classical 成品，避免源规则删除后留下失效文件。
 
 分类逻辑故意使用白名单：
 
