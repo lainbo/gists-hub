@@ -54,7 +54,7 @@ const urls = [
 ]
 
 function wait(ms) {
-  return new Promise(resolve => setTimeout(resolve, ms))
+  return new Promise((resolve) => setTimeout(resolve, ms))
 }
 
 async function fetchContent(url) {
@@ -67,8 +67,7 @@ async function fetchContent(url) {
       }
 
       return await response.text()
-    }
-    catch (error) {
+    } catch (error) {
       if (attempt === MAX_FETCH_ATTEMPTS) {
         throw new Error(`下载失败：${url}（${error.message}）`, { cause: error })
       }
@@ -83,8 +82,8 @@ function processContent(content) {
   // 过滤掉空行和注释，只保留规则
   return content
     .split('\n')
-    .map(line => line.trim())
-    .filter(line => line && !line.startsWith('#'))
+    .map((line) => line.trim())
+    .filter((line) => line && !line.startsWith('#'))
     .sort()
 }
 

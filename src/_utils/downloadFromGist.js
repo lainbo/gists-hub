@@ -30,8 +30,7 @@ export async function downloadConfig({
       await fs.writeFile(outputPath, content, 'utf-8')
       console.log(`下载${appName}配置成功,已脱敏并更新模板,文件在 ${outputPath}`)
     }
-  }
-  catch (error) {
+  } catch (error) {
     console.error(`发生错误: ${error}`)
   }
 }

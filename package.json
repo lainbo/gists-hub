@@ -1,17 +1,14 @@
 {
   "name": "gists-hub",
-  "type": "module",
   "version": "1.0.0",
   "description": "",
-  "author": "",
-  "license": "ISC",
   "keywords": [],
+  "license": "ISC",
+  "author": "",
+  "type": "module",
+  "main": "index.js",
   "imports": {
     "#src/*": "./src/*"
-  },
-  "main": "index.js",
-  "engines": {
-    "node": ">=24"
   },
   "scripts": {
     "syncQx": "pnpm run generateQx && pnpm run uploadQx",
@@ -27,10 +24,13 @@
     "uploadLoon": "node ./src/Loon/RemoteConfig/script/uploadLoon.js",
     "downloadQx": "node ./src/QuantumultX/RemoteConfig/script/downloadQx.js",
     "downloadLoon": "node ./src/Loon/RemoteConfig/script/downloadLoon.js",
-    "lint:fix": "eslint . --fix",
+    "lint": "oxlint .",
+    "lint:fix": "oxlint . --fix",
+    "format": "oxfmt .",
+    "format:check": "oxfmt --check .",
     "up": "ncu -i --format group",
     "generateClashDerived": "pnpm run generateClashYaml && pnpm run generateClashMrs",
-    "pre-commit-tasks": "concurrently \"pnpm run generateClashDerived\" \"pnpm run generateQxList\"",
+    "pre-commit-tasks": "pnpm run generateClashDerived && pnpm run generateQxList",
     "prepare": "husky install"
   },
   "dependencies": {
@@ -39,9 +39,11 @@
     "dotenv": "^16.4.5"
   },
   "devDependencies": {
-    "@antfu/eslint-config": "7.7.3",
-    "concurrently": "^8.2.2",
-    "eslint": "^10.0.3",
-    "husky": "^8.0.3"
+    "husky": "^8.0.3",
+    "oxfmt": "0.60.0",
+    "oxlint": "1.75.0"
+  },
+  "engines": {
+    "node": ">=24"
   }
 }

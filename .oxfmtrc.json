@@ -1,0 +1,20 @@
+{
+  "$schema": "./node_modules/oxfmt/configuration_schema.json",
+  "printWidth": 100,
+  "tabWidth": 2,
+  "useTabs": false,
+  "semi": false,
+  "singleQuote": true,
+  "trailingComma": "all",
+  "proseWrap": "preserve",
+  "endOfLine": "lf",
+  "insertFinalNewline": true,
+  "ignorePatterns": [
+    ".claude/**",
+    "**/*.local",
+    "**/*.local.*",
+    "pnpm-lock.yaml",
+    "src/Clash/MRS/**",
+    "src/Clash/Yaml/**"
+  ]
+}

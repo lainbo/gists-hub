@@ -16,7 +16,7 @@
 // @updateURL https://update.greasyfork.org/scripts/511569/share-link-copy.meta.js
 // ==/UserScript==
 
-(function () {
+;(function () {
   'use strict'
 
   GM_addStyle(`
@@ -172,15 +172,14 @@
     const domain = urlObj.hostname
 
     // 域名在列表中
-    const isInList = domainsToKeepParams.some(d => domain.endsWith(d))
+    const isInList = domainsToKeepParams.some((d) => domain.endsWith(d))
 
     if (isBlacklistMode) {
       // 黑名单模式：如果域名在列表中，则移除参数
       if (isInList) {
         return `${urlObj.origin}${urlObj.pathname}`
       }
-    }
-    else {
+    } else {
       // 白名单模式：如果域名不在列表中，则移除参数
       if (!isInList) {
         return `${urlObj.origin}${urlObj.pathname}`
@@ -217,8 +216,7 @@
     try {
       // 尝试从父窗口获取标题
       return { title: window.parent.document.title, error: false }
-    }
-    catch (error) {
+    } catch (error) {
       // 如果无法访问父窗口，使用当前文档的标题
       return {
         title: document.title.replace(' - CodePen', ''),
@@ -240,8 +238,7 @@
         const result = getCodePenTitle()
         title = result.title
         showError = result.error
-      }
-      catch (error) {
+      } catch (error) {
         showError = true
       }
     }
@@ -267,7 +264,12 @@
       ctrlKey: parts.includes('ctrl') || parts.includes('control'),
       shiftKey: parts.includes('shift'),
       metaKey: parts.includes('meta') || parts.includes('cmd') || parts.includes('command'),
-      keys: parts.filter(part => !['alt', 'ctrl', 'control', 'shift', 'meta', 'win', 'option', 'cmd', 'command'].includes(part)),
+      keys: parts.filter(
+        (part) =>
+          !['alt', 'ctrl', 'control', 'shift', 'meta', 'win', 'option', 'cmd', 'command'].includes(
+            part,
+          ),
+      ),
     }
   }
 
@@ -370,13 +372,23 @@
         const currentArray = listeningForShortcut ? currentShortcut : currentMarkdownShortcut
         const inputElement = listeningForShortcut ? shortcutInput : markdownShortcutInput
 
-        if (['AltLeft', 'AltRight', 'ControlLeft', 'ControlRight', 'ShiftLeft', 'ShiftRight', 'MetaLeft', 'MetaRight'].includes(e.code)) {
+        if (
+          [
+            'AltLeft',
+            'AltRight',
+            'ControlLeft',
+            'ControlRight',
+            'ShiftLeft',
+            'ShiftRight',
+            'MetaLeft',
+            'MetaRight',
+          ].includes(e.code)
+        ) {
           const modifier = e.code.replace('Left', '').replace('Right', '').toLowerCase()
           if (!currentArray.includes(modifier)) {
             currentArray.push(modifier)
           }
-        }
-        else {
+        } else {
           const keyDisplay = getKeyDisplay(e.code)
           if (!currentArray.includes(keyDisplay)) {
             currentArray.push(keyDisplay)
@@ -389,7 +401,10 @@
     })
 
     document.addEventListener('keyup', (e) => {
-      if ((listeningForShortcut || listeningForMarkdownShortcut) && ['alt', 'control', 'shift', 'meta'].includes(e.key.toLowerCase())) {
+      if (
+        (listeningForShortcut || listeningForMarkdownShortcut) &&
+        ['alt', 'control', 'shift', 'meta'].includes(e.key.toLowerCase())
+      ) {
         listeningForShortcut = false
         listeningForMarkdownShortcut = false
       }
@@ -408,7 +423,7 @@
     document.getElementById('els-save-e8UfX6').addEventListener('click', () => {
       const newShortcut = shortcutInput.value
       const newMarkdownShortcut = markdownShortcutInput.value
-      const newDomains = domainsTextarea.value.split('\n').filter(d => d.trim() !== '')
+      const newDomains = domainsTextarea.value.split('\n').filter((d) => d.trim() !== '')
       const newIsBlacklistMode = blacklistModeCheckbox.checked
 
       onSave({
@@ -490,17 +505,21 @@
   }
 
   function matchShortcut(e, shortcut) {
-    return (e.altKey === shortcut.altKey
-         && e.ctrlKey === shortcut.ctrlKey
-         && e.shiftKey === shortcut.shiftKey
-         && e.metaKey === shortcut.metaKey
-         && shortcut.keys.every(key => getKeyDisplay(e.code) === key.toLowerCase()))
+    return (
+      e.altKey === shortcut.altKey &&
+      e.ctrlKey === shortcut.ctrlKey &&
+      e.shiftKey === shortcut.shiftKey &&
+      e.metaKey === shortcut.metaKey &&
+      shortcut.keys.every((key) => getKeyDisplay(e.code) === key.toLowerCase())
+    )
   }
 
   // 修改快捷键监听
   document.addEventListener('keydown', (e) => {
     // 如果模态框打开，不响应复制快捷键
-    if (isModalOpen) { return }
+    if (isModalOpen) {
+      return
+    }
 
     const normalShortcut = parseShortcut(shortcut)
     const mdShortcut = parseShortcut(markdownShortcut)
@@ -508,8 +527,7 @@
     if (matchShortcut(e, normalShortcut)) {
       e.preventDefault()
       copyLink(false)
-    }
-    else if (matchShortcut(e, mdShortcut)) {
+    } else if (matchShortcut(e, mdShortcut)) {
       e.preventDefault()
       copyLink(true)
     }

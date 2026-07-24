@@ -3,18 +3,11 @@ import { Octokit } from '@octokit/core'
 import boxen from 'boxen'
 
 // 上传文件到Gist的工具函数
-export async function updateGist({
-  githubToken,
-  gistId,
-  fileName,
-  filePath,
-  appName,
-}) {
+export async function updateGist({ githubToken, gistId, fileName, filePath, appName }) {
   let fileContent = ''
   try {
     fileContent = fs.readFileSync(filePath, 'utf-8')
-  }
-  catch (error) {
+  } catch (error) {
     console.error('出现了错误:', error)
     return
   }
@@ -39,10 +32,14 @@ export async function updateGist({
       titleAlignment: 'center',
     }
     console.log('\n配置文件已上传至Gist,线上文件地址为')
-    console.log(boxen(`https://gist.github.com/${data?.owner?.login}/${gistId}/raw/${fileName}`, boxenOptions))
+    console.log(
+      boxen(
+        `https://gist.github.com/${data?.owner?.login}/${gistId}/raw/${fileName}`,
+        boxenOptions,
+      ),
+    )
     console.log(`作为${appName}内配置的地址\n\n`)
-  }
-  catch (error) {
+  } catch (error) {
     console.error('更新Gist失败:', error)
   }
 }

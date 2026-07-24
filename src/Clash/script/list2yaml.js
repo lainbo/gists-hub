@@ -16,10 +16,10 @@ if (!fs.existsSync(outputDir)) {
 }
 
 // 获取输入目录下所有 .list 文件
-const listFiles = fs.readdirSync(inputDir).filter(file => file.endsWith('.list'))
+const listFiles = fs.readdirSync(inputDir).filter((file) => file.endsWith('.list'))
 
 // 清理已经失去对应源文件的旧成品
-for (const file of fs.readdirSync(outputDir).filter(file => file.endsWith('.yaml'))) {
+for (const file of fs.readdirSync(outputDir).filter((file) => file.endsWith('.yaml'))) {
   fs.unlinkSync(path.join(outputDir, file))
 }
 

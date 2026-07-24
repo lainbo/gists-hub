@@ -12,9 +12,7 @@ function main(content) {
   content.rules = content.rules ? adobeRules.concat(content.rules) : adobeRules
 
   const extraDNS = {
-    nameserver: [
-      'https://223.5.5.5/dns-query',
-    ],
+    nameserver: ['https://223.5.5.5/dns-query'],
   }
 
   content.dns = content.dns ? { ...content.dns, ...extraDNS } : extraDNS

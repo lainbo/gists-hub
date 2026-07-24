@@ -15,7 +15,7 @@
 // @updateURL https://update.greasyfork.org/scripts/503821/GitHub%20Repo%20Size%20Display.meta.js
 // ==/UserScript==
 
-(function () {
+;(function () {
   'use strict'
 
   GM_addStyle(`
@@ -105,11 +105,9 @@
   function formatSize(sizeInKB) {
     if (sizeInKB >= 1024 * 1024) {
       return `${(sizeInKB / (1024 * 1024)).toFixed(2)} GB`
-    }
-    else if (sizeInKB >= 1024) {
+    } else if (sizeInKB >= 1024) {
       return `${(sizeInKB / 1024).toFixed(2)} MB`
-    }
-    else {
+    } else {
       return `${sizeInKB} KB`
     }
   }
@@ -137,7 +135,9 @@
     const repoRegex = /^https?:\/\/github\.com\/([^/]+)\/([^/]+)\/?$/
     const match = location.href.match(repoRegex)
 
-    if (!match) { return }
+    if (!match) {
+      return
+    }
 
     const [, owner, repo] = match
     const apiUrl = `https://api.github.com/repos/${owner}/${repo}`
@@ -160,8 +160,7 @@
       .then((data) => {
         if (data.size !== undefined) {
           updateRepoSize(formatSize(data.size))
-        }
-        else {
+        } else {
           throw new Error('Size information not available')
         }
       })

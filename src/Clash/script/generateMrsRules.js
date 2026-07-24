@@ -32,7 +32,7 @@ function parseRule(line) {
     return null
   }
 
-  const [type, value] = trimmed.split(',', 2).map(part => part.trim())
+  const [type, value] = trimmed.split(',', 2).map((part) => part.trim())
 
   if (!type || !value) {
     return {
@@ -78,36 +78,25 @@ function normalizeDomainRule(type, value) {
 }
 
 function uniqueSorted(values) {
-  return [...new Set(values)]
-    .filter(Boolean)
-    .sort((a, b) => a.localeCompare(b))
+  return [...new Set(values)].filter(Boolean).sort((a, b) => a.localeCompare(b))
 }
 
 function writeTextFile(filePath, lines, headerLines = []) {
-  const content = [
-    ...headerLines,
-    ...lines,
-  ].join('\n')
+  const content = [...headerLines, ...lines].join('\n')
 
   fs.writeFileSync(filePath, `${content}\n`)
 }
 
 function clearGeneratedOutputs() {
   for (const file of fs.readdirSync(outputDir)) {
-    if (GENERATED_SUFFIXES.some(suffix => file.endsWith(suffix))) {
+    if (GENERATED_SUFFIXES.some((suffix) => file.endsWith(suffix))) {
       fs.unlinkSync(path.join(outputDir, file))
     }
   }
 }
 
 function convertRuleset(behavior, inputFile, outputFile) {
-  execFileSync('mihomo', [
-    'convert-ruleset',
-    behavior,
-    'text',
-    inputFile,
-    outputFile,
-  ], {
+  execFileSync('mihomo', ['convert-ruleset', behavior, 'text', inputFile, outputFile], {
     stdio: 'inherit',
   })
 }
@@ -117,17 +106,17 @@ function buildMrsForFile(file, tempDir) {
   const content = stripBom(fs.readFileSync(path.join(inputDir, file), 'utf8'))
   const parsedRules = content.split('\n').map(parseRule).filter(Boolean)
 
-  const domainRules = uniqueSorted(parsedRules
-    .filter(rule => rule.kind === 'domain')
-    .map(rule => rule.value))
+  const domainRules = uniqueSorted(
+    parsedRules.filter((rule) => rule.kind === 'domain').map((rule) => rule.value),
+  )
 
-  const ipcidrRules = uniqueSorted(parsedRules
-    .filter(rule => rule.kind === 'ipcidr')
-    .map(rule => rule.value))
+  const ipcidrRules = uniqueSorted(
+    parsedRules.filter((rule) => rule.kind === 'ipcidr').map((rule) => rule.value),
+  )
 
-  const classicalRules = uniqueSorted(parsedRules
-    .filter(rule => rule.kind === 'classical')
-    .map(rule => rule.value))
+  const classicalRules = uniqueSorted(
+    parsedRules.filter((rule) => rule.kind === 'classical').map((rule) => rule.value),
+  )
 
   if (domainRules.length > 0) {
     const inputFile = path.join(tempDir, `${baseName}.domain.txt`)
@@ -163,8 +152,9 @@ function buildMrsForFile(file, tempDir) {
 function main() {
   ensureDir(outputDir)
 
-  const listFiles = fs.readdirSync(inputDir)
-    .filter(file => file.endsWith('.list'))
+  const listFiles = fs
+    .readdirSync(inputDir)
+    .filter((file) => file.endsWith('.list'))
     .sort((a, b) => a.localeCompare(b))
 
   if (listFiles.length === 0) {
@@ -177,23 +167,22 @@ function main() {
   const tempDir = fs.mkdtempSync(path.join(os.tmpdir(), 'clash-mrs-'))
 
   try {
-    const results = listFiles.map(file => buildMrsForFile(file, tempDir))
+    const results = listFiles.map((file) => buildMrsForFile(file, tempDir))
 
     console.warn('MRS 规则生成完成')
     for (const result of results) {
-      console.warn(`${result.file}: domain=${result.domain}, ipcidr=${result.ipcidr}, classical=${result.classical}`)
+      console.warn(
+        `${result.file}: domain=${result.domain}, ipcidr=${result.ipcidr}, classical=${result.classical}`,
+      )
     }
-  }
-  catch (error) {
+  } catch (error) {
     if (error.code === 'ENOENT') {
       console.error('未找到 mihomo 命令。请先安装 mihomo，并确保它在 PATH 中。')
-    }
-    else {
+    } else {
       console.error('生成 MRS 规则失败：', error.message)
     }
     process.exitCode = 1
-  }
-  finally {
+  } finally {
     fs.rmSync(tempDir, { recursive: true, force: true })
   }
 }

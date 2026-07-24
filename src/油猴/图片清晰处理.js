@@ -10,9 +10,10 @@
 // @grant        none
 // ==/UserScript==
 
-(function () {
+;(function () {
   'use strict'
   const styleSheet = document.createElement('style')
   document.head.appendChild(styleSheet)
-  styleSheet.textContent = 'img {image-rendering: -webkit-optimize-contrast;image-rendering: crisp-edges;}'
+  styleSheet.textContent =
+    'img {image-rendering: -webkit-optimize-contrast;image-rendering: crisp-edges;}'
 })()

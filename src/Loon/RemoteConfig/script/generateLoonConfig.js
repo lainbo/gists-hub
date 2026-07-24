@@ -7,7 +7,10 @@ import { generateConfig } from '#src/_utils/generateConfig.js'
 
 dotenv.config()
 
-const __dirname = decodeURI(path.dirname(new URL(import.meta.url).pathname)).replace(/^\/([a-zA-Z]:)/, '$1')
+const __dirname = decodeURI(path.dirname(new URL(import.meta.url).pathname)).replace(
+  /^\/([a-zA-Z]:)/,
+  '$1',
+)
 
 const configFile = path.join(__dirname, '../LoonTemplate.conf')
 const infoFile = path.join(__dirname, '../LoonServerConfig.json')
@@ -17,23 +20,29 @@ const outputFile = path.join(outputDir, 'Loon.conf')
 // 把json格式的订阅信息，转换成Loon配置文件中的格式
 async function subscriptionConversion(jsonStr) {
   const serverConfigs = JSON.parse(jsonStr)
-  const res = serverConfigs.map((config) => {
-    const parts = [
-      config.url,
-      config.udp !== undefined && `udp=${config.udp}`,
-      config['fast-open'] !== undefined && `fast-open=${config['fast-open']}`,
-      config['vmess-aead'] !== undefined && `vmess-aead=${config['vmess-aead']}`,
-      config.enabled !== undefined && `enabled=${config.enabled}`,
-    ].filter(Boolean)
-    return `${config.alias} = ${parts.join(', ')}`
-  }).join('\n')
+  const res = serverConfigs
+    .map((config) => {
+      const parts = [
+        config.url,
+        config.udp !== undefined && `udp=${config.udp}`,
+        config['fast-open'] !== undefined && `fast-open=${config['fast-open']}`,
+        config['vmess-aead'] !== undefined && `vmess-aead=${config['vmess-aead']}`,
+        config.enabled !== undefined && `enabled=${config.enabled}`,
+      ].filter(Boolean)
+      return `${config.alias} = ${parts.join(', ')}`
+    })
+    .join('\n')
   return res
 }
 
 // 获取所有以CUSTOM_DOH开头的环境变量
-const envDoH = [...new Set(Object.keys(process.env)
-  .filter(key => key.startsWith('CUSTOM_DOH'))
-  .map(key => process.env[key]))]
+const envDoH = [
+  ...new Set(
+    Object.keys(process.env)
+      .filter((key) => key.startsWith('CUSTOM_DOH'))
+      .map((key) => process.env[key]),
+  ),
+]
 
 async function main() {
   const templateContent = await fs.readFile(configFile, 'utf8') // 读取模板文件

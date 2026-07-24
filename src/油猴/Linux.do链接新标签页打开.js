@@ -8,14 +8,11 @@
 // @grant        none
 // ==/UserScript==
 
-(function () {
+;(function () {
   'use strict'
 
   // 选择器数组
-  const selectors = [
-    '.topic-list-main-link a.title',
-    '.topic-list .main-link a.title',
-  ]
+  const selectors = ['.topic-list-main-link a.title', '.topic-list .main-link a.title']
 
   // 检查元素是否匹配我们的选择器
   function isTargetLink(element) {
@@ -25,23 +22,27 @@
   }
 
   // 使用事件委托处理点击事件
-  document.addEventListener('click', (event) => {
-    const target = event.target
+  document.addEventListener(
+    'click',
+    (event) => {
+      const target = event.target
 
-    // 检查点击的是否是我们要处理的链接
-    if (target.tagName === 'A' && isTargetLink(target)) {
-      // 阻止默认行为
-      event.preventDefault()
-      event.stopPropagation()
+      // 检查点击的是否是我们要处理的链接
+      if (target.tagName === 'A' && isTargetLink(target)) {
+        // 阻止默认行为
+        event.preventDefault()
+        event.stopPropagation()
 
-      // 获取链接地址
-      const href = target.href
-      if (href) {
-        // 在新标签页打开
-        window.open(href, '_blank', 'noopener,noreferrer')
+        // 获取链接地址
+        const href = target.href
+        if (href) {
+          // 在新标签页打开
+          window.open(href, '_blank', 'noopener,noreferrer')
+        }
       }
-    }
-  }, true) // 使用捕获阶段，确保在 Discourse 的事件处理器之前执行
+    },
+    true,
+  ) // 使用捕获阶段，确保在 Discourse 的事件处理器之前执行
 
   // 额外的处理：直接修改链接的 onclick 事件
   function processLinks() {
@@ -76,8 +77,10 @@
         mutation.addedNodes.forEach((node) => {
           if (node.nodeType === Node.ELEMENT_NODE) {
             const hasTargetLinks = selectors.some((selector) => {
-              return node.matches && node.matches(selector)
-                              || node.querySelector && node.querySelector(selector)
+              return (
+                (node.matches && node.matches(selector)) ||
+                (node.querySelector && node.querySelector(selector))
+              )
             })
 
             if (hasTargetLinks) {

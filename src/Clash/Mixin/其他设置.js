@@ -20,7 +20,7 @@ function main(content) {
     'tcp-concurrent': true,
     'geodata-mode': true,
     'geox-url': accelURLs,
-    'profile': {
+    profile: {
       'store-selected': true,
       'store-fake-ip': true,
     },

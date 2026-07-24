@@ -9,7 +9,7 @@ function main(content) {
 
   // utils function: 返回补全了分组名的rulesBase数组
   const completeGroupName = (rulesBase = [], groupName = '') => {
-    return rulesBase.map(rule => `${rule},${groupName}`)
+    return rulesBase.map((rule) => `${rule},${groupName}`)
   }
 
   // utils function: 返回符合规则的正则
@@ -47,8 +47,8 @@ function main(content) {
 
   const gptRules = completeGroupName(gptRulesBase, gptGroupName)
   const gptProxies = (content.proxies || [])
-    .filter(node => gptNodeRegex.test(node.name))
-    .map(node => node.name)
+    .filter((node) => gptNodeRegex.test(node.name))
+    .map((node) => node.name)
   const gptGroup = {
     name: gptGroupName,
     type: 'select',
@@ -89,9 +89,7 @@ function main(content) {
 
   // 额外的DNS设置
   const extraDNS = {
-    nameserver: [
-      'https://223.5.5.5/dns-query',
-    ],
+    nameserver: ['https://223.5.5.5/dns-query'],
   }
 
   content.dns = content.dns ? { ...content.dns, ...extraDNS } : extraDNS

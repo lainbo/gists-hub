@@ -27,24 +27,25 @@ async function convertFiles() {
         const content = await fs.readFile(inputFilePath, 'utf-8')
         const lines = content.split('\n')
 
-        const convertedLines = lines.map((line) => {
-          for (const [prefix, replace] of Object.entries(prefixMapping)) {
-            if (line.startsWith(prefix)) {
-              let convertedLine = line.replace(prefix, replace)
+        const convertedLines = lines
+          .map((line) => {
+            for (const [prefix, replace] of Object.entries(prefixMapping)) {
+              if (line.startsWith(prefix)) {
+                let convertedLine = line.replace(prefix, replace)
 
-              // 如果原始行包含 no-resolve,将其移到转换后行的最后
-              if (line.endsWith(',no-resolve')) {
-                convertedLine = `${convertedLine.replace(',no-resolve', '')},Proxy,no-resolve`
-              }
-              else {
-                convertedLine += proxySuffix
-              }
+                // 如果原始行包含 no-resolve,将其移到转换后行的最后
+                if (line.endsWith(',no-resolve')) {
+                  convertedLine = `${convertedLine.replace(',no-resolve', '')},Proxy,no-resolve`
+                } else {
+                  convertedLine += proxySuffix
+                }
 
-              return convertedLine
+                return convertedLine
+              }
             }
-          }
-          return null
-        }).filter(line => line !== null)
+            return null
+          })
+          .filter((line) => line !== null)
 
         const header = '# 该文件为自动生成\n'
         if (convertedLines.length > 0) {
@@ -53,8 +54,7 @@ async function convertFiles() {
       }
     }
     console.log('已经将Clash的list规则转换为QuantumultX可用的规则')
-  }
-  catch (error) {
+  } catch (error) {
     console.error('出现了错误:', error)
   }
 }

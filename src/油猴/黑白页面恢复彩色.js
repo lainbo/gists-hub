@@ -8,16 +8,13 @@
 // @description 2022/12/1 14:26:18
 // ==/UserScript==
 
-(function () {
+;(function () {
   const css = 'html,body,[class*="gray"]{filter:none!important}'
   if (typeof GM_addStyle !== 'undefined') {
     GM_addStyle(css)
-  }
-  else {
+  } else {
     const styleNode = document.createElement('style')
-    styleNode.appendChild(document.createTextNode(css));
-    (document.querySelector('head') || document.documentElement).appendChild(
-      styleNode,
-    )
+    styleNode.appendChild(document.createTextNode(css))
+    ;(document.querySelector('head') || document.documentElement).appendChild(styleNode)
   }
 })()
