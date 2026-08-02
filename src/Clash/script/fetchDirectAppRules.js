@@ -51,6 +51,7 @@ const urls = [
   'https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/refs/heads/master/rule/Clash/WeType/WeType.list', // 微信输入法
   'https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/refs/heads/meta/geo/geosite/classical/qweather.list', // 和风天气
   'https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/refs/heads/meta/geo/geosite/classical/dewu.list', // 得物
+  'https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/refs/heads/meta/geo/geosite/classical/colorfulclouds.list', // 彩云天气
 ]
 
 function wait(ms) {
