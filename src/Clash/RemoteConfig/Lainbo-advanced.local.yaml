@@ -424,6 +424,14 @@ rule-providers:
     path: ./ruleset/CustomAI.domain.mrs
     interval: 86400
 
+  CustomAIIPCIDR:
+    type: http
+    behavior: ipcidr
+    format: mrs
+    url: https://fastgh.lainbo.com/https://raw.githubusercontent.com/lainbo/gists-hub/master/src/Clash/MRS/CustomAI.ipcidr.mrs
+    path: ./ruleset/CustomAI.ipcidr.mrs
+    interval: 86400
+
   CustomAIClassical:
     type: http
     behavior: classical
@@ -658,6 +666,7 @@ rules:
   - RULE-SET,Claude,💬 AI专用
   - RULE-SET,CategoryAI,💬 AI专用
   - RULE-SET,CustomAIDomain,💬 AI专用
+  - RULE-SET,CustomAIIPCIDR,💬 AI专用
   - RULE-SET,CustomAIClassical,💬 AI专用
   - RULE-SET,AppleIntelligence,💬 AI专用
   - RULE-SET,CustomRejectDomain,🛡️ 广告拦截
