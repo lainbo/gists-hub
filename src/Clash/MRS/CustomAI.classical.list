@@ -2,3 +2,4 @@
 # 源文件: src/Clash/List/CustomAI.list
 # 说明: 这里保留 mihomo mrs 暂不支持的规则类型
 DOMAIN-KEYWORD,alkalimakersuite-pa.clients6.google.com
+DOMAIN-KEYWORD,siri

@@ -97,3 +97,7 @@ IP-CIDR,52.143.181.161/32,no-resolve
 IP-CIDR,68.155.152.41/32,no-resolve
 IP-CIDR,72.146.20.246/32,no-resolve
 IP-CIDR,74.248.148.7/32,no-resolve
+DOMAIN,mask-api.fe.apple-dns.net
+DOMAIN,mask-t.apple-dns.net
+DOMAIN,mask-t.apple-dns.net
+DOMAIN-KEYWORD,siri
