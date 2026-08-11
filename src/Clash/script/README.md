@@ -14,6 +14,18 @@
 pnpm run generateDirectAppList
 ```
 
+## fetchAppleAIRules.js
+
+用于同步 `src/Clash/List/AppleAI.list`。
+
+这个脚本会从 `RocM301/Apple-Rule` 下载 Apple AI 规则，过滤空行和注释后写入本地规则源。下载失败时会自动重试，最终失败会让任务以非零状态退出。该文件每天会在 GitHub Actions 中重新生成，不建议手工修改。
+
+执行命令：
+
+```sh
+pnpm run generateAppleAIList
+```
+
 ## list2yaml.js
 
 用于把 `src/Clash/List/*.list` 转换为 `src/Clash/Yaml/*.yaml`。
@@ -56,7 +68,7 @@ IP-CIDR, IP-CIDR6     -> ipcidr mrs
 pnpm run generateClashMrs
 ```
 
-也可以一次生成 Clash 全部派生产物：
+也可以一次同步外部规则源并生成 Clash 全部派生产物：
 
 ```sh
 pnpm run generateClashRules
@@ -68,7 +80,7 @@ pnpm run generateClashRules
 pnpm run generateClashDerived
 ```
 
-它只运行 `generateClashYaml` 和 `generateClashMrs`，不运行 `generateDirectAppList`。这样本地提交不会因为外部规则网络请求改变 `CustomDirectApp.list`，但仍能确保你手工维护的 `List` 改动同步到 `Yaml`、`MRS` 和残留 `classical` 文件。
+它只运行 `generateClashYaml` 和 `generateClashMrs`，不运行 `generateDirectAppList` 或 `generateAppleAIList`。这样本地提交不会因为外部规则网络请求改变 `CustomDirectApp.list` 或 `AppleAI.list`，但仍能确保现有 `List` 改动同步到 `Yaml`、`MRS` 和残留 `classical` 文件。
 
 ## GitHub Actions 顺序
 
@@ -76,11 +88,12 @@ pnpm run generateClashDerived
 
 ```sh
 pnpm run generateDirectAppList
+pnpm run generateAppleAIList
 pnpm run generateClashYaml
 pnpm run generateClashMrs
 ```
 
-原因是 `CustomDirectApp.list` 本身是脚本生成的源规则，必须先更新它，再生成 `Yaml/` 和 `MRS/` 成品。
+原因是 `CustomDirectApp.list` 和 `AppleAI.list` 都是脚本同步的源规则，必须先更新它们，再生成 `Yaml/` 和 `MRS/` 成品。
 
 本地 pre-commit hook 当前会执行：
 

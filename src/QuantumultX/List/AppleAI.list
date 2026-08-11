@@ -1,0 +1,19 @@
+# 该文件为自动生成
+HOST,guzzoni.apple.com,Proxy
+HOST,mask-api.fe.apple-dns.net,Proxy
+HOST,mask-api.icloud.com,Proxy
+HOST,mask-t.apple-dns.net,Proxy
+HOST,mask.apple-dns.net,Proxy
+HOST-SUFFIX,smoot.apple.com,Proxy
+HOST-SUFFIX,apple-relay.apple.com,Proxy
+HOST-SUFFIX,apple-relay.cloudflare.com,Proxy
+HOST-SUFFIX,apple-relay.fastly-edge.com,Proxy
+HOST-SUFFIX,apple-relay.mask.apple-dns.net,Proxy
+HOST-SUFFIX,cp4.cloudflare.com,Proxy
+HOST-SUFFIX,gspe1-ssl.ls.apple.com,Proxy
+HOST-SUFFIX,gateway.icloud.com,Proxy
+HOST-SUFFIX,ls.apple.com,Proxy
+HOST-SUFFIX,mask-h2.icloud.com,Proxy
+HOST-SUFFIX,mask.icloud.com,Proxy
+HOST-SUFFIX,apps.mzstatic.com,Proxy
+HOST-KEYWORD,siri,Proxy

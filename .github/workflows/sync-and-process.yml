@@ -60,6 +60,8 @@ jobs:
           cd gists-hub
           npm run generateDirectAppList
           echo "已生成 CustomDirectApp.list 文件"
+          npm run generateAppleAIList
+          echo "已同步 Apple AI 规则"
           npm run generateClashYaml
           echo "已生成 Clash YAML 文件"
           npm run generateClashMrs

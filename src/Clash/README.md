@@ -40,8 +40,9 @@ src/Clash/
 脚本生成的源规则：
 
 - `src/Clash/List/CustomDirectApp.list`
+- `src/Clash/List/AppleAI.list`
 
-`CustomDirectApp.list` 由 `src/Clash/script/fetchDirectAppRules.js` 拉取外部规则后合并生成。不要手工修改它，否则每天的 GitHub Actions 任务可能会覆盖本地改动。
+`CustomDirectApp.list` 由 `src/Clash/script/fetchDirectAppRules.js` 拉取多个外部规则后合并生成，`AppleAI.list` 由 `src/Clash/script/fetchAppleAIRules.js` 从 Apple AI 上游同步。不要手工修改它们，否则每天的 GitHub Actions 任务会覆盖本地改动。
 
 ## 派生成品
 
@@ -81,7 +82,7 @@ pnpm run generateClashRules
 pnpm run generateClashDerived
 ```
 
-这个命令只根据现有 `List/` 生成 `Yaml/` 和 `MRS/`，不会拉取外部规则刷新 `CustomDirectApp.list`。因此日常手工修改 `List/` 后直接提交即可，pre-commit hook 会自动把对应成品重新生成并 `git add .`。
+这个命令只根据现有 `List/` 生成 `Yaml/` 和 `MRS/`，不会拉取外部规则刷新 `CustomDirectApp.list` 或 `AppleAI.list`。因此日常手工修改 `List/` 后直接提交即可，pre-commit hook 会自动把对应成品重新生成并 `git add .`。
 
 注意：当前 pre-commit hook 只执行本地派生任务，不执行 `syncQx` 和 `syncLoon` 这类上传任务，避免本地私有配置、Gist ID 或 token 状态阻塞提交。
 
@@ -89,6 +90,7 @@ pnpm run generateClashDerived
 
 ```sh
 pnpm run generateDirectAppList
+pnpm run generateAppleAIList
 pnpm run generateClashYaml
 pnpm run generateClashMrs
 ```
