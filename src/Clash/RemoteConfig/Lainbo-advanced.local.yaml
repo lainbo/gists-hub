@@ -2,25 +2,35 @@ mixed-port: 7890
 allow-lan: false
 mode: rule
 log-level: info
-ipv6: true
+ipv6: false
 unified-delay: true
 tcp-concurrent: true
-
 profile:
   store-selected: true
   store-fake-ip: true
-
+sniffer:
+  enable: true
+  sniff:
+    HTTP: { ports: [80, 8080-8880], override-destination: true }
+    TLS: { ports: [443, 8443], override-destination: true }
+    QUIC: { ports: [443, 8443], override-destination: true }
+  skip-domain:
+    - Mijia Cloud
+    - dlg.io.mi.com
+  override-destination: true
 dns:
   enable: true
-  ipv6: true
+  ipv6: false
   enhanced-mode: fake-ip
   fake-ip-filter:
-    - +.lan
-    - +.local
-    - "*.localhost"
-    - "*.home.arpa"
-    - "*.msftncsi.com"
-    - "*.msftconnecttest.com"
+    - '*.lan'
+    - '*.localdomain'
+    - '*.example'
+    - '*.invalid'
+    - '*.localhost'
+    - '*.test'
+    - '*.local'
+    - '*.home.arpa'
     - time.*.com
     - time.*.gov
     - time.*.edu.cn
@@ -40,17 +50,26 @@ dns:
     - ntp5.*.com
     - ntp6.*.com
     - ntp7.*.com
-    - "*.time.edu.cn"
-    - "*.ntp.org.cn"
+    - '*.time.edu.cn'
+    - '*.ntp.org.cn'
     - +.pool.ntp.org
     - time1.cloud.tencent.com
     - stun.*.*
     - stun.*.*.*
+    - swscan.apple.com
     - mesu.apple.com
     - music.163.com
-    - "*.music.163.com"
+    - '*.music.163.com'
+    - '*.126.net'
+    - musicapi.taihe.com
+    - music.taihe.com
+    - songsearch.kugou.com
+    - trackercdn.kugou.com
+    - '*.kuwo.cn'
+    - api-jooxtt.sanook.com
+    - api.joox.com
     - y.qq.com
-    - "*.y.qq.com"
+    - '*.y.qq.com'
     - streamoc.music.tc.qq.com
     - mobileoc.music.tc.qq.com
     - isure.stream.qqmusic.qq.com
@@ -58,11 +77,39 @@ dns:
     - aqqmusic.tc.qq.com
     - amobile.music.tc.qq.com
     - localhost.ptlogin2.qq.com
-    - identity.bitwarden.com
-    - push.bitwarden.com
+    - '*.msftconnecttest.com'
+    - '*.msftncsi.com'
+    - '*.xiami.com'
+    - '*.music.migu.cn'
+    - music.migu.cn
+    - +.wotgame.cn
+    - +.wggames.cn
+    - +.wowsgame.cn
+    - +.wargaming.net
+    - '*.*.*.srv.nintendo.net'
+    - '*.*.stun.playstation.net'
+    - xbox.*.*.microsoft.com
+    - '*.*.xboxlive.com'
+    - '*.ipv6.microsoft.com'
+    - teredo.*.*.*
+    - teredo.*.*
+    - speedtest.cros.wr.pvp.net
+    - +.jjvip8.com
+    - www.douyu.com
+    - activityapi.huya.com
+    - activityapi.huya.com.w.cdngslb.com
+    - www.bilibili.com
+    - api.bilibili.com
+    - a.w.bilicdn1.com
+    - '+.msftncsi.com'
+    - '+.market.xiaomi.com'
+    - '*.msftncsi.com'
+    - '*.msftconnecttest.com'
+    - 'identity.bitwarden.com'
+    - 'push.bitwarden.com'
   default-nameserver:
-    - 180.184.1.1
     - 223.5.5.5
+    - 119.29.29.29
   nameserver:
     - https://dns.alidns.com/dns-query
     - https://doh.pub/dns-query
@@ -72,31 +119,31 @@ proxy-providers:
   # 可以搜索本文件中的 Subscription1 ，要改名字的话全都要改
   Subscription1:
     type: http
-    url: "你的订阅地址写在这里， 订阅地址的 url 打开，必须得是纯 base64 字符串的那种"
+    url: "你的订阅地址写在这里，订阅地址的 url 打开，必须得是纯 base64 字符串的那种"
     path: ./providers/Subscription1.yaml
     interval: 86400
-    exclude-filter: "(?i)(?:\\d+(\\.\\d*)?\\s*GB|traffic|expire|premium|github|isp|流量|网址|套餐|应急|时间|重置|剩余|[到过]期|订阅)"
+    exclude-filter: '(?i)(?:\d+(\.\d*)?\s*GB|traffic|expire|premium|github|isp|流量|网址|套餐|应急|时间|重置|剩余|[到过]期|订阅)'
     health-check:
       enable: true
       url: http://cp.cloudflare.com/generate_204
-      interval: 300
-      timeout: 5000
+      interval: 180
+      timeout: 8000
       lazy: true
       expected-status: 204
 
   # 如果你有第二个订阅，可以取消下面这一整段注释，并搜索本文件中的「Subscription2」一起取消注释
-  # 注意path字段不要重复了，path的意思是，这个订阅从远程拉下来，在你本地放置的位置以及文件名叫啥，文件名重复订阅会出问题
+  # 注意 path 字段不要重复；订阅下载到本地后，重复路径会互相覆盖
   # Subscription2:
   #   type: http
   #   url: "你的第二个订阅地址写在这里，订阅地址的 url 打开，必须得是纯 base64 字符串的那种"
   #   path: ./providers/Subscription2.yaml
   #   interval: 86400
-  #   exclude-filter: "(?i)(?:\\d+(\\.\\d*)?\\s*GB|traffic|expire|premium|github|isp|流量|网址|套餐|应急|时间|重置|剩余|[到过]期|订阅)"
+  #   exclude-filter: '(?i)(?:\d+(\.\d*)?\s*GB|traffic|expire|premium|github|isp|流量|网址|套餐|应急|时间|重置|剩余|[到过]期|订阅)'
   #   health-check:
   #     enable: true
   #     url: http://cp.cloudflare.com/generate_204
-  #     interval: 300
-  #     timeout: 5000
+  #     interval: 180
+  #     timeout: 8000
   #     lazy: true
   #     expected-status: 204
 
@@ -116,55 +163,13 @@ proxy-groups:
       - Subscription1
       # - Subscription2
 
-  - name: 🌿 自动选择
+  - name: 🇯🇵 日本自动
     type: url-test
     use:
       - Subscription1
       # - Subscription2
-    filter: "(?i)^(?:(?!(?:[2-9][0-9]*|1[0-9]+)[x×]).)*$"
-    url: http://cp.cloudflare.com/generate_204
-    interval: 300
-    tolerance: 50
-    timeout: 5000
-    lazy: true
-    expected-status: 204
-
-  - name: 🇭🇰 香港自动
-    type: url-test
-    use:
-      - Subscription1
-      # - Subscription2
-    filter: "(?i)(?=.*(Hong ?Kong|港|\\b(?:HK[G]?|HKT|HKBN|HGC)(\\d+)?\\b))^(?!.*(?:日用|实验性))(?:(?!.*\\d[\\.,]?\\d*[x×])|(?=.*(?<!\\d\\.)(?<![0-9])1(?:\\.0{1,2})?[x×])).*$"
-    url: http://cp.cloudflare.com/generate_204
-    interval: 300
-    tolerance: 50
-    timeout: 5000
-    lazy: true
-    expected-status: 204
-
-  - name: 🇹🇼 台湾自动
-    type: url-test
-    use:
-      - Subscription1
-      # - Subscription2
-    filter: "(?i)(?=.*(Taiwan|台湾|新北|彰化|\\b(?:TW[N]?|CHT|HINET)(\\d+)?\\b))^(?!.*(?:日用|实验性))(?:(?!.*\\d[\\.,]?\\d*[x×])|(?=.*(?<!\\d\\.)(?<![0-9])1(?:\\.0{1,2})?[x×])).*$"
-    url: http://cp.cloudflare.com/generate_204
-    interval: 300
-    tolerance: 50
-    timeout: 5000
-    lazy: true
-    expected-status: 204
-
-  - name: 🇸🇬 狮城自动
-    type: url-test
-    use:
-      - Subscription1
-      # - Subscription2
-    filter: "(?i)(?=.*(Singapore|新加坡|狮城|\\bSG[P]?(\\d+)?\\b))^(?!.*(?:日用|实验性))(?:(?!.*\\d[\\.,]?\\d*[x×])|(?=.*(?<!\\d\\.)(?<![0-9])1(?:\\.0{1,2})?[x×])).*$"
-    url: http://cp.cloudflare.com/generate_204
-    interval: 300
-    tolerance: 50
-    timeout: 5000
+    filter: "(?i).*(日本|川日|东京|大阪|泉日|埼玉|沪日|深日|Japan|\\bJP[N]?\\d*\\b).*"
+    tolerance: 60
     lazy: true
     expected-status: 204
 
@@ -173,24 +178,8 @@ proxy-groups:
     use:
       - Subscription1
       # - Subscription2
-    filter: "(?i)(?=.*(United ?States|美[国國]|波特兰|达拉斯|俄勒冈|凤凰城|费利蒙|硅谷|拉斯维加斯|洛杉矶|圣何塞|圣克拉拉|西雅图|芝加哥|\\bUS[A]?(\\d+)?\\b|America))^(?!.*(?:日用|实验性))(?:(?!.*\\d[\\.,]?\\d*[x×])|(?=.*(?<!\\d\\.)(?<![0-9])1(?:\\.0{1,2})?[x×])).*$"
-    url: http://cp.cloudflare.com/generate_204
-    interval: 300
+    filter: "(?i).*(United ?States|美[国國]|波特兰|达拉斯|俄勒冈|凤凰城|费利蒙|硅谷|拉斯维加斯|洛杉矶|圣何塞|圣克拉拉|西雅图|芝加哥|\\bUS[A]?\\d*\\b|America).*"
     tolerance: 80
-    timeout: 5000
-    lazy: true
-    expected-status: 204
-
-  - name: 🇯🇵 日本自动
-    type: url-test
-    use:
-      - Subscription1
-      # - Subscription2
-    filter: "(?i)(?=.*(日本|川日|东京|大阪|泉日|埼玉|沪日|深日|Japan|\\bJP[N]?(\\d+)?\\b))^(?!.*(?:日用|实验性))(?:(?!.*\\d[\\.,]?\\d*[x×])|(?=.*(?<!\\d\\.)(?<![0-9])1(?:\\.0{1,2})?[x×])).*$"
-    url: http://cp.cloudflare.com/generate_204
-    interval: 300
-    tolerance: 50
-    timeout: 5000
     lazy: true
     expected-status: 204
 
@@ -199,27 +188,40 @@ proxy-groups:
     use:
       - Subscription1
       # - Subscription2
-    filter: "(?i)(?=.*(德国|德意志|法兰克福|中德|Germany|\\bDE[U]?(\\d+)?\\b|英国|伦敦|United.*?Kingdom|Britain|London|England|\\b(?:UK|GB[R]?)(\\d+)?\\b|法国|巴黎|France|Paris|\\bFR[A]?\\b|(?<!白)俄罗斯|莫斯科|圣彼得堡|[新]?西伯[力利]亚|哈巴罗夫斯克|Russia|Moscow|Petersburg|Siberia|\\bRU[S]?(\\d+)?\\b|西班牙|Spain|España|\\bES[P]?\\b|荷兰|阿姆斯特丹|Netherlands|\\bNL[D]?(\\d+)?\\b|波兰|Poland|\\bP[O]?L\\b|丹麦|Denmark|\\bD[N]?K\\b|冰岛|Iceland|\\bIS[L]?\\b|意大利|米兰|Italy|italia|Milan|白俄罗斯|Belarus|黑山|Montenegro|梵蒂冈|Vatican ?City|安道尔|Andorra|马耳他|Malta|摩纳哥|Monaco|圣马力诺|San ?Marino|列支敦士登|Liechtenstein|阿尔巴尼亚|Albania|奥地利|维也纳|Austria|Vienna|波黑共和国|波士尼亚与赫塞哥维纳|Bosnia|Herzegovina|比利时|Belgium|保加利亚|Bulgaria|瑞士|苏黎世|Switzerland|Zurich|捷克|Czech|爱沙尼亚|Estonia|芬兰|赫尔辛基|Finland|Helsinki|希腊|Greece|克罗地亚|Croatia|匈牙利|Hungary|爱尔兰|都柏林|Ireland|Dublin|立陶宛|Lietuvos|卢森堡|Luxemburg|Luxembourg|拉脱维亚|Latvia|摩尔多瓦|Moldova|北马其顿|Macedonia|挪威|Norway|葡萄牙|Portugal|罗马尼亚|Romania|塞尔维亚|Serbia|瑞典|Sweden|斯洛文尼亚|Slovenia|斯洛伐克|Slovensko|乌克兰|Ukraine|直布罗陀|Gibraltar|法罗群岛|Faroe ?Islands|奥兰群岛|Åland ?Islands|马恩岛|Mann))^(?!.*(?:日用|实验性))(?:(?!.*\\d[\\.,]?\\d*[x×])|(?=.*(?<!\\d\\.)(?<![0-9])1(?:\\.0{1,2})?[x×])).*$"
-    url: http://cp.cloudflare.com/generate_204
-    interval: 300
-    tolerance: 50
-    timeout: 5000
+    filter: "(?i).*(德国|德意志|法兰克福|中德|Germany|\\bDE[U]?\\d*\\b|英国|伦敦|United.*?Kingdom|Britain|London|England|\\b(?:UK|GB[R]?)\\d*\\b|法国|巴黎|France|Paris|\\bFR[A]?\\b|(?<!白)俄罗斯|莫斯科|圣彼得堡|[新]?西伯[力利]亚|哈巴罗夫斯克|Russia|Moscow|Petersburg|Siberia|\\bRU[S]?\\d*\\b|西班牙|Spain|España|\\bES[P]?\\b|荷兰|阿姆斯特丹|Netherlands|\\bNL[D]?\\d*\\b|波兰|Poland|\\bP[O]?L\\b|丹麦|Denmark|\\bD[N]?K\\b|冰岛|Iceland|\\bIS[L]?\\b|意大利|米兰|Italy|italia|Milan|白俄罗斯|Belarus|黑山|Montenegro|梵蒂冈|Vatican ?City|安道尔|Andorra|马耳他|Malta|摩纳哥|Monaco|圣马力诺|San ?Marino|列支敦士登|Liechtenstein|阿尔巴尼亚|Albania|奥地利|维也纳|Austria|Vienna|波黑共和国|波士尼亚与赫塞哥维纳|Bosnia|Herzegovina|比利时|Belgium|保加利亚|Bulgaria|瑞士|苏黎世|Switzerland|Zurich|捷克|Czech|爱沙尼亚|Estonia|芬兰|赫尔辛基|Finland|Helsinki|希腊|Greece|克罗地亚|Croatia|匈牙利|Hungary|爱尔兰|都柏林|Ireland|Dublin|立陶宛|Lietuvos|卢森堡|Luxemburg|Luxembourg|拉脱维亚|Latvia|摩尔多瓦|Moldova|北马其顿|Macedonia|挪威|Norway|葡萄牙|Portugal|罗马尼亚|Romania|塞尔维亚|Serbia|瑞典|Sweden|斯洛文尼亚|Slovenia|斯洛伐克|Slovensko|乌克兰|Ukraine|直布罗陀|Gibraltar|法罗群岛|Faroe ?Islands|奥兰群岛|Åland ?Islands|马恩岛|Mann).*"
+    tolerance: 60
     lazy: true
     expected-status: 204
 
-  - name: 💬 AI专用
-    type: select
-    proxies:
-      - 🇯🇵 日本自动
-      - 🇸🇬 狮城自动
-      - 🇺🇸 美国自动
-      - 🇹🇼 台湾自动
-      - 🇪🇺 欧洲自动
+  - name: 🇸🇬 狮城自动
+    type: url-test
     use:
       - Subscription1
       # - Subscription2
-    filter: "(?i)^((?!实验性|日用|San ?Jose|(?<!白)俄罗斯|莫斯科|圣彼得堡|[新]?西伯[力利]亚|哈巴罗夫斯克|Russia|Moscow|Petersburg|Siberia|\\bRU[S]?\\b|港|Hong ?Kong|\\b(?:HK[G]?|HKT|HKBN|HGC|WTT|CMI)\\b|澳门|Macao|\\bCTM\\b|朝鲜|North ?Korea|古巴|Cuba|伊朗|Iran|叙利亚|Syria|乌克兰|Ukraine|委内瑞拉|Venezuela).)*$"
+    filter: "(?i).*(Singapore|新加坡|狮城|\\bSG[P]?\\d*\\b).*"
+    tolerance: 60
+    lazy: true
+    expected-status: 204
 
+  - name: 🇭🇰 香港自动
+    type: url-test
+    use:
+      - Subscription1
+      # - Subscription2
+    filter: "(?i).*(Hong ?Kong|港|\\b(?:HK[G]?|HKT|HKBN|HGC)\\d*\\b).*"
+    tolerance: 60
+    lazy: true
+    expected-status: 204
+
+  - name: 🇹🇼 台湾自动
+    type: url-test
+    use:
+      - Subscription1
+      # - Subscription2
+    filter: "(?i).*(Taiwan|台湾|新北|彰化|\\b(?:TW[N]?|CHT|HINET)\\d*\\b).*"
+    tolerance: 60
+    lazy: true
+    expected-status: 204
   - name: 📲 TelegramDC1
     type: select
     proxies:
@@ -256,17 +258,32 @@ proxy-groups:
   - name: 📲 Telegram
     type: select
     proxies:
+      - ✈️ 节点选择
       - 🇸🇬 狮城自动
       - 🇺🇸 美国自动
       - 🇪🇺 欧洲自动
-      - ✈️ 节点选择
       - 🇭🇰 香港自动
       - 🇹🇼 台湾自动
       - 🇯🇵 日本自动
-      - DIRECT
+
+  - name: 💬 AI专用
+    type: url-test
     use:
       - Subscription1
       # - Subscription2
+    filter: "(?i).*(\\bqq\\s*pw\\b|\\batt\\b|\\bvircs\\b|家宽|\\bhawaii\\b).*"
+    tolerance: 200
+    lazy: true
+    expected-status: 204
+
+  - name: 🌿 自动选择
+    type: url-test
+    use:
+      - Subscription1
+      # - Subscription2
+    tolerance: 60
+    lazy: true
+    expected-status: 204
 
   - name: 🔗 无需代理
     type: select
@@ -288,35 +305,51 @@ proxy-groups:
       - 🔗 无需代理
 
 rule-providers:
-  CloudflareCN:
+  AppleAIDomain:
     type: http
     behavior: domain
     format: mrs
-    url: https://fastgh.lainbo.com/https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/meta/geo/geosite/cloudflare-cn.mrs
-    path: ./ruleset/cloudflare-cn.mrs
+    url: https://raw.githubusercontent.com/lainbo/gists-hub/master/src/Clash/MRS/AppleAI.domain.mrs
+    path: ./ruleset/AppleAI.domain.mrs
     interval: 86400
 
-  CloudflareMeta:
+  AppleAIClassical:
+    type: http
+    behavior: classical
+    format: text
+    url: https://raw.githubusercontent.com/lainbo/gists-hub/master/src/Clash/MRS/AppleAI.classical.list
+    path: ./ruleset/AppleAI.classical.list
+    interval: 86400
+
+  GoogleMeta:
     type: http
     behavior: domain
     format: mrs
-    url: https://fastgh.lainbo.com/https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/meta/geo/geosite/cloudflare.mrs
-    path: ./ruleset/cloudflare.mrs
+    url: https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/meta/geo/geosite/google.mrs
+    path: ./ruleset/google.mrs
     interval: 86400
 
   GitHubMeta:
     type: http
     behavior: domain
     format: mrs
-    url: https://fastgh.lainbo.com/https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/meta/geo/geosite/github.mrs
+    url: https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/meta/geo/geosite/github.mrs
     path: ./ruleset/github.mrs
+    interval: 86400
+
+  BinanceMeta:
+    type: http
+    behavior: domain
+    format: mrs
+    url: https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/meta/geo/geosite/binance.mrs
+    path: ./ruleset/binance.mrs
     interval: 86400
 
   Protonmail:
     type: http
     behavior: domain
     format: mrs
-    url: https://fastgh.lainbo.com/https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/meta/geo/geosite/protonmail.mrs
+    url: https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/meta/geo/geosite/protonmail.mrs
     path: ./ruleset/protonmail.mrs
     interval: 86400
 
@@ -324,7 +357,7 @@ rule-providers:
     type: http
     behavior: classical
     format: text
-    url: https://fastgh.lainbo.com/https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/master/Clash/Ruleset/GoogleCNProxyIP.list
+    url: https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/master/Clash/Ruleset/GoogleCNProxyIP.list
     path: ./ruleset/GoogleCNProxyIP.list
     interval: 86400
 
@@ -332,7 +365,7 @@ rule-providers:
     type: http
     behavior: domain
     format: mrs
-    url: https://fastgh.lainbo.com/https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/meta/geo/geosite/googlefcm.mrs
+    url: https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/meta/geo/geosite/googlefcm.mrs
     path: ./ruleset/googlefcm.mrs
     interval: 86400
 
@@ -340,7 +373,7 @@ rule-providers:
     type: http
     behavior: domain
     format: mrs
-    url: https://fastgh.lainbo.com/https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/meta/geo/geosite/google%40cn.mrs
+    url: https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/meta/geo/geosite/google%40cn.mrs
     path: ./ruleset/google@cn.mrs
     interval: 86400
 
@@ -348,7 +381,7 @@ rule-providers:
     type: http
     behavior: domain
     format: mrs
-    url: https://fastgh.lainbo.com/https://raw.githubusercontent.com/lainbo/gists-hub/master/src/Clash/MRS/CustomFirstProxy.domain.mrs
+    url: https://raw.githubusercontent.com/lainbo/gists-hub/master/src/Clash/MRS/CustomFirstProxy.domain.mrs
     path: ./ruleset/CustomFirstProxy.domain.mrs
     interval: 86400
 
@@ -356,7 +389,7 @@ rule-providers:
     type: http
     behavior: ipcidr
     format: mrs
-    url: https://fastgh.lainbo.com/https://raw.githubusercontent.com/lainbo/gists-hub/master/src/Clash/MRS/CustomFirstProxy.ipcidr.mrs
+    url: https://raw.githubusercontent.com/lainbo/gists-hub/master/src/Clash/MRS/CustomFirstProxy.ipcidr.mrs
     path: ./ruleset/CustomFirstProxy.ipcidr.mrs
     interval: 86400
 
@@ -364,7 +397,7 @@ rule-providers:
     type: http
     behavior: classical
     format: text
-    url: https://fastgh.lainbo.com/https://raw.githubusercontent.com/lainbo/gists-hub/master/src/Clash/MRS/CustomFirstProxy.classical.list
+    url: https://raw.githubusercontent.com/lainbo/gists-hub/master/src/Clash/MRS/CustomFirstProxy.classical.list
     path: ./ruleset/CustomFirstProxy.classical.list
     interval: 86400
 
@@ -372,7 +405,7 @@ rule-providers:
     type: http
     behavior: classical
     format: text
-    url: https://fastgh.lainbo.com/https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Clash/Lan/Lan.list
+    url: https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Clash/Lan/Lan.list
     path: ./ruleset/Lan.list
     interval: 86400
 
@@ -380,7 +413,7 @@ rule-providers:
     type: http
     behavior: classical
     format: text
-    url: https://fastgh.lainbo.com/https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Clash/OpenAI/OpenAI.list
+    url: https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Clash/OpenAI/OpenAI.list
     path: ./ruleset/OpenAI.list
     interval: 86400
 
@@ -388,7 +421,7 @@ rule-providers:
     type: http
     behavior: domain
     format: mrs
-    url: https://fastgh.lainbo.com/https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/meta/geo/geosite/openai.mrs
+    url: https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/meta/geo/geosite/openai.mrs
     path: ./ruleset/openai.mrs
     interval: 86400
 
@@ -396,7 +429,7 @@ rule-providers:
     type: http
     behavior: domain
     format: mrs
-    url: https://fastgh.lainbo.com/https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/meta/geo/geosite/anthropic.mrs
+    url: https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/meta/geo/geosite/anthropic.mrs
     path: ./ruleset/anthropic.mrs
     interval: 86400
 
@@ -404,7 +437,7 @@ rule-providers:
     type: http
     behavior: classical
     format: text
-    url: https://fastgh.lainbo.com/https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Clash/Claude/Claude.list
+    url: https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Clash/Claude/Claude.list
     path: ./ruleset/Claude.list
     interval: 86400
 
@@ -412,7 +445,7 @@ rule-providers:
     type: http
     behavior: domain
     format: mrs
-    url: "https://fastgh.lainbo.com/https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/meta/geo/geosite/category-ai-!cn.mrs"
+    url: 'https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/meta/geo/geosite/category-ai-!cn.mrs'
     path: ./ruleset/category-ai-!cn.mrs
     interval: 86400
 
@@ -420,7 +453,7 @@ rule-providers:
     type: http
     behavior: domain
     format: mrs
-    url: https://fastgh.lainbo.com/https://raw.githubusercontent.com/lainbo/gists-hub/master/src/Clash/MRS/CustomAI.domain.mrs
+    url: https://raw.githubusercontent.com/lainbo/gists-hub/master/src/Clash/MRS/CustomAI.domain.mrs
     path: ./ruleset/CustomAI.domain.mrs
     interval: 86400
 
@@ -428,7 +461,7 @@ rule-providers:
     type: http
     behavior: ipcidr
     format: mrs
-    url: https://fastgh.lainbo.com/https://raw.githubusercontent.com/lainbo/gists-hub/master/src/Clash/MRS/CustomAI.ipcidr.mrs
+    url: https://raw.githubusercontent.com/lainbo/gists-hub/master/src/Clash/MRS/CustomAI.ipcidr.mrs
     path: ./ruleset/CustomAI.ipcidr.mrs
     interval: 86400
 
@@ -436,7 +469,7 @@ rule-providers:
     type: http
     behavior: classical
     format: text
-    url: https://fastgh.lainbo.com/https://raw.githubusercontent.com/lainbo/gists-hub/master/src/Clash/MRS/CustomAI.classical.list
+    url: https://raw.githubusercontent.com/lainbo/gists-hub/master/src/Clash/MRS/CustomAI.classical.list
     path: ./ruleset/CustomAI.classical.list
     interval: 86400
 
@@ -444,7 +477,7 @@ rule-providers:
     type: http
     behavior: domain
     format: mrs
-    url: https://fastgh.lainbo.com/https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/meta/geo/geosite/apple-intelligence.mrs
+    url: https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/meta/geo/geosite/apple-intelligence.mrs
     path: ./ruleset/apple-intelligence.mrs
     interval: 86400
 
@@ -452,7 +485,7 @@ rule-providers:
     type: http
     behavior: domain
     format: mrs
-    url: https://fastgh.lainbo.com/https://raw.githubusercontent.com/lainbo/gists-hub/master/src/Clash/MRS/CustomReject.domain.mrs
+    url: https://raw.githubusercontent.com/lainbo/gists-hub/master/src/Clash/MRS/CustomReject.domain.mrs
     path: ./ruleset/CustomReject.domain.mrs
     interval: 86400
 
@@ -460,23 +493,15 @@ rule-providers:
     type: http
     behavior: classical
     format: text
-    url: https://fastgh.lainbo.com/https://raw.githubusercontent.com/lainbo/gists-hub/master/src/Clash/MRS/CustomReject.classical.list
+    url: https://raw.githubusercontent.com/lainbo/gists-hub/master/src/Clash/MRS/CustomReject.classical.list
     path: ./ruleset/CustomReject.classical.list
-    interval: 86400
-
-  BanAD:
-    type: http
-    behavior: classical
-    format: text
-    url: https://fastgh.lainbo.com/https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/master/Clash/BanAD.list
-    path: ./ruleset/BanAD.list
     interval: 86400
 
   CustomDirectDomain:
     type: http
     behavior: domain
     format: mrs
-    url: https://fastgh.lainbo.com/https://raw.githubusercontent.com/lainbo/gists-hub/master/src/Clash/MRS/CustomDirect.domain.mrs
+    url: https://raw.githubusercontent.com/lainbo/gists-hub/master/src/Clash/MRS/CustomDirect.domain.mrs
     path: ./ruleset/CustomDirect.domain.mrs
     interval: 86400
 
@@ -484,7 +509,7 @@ rule-providers:
     type: http
     behavior: classical
     format: text
-    url: https://fastgh.lainbo.com/https://raw.githubusercontent.com/lainbo/gists-hub/master/src/Clash/MRS/CustomDirect.classical.list
+    url: https://raw.githubusercontent.com/lainbo/gists-hub/master/src/Clash/MRS/CustomDirect.classical.list
     path: ./ruleset/CustomDirect.classical.list
     interval: 86400
 
@@ -492,7 +517,7 @@ rule-providers:
     type: http
     behavior: domain
     format: mrs
-    url: https://fastgh.lainbo.com/https://raw.githubusercontent.com/lainbo/gists-hub/master/src/Clash/MRS/CustomDirectApp.domain.mrs
+    url: https://raw.githubusercontent.com/lainbo/gists-hub/master/src/Clash/MRS/CustomDirectApp.domain.mrs
     path: ./ruleset/CustomDirectApp.domain.mrs
     interval: 86400
 
@@ -500,7 +525,7 @@ rule-providers:
     type: http
     behavior: ipcidr
     format: mrs
-    url: https://fastgh.lainbo.com/https://raw.githubusercontent.com/lainbo/gists-hub/master/src/Clash/MRS/CustomDirectApp.ipcidr.mrs
+    url: https://raw.githubusercontent.com/lainbo/gists-hub/master/src/Clash/MRS/CustomDirectApp.ipcidr.mrs
     path: ./ruleset/CustomDirectApp.ipcidr.mrs
     interval: 86400
 
@@ -508,7 +533,7 @@ rule-providers:
     type: http
     behavior: classical
     format: text
-    url: https://fastgh.lainbo.com/https://raw.githubusercontent.com/lainbo/gists-hub/master/src/Clash/MRS/CustomDirectApp.classical.list
+    url: https://raw.githubusercontent.com/lainbo/gists-hub/master/src/Clash/MRS/CustomDirectApp.classical.list
     path: ./ruleset/CustomDirectApp.classical.list
     interval: 86400
 
@@ -516,7 +541,7 @@ rule-providers:
     type: http
     behavior: domain
     format: mrs
-    url: https://fastgh.lainbo.com/https://raw.githubusercontent.com/lainbo/gists-hub/master/src/Clash/MRS/CustomProxy.domain.mrs
+    url: https://raw.githubusercontent.com/lainbo/gists-hub/master/src/Clash/MRS/CustomProxy.domain.mrs
     path: ./ruleset/CustomProxy.domain.mrs
     interval: 86400
 
@@ -524,7 +549,7 @@ rule-providers:
     type: http
     behavior: domain
     format: mrs
-    url: https://fastgh.lainbo.com/https://raw.githubusercontent.com/lainbo/gists-hub/master/src/Clash/MRS/TelegramDC1.domain.mrs
+    url: https://raw.githubusercontent.com/lainbo/gists-hub/master/src/Clash/MRS/TelegramDC1.domain.mrs
     path: ./ruleset/TelegramDC1.domain.mrs
     interval: 86400
 
@@ -532,7 +557,7 @@ rule-providers:
     type: http
     behavior: ipcidr
     format: mrs
-    url: https://fastgh.lainbo.com/https://raw.githubusercontent.com/lainbo/gists-hub/master/src/Clash/MRS/TelegramDC1.ipcidr.mrs
+    url: https://raw.githubusercontent.com/lainbo/gists-hub/master/src/Clash/MRS/TelegramDC1.ipcidr.mrs
     path: ./ruleset/TelegramDC1.ipcidr.mrs
     interval: 86400
 
@@ -540,7 +565,7 @@ rule-providers:
     type: http
     behavior: classical
     format: text
-    url: https://fastgh.lainbo.com/https://raw.githubusercontent.com/lainbo/gists-hub/master/src/Clash/MRS/TelegramDC1.classical.list
+    url: https://raw.githubusercontent.com/lainbo/gists-hub/master/src/Clash/MRS/TelegramDC1.classical.list
     path: ./ruleset/TelegramDC1.classical.list
     interval: 86400
 
@@ -548,7 +573,7 @@ rule-providers:
     type: http
     behavior: domain
     format: mrs
-    url: https://fastgh.lainbo.com/https://raw.githubusercontent.com/lainbo/gists-hub/master/src/Clash/MRS/TelegramDC2_4.domain.mrs
+    url: https://raw.githubusercontent.com/lainbo/gists-hub/master/src/Clash/MRS/TelegramDC2_4.domain.mrs
     path: ./ruleset/TelegramDC2_4.domain.mrs
     interval: 86400
 
@@ -556,7 +581,7 @@ rule-providers:
     type: http
     behavior: ipcidr
     format: mrs
-    url: https://fastgh.lainbo.com/https://raw.githubusercontent.com/lainbo/gists-hub/master/src/Clash/MRS/TelegramDC2_4.ipcidr.mrs
+    url: https://raw.githubusercontent.com/lainbo/gists-hub/master/src/Clash/MRS/TelegramDC2_4.ipcidr.mrs
     path: ./ruleset/TelegramDC2_4.ipcidr.mrs
     interval: 86400
 
@@ -564,7 +589,7 @@ rule-providers:
     type: http
     behavior: classical
     format: text
-    url: https://fastgh.lainbo.com/https://raw.githubusercontent.com/lainbo/gists-hub/master/src/Clash/MRS/TelegramDC2_4.classical.list
+    url: https://raw.githubusercontent.com/lainbo/gists-hub/master/src/Clash/MRS/TelegramDC2_4.classical.list
     path: ./ruleset/TelegramDC2_4.classical.list
     interval: 86400
 
@@ -572,7 +597,7 @@ rule-providers:
     type: http
     behavior: ipcidr
     format: mrs
-    url: https://fastgh.lainbo.com/https://raw.githubusercontent.com/lainbo/gists-hub/master/src/Clash/MRS/TelegramDC5.ipcidr.mrs
+    url: https://raw.githubusercontent.com/lainbo/gists-hub/master/src/Clash/MRS/TelegramDC5.ipcidr.mrs
     path: ./ruleset/TelegramDC5.ipcidr.mrs
     interval: 86400
 
@@ -580,7 +605,7 @@ rule-providers:
     type: http
     behavior: classical
     format: text
-    url: https://fastgh.lainbo.com/https://raw.githubusercontent.com/lainbo/gists-hub/master/src/Clash/MRS/TelegramDC5.classical.list
+    url: https://raw.githubusercontent.com/lainbo/gists-hub/master/src/Clash/MRS/TelegramDC5.classical.list
     path: ./ruleset/TelegramDC5.classical.list
     interval: 86400
 
@@ -588,7 +613,7 @@ rule-providers:
     type: http
     behavior: domain
     format: mrs
-    url: https://fastgh.lainbo.com/https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/meta/geo/geosite/telegram.mrs
+    url: https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/meta/geo/geosite/telegram.mrs
     path: ./ruleset/telegram.mrs
     interval: 86400
 
@@ -596,7 +621,7 @@ rule-providers:
     type: http
     behavior: classical
     format: text
-    url: https://fastgh.lainbo.com/https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Clash/Telegram/Telegram.list
+    url: https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Clash/Telegram/Telegram.list
     path: ./ruleset/Telegram.list
     interval: 86400
 
@@ -604,7 +629,7 @@ rule-providers:
     type: http
     behavior: classical
     format: text
-    url: https://fastgh.lainbo.com/https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/release/rule/Clash/Proxy/Proxy.list
+    url: https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/release/rule/Clash/Proxy/Proxy.list
     path: ./ruleset/Proxy.list
     interval: 86400
 
@@ -612,7 +637,7 @@ rule-providers:
     type: http
     behavior: classical
     format: text
-    url: https://fastgh.lainbo.com/https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Clash/SteamCN/SteamCN.list
+    url: https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Clash/SteamCN/SteamCN.list
     path: ./ruleset/SteamCN.list
     interval: 86400
 
@@ -620,7 +645,7 @@ rule-providers:
     type: http
     behavior: domain
     format: mrs
-    url: https://fastgh.lainbo.com/https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/meta/geo/geosite/steam%40cn.mrs
+    url: https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/meta/geo/geosite/steam%40cn.mrs
     path: ./ruleset/steam@cn.mrs
     interval: 86400
 
@@ -628,7 +653,7 @@ rule-providers:
     type: http
     behavior: classical
     format: text
-    url: https://fastgh.lainbo.com/https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Clash/China/China.list
+    url: https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Clash/China/China.list
     path: ./ruleset/China.list
     interval: 86400
 
@@ -636,7 +661,7 @@ rule-providers:
     type: http
     behavior: classical
     format: text
-    url: https://fastgh.lainbo.com/https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/master/Clash/Download.list
+    url: https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/master/Clash/Download.list
     path: ./ruleset/DownloadACL4SSR.list
     interval: 86400
 
@@ -644,22 +669,27 @@ rule-providers:
     type: http
     behavior: classical
     format: text
-    url: https://fastgh.lainbo.com/https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Clash/Download/Download.list
+    url: https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Clash/Download/Download.list
     path: ./ruleset/Download.list
     interval: 86400
 
 rules:
-  - RULE-SET,CloudflareCN,🔗 无需代理
-  - RULE-SET,CloudflareMeta,✈️ 节点选择
+  - RULE-SET,Lan,🔗 无需代理
+  - GEOIP,PRIVATE,🔗 无需代理,no-resolve
+  - RULE-SET,AppleAIDomain,💬 AI专用
+  - RULE-SET,AppleAIClassical,💬 AI专用
   - RULE-SET,GitHubMeta,✈️ 节点选择
-  - RULE-SET,Protonmail,🇺🇸 美国自动
-  - RULE-SET,GoogleCNProxyIP,✈️ 节点选择
-  - RULE-SET,GoogleFCMMeta,✈️ 节点选择
-  - RULE-SET,GoogleCN,✈️ 节点选择
+  - RULE-SET,BinanceMeta,✈️ 节点选择
+  - RULE-SET,Protonmail,📲 TelegramDC2_4
+  - RULE-SET,GoogleCNProxyIP,📲 TelegramDC1
+  - RULE-SET,GoogleFCMMeta,📲 TelegramDC1
+  - RULE-SET,GoogleCN,📲 TelegramDC1
+  - RULE-SET,GoogleMeta,📲 TelegramDC1
   - RULE-SET,CustomFirstProxyDomain,✈️ 节点选择
   - RULE-SET,CustomFirstProxyIPCIDR,✈️ 节点选择
   - RULE-SET,CustomFirstProxyClassical,✈️ 节点选择
-  - RULE-SET,Lan,🔗 无需代理
+  - RULE-SET,CustomRejectDomain,🛡️ 广告拦截
+  - RULE-SET,CustomRejectClassical,🛡️ 广告拦截
   - RULE-SET,OpenAI,💬 AI专用
   - RULE-SET,OpenAIMeta,💬 AI专用
   - RULE-SET,Anthropic,💬 AI专用
@@ -669,9 +699,6 @@ rules:
   - RULE-SET,CustomAIIPCIDR,💬 AI专用
   - RULE-SET,CustomAIClassical,💬 AI专用
   - RULE-SET,AppleIntelligence,💬 AI专用
-  - RULE-SET,CustomRejectDomain,🛡️ 广告拦截
-  - RULE-SET,CustomRejectClassical,🛡️ 广告拦截
-  - RULE-SET,BanAD,🛡️ 广告拦截
   - RULE-SET,CustomDirectDomain,🔗 无需代理
   - RULE-SET,CustomDirectClassical,🔗 无需代理
   - RULE-SET,CustomDirectAppDomain,🔗 无需代理
@@ -695,23 +722,4 @@ rules:
   - RULE-SET,DownloadACL4SSR,🔗 无需代理
   - RULE-SET,Download,🔗 无需代理
   - GEOIP,CN,🔗 无需代理,no-resolve
-  - DST-PORT,22,🔗 无需代理
   - MATCH,💠 容错规则
-
-sniffer:
-  enable: true
-  sniff:
-    TLS:
-      ports:
-        - 443
-      override-destination: true
-    HTTP:
-      ports:
-        - 443
-      override-destination: true
-    QUIC:
-      ports:
-        - 443
-      override-destination: true
-geodata-loader: standard
-find-process-mode: strict
