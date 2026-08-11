@@ -110,4 +110,3 @@ payload:
   - IP-CIDR,68.155.152.41/32,no-resolve
   - IP-CIDR,72.146.20.246/32,no-resolve
   - IP-CIDR,74.248.148.7/32,no-resolve
-  - DOMAIN-KEYWORD,siri

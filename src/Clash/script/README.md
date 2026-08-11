@@ -18,7 +18,7 @@ pnpm run generateDirectAppList
 
 用于同步 `src/Clash/List/AppleAI.list`。
 
-这个脚本会从 `RocM301/Apple-Rule` 下载 Apple AI 规则，过滤空行和注释后写入本地规则源。下载失败时会自动重试，最终失败会让任务以非零状态退出。该文件每天会在 GitHub Actions 中重新生成，不建议手工修改。
+这个脚本会从 `RocM301/Apple-Rule` 下载 Apple AI 规则，过滤空行、注释和无法实际命中的 `DOMAIN-KEYWORD,siri` 后写入本地规则源。下载失败时会自动重试，最终失败会让任务以非零状态退出。该文件每天会在 GitHub Actions 中重新生成，不建议手工修改。
 
 执行命令：
 

@@ -313,14 +313,6 @@ rule-providers:
     path: ./ruleset/AppleAI.domain.mrs
     interval: 86400
 
-  AppleAIClassical:
-    type: http
-    behavior: classical
-    format: text
-    url: https://raw.githubusercontent.com/lainbo/gists-hub/master/src/Clash/MRS/AppleAI.classical.list
-    path: ./ruleset/AppleAI.classical.list
-    interval: 86400
-
   GoogleMeta:
     type: http
     behavior: domain
@@ -677,7 +669,6 @@ rules:
   - RULE-SET,Lan,🔗 无需代理
   - GEOIP,PRIVATE,🔗 无需代理,no-resolve
   - RULE-SET,AppleAIDomain,💬 AI专用
-  - RULE-SET,AppleAIClassical,💬 AI专用
   - RULE-SET,GitHubMeta,✈️ 节点选择
   - RULE-SET,BinanceMeta,✈️ 节点选择
   - RULE-SET,Protonmail,📲 TelegramDC2_4

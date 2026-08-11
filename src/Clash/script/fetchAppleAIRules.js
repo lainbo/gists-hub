@@ -8,6 +8,7 @@ const __dirname = path.dirname(fileURLToPath(import.meta.url))
 const outputFile = path.join(__dirname, '../List/AppleAI.list')
 const sourceUrl =
   'https://raw.githubusercontent.com/RocM301/Apple-Rule/refs/heads/main/Apple-AI.list'
+const EXCLUDED_RULES = new Set(['DOMAIN-KEYWORD,siri'])
 const MAX_FETCH_ATTEMPTS = 3
 const RETRY_DELAY_MS = 1000
 
@@ -41,7 +42,7 @@ function extractRules(content) {
     .replace(/^\uFEFF/, '')
     .split('\n')
     .map((line) => line.trim())
-    .filter((line) => line && !line.startsWith('#'))
+    .filter((line) => line && !line.startsWith('#') && !EXCLUDED_RULES.has(line))
 
   if (rules.length === 0) {
     throw new Error('上游 Apple AI 规则为空')

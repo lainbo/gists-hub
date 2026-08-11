@@ -109,4 +109,3 @@ IP-CIDR,52.143.181.161/32,Proxy,no-resolve
 IP-CIDR,68.155.152.41/32,Proxy,no-resolve
 IP-CIDR,72.146.20.246/32,Proxy,no-resolve
 IP-CIDR,74.248.148.7/32,Proxy,no-resolve
-HOST-KEYWORD,siri,Proxy
