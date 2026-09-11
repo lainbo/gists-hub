@@ -1,0 +1,507 @@
+ipv6: false
+http_port: 7222
+socks_port: 7221
+allow_external_connections: false
+vif_only: true
+block_quic: true
+close_connections_on_policy_change: true
+hijack_dns:
+  - '*'
+geoip_db_url: https://github.com/Loyalsoldier/geoip/releases/latest/download/Country-only-cn-private.mmdb
+asn_db_url: https://github.com/P3TERX/GeoLite.mmdb/releases/latest/download/GeoLite2-ASN.mmdb
+proxy_latency_test_url: http://cp.cloudflare.com/generate_204
+direct_latency_test_url: http://connect.rom.miui.com/generate_204
+compat_route: false
+include_all_networks: true
+include_apns: true
+dns:
+  bootstrap:
+    - 180.184.1.1
+    - 223.5.5.5
+  upstreams:
+    cn-dns:
+      - https://doh.pub/dns-query
+      - https://223.6.6.6/dns-query
+    trusted-dns:
+      - https://dns.alidns.com/dns-query
+      - https://doh.pub/dns-query
+  forward:
+    - domain_suffix:
+        match: .cn
+        value: cn-dns
+        disabled: false
+    - proxy_rule_set:
+        match: https://raw.githubusercontent.com/lainbo/gists-hub/refs/heads/master/src/Clash/List/CustomDirectApp.list
+        value: cn-dns
+        disabled: false
+    - domain_wildcard:
+        match: '*'
+        value: trusted-dns
+        disabled: false
+bypass_tunnel_proxy:
+  - 192.168.0.0/16
+  - 10.0.0.0/8
+  - 172.16.0.0/12
+  - localhost
+  - '*.local'
+  - e.crashlynatics.com
+  - 100.64.0.0/10
+  - 127.0.0.0/8
+  - 169.254.0.0/16
+  - 192.0.0.0/24
+  - 192.0.2.0/24
+  - 192.88.99.0/24
+  - 198.51.100.0/24
+  - 203.0.113.0/24
+  - 224.0.0.0/4
+  - 255.255.255.255/32
+real_ip_domains:
+  - '*.lan'
+  - '*.localdomain'
+  - '*.example'
+  - '*.invalid'
+  - '*.localhost'
+  - '*.test'
+  - '*.local'
+  - '*.home.arpa'
+  - time.*.com
+  - time.*.gov
+  - time.*.edu.cn
+  - time.*.apple.com
+  - time1.*.com
+  - time2.*.com
+  - time3.*.com
+  - time4.*.com
+  - time5.*.com
+  - time6.*.com
+  - time7.*.com
+  - ntp.*.com
+  - ntp1.*.com
+  - ntp2.*.com
+  - ntp3.*.com
+  - ntp4.*.com
+  - ntp5.*.com
+  - ntp6.*.com
+  - ntp7.*.com
+  - '*.time.edu.cn'
+  - '*.ntp.org.cn'
+  - '*.pool.ntp.org'
+  - time1.cloud.tencent.com
+  - stun.*.*
+  - stun.*.*.*
+  - swscan.apple.com
+  - mesu.apple.com
+  - music.163.com
+  - '*.music.163.com'
+  - '*.126.net'
+  - musicapi.taihe.com
+  - music.taihe.com
+  - songsearch.kugou.com
+  - trackercdn.kugou.com
+  - '*.kuwo.cn'
+  - api-jooxtt.sanook.com
+  - api.joox.com
+  - y.qq.com
+  - '*.y.qq.com'
+  - streamoc.music.tc.qq.com
+  - mobileoc.music.tc.qq.com
+  - isure.stream.qqmusic.qq.com
+  - dl.stream.qqmusic.qq.com
+  - aqqmusic.tc.qq.com
+  - amobile.music.tc.qq.com
+  - localhost.ptlogin2.qq.com
+  - '*.msftconnecttest.com'
+  - '*.msftncsi.com'
+  - '*.xiami.com'
+  - '*.music.migu.cn'
+  - music.migu.cn
+  - '*.wotgame.cn'
+  - '*.wggames.cn'
+  - '*.wowsgame.cn'
+  - '*.wargaming.net'
+  - '*.*.*.srv.nintendo.net'
+  - '*.*.stun.playstation.net'
+  - xbox.*.*.microsoft.com
+  - '*.*.xboxlive.com'
+  - '*.ipv6.microsoft.com'
+  - teredo.*.*.*
+  - teredo.*.*
+  - speedtest.cros.wr.pvp.net
+  - '*.jjvip8.com'
+  - www.douyu.com
+  - activityapi.huya.com
+  - activityapi.huya.com.w.cdngslb.com
+  - www.bilibili.com
+  - api.bilibili.com
+  - a.w.bilicdn1.com
+policy_groups:
+  - select:
+      name: 节点选择
+      policies:
+        - 自动选择
+        - 香港节点
+        - 台湾节点
+        - 狮城节点
+        - 日本节点
+        - 美国节点
+        - 欧洲节点
+        - DIRECT
+      flatten: false
+      filter: (?i)^(?:(?!.*\d+(\.\d*)?\s*GB|traffic|expire|premium|github|流量|网址|套餐|应急|时间|重置|剩余|过期).)*$
+      urls:
+        - https://你的订阅地址.com
+      update_interval: 86400
+      icon: https://raw.githubusercontent.com/lainbo/gists-hub/master/src/QuantumultX/Icon/png/airplane.png
+      hidden: false
+  - select:
+      name: 日本节点
+      policies: []
+      filter: (?i).*(🇯🇵|日本|川日|东京|大阪|泉日|埼玉|沪日|深日|Japan|\bJP[N]?\d*\b).*
+      urls:
+        - https://你的订阅地址.com
+      update_interval: 86400
+      icon: https://raw.githubusercontent.com/lainbo/gists-hub/master/src/QuantumultX/Icon/png/flag-japan.png
+  - select:
+      name: 美国节点
+      policies: []
+      filter: (?i).*(🇺🇸|United ?States|美[国國]|波特兰|达拉斯|俄勒冈|凤凰城|费利蒙|硅谷|拉斯维加斯|洛杉矶|圣何塞|圣克拉拉|西雅图|芝加哥|\bUS[A]?\d*\b|America).*
+      urls:
+        - https://你的订阅地址.com
+      update_interval: 86400
+      icon: https://raw.githubusercontent.com/lainbo/gists-hub/master/src/QuantumultX/Icon/png/flag-united-states.png
+  - select:
+      name: 欧洲节点
+      policies: []
+      filter: (?i).*(德国|德意志|法兰克福|中德|Germany|\bDE[U]?\d*\b|英国|伦敦|United.*?Kingdom|Britain|London|England|\b(?:UK|GB[R]?)\d*\b|法国|巴黎|France|Paris|\bFR[A]?\b|(?<!白)俄罗斯|莫斯科|圣彼得堡|[新]?西伯[力利]亚|哈巴罗夫斯克|Russia|Moscow|Petersburg|Siberia|\bRU[S]?\d*\b|西班牙|Spain|España|\bES[P]?\b|荷兰|阿姆斯特丹|Netherlands|\bNL[D]?\d*\b|波兰|Poland|\bP[O]?L\b|丹麦|Denmark|\bD[N]?K\b|冰岛|Iceland|\bIS[L]?\b|意大利|米兰|Italy|italia|Milan|白俄罗斯|Belarus|黑山|Montenegro|梵蒂冈|Vatican ?City|安道尔|Andorra|马耳他|Malta|摩纳哥|Monaco|圣马力诺|San ?Marino|列支敦士登|Liechtenstein|阿尔巴尼亚|Albania|奥地利|维也纳|Austria|Vienna|波黑共和国|波士尼亚与赫塞哥维纳|Bosnia|Herzegovina|比利时|Belgium|保加利亚|Bulgaria|瑞士|苏黎世|Switzerland|Zurich|捷克|Czech|爱沙尼亚|Estonia|芬兰|赫尔辛基|Finland|Helsinki|希腊|Greece|克罗地亚|Croatia|匈牙利|Hungary|爱尔兰|都柏林|Ireland|Dublin|立陶宛|Lietuvos|卢森堡|Luxemburg|Luxembourg|拉脱维亚|Latvia|摩尔多瓦|Moldova|北马其顿|Macedonia|挪威|Norway|葡萄牙|Portugal|罗马尼亚|Romania|塞尔维亚|Serbia|瑞典|Sweden|斯洛文尼亚|Slovenia|斯洛伐克|Slovensko|乌克兰|Ukraine|直布罗陀|Gibraltar|法罗群岛|Faroe ?Islands|奥兰群岛|Åland ?Islands|马恩岛|Mann|🇩🇪|🇬🇧|🇫🇷|🇷🇺|🇪🇸|🇳🇱|🇵🇱|🇩🇰|🇮🇸|🇮🇹|🇧🇾|🇲🇪|🇻🇦|🇦🇩|🇲🇹|🇲🇨|🇸🇲|🇱🇮|🇦🇱|🇦🇹|🇧🇦|🇧🇪|🇧🇬|🇨🇭|🇨🇿|🇪🇪|🇫🇮|🇬🇷|🇭🇷|🇭🇺|🇮🇪|🇱🇹|🇱🇺|🇱🇻|🇲🇩|🇲🇰|🇳🇴|🇵🇹|🇷🇴|🇷🇸|🇸🇪|🇸🇮|🇸🇰|🇺🇦|🇬🇮|🇫🇴|🇦🇽|🇮🇲).*
+      urls:
+        - https://你的订阅地址.com
+      update_interval: 86400
+      icon: https://raw.githubusercontent.com/lainbo/gists-hub/master/src/QuantumultX/Icon/png/flag-european-union.png
+  - select:
+      name: 狮城节点
+      policies: []
+      filter: (?i).*(🇸🇬|Singapore|新加坡|狮城|\bSG[P]?\d*\b).*
+      urls:
+        - https://你的订阅地址.com
+      update_interval: 86400
+      icon: https://raw.githubusercontent.com/lainbo/gists-hub/master/src/QuantumultX/Icon/png/flag-singapore.png
+  - select:
+      name: 香港节点
+      policies: []
+      filter: (?i).*(🇭🇰|Hong ?Kong|港|\b(?:HK[G]?|HKT|HKBN|HGC)\d*\b).*
+      urls:
+        - https://你的订阅地址.com
+      update_interval: 86400
+      icon: https://raw.githubusercontent.com/lainbo/gists-hub/master/src/QuantumultX/Icon/png/flag-hong-kong-sar-china.png
+  - select:
+      name: 台湾节点
+      policies: []
+      filter: (?i).*(🇨🇳|Taiwan|台湾|新北|彰化|\b(?:TW[N]?|CHT|HINET)\d*\b).*
+      urls:
+        - https://你的订阅地址.com
+      update_interval: 86400
+      icon: https://raw.githubusercontent.com/lainbo/gists-hub/master/src/QuantumultX/Icon/png/flag-taiwan.png
+  - select:
+      name: TelegramDC1
+      policies:
+        - 美国节点
+        - 欧洲节点
+        - 狮城节点
+        - 节点选择
+        - 香港节点
+        - 台湾节点
+        - 日本节点
+        - DIRECT
+      filter: (?i)^(?:(?!.*\d+(\.\d*)?\s*GB|traffic|expire|premium|github|流量|网址|套餐|应急|时间|重置|剩余|过期).)*$
+      urls:
+        - https://你的订阅地址.com
+      update_interval: 86400
+      icon: https://raw.githubusercontent.com/lainbo/gists-hub/master/src/QuantumultX/Icon/png/telegram-dc1.png
+  - select:
+      name: TelegramDC2_4
+      policies:
+        - 欧洲节点
+        - 美国节点
+        - 狮城节点
+        - 节点选择
+        - 香港节点
+        - 台湾节点
+        - 日本节点
+        - DIRECT
+      filter: (?i)^(?:(?!.*\d+(\.\d*)?\s*GB|traffic|expire|premium|github|流量|网址|套餐|应急|时间|重置|剩余|过期).)*$
+      urls:
+        - https://你的订阅地址.com
+      update_interval: 86400
+      icon: https://raw.githubusercontent.com/lainbo/gists-hub/master/src/QuantumultX/Icon/png/telegram-dc2&4.png
+  - select:
+      name: TelegramDC5
+      policies:
+        - 狮城节点
+        - 美国节点
+        - 欧洲节点
+        - 节点选择
+        - 香港节点
+        - 台湾节点
+        - 日本节点
+        - DIRECT
+      filter: (?i)^(?:(?!.*\d+(\.\d*)?\s*GB|traffic|expire|premium|github|流量|网址|套餐|应急|时间|重置|剩余|过期).)*$
+      urls:
+        - https://你的订阅地址.com
+      update_interval: 86400
+      icon: https://raw.githubusercontent.com/lainbo/gists-hub/master/src/QuantumultX/Icon/png/telegram-dc5.png
+  - select:
+      name: Telegram
+      policies:
+        - 节点选择
+        - 狮城节点
+        - 美国节点
+        - 欧洲节点
+        - 香港节点
+        - 台湾节点
+        - 日本节点
+        - DIRECT
+      filter: (?i)^(?:(?!.*\d+(\.\d*)?\s*GB|traffic|expire|premium|github|流量|网址|套餐|应急|时间|重置|剩余|过期).)*$
+      urls:
+        - https://你的订阅地址.com
+      update_interval: 86400
+      icon: https://raw.githubusercontent.com/lainbo/gists-hub/master/src/QuantumultX/Icon/png/telegram.png
+  - select:
+      name: AI专用
+      policies: []
+      filter: (?i).*(\bqq\s*pw\b|\batt\b|\bvircs\b|家宽|\bhawaii\b).*
+      urls:
+        - https://你的订阅地址.com
+      update_interval: 86400
+      icon: https://raw.githubusercontent.com/lainbo/gists-hub/master/src/QuantumultX/Icon/png/ai.png
+  - select:
+      name: 节点选择fallback直连
+      policies:
+        - 节点选择
+        - 自动选择
+        - DIRECT
+      flatten: false
+      icon: https://raw.githubusercontent.com/lainbo/gists-hub/master/src/QuantumultX/Icon/png/flow-cascade.png
+      hidden: false
+  - smart:
+      name: 自动选择
+      policies: []
+      flatten: false
+      filter: (?i)^(?:(?!.*\d+(\.\d*)?\s*GB|traffic|expire|premium|github|流量|网址|套餐|应急|时间|重置|剩余|过期).)*$
+      urls:
+        - https://你的订阅地址.com
+      update_interval: 86400
+      icon: https://raw.githubusercontent.com/lainbo/gists-hub/master/src/QuantumultX/Icon/png/herb.png
+      hidden: false
+  - select:
+      name: 无需代理
+      policies:
+        - DIRECT
+        - 节点选择
+      icon: https://raw.githubusercontent.com/lainbo/gists-hub/master/src/QuantumultX/Icon/png/link.png
+  - select:
+      name: 广告拦截
+      policies:
+        - REJECT
+        - DIRECT
+        - 节点选择
+      icon: https://raw.githubusercontent.com/lainbo/gists-hub/master/src/QuantumultX/Icon/png/shield.png
+  - select:
+      name: 容错规则
+      policies:
+        - 节点选择
+        - 无需代理
+      icon: https://raw.githubusercontent.com/lainbo/gists-hub/master/src/QuantumultX/Icon/png/diamond-with-a-dot.png
+rules:
+  - protocol:
+      name: Block STUN
+      match: stun
+      policy: REJECT
+      disabled: false
+  - geoip:
+      match: PRIVATE
+      policy: DIRECT
+      no_resolve: true
+  - and:
+      name: Apple Weather Map
+      match:
+        - domain_keyword:
+            match: weather-map
+        - domain_suffix:
+            match: apple.com
+      policy: DIRECT
+  - rule_set:
+      name: 局域网
+      match: https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Loon/Lan/Lan.list
+      policy: 无需代理
+      update_interval: 86400
+  - rule_set:
+      name: 币安
+      match: https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/refs/heads/meta/geo/geosite/classical/binance.list
+      policy: 节点选择
+      update_interval: 86400
+  - rule_set:
+      name: Apple Push
+      match: https://raw.githubusercontent.com/lainbo/gists-hub/refs/heads/master/src/Clash/List/ApplePush.list
+      policy: 节点选择fallback直连
+      update_interval: 86400
+  - rule_set:
+      name: 苹果AI
+      match: https://raw.githubusercontent.com/lainbo/gists-hub/refs/heads/master/src/Clash/List/AppleAI.list
+      policy: 美国节点
+      disabled: false
+  - rule_set:
+      name: Google
+      match: https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/refs/heads/meta/geo/geosite/classical/google.list
+      policy: TelegramDC1
+      update_interval: 86400
+  - rule_set:
+      name: GitHub
+      match: https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Clash/GitHub/GitHub.list
+      policy: 节点选择
+      update_interval: 86400
+  - rule_set:
+      name: Protonmail
+      match: https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Clash/Protonmail/Protonmail.list
+      policy: TelegramDC2_4
+      update_interval: 86400
+  - rule_set:
+      name: 谷歌服务
+      match: https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/master/Clash/Ruleset/GoogleCNProxyIP.list
+      policy: TelegramDC1
+      update_interval: 86400
+  - rule_set:
+      name: 谷歌服务
+      match: https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/master/Clash/Ruleset/GoogleFCM.list
+      policy: TelegramDC1
+      update_interval: 86400
+  - rule_set:
+      name: 谷歌服务
+      match: https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/master/Clash/Ruleset/GoogleCN.list
+      policy: TelegramDC1
+      update_interval: 86400
+  - rule_set:
+      name: 需要代理
+      match: https://raw.githubusercontent.com/lainbo/gists-hub/master/src/Clash/List/CustomFirstProxy.list
+      policy: 节点选择
+      update_interval: 86400
+  - rule_set:
+      name: 自定义拦截
+      match: https://raw.githubusercontent.com/lainbo/gists-hub/master/src/Clash/List/CustomReject.list
+      policy: 广告拦截
+      update_interval: 86400
+  - rule_set:
+      name: Apple Intelligence
+      match: https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/refs/heads/meta/geo/geosite/classical/apple-intelligence.list
+      policy: AI专用
+      update_interval: 86400
+  - rule_set:
+      name: OpenAI
+      match: https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Clash/OpenAI/OpenAI.list
+      policy: AI专用
+      update_interval: 86400
+  - rule_set:
+      name: OpenAI
+      match: https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/refs/heads/meta/geo/geosite/classical/openai.list
+      policy: AI专用
+      update_interval: 86400
+  - rule_set:
+      name: Claude
+      match: https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/refs/heads/meta/geo/geosite/classical/anthropic.list
+      policy: AI专用
+      update_interval: 86400
+  - rule_set:
+      name: Claude
+      match: https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Clash/Claude/Claude.list
+      policy: AI专用
+      update_interval: 86400
+  - rule_set:
+      name: 非中国AI
+      match: https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/refs/heads/meta/geo/geosite/classical/category-ai-!cn.list
+      policy: AI专用
+      update_interval: 86400
+  - rule_set:
+      name: AI补全
+      match: https://raw.githubusercontent.com/lainbo/gists-hub/master/src/Clash/List/CustomAI.list
+      policy: AI专用
+      update_interval: 86400
+  - rule_set:
+      name: 直连规则
+      match: https://raw.githubusercontent.com/lainbo/gists-hub/master/src/Clash/List/CustomDirect.list
+      policy: 无需代理
+      update_interval: 86400
+  - rule_set:
+      name: 直连App
+      match: https://raw.githubusercontent.com/lainbo/gists-hub/master/src/Clash/List/CustomDirectApp.list
+      policy: 无需代理
+      update_interval: 86400
+  - rule_set:
+      name: 规则补全
+      match: https://raw.githubusercontent.com/lainbo/gists-hub/master/src/Clash/List/CustomProxy.list
+      policy: 节点选择
+      update_interval: 86400
+  - rule_set:
+      name: Apple Proxy
+      match: https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/refs/heads/master/rule/Loon/AppleProxy/AppleProxy.list
+      policy: 节点选择
+      update_interval: 86400
+  - rule_set:
+      name: TelegramDC1
+      match: https://raw.githubusercontent.com/lainbo/gists-hub/master/src/Clash/List/TelegramDC1.list
+      policy: TelegramDC1
+      update_interval: 86400
+  - rule_set:
+      name: TelegramDC2和4
+      match: https://raw.githubusercontent.com/lainbo/gists-hub/master/src/Clash/List/TelegramDC2_4.list
+      policy: TelegramDC2_4
+      update_interval: 86400
+  - rule_set:
+      name: TelegramDC5
+      match: https://raw.githubusercontent.com/lainbo/gists-hub/master/src/Clash/List/TelegramDC5.list
+      policy: TelegramDC5
+      update_interval: 86400
+  - rule_set:
+      name: Telegram
+      match: https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Clash/Telegram/Telegram.list
+      policy: Telegram
+      update_interval: 86400
+  - rule_set:
+      name: 需要代理
+      match: https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/release/rule/Clash/Proxy/Proxy.list
+      policy: 节点选择
+      update_interval: 86400
+  - rule_set:
+      name: SteamCN
+      match: https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Clash/SteamCN/SteamCN.list
+      policy: 无需代理
+      update_interval: 86400
+  - rule_set:
+      name: SteamCN
+      match: https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/refs/heads/meta/geo/geosite/classical/steam%40cn.list
+      policy: 无需代理
+      update_interval: 86400
+  - rule_set:
+      name: China
+      match: https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Clash/China/China.list
+      policy: 无需代理
+      update_interval: 86400
+  - rule_set:
+      name: 下载
+      match: https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/master/Clash/Download.list
+      policy: 无需代理
+      update_interval: 86400
+  - rule_set:
+      name: 下载
+      match: https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Clash/Download/Download.list
+      policy: 无需代理
+      update_interval: 86400
+  - geoip:
+      match: CN
+      policy: 无需代理
+      no_resolve: true
+  - default:
+      policy: 容错规则
+modules:
+  - url: https://gist.githubusercontent.com/lainbo/6bcd4695927a45346971db9b8385d38b/raw/gh429.yaml
+    enabled: true
+  - url: https://raw.githubusercontent.com/mieqq/mieqq/master/skip-proxy-lists.sgmodule
+    enabled: false
