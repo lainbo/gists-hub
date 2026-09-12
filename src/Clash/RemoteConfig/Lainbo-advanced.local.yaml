@@ -17,6 +17,8 @@ sniffer:
   skip-domain:
     - Mijia Cloud
     - dlg.io.mi.com
+    - h5speed.m.jd.com
+    - chat.jd.com
   override-destination: true
 dns:
   enable: true
