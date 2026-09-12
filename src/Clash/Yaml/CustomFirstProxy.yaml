@@ -3,7 +3,6 @@ payload:
   - DOMAIN-SUFFIX,services.googleapis.cn
   - DOMAIN-SUFFIX,xn--ngstr-lra8j.com
   - DOMAIN-SUFFIX,jsdelivr.net
-  - DOMAIN-SUFFIX,jd.com
 
   # iOS推送问题修复
   # APNs host / CNAME / CDN matching
