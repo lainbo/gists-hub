@@ -2,6 +2,7 @@
 HOST-SUFFIX,services.googleapis.cn,Proxy
 HOST-SUFFIX,xn--ngstr-lra8j.com,Proxy
 HOST-SUFFIX,jsdelivr.net,Proxy
+HOST-SUFFIX,jd.com,Proxy
 HOST-SUFFIX,push.apple.com,Proxy
 HOST-SUFFIX,akadns.net,Proxy
 HOST-KEYWORD,apple.com.edgekey.net,Proxy
