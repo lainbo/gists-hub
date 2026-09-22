@@ -130,6 +130,7 @@ payload:
   - DOMAIN,img.liangzipic.com
   - DOMAIN,itunes.apple.com
   - DOMAIN,livew.l.qq.com
+  - DOMAIN,keep.ccvv.one
   - DOMAIN,m3u8.255tv.tk
   - DOMAIN,m3u8.mstopq.com
   - DOMAIN,msg.umeng.com
@@ -146,6 +147,7 @@ payload:
   - DOMAIN,vi.l.qq.com
   - DOMAIN,vip.ffzyread.com
   - DOMAIN,vip.imgffzy.com
+  - DOMAIN-SUFFIX,api-proxy.org
   - DOMAIN-SUFFIX,52pt.site
   - DOMAIN-SUFFIX,acg.rip
   - DOMAIN-SUFFIX,acm.org

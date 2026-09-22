@@ -110,6 +110,7 @@ HOST,img.kuaikanzy.net,Proxy
 HOST,img.liangzipic.com,Proxy
 HOST,itunes.apple.com,Proxy
 HOST,livew.l.qq.com,Proxy
+HOST,keep.ccvv.one,Proxy
 HOST,m3u8.255tv.tk,Proxy
 HOST,m3u8.mstopq.com,Proxy
 HOST,msg.umeng.com,Proxy
@@ -126,6 +127,7 @@ HOST,vd.l.qq.com,Proxy
 HOST,vi.l.qq.com,Proxy
 HOST,vip.ffzyread.com,Proxy
 HOST,vip.imgffzy.com,Proxy
+HOST-SUFFIX,api-proxy.org,Proxy
 HOST-SUFFIX,52pt.site,Proxy
 HOST-SUFFIX,acg.rip,Proxy
 HOST-SUFFIX,acm.org,Proxy
