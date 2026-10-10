@@ -125,6 +125,9 @@ proxy-providers:
     path: ./providers/Subscription1.yaml
     interval: 86400
     exclude-filter: '(?i)(?:\d+(\.\d*)?\s*GB|traffic|expire|premium|github|isp|流量|网址|套餐|应急|时间|重置|剩余|[到过]期|订阅)'
+    override:
+      override-expr:
+        - '(select(."reality-opts" != null) | ."reality-opts"."support-x25519mlkem768") = true'
     health-check:
       enable: true
       url: http://cp.cloudflare.com/generate_204
