@@ -29,6 +29,7 @@ payload:
   - DOMAIN-SUFFIX,imgse.com
   - DOMAIN,epicgames-download1.akamaized.net
   - DOMAIN,ssl-lvlt.cdn.ea.com
+  - DOMAIN,keep.ccvv.dev
   - DOMAIN-SUFFIX,azure.cn
   - DOMAIN-SUFFIX,deepseek.com
 

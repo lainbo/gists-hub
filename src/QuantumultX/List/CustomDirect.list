@@ -27,6 +27,7 @@ HOST-SUFFIX,cdn.ubi.com,Proxy
 HOST-SUFFIX,imgse.com,Proxy
 HOST,epicgames-download1.akamaized.net,Proxy
 HOST,ssl-lvlt.cdn.ea.com,Proxy
+HOST,keep.ccvv.dev,Proxy
 HOST-SUFFIX,azure.cn,Proxy
 HOST-SUFFIX,deepseek.com,Proxy
 HOST,font.alnk.cn,Proxy
