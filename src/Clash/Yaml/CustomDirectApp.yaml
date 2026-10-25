@@ -889,8 +889,11 @@ payload:
   - DOMAIN-SUFFIX,95516.net
   - DOMAIN-SUFFIX,bankcomm.cn
   - DOMAIN-SUFFIX,bankofbeijing.com.cn
+  - DOMAIN-SUFFIX,bocd.com.cn
   - DOMAIN-SUFFIX,bosc.cn
   - DOMAIN-SUFFIX,bsb.com.cn
+  - DOMAIN-SUFFIX,cdrcb.com
+  - DOMAIN-SUFFIX,cdrcbank.com
   - DOMAIN-SUFFIX,chinapay.com
   - DOMAIN-SUFFIX,chinaums.com
   - DOMAIN-SUFFIX,chinaunionpay.com
@@ -907,6 +910,7 @@ payload:
   - DOMAIN-SUFFIX,hsbcinsurance.com.cn
   - DOMAIN-SUFFIX,hsbcqh.com.cn
   - DOMAIN-SUFFIX,hxb.com.cn
+  - DOMAIN-SUFFIX,ibangbank.com
   - DOMAIN-SUFFIX,kcbebank.com
   - DOMAIN-SUFFIX,kshbank.cn
   - DOMAIN-SUFFIX,ms-bank.cn
