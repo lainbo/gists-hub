@@ -885,8 +885,11 @@ HOST-SUFFIX,95516.com,Proxy
 HOST-SUFFIX,95516.net,Proxy
 HOST-SUFFIX,bankcomm.cn,Proxy
 HOST-SUFFIX,bankofbeijing.com.cn,Proxy
+HOST-SUFFIX,bocd.com.cn,Proxy
 HOST-SUFFIX,bosc.cn,Proxy
 HOST-SUFFIX,bsb.com.cn,Proxy
+HOST-SUFFIX,cdrcb.com,Proxy
+HOST-SUFFIX,cdrcbank.com,Proxy
 HOST-SUFFIX,chinapay.com,Proxy
 HOST-SUFFIX,chinaums.com,Proxy
 HOST-SUFFIX,chinaunionpay.com,Proxy
@@ -903,6 +906,7 @@ HOST-SUFFIX,hsbc.com.cn,Proxy
 HOST-SUFFIX,hsbcinsurance.com.cn,Proxy
 HOST-SUFFIX,hsbcqh.com.cn,Proxy
 HOST-SUFFIX,hxb.com.cn,Proxy
+HOST-SUFFIX,ibangbank.com,Proxy
 HOST-SUFFIX,kcbebank.com,Proxy
 HOST-SUFFIX,kshbank.cn,Proxy
 HOST-SUFFIX,ms-bank.cn,Proxy

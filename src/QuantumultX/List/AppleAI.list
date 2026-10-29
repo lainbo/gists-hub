@@ -4,6 +4,7 @@ HOST,mask-api.fe.apple-dns.net,Proxy
 HOST,mask-api.icloud.com,Proxy
 HOST,mask-t.apple-dns.net,Proxy
 HOST,mask.apple-dns.net,Proxy
+HOST,wps.apple.com,Proxy
 HOST-SUFFIX,smoot.apple.com,Proxy
 HOST-SUFFIX,apple-relay.apple.com,Proxy
 HOST-SUFFIX,apple-relay.cloudflare.com,Proxy
