@@ -66,6 +66,8 @@ jobs:
           echo "已生成 Clash YAML 文件"
           npm run generateClashMrs
           echo "已生成 Clash MRS 文件"
+          npm run generateQxList
+          echo "已生成 QuantumultX 规则列表"
 
       - name: Commit and push changes
         run: |

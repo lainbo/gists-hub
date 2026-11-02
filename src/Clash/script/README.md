@@ -91,9 +91,10 @@ pnpm run generateDirectAppList
 pnpm run generateAppleAIList
 pnpm run generateClashYaml
 pnpm run generateClashMrs
+pnpm run generateQxList
 ```
 
-原因是 `CustomDirectApp.list` 和 `AppleAI.list` 都是脚本同步的源规则，必须先更新它们，再生成 `Yaml/` 和 `MRS/` 成品。
+原因是 `CustomDirectApp.list` 和 `AppleAI.list` 都是脚本同步的源规则，必须先更新它们，再生成 `Yaml/`、`MRS/` 和 `src/QuantumultX/List/` 成品。
 
 本地 pre-commit hook 当前会执行：
 
