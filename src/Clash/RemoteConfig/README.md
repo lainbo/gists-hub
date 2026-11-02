@@ -48,6 +48,8 @@
 
 `Lainbo-advanced.local.yaml` 是为了减少对远程订阅转换服务的依赖而维护的 mihomo 原生配置。
 
+这份配置已经分发给其他人使用，他们通常不会重新下载新模板。调整分流行为时优先只改规则文件内容，不改 provider 的 `url`、策略组名称和规则引用，否则已分发的配置无法跟着更新。
+
 本仓库自有规则不再直接引用 `src/Clash/List/*.list`，而是引用 `src/Clash/MRS/*` 的派生成品。规则源头仍然是 `src/Clash/List/*.list`。
 
 自有规则 provider 命名约定：

@@ -47,10 +47,9 @@ async function convertFiles() {
           })
           .filter((line) => line !== null)
 
-        const header = '# 该文件为自动生成\n'
-        if (convertedLines.length > 0) {
-          await fs.writeFile(outputFilePath, `${header + convertedLines.join('\n')}\n`)
-        }
+        // 没有可转换的规则时也要覆盖，否则旧规则会残留在已发布的列表里
+        const output = ['# 该文件为自动生成', ...convertedLines].join('\n')
+        await fs.writeFile(outputFilePath, `${output}\n`)
       }
     }
     console.log('已经将Clash的list规则转换为QuantumultX可用的规则')

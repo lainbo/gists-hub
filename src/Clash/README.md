@@ -18,6 +18,8 @@ src/Clash/
 
 `List/` 是规则的唯一源头。维护规则时优先修改这里的 `.list` 文件，不直接修改 `Yaml/` 或 `MRS/` 里的派生成品。
 
+已经分发给其他人使用的配置（例如 `src/Clash/RemoteConfig/Lainbo-advanced.local.yaml`）按固定地址引用本仓库的规则文件，拿到配置的人通常不会重新下载新模板。所以 `List/`、`Yaml/`、`MRS/`、`src/QuantumultX/List/` 中已经发布的文件地址都要固定，不改名、不删除；要改变分流行为时，只改规则内容，让已分发的配置在下次更新规则时自动跟上。文件名和实际用途对不上时，在文件开头注释说明。
+
 维护原则：
 
 - 新增或调整规则时，只改 `src/Clash/List/*.list`。
@@ -67,6 +69,8 @@ CustomDirect.classical.list   # DOMAIN-KEYWORD / PROCESS-NAME / IP-ASN / DST-POR
 ```
 
 如果某类成品不存在，例如某个规则没有 IP 段，就不要在 `RemoteConfig` 中创建对应的 `IPCIDR` provider。
+
+为了让已发布的地址一直可用，对应规则被清空后，`generateMrsRules.js` 仍会保留已经存在的成品：`.classical.list` 只保留注释头，`.mrs` 因为不能为空，会写入保留域名 `placeholder.invalid` 或文档地址 `192.0.2.0/32` 作为占位。`clashlist2qxlist.js` 也会在没有可转换规则时把 QX 列表覆盖成只有注释头，避免旧规则残留。确实要下线某个成品时，先删除该文件再重新生成。
 
 ## 推荐生成流程
 

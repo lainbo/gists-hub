@@ -14,6 +14,11 @@ const DOMAIN_RULES = new Set(['DOMAIN', 'DOMAIN-SUFFIX'])
 const IPCIDR_RULES = new Set(['IP-CIDR', 'IP-CIDR6'])
 const GENERATED_SUFFIXES = ['.domain.mrs', '.ipcidr.mrs', '.classical.list']
 const BOM_RE = /^\uFEFF/
+// RFC 2606 保留域名和 RFC 5737 文档地址
+const MRS_PLACEHOLDERS = {
+  domain: 'placeholder.invalid',
+  ipcidr: '192.0.2.0/32',
+}
 
 function ensureDir(dir) {
   if (!fs.existsSync(dir)) {
@@ -87,11 +92,17 @@ function writeTextFile(filePath, lines, headerLines = []) {
   fs.writeFileSync(filePath, `${content}\n`)
 }
 
-function clearGeneratedOutputs() {
-  for (const file of fs.readdirSync(outputDir)) {
-    if (GENERATED_SUFFIXES.some((suffix) => file.endsWith(suffix))) {
-      fs.unlinkSync(path.join(outputDir, file))
-    }
+function listGeneratedOutputs() {
+  return new Set(
+    fs
+      .readdirSync(outputDir)
+      .filter((file) => GENERATED_SUFFIXES.some((suffix) => file.endsWith(suffix))),
+  )
+}
+
+function clearGeneratedOutputs(outputs) {
+  for (const file of outputs) {
+    fs.unlinkSync(path.join(outputDir, file))
   }
 }
 
@@ -101,7 +112,8 @@ function convertRuleset(behavior, inputFile, outputFile) {
   })
 }
 
-function buildMrsForFile(file, tempDir) {
+// 已分发的配置按固定地址引用成品，所以规则清空后也要保留已发布的成品；mrs 不能为空，写入不会出现在真实流量里的保留域名和地址
+function buildMrsForFile(file, tempDir, publishedOutputs) {
   const baseName = path.basename(file, '.list')
   const content = stripBom(fs.readFileSync(path.join(inputDir, file), 'utf8'))
   const parsedRules = content.split('\n').map(parseRule).filter(Boolean)
@@ -118,22 +130,22 @@ function buildMrsForFile(file, tempDir) {
     parsedRules.filter((rule) => rule.kind === 'classical').map((rule) => rule.value),
   )
 
-  if (domainRules.length > 0) {
-    const inputFile = path.join(tempDir, `${baseName}.domain.txt`)
-    const outputFile = path.join(outputDir, `${baseName}.domain.mrs`)
-    writeTextFile(inputFile, domainRules)
-    convertRuleset('domain', inputFile, outputFile)
+  for (const [behavior, rules] of Object.entries({ domain: domainRules, ipcidr: ipcidrRules })) {
+    const outputName = `${baseName}.${behavior}.mrs`
+
+    if (rules.length === 0 && !publishedOutputs.has(outputName)) {
+      continue
+    }
+
+    const inputFile = path.join(tempDir, `${baseName}.${behavior}.txt`)
+    writeTextFile(inputFile, rules.length > 0 ? rules : [MRS_PLACEHOLDERS[behavior]])
+    convertRuleset(behavior, inputFile, path.join(outputDir, outputName))
   }
 
-  if (ipcidrRules.length > 0) {
-    const inputFile = path.join(tempDir, `${baseName}.ipcidr.txt`)
-    const outputFile = path.join(outputDir, `${baseName}.ipcidr.mrs`)
-    writeTextFile(inputFile, ipcidrRules)
-    convertRuleset('ipcidr', inputFile, outputFile)
-  }
+  const classicalName = `${baseName}.classical.list`
 
-  if (classicalRules.length > 0) {
-    const outputFile = path.join(outputDir, `${baseName}.classical.list`)
+  if (classicalRules.length > 0 || publishedOutputs.has(classicalName)) {
+    const outputFile = path.join(outputDir, classicalName)
     writeTextFile(outputFile, classicalRules, [
       '# 此文件为自动生成，请勿手动修改',
       `# 源文件: src/Clash/List/${file}`,
@@ -162,12 +174,13 @@ function main() {
     return
   }
 
-  clearGeneratedOutputs()
+  const publishedOutputs = listGeneratedOutputs()
+  clearGeneratedOutputs(publishedOutputs)
 
   const tempDir = fs.mkdtempSync(path.join(os.tmpdir(), 'clash-mrs-'))
 
   try {
-    const results = listFiles.map((file) => buildMrsForFile(file, tempDir))
+    const results = listFiles.map((file) => buildMrsForFile(file, tempDir, publishedOutputs))
 
     console.warn('MRS 规则生成完成')
     for (const result of results) {

@@ -1,9 +1,6 @@
 payload:
-  # Telegram's DC1 server, deployed in the United States, uses US nodes for a better experience.
-  - IP-CIDR,91.108.12.0/22,no-resolve
-  - IP-CIDR,149.154.172.0/22,no-resolve
-  - IP-CIDR6,2001:b28:f23d::/48,no-resolve
-  - IP-ASN,59930,no-resolve
+  # 希望使用美国节点访问的服务
+  # 文件名沿用 Telegram DC 是因为已分发的配置固定引用这个地址；Telegram 本身统一由 Telegram 分组的规则处理
 
   # Google search results region determined by domain name, making Google search results American results
   - DOMAIN,cse.google.com
