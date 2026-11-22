@@ -18,7 +18,6 @@ HOST-KEYWORD,dwtrack,Advertising
 HOST-KEYWORD,guanggao,Advertising
 HOST-KEYWORD,omgmta,Advertising
 HOST-KEYWORD,omniture,Advertising
-HOST-KEYWORD,openx,Advertising
 HOST-KEYWORD,partnerad,Advertising
 HOST-KEYWORD,pingfore,Advertising
 HOST-KEYWORD,socdm,Advertising
@@ -531,6 +530,9 @@ HOST-SUFFIX,mydas.mobi,Advertising
 HOST-SUFFIX,nend.net,Advertising
 HOST-SUFFIX,netshelter.net,Advertising
 HOST-SUFFIX,nexage.com,Advertising
+HOST-SUFFIX,openx.net,Advertising
+HOST-SUFFIX,openxenterprise.com,Advertising
+HOST-SUFFIX,openxmarket.asia,Advertising
 HOST-SUFFIX,owneriq.net,Advertising
 HOST-SUFFIX,pixels.asia,Advertising
 HOST-SUFFIX,plista.com,Advertising
